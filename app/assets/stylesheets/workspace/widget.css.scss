@@ -1,11 +1,14 @@
 .widget {
-  height: 250px;
-//  background: #eee;
+  height: 300px;
+  background: #eee;
+  padding: 10px;
   margin-bottom: $gridGutterWidth;
+  box-sizing: border-box;
   position: relative;
+  /*overflow: hidden;*/
   &:hover {
     .widget-controls {
-      opacity: 1;      
+      opacity: 1;
     }
   }
   &.ui-sortable-helper {
@@ -39,9 +42,9 @@
 //  background: #eee;
   box-sizing: border-box;
   margin-bottom: $gridGutterWidth;
-//  border: 1px dashed #ddd; 
-//  border-radius: 20px;  
-//  padding: 10px;  
+//  border: 1px dashed #ddd;
+//  border-radius: 20px;
+//  padding: 10px;
 //  margin-bottom: 10px;
   background: #e5e9fb;
 }
