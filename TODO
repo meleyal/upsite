@@ -1,3 +1,26 @@
+TODO
+
+- cleanup
+
+- tests
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 - editing
 
 - reusable dialog view/template
@@ -61,3 +84,17 @@
 - make workspace a router
 
 - trash/restore (rails-trash)
+
+
+Next:
+
+- text columns
+
+- picture upload
+
+- design
+    colors + font
+
+- rows?
+
+
