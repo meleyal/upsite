@@ -1,0 +1,21 @@
+.toolbar {
+
+  .modal-body {
+    text-align: center;
+  }
+  
+  .toolbar-row {
+    margin-bottom: $gridGutterWidth;
+    &:last-child {
+//      margin-bottom: 0;
+    }
+  }
+  
+//  .toolbar-more {
+//    display: none;
+//    &.active {
+//      display: block;
+//    }
+//  }
+
+}

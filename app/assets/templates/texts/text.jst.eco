@@ -1,0 +1,18 @@
+<div class="widget-controls">
+
+  <a href="#" class="edit" title="">
+    <i class="icon-pencil"></i>
+  </a>
+
+  <a href="#" class="delete" title="">
+    <i class="icon-trash"></i>
+  </a>
+
+  <a href="#" class="move" title="">
+    <i class="icon-move"></i>
+  </a>    
+
+</div>
+
+<h3><%= @model.get('title') %></h3>
+<p><%= @model.get('body') %></p>

@@ -1,0 +1,32 @@
+<header>
+  <h1><%= @site.title %></h1>
+  <h2><%= @site.subdomain %>.sitespot.com</h2>
+</header>
+
+<div class="options">  
+  <a href="#" class="add symbol symbol-small" title="Add">
+    <i class="icon-plus icon-large"></i>
+  </a>  
+  <a href="#" class="symbol symbol-small" title="Design">
+    <i class="icon-tint icon-large"></i>
+  </a>
+  <a href="#" class="settings symbol symbol-small" title="Settings">
+    <i class="icon-cog icon-large"></i>
+  </a>
+  <a href="#" class="symbol symbol-small" title="Help">
+    ?
+  </a>
+  <!-- <a href="#" class="symbol" title="Log out">
+    <i class="icon-off icon-large"></i>
+  </a> -->
+</div>
+
+<hr>
+
+<div class="widgets row"></div>
+
+<hr>
+
+<footer>
+  &copy; <%= "#{Date.today.year} #{@site.title}" %>
+</footer>
