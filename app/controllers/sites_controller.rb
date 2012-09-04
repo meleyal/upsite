@@ -5,7 +5,7 @@ class SitesController < ApplicationController
   end
 
   def show
-    @site = Site.find_by_subdomain!(request.subdomain)
+    @site = Site.find_by_subdomain!(request.subdomains.first)
   end
 
   def new
@@ -39,5 +39,5 @@ class SitesController < ApplicationController
     @site.destroy
     redirect_to sites_url
   end
-  
+
 end
