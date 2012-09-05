@@ -1,5 +1,5 @@
 class App.Views.Widget extends Backbone.View
-  
+
   tagName: 'div'
 
   events:
@@ -8,10 +8,10 @@ class App.Views.Widget extends Backbone.View
   initialize: (options) ->
     @$el.on('sorted', @sorted)
     @render()
-    
+
   render: ->
     @$el.html(@template({ @model }))
-    
+
   confirmDelete: ->
     $(@el).append new App.Views.Dialog.prompt("Delete #{@model.get('type')}?", =>
       @model.destroy()
@@ -26,4 +26,4 @@ class App.Views.Widget extends Backbone.View
     console.log @model.attributes
     @model.save({ position_position: idx })
     # @model.save({ position: idx })
-    
+

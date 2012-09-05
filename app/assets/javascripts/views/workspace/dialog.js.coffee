@@ -12,7 +12,7 @@ class App.Views.Dialog extends Backbone.View
     'hidden' : 'onHidden'
 
   initialize: ->
-    #@render()
+    @render()
 
   render: ->
     @setElement(@template(@options))

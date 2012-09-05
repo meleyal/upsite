@@ -5,8 +5,5 @@ class App.Models.Text extends App.Models.Widget
     title:  'Title'
     body:   'Body'
 
-  initialize: ->
-    super()
-
   validate: (attrs) ->
     "cannot have an empty title" unless attrs.title
