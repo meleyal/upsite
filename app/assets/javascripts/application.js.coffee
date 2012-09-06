@@ -1,6 +1,8 @@
 #= require jquery
 #= require jquery-ui
 #= require bootstrap
+#= require wysihtml5
+#= require bootstrap-wysihtml5
 #= require underscore
 #= require backbone
 #= require backbone.authtokenadapter
@@ -14,12 +16,17 @@
 #= require_tree ./views
 #= require_tree .
 
-App.initialize = ->
-  window.Widgets = new App.Collections.Widgets
-  new App.Views.Workspace
-  new App.Views.WidgetsIndex({ collection: Widgets })
-  Widgets.fetch()
-  $('.options a').tooltip({ placement: 'left' })
+class Application
 
-$(document).ready ->
-  App.initialize()
+  constructor: ->
+    $ =>
+      @initialize()
+
+  initialize: ->
+    @widgets = new App.Collections.Widgets
+    @workspace = new App.Views.Workspace
+    new App.Views.WidgetsIndex({ collection: @widgets })
+    @widgets.fetch()
+    $('.options a').tooltip({ placement: 'left' })
+
+window.app = new Application

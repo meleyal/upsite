@@ -21,8 +21,8 @@ class App.Views.TextsNew extends App.Views.WidgetsNew
     # console.log @model
     # @model.save(data)
     # console.log data
-    Widgets.create(data)
-    Widgets.fetch()
+    app.widgets.create(data)
+    app.widgets.fetch()
     @$el.modal('hide')
     # @undelegateEvents()
     # console.log @modal
