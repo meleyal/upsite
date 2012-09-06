@@ -6,6 +6,14 @@ class App.Views.TextsNew extends App.Views.WidgetsNew
     @el = $(@el)
     @model = new App.Models.Text()
     @render()
+    $('#text_body').wysihtml5(
+    	'font-styles': false
+	    'emphasis': true
+	    'lists': true
+	    'link': false
+	    'image': false
+	    'color': false
+    )
 
   save: (e) ->
     console.log 'saving'

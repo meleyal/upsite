@@ -1,0 +1,6 @@
+ul.wysihtml5-toolbar a[data-wysihtml5-command="underline"],
+ul.wysihtml5-toolbar a[data-wysihtml5-command="Outdent"],
+ul.wysihtml5-toolbar a[data-wysihtml5-command="Indent"] {
+  display: none !important;
+}
+

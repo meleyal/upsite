@@ -15,4 +15,4 @@
 </div>
 
 <h3><%= @model.get('title') %></h3>
-<p><%= @model.get('body') %></p>
+<p><%- @model.get('body') %></p>
