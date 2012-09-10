@@ -1,5 +1,5 @@
-class App.Collections.Widgets extends Backbone.Collection
+class app.collections.Widgets extends Backbone.Collection
 
-  model: App.Models.Widget
+  model: app.models.Widget
 
   url: '/widgets'

@@ -1,3 +1,3 @@
-class App.Models.Widget extends Backbone.Model
+class app.models.Widget extends Backbone.Model
 
   urlRoot: '/widgets'

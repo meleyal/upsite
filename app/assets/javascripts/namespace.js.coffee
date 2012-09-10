@@ -1,5 +1,5 @@
-window.App =
-  Models: {}
-  Collections: {}
-  Views: {}
-  Routers: {}
+window.app =
+  models: {}
+  collections: {}
+  views: {}
+  helpers: {}
