@@ -1,25 +1,18 @@
-#= require application
+#= require models/widget
 
 describe 'Widget', ->
 
   beforeEach ->
-    @model = new App.Models.Widget position: 1
+    @model = new app.models.Widget position: 1
 
-  describe 'when instantiated', ->
+  # TODO: test something useful
 
-    it 'should expose an attribute', ->
-      expect(@model.get('position')).toEqual 1
+  it 'exposes an attribute', ->
+    expect(@model.get('position')).toEqual 1
 
-  describe 'url', ->
+  it 'returns the collection URL when no id is set', ->
+    expect(@model.url()).toEqual '/widgets'
 
-    describe 'when no id is set', ->
-      it 'should return the collection URL', ->
-        expect(@model.url()).toEqual '/widgets'
-
-    describe 'when id is set', ->
-      it 'should return the collection URL and id', ->
-        @model.id = 1
-        expect(@model.url()).toEqual '/widgets/1'
-
-
-
+  it 'returns the collection URL and id when id is set', ->
+    @model.id = 1
+    expect(@model.url()).toEqual '/widgets/1'

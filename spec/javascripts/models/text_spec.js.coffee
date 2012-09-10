@@ -1,6 +1,6 @@
 #= require application
 
-describe 'Text', ->
+xdescribe 'Text', ->
 
   beforeEach ->
     @model = new App.Models.Text
