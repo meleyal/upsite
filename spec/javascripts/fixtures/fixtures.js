@@ -1,18 +1,14 @@
-Fixtures = {
-  Widgets: {
-    valid: {
-      "status": "OK",
-      "version": "1.0",
-      "response": [
-        {
-          "id": 1,
-          "title": "Destroy Alderaan"
-        },
-        {
-          "id": 2,
-          "title": "Close exhaust port"
-        }
-      ]
-    }
+window.fixtures = {
+  widgets: {
+    valid: [
+      {
+        "id": 1,
+        "title": "Woody Allen"
+      },
+      {
+        "id": 2,
+        "title": "Stanley Kubrick"
+      }
+    ]
   }
 }
