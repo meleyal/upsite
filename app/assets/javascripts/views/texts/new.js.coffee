@@ -1,3 +1,5 @@
+#= require ../widgets/new
+
 class App.Views.TextsNew extends App.Views.WidgetsNew
 
   template: JST['texts/new']
