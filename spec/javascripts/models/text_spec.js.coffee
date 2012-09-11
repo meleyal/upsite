@@ -1,18 +1,16 @@
-#= require application
+#= require models/text
 
-xdescribe 'Text', ->
+describe 'Text', ->
 
   beforeEach ->
-    @model = new App.Models.Text
+    @model = new app.models.Text
 
-  describe 'when instantiated', ->
-    it 'should have a default type', ->
-      expect(@model.get('type')).toEqual('Text')
+  it 'should have a default type', ->
+    expect(@model.get('type')).toEqual 'Text'
 
-  describe 'validation', ->
-    it 'should not save when title is empty', ->
-      eventSpy = sinon.spy()
-      @model.on('error', eventSpy)
-      @model.save "title": ""
-      expect(eventSpy).toHaveBeenCalledOnce()
-      expect(eventSpy).toHaveBeenCalledWith @model, "cannot have an empty title"
+  it 'should not save when title is empty', ->
+    spy = sinon.spy()
+    @model.on 'error', spy
+    @model.save 'title':''
+    expect(spy).toHaveBeenCalledOnce()
+    expect(spy).toHaveBeenCalledWith @model, 'cannot have an empty title'

@@ -1,41 +1,29 @@
-#= require application
+#= require collections/widgets
 
 describe 'Widgets', ->
 
-  describe 'when instantiated', ->
+  beforeEach ->
+    @collection = new app.collections.Widgets
+    @fixture = fixtures.widgets.valid
+    @server = sinon.fakeServer.create()
+    @server.respondWith helpers.validResponse(@fixture)
+    @collection.fetch()
+    @server.respond()
 
-    beforeEach ->
-      @server = sinon.fakeServer.create()
-      @fixture = Fixtures.Widgets.valid
-      #loadFixtures 'foo.html'
-      @server.respondWith(
-        'GET', '/widgets',
-        [
-          200,
-          {"Content-Type": "application/json"},
-          JSON.stringify(@fixture)
-        ]
-      )
-      @collection = new App.Collections.Widgets
-      @collection.add id: 8, title: "Foo"
+  afterEach ->
+    @server.restore()
 
-    afterEach ->
-      @server.restore()
+  it 'adds a model', ->
+    expect(@collection.length).toEqual 2
 
-    it 'should add a model', ->
-      expect(@collection.length).toEqual 1
+  it 'finds a model by id', ->
+    expect(@collection.get(1).id).toEqual 1
 
-    it 'should find a model by id', ->
-      expect(@collection.get(8).get('id')).toEqual 8
+  it 'makes the correct request', ->
+    expect(@server.requests.length).toEqual 1
+    expect(@server.requests[0].method).toEqual 'GET'
+    expect(@server.requests[0].url).toEqual '/widgets'
 
-    it 'should make the correct request', ->
-      @collection.fetch()
-      expect(@server.requests.length).toEqual 1
-      expect(@server.requests[0].method).toEqual 'GET'
-      expect(@server.requests[0].url).toEqual '/widgets'
-
-    it 'should parse widgets from the repsonse', ->
-      @collection.fetch()
-      @server.respond()
-      console.log @collection
-      expect(@collection.length).toEqual(@fixture.response.length)
+  it 'parses widgets from the repsonse', ->
+    expect(@collection.length).toEqual @fixture.length
+    expect(@collection.get(1).get('title')).toEqual 'Woody Allen'
