@@ -1,4 +1,4 @@
-class App.Views.Widget extends Backbone.View
+class app.views.Widget extends Backbone.View
 
   tagName: 'div'
 

@@ -1,34 +1,32 @@
-class App.Views.WidgetsIndex extends Backbone.View
+class app.views.WidgetsIndex extends Backbone.View
 
-  el: '.widgets'
+  #el: '.widgets'
 
   initialize: (options) ->
-    @el = $(@el);
-    @collection = options.collection
-    @collection.bind('add', @addOne)
-    @collection.bind('reset', @addAll)
-    @makeSortable()
-  
+    { @collection } = options
+    #@el = $(@el);
+    @collection.bind 'add', @addOne
+    #@collection.bind('reset', @addAll)
+    #@makeSortable()
+
   addOne: (model) =>
-    console.log 'addOne'
-    type = model.get('type')
-    # console.log type
-    view = eval("App.Views.#{type}") # TODO: evil
+    type = model.get 'type'
+    view = app.views[type]
     widget = new view({ model }).render()
-    @el.append(widget)
+    @$el.append widget
 
   addAll: =>
     @el.empty()
-    @collection.each(@addOne)
-    
+    @collection.each @addOne
+
   makeSortable: ->
-    @el.sortable({ 
+    @el.sortable({
       tolerance: 'pointer'
       handle: '.move'
       placeholder: 'widget-placeholder span4'
       forcePlaceholderSize: true
       update: (e, ui) =>
-        @widgets = @el.find('.widget')        
+        @widgets = @el.find('.widget')
         idx = @widgets.index(ui.item)
         ui.item.trigger('sorted', idx)
     })

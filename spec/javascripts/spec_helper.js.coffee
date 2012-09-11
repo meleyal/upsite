@@ -14,4 +14,4 @@ class SpecHelper
 
 
 window.helpers = new SpecHelper
-helpers.showPassedByDefault()
+#helpers.showPassedByDefault()

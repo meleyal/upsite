@@ -1,10 +1,10 @@
-class App.Views.Workspace extends Backbone.View
+class app.views.Workspace extends Backbone.View
 
-  el: 'body'
+  #el: 'body'
 
-  events:
-    'click .add': 'add'
+  #events:
+    #'click .add': 'add'
 
-  add: (e) ->
-    e.preventDefault()
-    $(@el).append new App.Views.Toolbar
+  #add: (e) ->
+    #e.preventDefault()
+    #$(@el).append new App.Views.Toolbar

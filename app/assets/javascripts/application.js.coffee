@@ -7,9 +7,9 @@
 #= require backbone
 #= require backbone.authtokenadapter
 #= require namespace
-# require_tree ../templates
 # require_tree ./models
 # require_tree ./collections
+# require_tree ./templates
 # require_tree ./views
 
 $ =>
