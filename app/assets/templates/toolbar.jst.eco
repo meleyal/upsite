@@ -1,42 +1,19 @@
 <div class="toolbar modal">
-  
+
   <div class="modal-header">
     <a class="close" data-dismiss="modal">×</a>
     <h3>Add a new block</h3>
   </div>
-  
+
   <div class="modal-body">
-    
-    <div class="toolbar-row">    
+    <div class="toolbar-row">
       <a href="#" class="new-text symbol" title="Text">
         <i class="icon-font icon-large"></i>
       </a>
       <a href="#" class="add symbol" title="Image">
         <i class="icon-picture icon-large"></i>
       </a>
-      <a href="#" class="add symbol" title="File">
-        <i class="icon-file icon-large"></i>
-      </a>
-      <a href="#" class="add symbol" title="Contact">
-        <i class="icon-user icon-large"></i>
-      </a>    
     </div>
-    
-    <div class="toolbar-row toolbar-more">      
-      <a href="#add" class="add symbol" title="Event">
-        <i class="icon-calendar icon-large"></i>
-      </a>
-      <a href="#add" class="add symbol" title="Video">
-        <i class="icon-facetime-video icon-large"></i>
-      </a>      
-      <a href="#add" class="add symbol" title="Map">
-        <i class="icon-map-marker icon-large"></i>
-      </a>
-      <a href="#add" class="add symbol" title="Widget">
-        <i class="icon-external-link icon-large"></i>
-      </a>  
-    </div>
-    
   </div>
-      
+
 </div>
