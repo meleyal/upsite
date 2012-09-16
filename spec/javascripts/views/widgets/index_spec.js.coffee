@@ -16,6 +16,10 @@ describe 'Views/Widgets/Index', ->
     @collection.reset(fixtures.widgets.valid)
     expect(@view.$('.widget').length).toEqual(2)
 
+  it 'should render correct widget type', ->
+    @collection.add title: 'Foo', type: 'Text'
+    expect(@view.$el).toContain '.widget-text'
+
   it 'should be sortable', ->
     expect(@view.$el.data('sortable')).toBeDefined()
 
