@@ -1,12 +1,12 @@
 #= require ../widgets/new
 
-class App.Views.TextsNew extends App.Views.WidgetsNew
+class app.views.TextsNew extends app.views.WidgetsNew
 
   template: JST['texts/new']
 
   initialize: (options) ->
     @el = $(@el)
-    @model = new App.Models.Text()
+    @model = new app.models.Text()
     @render()
     $('#text_body').wysihtml5(
     	'font-styles': false

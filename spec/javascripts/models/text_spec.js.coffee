@@ -1,6 +1,6 @@
 #= require models/text
 
-describe 'Text', ->
+describe 'Models/Text', ->
 
   beforeEach ->
     @model = new app.models.Text

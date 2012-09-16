@@ -1,6 +1,6 @@
 #= require models/widget
 
-describe 'Widget', ->
+describe 'Models/Widget', ->
 
   beforeEach ->
     @model = new app.models.Widget position: 1

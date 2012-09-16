@@ -1,6 +1,6 @@
 #= require views/workspace/workspace
 
-describe 'Workspace', ->
+describe 'Views/Workspace', ->
 
   beforeEach ->
     @view = new app.views.Workspace

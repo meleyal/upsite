@@ -1,6 +1,6 @@
 #= require application
 
-xdescribe 'Dialog', ->
+xdescribe 'Views/Dialog', ->
 
   beforeEach ->
     @view = new App.Views.Dialog

@@ -1,4 +1,4 @@
-class App.Views.Toolbar extends Backbone.View
+class app.views.Toolbar extends Backbone.View
 
   el: '.toolbar'
 
@@ -19,4 +19,4 @@ class App.Views.Toolbar extends Backbone.View
   newText: (e) ->
     e.preventDefault()
     @$el.modal('hide')
-    $('body').append new App.Views.TextsNew
+    $('body').append new app.views.TextsNew

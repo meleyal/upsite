@@ -1,4 +1,4 @@
-class App.Views.WidgetsNew extends Backbone.View
+class app.views.WidgetsNew extends Backbone.View
 
   el: '.toolbar'
 

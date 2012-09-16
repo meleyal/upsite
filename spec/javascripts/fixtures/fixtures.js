@@ -3,11 +3,13 @@ window.fixtures = {
     valid: [
       {
         "id": 1,
-        "title": "Woody Allen"
+        "title": "Woody Allen",
+        "type": "Text"
       },
       {
         "id": 2,
-        "title": "Stanley Kubrick"
+        "title": "Stanley Kubrick",
+        "type": "Text"
       }
     ]
   }

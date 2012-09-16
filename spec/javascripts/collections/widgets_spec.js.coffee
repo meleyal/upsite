@@ -1,6 +1,6 @@
 #= require collections/widgets
 
-describe 'Widgets', ->
+describe 'Collections/Widgets', ->
 
   beforeEach ->
     @collection = new app.collections.Widgets

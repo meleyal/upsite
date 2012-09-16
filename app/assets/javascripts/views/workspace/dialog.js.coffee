@@ -1,4 +1,4 @@
-class App.Views.Dialog extends Backbone.View
+class app.views.Dialog extends Backbone.View
 
   tagName: 'div'
   className: 'modal'
@@ -36,10 +36,10 @@ class App.Views.Dialog extends Backbone.View
   onHidden: (e) ->
     @$el.remove()
 
-_.extend(App.Views.Dialog, {
+_.extend(app.views.Dialog, {
 
   prompt: (text, callback, options) ->
-    new App.Views.Dialog(_.extend({
+    new app.views.Dialog(_.extend({
       title: text
       onConfirm: callback
     }))
