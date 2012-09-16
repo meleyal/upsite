@@ -10,9 +10,11 @@
 
   <a href="#" class="move" title="">
     <i class="icon-move"></i>
-  </a>    
+  </a>
 
 </div>
 
-<h3><%= @model.get('title') %></h3>
-<p><%- @model.get('body') %></p>
+<div class="content">
+  <h3><%= @model.get('title') %></h3>
+  <p><%- @model.get('body') %></p>
+</div>

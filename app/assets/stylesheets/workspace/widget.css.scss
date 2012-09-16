@@ -1,11 +1,15 @@
 .widget {
   height: 300px;
-  background: #eee;
+  /*background: #eee;*/
+  background: #fff;
   /*padding: 10px;*/
   margin-bottom: $gridGutterWidth;
   box-sizing: border-box;
   position: relative;
   /*overflow: hidden;*/
+  .content {
+    margin: 20px;
+  }
   &:hover {
     .widget-controls {
       opacity: 1;
@@ -32,7 +36,7 @@
     color: black;
     text-decoration: none;
     display: block;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #eee;
     &.move:hover {
       cursor: move;
     }
