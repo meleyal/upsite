@@ -7,14 +7,14 @@
 #= require backbone
 #= require backbone.authtokenadapter
 #= require namespace
-# require_tree ./models
-# require_tree ./collections
-# require_tree ./templates
-# require_tree ./views
+#= require_tree ./models
+#= require_tree ./collections
+#= require_tree ./templates
+#= require_tree ./views
 
 $ =>
-  #@widgets = new App.Collections.Widgets
+  app.widgets = new app.collections.Widgets
+  app.widgetsIndex = new app.views.WidgetsIndex el: '.widgets', collection: app.widgets
+  app.widgets.fetch()
   #@workspace = new App.Views.Workspace
-  #new App.Views.WidgetsIndex({ collection: @widgets })
-  #@widgets.fetch()
   #$('.options a').tooltip({ placement: 'left' })
