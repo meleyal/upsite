@@ -19,12 +19,5 @@ class app.views.Widget extends Backbone.View
     #)
 
   sorted: (e, idx) =>
-    #console.log @model
-    #console.log 'sorted', idx
-    # console.log @model
-    # console.log @model.url()
-    delete @model.attributes.position
-    #console.log @model.attributes
-    @model.save({ position_position: idx })
-    # @model.save({ position: idx })
-
+    delete @model.attributes.sort_order
+    @model.save({ sort_order_position: idx })

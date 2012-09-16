@@ -2,7 +2,7 @@ class CreateWidgets < ActiveRecord::Migration
   def change
     create_table :widgets do |t|
       t.string :type
-      t.integer :position
+      t.integer :sort_order
       t.text :data
       t.references :site
       t.timestamps

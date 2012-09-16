@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20120309213504) do
 
   create_table "widgets", :force => true do |t|
     t.string   "type"
-    t.integer  "position"
+    t.integer  "sort_order"
     t.text     "data"
     t.integer  "site_id"
     t.datetime "created_at", :null => false

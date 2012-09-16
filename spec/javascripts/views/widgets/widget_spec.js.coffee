@@ -14,5 +14,5 @@ describe 'Views/Widget', ->
 
   it 'should save position when sorted', ->
     @model.on 'change', (model) ->
-      expect(model.get('position_position')).toEqual(2)
+      expect(model.get('sort_order_position')).toEqual(2)
     @view.$el.trigger 'sorted', 2

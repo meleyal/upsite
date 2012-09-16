@@ -1,11 +1,11 @@
 class Widget < ActiveRecord::Base
 
-  belongs_to :site  
+  belongs_to :site
   serialize :data #, JSON
-  attr_accessible :type, :position, :position_position, :data
+  attr_accessible :type, :sort_order, :sort_order_position, :data
 
   include RankedModel
-  ranks :position
-  default_scope rank(:position)
+  ranks :sort_order
+  default_scope rank(:sort_order)
 
 end
