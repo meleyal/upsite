@@ -6,11 +6,11 @@ class app.views.Widget extends Backbone.View
     #'click .delete' : 'confirmDelete'
 
   initialize: (options) ->
-    @$el.on('sorted', @sorted)
+    @$el.on 'sorted', @sorted
     @render()
 
   render: ->
-    @$el.html(@template?({ @model }))
+    @$el.html @template?({ @model })
 
   #confirmDelete: ->
     #$(@el).append new app.views.Dialog.prompt("Delete #{@model.get('type')}?", =>

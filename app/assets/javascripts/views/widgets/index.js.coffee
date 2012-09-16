@@ -1,5 +1,14 @@
 class app.views.WidgetsIndex extends Backbone.View
 
+  events:
+    'sortupdate': 'onSort'
+
+  sortableOptions:
+    tolerance: 'pointer'
+    handle: '.move'
+    placeholder: 'widget-placeholder span4'
+    forcePlaceholderSize: true
+
   initialize: (options) ->
     { @collection } = options
     @collection.bind 'add', @addOne
@@ -17,13 +26,9 @@ class app.views.WidgetsIndex extends Backbone.View
     @collection.each @addOne
 
   makeSortable: ->
-    @$el.sortable({
-      tolerance: 'pointer'
-      handle: '.move'
-      placeholder: 'widget-placeholder span4'
-      forcePlaceholderSize: true
-      update: (e, ui) =>
-        @widgets = @$('.widget')
-        idx = @widgets.index(ui.item)
-        ui.item.trigger('sorted', idx)
-    })
+    @$el.sortable @sortableOptions
+
+  onSort: (e, ui) =>
+    widgets = @$('.widget')
+    idx = widgets.index(ui.item)
+    ui.item.trigger 'sorted', idx

@@ -1,7 +1,7 @@
 .widget {
   height: 300px;
   background: #eee;
-  padding: 10px;
+  /*padding: 10px;*/
   margin-bottom: $gridGutterWidth;
   box-sizing: border-box;
   position: relative;
@@ -13,6 +13,8 @@
   }
   &.ui-sortable-helper {
     background: rgba(black, 0.1);
+    box-sizing: border-box;
+    /*padding: 10px;*/
   }
 }
 
@@ -38,7 +40,7 @@
 }
 
 .widget-placeholder {
-  height: 250px;
+  height: 300px;
 //  background: #eee;
   box-sizing: border-box;
   margin-bottom: $gridGutterWidth;
