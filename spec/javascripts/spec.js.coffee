@@ -6,7 +6,6 @@
 #= require jasmine-sinon
 #= require spec_helper
 #= require_tree ./fixtures
-
 #= require namespace_spec
 #= require models/widget_spec
 #= require collections/widgets_spec

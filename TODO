@@ -1,100 +1,12 @@
 TODO
 
-- cleanup
-
 - tests
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- editing
-
 - reusable dialog view/template
     new TextsNew < Dialog?
     has custom content (form, backbone-forms?)
     see add() method in DC panel
-
-- deleting with confirmation
-
-- make header editable
-    header is own widget class
-    deletable: false
-    title (+ page title)
-    logo (upload, storage?)
-    tagline
-
-- image widget (see sketches)
-
-- theming
-    see notes
-
-    define what is themable (bg, content, text, links, see Bootstrap vars)
-
-    see twitter, tumblr
-
-    when you click the design tab...
-
-    add columns to the site table for
-      background_color, link_color
-
-    OR
-
-    add own theme table / model
-
-
-
-    this should be extendible to themes...
-
-    site has_one theme (own theme table, with name/slug)
-
-    can choose a preset theme from a list
-
-    what happens when you customize it?
-
-    a new (child?) theme is created
-
-    start with
-
-      a form for entering
-
-      background color hex
-      links color hex
-
-    render new style element inline with custom values
-    add a user-style class to the body to override?
-
-
-    store on site table?
-    store on settings table?
-
-- make workspace a router
-
-- trash/restore (rails-trash)
-
-
-Next:
-
-- text columns
-
-- picture upload
-
-- design
-    colors + font
-
-- rows?
-
-
+- editing
+- validations for widget
+- make header editable (own widget class, deletable:false)
+- image widget / upload
+- theming (colors + font)
