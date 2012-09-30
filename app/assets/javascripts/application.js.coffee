@@ -6,6 +6,7 @@
 #= require underscore
 #= require backbone
 #= require backbone.authtokenadapter
+#= require backbone.bootstrap-modal
 #= require namespace
 #= require_tree ./models
 #= require_tree ./collections
@@ -16,5 +17,11 @@ $ =>
   app.widgets = new app.collections.Widgets
   app.widgetsIndex = new app.views.WidgetsIndex el: '.widgets', collection: app.widgets
   app.widgets.fetch()
+  #dialog = new app.views.Dialog()
+  #textsNew = new app.views.TextsNew()
+  #$('body').append dialog.render().el
+  #console.log view
+  #modal = new Backbone.BootstrapModal({ content: view }).open()
+
   #@workspace = new App.Views.Workspace
   #$('.options a').tooltip({ placement: 'left' })

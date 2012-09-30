@@ -1,39 +1,19 @@
-#= require application
+#= require templates/workspace/dialog
+#= require views/workspace/dialog
 
-xdescribe 'Views/Dialog', ->
+describe 'Views/Dialog', ->
 
   beforeEach ->
-    @view = new App.Views.Dialog
+    @view = new app.views.Dialog
+    @body = $('body')
 
-  describe 'Instantiation', ->
+  afterEach ->
+    @view.remove()
+    @body.removeClass('modal-open')
 
-    xit 'should create a div', ->
-      expect(@view.$el).toBe('div')
+  it 'should initialize a modal', ->
+    modal = @view.$el.data 'modal'
+    expect(modal).toBeDefined()
 
-    xit 'should have a "modal" class', ->
-      expect(@view.$el).toHaveClass('modal')
-
-    xit 'should have default attributes', ->
-      title = @view.$el.find('.modal-title').text()
-      expect(title).toEqual('Untitled Dialog')
-
-  describe 'Rendering', ->
-
-    xit 'should create a dialog instance', ->
-      # @view.$el.on('show', -> console.log 'show event')
-      # @view.show()
-      # expect(@model.get('type')).toEqual('Text')
-
-    xit 'should hide on dismiss', ->
-      # @view.show()
-      # @view.$el.find('.close').click()
-      # @view.hide()
-
-    xit 'should add a custom subview', ->
-      subview = new App.Views.TextsNew()
-      #console.log subview.render().el
-      @view.add('test', subview)
-      # expect form to be present
-      expect(@view.$el).toContain('form')
-
-      #expect(title).toEqual('Untitled Dialog')
+  it 'should render itself', ->
+    expect(@body).toContain '.modal'

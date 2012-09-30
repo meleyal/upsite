@@ -2,46 +2,46 @@ class app.views.Dialog extends Backbone.View
 
   tagName: 'div'
   className: 'modal'
-  template: JST['workspace/dialog']
+  dialogTemplate: JST['templates/workspace/dialog']
 
   options:
     'title': 'Untitled Dialog'
 
-  events:
-    'click .confirm' : 'confirm'
-    'hidden' : 'onHidden'
+  #events:
+    #'show': 'onShow'
+    #'click .confirm': 'confirm'
+    #'hidden' : 'onHidden'
 
   initialize: ->
-    @render()
+    console.log 'Dialog#initialize'
+    @dialogRender()
 
-  render: ->
-    @setElement(@template(@options))
-    @$el.modal({ show: false, backdrop: false })
-    @$el.modal('show')
+  dialogRender: ->
+    #@$el.html @template(@options)
+    @setElement @dialogTemplate(@options)
+    #@delegateEvents()
+    #@$el.on 'show', @onShow
+    @$el.modal show: false, backdrop: false
+    @$el.modal 'show'
+    return this
 
-  add: (containerName, view) ->
-    console.log 'add subview...'
+  onShow: (e) =>
+    #console.log 'onShow'
 
-  show: ->
-    @$el.modal('show')
+  #add: (containerName, view) ->
+    #console.log 'add subview...'
 
-  hide: ->
-    @$el.modal('hide')
+  #show: ->
+    #@$el.modal('show')
 
-  confirm: (e) ->
-    e.preventDefault()
-    @options.onConfirm() if @options.onConfirm()
-    this.hide()
+  #hide: ->
+    #@$el.modal('hide')
 
-  onHidden: (e) ->
-    @$el.remove()
+  #confirm: (e) ->
+    #console.log 'onConfirm'
+    #e.preventDefault()
+    #@options.onConfirm() if @options.onConfirm()
+    #this.hide()
 
-_.extend(app.views.Dialog, {
-
-  prompt: (text, callback, options) ->
-    new app.views.Dialog(_.extend({
-      title: text
-      onConfirm: callback
-    }))
-
-})
+  #onHidden: (e) ->
+    #@$el.remove()
