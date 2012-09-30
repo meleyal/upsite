@@ -1,10 +1,21 @@
 TODO
 
-- tests
 - reusable dialog view/template
-    new TextsNew < Dialog?
-    has custom content (form, backbone-forms?)
-    see add() method in DC panel
+
+  start: when you click new or edit,
+    a generic dialog is created + appended to the dom
+
+
+
+
+
+
+
+
+
+
+
+
 - editing
 - validations for widget
 - make header editable (own widget class, deletable:false)
