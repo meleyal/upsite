@@ -1,46 +1,30 @@
 .symbol {
-  font-weight: bold;
+  $size: 100px;
+  width: $size;
+  height: $size;
+  line-height: $size;
   display: inline-block;
-  text-align:center;
-  font-size: 40px;
-  line-height: 100px;
-  width: 100px;
-  height: 100px;
   margin: 0 20px 0 0;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
   background: grey;
-  border-radius: 10px;
   border-radius: 400px;
   color: white;
   -webkit-transition: all .3s;
-  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
   &:hover {
     color: white;
-    /*-webkit-transform: scale(1.05);*/
     text-decoration: none;
     background: $green;
   }
 }
 
 .symbol-small {
+  $size: 60px;
   margin: 0 0 10px 0;
   background: #ccc;
   font-size: 20px;
-  line-height: 50px;
-  width: 50px;
-  height: 50px;
-  &:hover {
-    -webkit-transform: none;
-  }
-}
-
-.symbol-tiny {
-  margin: 0 5px 0 0;
-  background: #ccc;
-  font-size: 12px;
-  line-height: 30px;
-  width: 30px;
-  height: 30px;
-  &:hover {
-    -webkit-transform: none;
-  }
+  line-height: $size;
+  width: $size;
+  height: $size;
 }
