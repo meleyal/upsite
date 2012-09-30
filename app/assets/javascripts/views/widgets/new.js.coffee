@@ -5,7 +5,8 @@ class app.views.WidgetsNew extends app.views.Dialog
   template: JST['templates/widgets/new']
 
   options:
-    'title': 'Add Widget'
+    title: 'Add Widget'
+    footer: false
 
   #events:
     #'submit form' : 'save'

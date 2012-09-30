@@ -5,7 +5,7 @@ class app.views.TextsNew extends app.views.Dialog
   template: JST['templates/texts/new']
 
   options:
-    'title': 'New Text'
+    title: 'New Text'
 
   #events:
     #'click .confirm': 'confirm'

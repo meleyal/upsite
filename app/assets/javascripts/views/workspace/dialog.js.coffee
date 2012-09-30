@@ -4,8 +4,8 @@ class app.views.Dialog extends Backbone.View
   className: 'modal'
   dialogTemplate: JST['templates/workspace/dialog']
 
-  options:
-    'title': 'Untitled Dialog'
+  defaults:
+    title: 'Untitled Dialog'
 
   #events:
     #'show': 'onShow'
@@ -16,9 +16,8 @@ class app.views.Dialog extends Backbone.View
     @dialogRender()
 
   dialogRender: ->
-    #@$el.html @template(@options)
+    @options ||= @defaults
     @setElement @dialogTemplate(@options)
-    #@delegateEvents()
     #@$el.on 'show', @onShow
     @$el.modal show: false, backdrop: false
     @$el.modal 'show'
@@ -29,21 +28,3 @@ class app.views.Dialog extends Backbone.View
 
   onShow: (e) =>
     #console.log 'onShow'
-
-  #add: (containerName, view) ->
-    #console.log 'add subview...'
-
-  #show: ->
-    #@$el.modal('show')
-
-  #hide: ->
-    #@$el.modal('hide')
-
-  #confirm: (e) ->
-    #console.log 'onConfirm'
-    #e.preventDefault()
-    #@options.onConfirm() if @options.onConfirm()
-    #this.hide()
-
-  #onHidden: (e) ->
-    #@$el.remove()
