@@ -17,10 +17,8 @@ $ =>
   app.widgetsIndex = new app.views.WidgetsIndex el: '.widgets', collection: app.widgets
   app.widgets.fetch()
 
-  app.hud = new app.views.Hud()
-
-  #textsNew = new app.views.TextsNew()
-  #console.log view
-  #modal = new Backbone.BootstrapModal({ content: view }).open()
-
+  app.hud = new app.views.Hud
   #@workspace = new App.Views.Workspace
+
+  #new app.views.TextsNew
+  #new app.views.WidgetsNew

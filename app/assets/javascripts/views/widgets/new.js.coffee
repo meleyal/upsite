@@ -1,21 +1,28 @@
-class app.views.WidgetsNew extends Backbone.View
+#= require ../workspace/dialog
 
-  el: '.toolbar'
+class app.views.WidgetsNew extends app.views.Dialog
 
-  events:
-    'submit form' : 'save'
-    'hidden' : 'onHidden'
+  template: JST['templates/widgets/new']
+
+  options:
+    'title': 'Add Widget'
+
+  #events:
+    #'submit form' : 'save'
+    #'hidden' : 'onHidden'
+
+  initialize: ->
+    super
+    @render()
 
   render: ->
-    @setElement(@template())
-    @$el.modal({ backdrop: false })
-    @$el.modal('show')
+    @renderContent @template()
     return this
 
-  hide: ->
-    @el.modal(true).hide()
+  #hide: ->
+    #@el.modal(true).hide()
 
-  onHidden: (e) ->
+  #onHidden: (e) ->
     # console.log 'onHidden'
     # @modal.remove()
     # console.log @modal

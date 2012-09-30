@@ -1,6 +1,5 @@
 #= require ../workspace/dialog
 
-#class app.views.TextsNew extends Backbone.View
 class app.views.TextsNew extends app.views.Dialog
 
   template: JST['templates/texts/new']
@@ -31,14 +30,7 @@ class app.views.TextsNew extends app.views.Dialog
     #e.preventDefault()
 
   render: ->
-    #console.log 'TextsNew#render'
-    #super()
-    ##console.log @model
-    content = @template?({ @model })
-    @$('.modal-body').html content
-    ##@setElement(@template())
-    ##@$el.modal({ backdrop: false })
-    ##@$el.modal('show')
+    @renderContent @template { @model }
     return this
 
   save: (e) ->

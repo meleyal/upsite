@@ -13,7 +13,6 @@ class app.views.Dialog extends Backbone.View
     #'hidden' : 'onHidden'
 
   initialize: ->
-    console.log 'Dialog#initialize'
     @dialogRender()
 
   dialogRender: ->
@@ -24,6 +23,9 @@ class app.views.Dialog extends Backbone.View
     @$el.modal show: false, backdrop: false
     @$el.modal 'show'
     return this
+
+  renderContent: (content) ->
+    @$('.modal-body').html content
 
   onShow: (e) =>
     #console.log 'onShow'

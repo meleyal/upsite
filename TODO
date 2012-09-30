@@ -2,8 +2,8 @@ TODO
 
 - reusable dialog view/template
 
-  start: when you click new or edit,
-    a generic dialog is created + appended to the dom
+  when you click new 
+    create a new WidgetsNew view (extends dialog)
 
 
 
