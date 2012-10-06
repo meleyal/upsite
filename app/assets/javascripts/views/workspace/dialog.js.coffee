@@ -2,15 +2,12 @@ class app.views.Dialog extends Backbone.View
 
   tagName: 'div'
   className: 'modal'
-  dialogTemplate: JST['templates/workspace/dialog']
+
+  dialogTemplate: (data) ->
+    JST['templates/workspace/dialog'](data)
 
   defaults:
     title: 'Untitled Dialog'
-
-  #events:
-    #'show': 'onShow'
-    #'click .confirm': 'confirm'
-    #'hidden' : 'onHidden'
 
   initialize: ->
     @dialogRender()
@@ -18,13 +15,9 @@ class app.views.Dialog extends Backbone.View
   dialogRender: ->
     @options ||= @defaults
     @setElement @dialogTemplate(@options)
-    #@$el.on 'show', @onShow
     @$el.modal show: false, backdrop: false
     @$el.modal 'show'
     return this
 
   renderContent: (content) ->
     @$('.modal-body').html content
-
-  onShow: (e) =>
-    #console.log 'onShow'
