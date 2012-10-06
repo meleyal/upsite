@@ -11,8 +11,7 @@ class app.views.WidgetsIndex extends Backbone.View
 
   initialize: (options) ->
     { @collection } = options
-    @collection.bind 'add', @addOne
-    @collection.bind 'reset', @addAll
+    @collection.bind 'reset sync', @addAll
     @makeSortable()
 
   addOne: (model) =>

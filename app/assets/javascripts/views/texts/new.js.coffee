@@ -28,7 +28,7 @@ class app.views.TextsNew extends app.views.Dialog
       sort_order_position: 0
       data: data
     #console.log data
-    app.widgets.create(attrs)
+    app.widgets.create(attrs, { wait:true })
     #app.widgets.fetch()
     @remove()
 
