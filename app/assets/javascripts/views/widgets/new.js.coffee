@@ -8,9 +8,8 @@ class app.views.WidgetsNew extends app.views.Dialog
     title: 'Add Widget'
     footer: false
 
-  #events:
-    #'submit form' : 'save'
-    #'hidden' : 'onHidden'
+  events:
+    'click .new-text': 'newText'
 
   initialize: ->
     super
@@ -20,11 +19,7 @@ class app.views.WidgetsNew extends app.views.Dialog
     @renderContent @template()
     return this
 
-  #hide: ->
-    #@el.modal(true).hide()
-
-  #onHidden: (e) ->
-    # console.log 'onHidden'
-    # @modal.remove()
-    # console.log @modal
-    # @el.modal('show')
+  newText: (e) ->
+    @remove()
+    new app.views.TextsNew
+    e.preventDefault()

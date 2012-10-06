@@ -15,10 +15,9 @@
 $ =>
   app.widgets = new app.collections.Widgets
   app.widgetsIndex = new app.views.WidgetsIndex el: '.widgets', collection: app.widgets
+  app.hud = new app.views.Hud
   app.widgets.fetch()
 
-  app.hud = new app.views.Hud
   #@workspace = new App.Views.Workspace
-
   #new app.views.TextsNew
   #new app.views.WidgetsNew
