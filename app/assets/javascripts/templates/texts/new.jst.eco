@@ -1,25 +1,21 @@
-<form action="/texts" method="post" class="form-horizontal">
+<fieldset>
 
-    <fieldset>
+  <div class="control-group">
+    <label class="control-label" for="title">Title</label>
+    <div class="controls">
+      <input type="text" name="title" id="title">
+      <p class="help-block">Supporting help text</p>
+    </div>
+  </div>
 
-      <div class="control-group">
-        <label class="control-label" for="text_title">Title</label>
-        <div class="controls">
-          <input type="text" id="text_title">
-          <p class="help-block">Supporting help text</p>
-        </div>
-      </div>
+  <div class="control-group">
+    <label class="control-label" for="body">Body</label>
+    <div class="controls">
+      <textarea class="input-xlarge" name="body" id="body" rows="10"></textarea>
+      <p class="help-block">Supporting help text</p>
+    </div>
+  </div>
 
-      <div class="control-group">
-        <label class="control-label" for="text_body">Body</label>
-        <div class="controls">
-          <textarea class="input-xlarge" id="text_body" rows="10"></textarea>
-          <p class="help-block">Supporting help text</p>
-        </div>
-      </div>
+  <!-- <input type="hidden" name="type" id="type" value="text"> -->
 
-      <input type="hidden" name="type" id="type" value="text">
-
-    </fieldset>
-
-</form>
+</fieldset>

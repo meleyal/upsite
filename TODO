@@ -6,4 +6,5 @@ TODO
 - make header editable (own widget class, deletable:false)
 - image widget / upload
 - theming (colors + font)
+- bootstrap widgets collection
 ✓ reusable dialog view/template

@@ -7,57 +7,36 @@ class app.views.TextsNew extends app.views.Dialog
   options:
     title: 'New Text'
 
-  #events:
-    #'click .confirm': 'confirm'
+  events:
+    'submit form': 'save'
 
   initialize: (options) ->
-    #console.log @$el
-    #console.log 'TextsNew#initialize'
     super
-    @model = new app.models.Text()
+    @model = new app.models.Text
     @render()
-    #$('#text_body').wysihtml5(
-      #'font-styles': false
-			#'emphasis': true
-			#'lists': true
-			#'link': false
-			#'image': false
-			#'color': false
-    #)
-
-  #confirm: (e) ->
-    #console.log 'TextsNew#confirm'
-    #e.preventDefault()
+    #@installEditor()
 
   render: ->
     @renderContent @template { @model }
     return this
 
   save: (e) ->
-    #console.log 'save'
-    #console.log 'saving'
-    #e.preventDefault()
-    ## console.log 'save'
-    #data =
-      #type: 'Text'
-      #position: 1
-      #data:
-        #title: @$el.find('#text_title').val()
-        #body: @$el.find('#text_body').val()
-    ## console.log data
-    ## console.log @model
-    ## @model.save(data)
-    ## console.log data
-    #app.widgets.create(data)
+    e.preventDefault()
+    data = @$('form').serializeObject()
+    attrs =
+      type: 'Text'
+      sort_order_position: 0
+      data: data
+    #console.log data
+    app.widgets.create(attrs)
     #app.widgets.fetch()
-    #@$el.modal('hide')
-    ## @undelegateEvents()
-    ## console.log @modal
-    ## @model.save(data, {
-    ##   success: (model, resp) =>
-    ##     console.log 'success'
-    ##     # Widgets.fetch()
-    ##     # @el.find('form').remove()
-    ##   error: =>
-    ##     console.log 'error'
-    ## })
+    @remove()
+
+  installEditor: ->
+    @$('#body').wysihtml5
+      'font-styles': false
+      emphasis: true
+      lists: true
+      link: false
+      image: false
+      color: false

@@ -1,5 +1,6 @@
 #= require jquery
 #= require jquery-ui
+#= require jquery.ba-serializeobject
 #= require bootstrap
 #= require wysihtml5
 #= require bootstrap-wysihtml5
