@@ -12,24 +12,23 @@ class app.views.TextsNew extends app.views.Dialog
 
   initialize: (options) ->
     super
-    @model = new app.models.Text
     @render()
     #@installEditor()
 
   render: ->
-    @renderContent @template { @model }
+    @renderContent @template
     return this
 
   save: (e) ->
     e.preventDefault()
     data = @$('form').serializeObject()
+    # TODO: BB bug?
+    # why does create not use model defaults?
+    # sort_order_position is already set on model
     attrs =
-      type: 'Text'
       sort_order_position: 0
       data: data
-    #console.log data
     app.widgets.create(attrs, { wait:true })
-    #app.widgets.fetch()
     @remove()
 
   installEditor: ->
