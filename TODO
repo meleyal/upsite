@@ -1,10 +1,10 @@
 TODO
 
-- fix/test texts/new (saving)
-- editing
+- editing (resuse form + isNew()?)
 - validations for widget
 - make header editable (own widget class, deletable:false)
 - image widget / upload
 - theming (colors + font)
 - bootstrap widgets collection
 ✓ reusable dialog view/template
+✓ fix/test texts/new (saving)

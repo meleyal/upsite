@@ -10,7 +10,7 @@ class app.views.TextsNew extends app.views.Dialog
   events:
     'submit form': 'save'
 
-  initialize: (options) ->
+  initialize: ->
     super
     @render()
     #@installEditor()

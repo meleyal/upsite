@@ -1,5 +1,6 @@
 #= require jquery
 #= require jquery-ui
+#= require jquery.ba-serializeobject
 #= require underscore
 #= require backbone
 #= require bootstrap
