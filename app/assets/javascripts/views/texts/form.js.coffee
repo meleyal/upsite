@@ -5,7 +5,7 @@ class app.views.TextsForm extends app.views.Dialog
   template: JST['templates/texts/form']
 
   options:
-    title: 'New Text'
+    title: 'Text Widget'
 
   events:
     'submit form': 'save'

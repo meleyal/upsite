@@ -1,12 +1,12 @@
 TODO
 
-- editing
 - bootstrap widgets collection
 - fix sorting
 - escape html
-- validations for widget
+- validations
 - image widget / upload
 - theming (colors + font)
 - make header editable (own widget class, deletable:false)
 ✓ reusable dialog view/template
 ✓ fix/test texts/new (saving)
+✓ editing
