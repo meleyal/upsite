@@ -26,4 +26,4 @@ describe 'Collections/Widgets', ->
 
   it 'parses widgets from the repsonse', ->
     expect(@collection.length).toEqual @fixture.length
-    expect(@collection.get(1).get('title')).toEqual 'Woody Allen'
+    expect(@collection.get(1).get('data').title).toEqual 'Woody Allen'

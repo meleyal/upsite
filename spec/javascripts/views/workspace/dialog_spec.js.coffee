@@ -27,4 +27,3 @@ describe 'Views/Dialog', ->
   it 'should accept options', ->
     title = @view.$('.modal-title').text()
     expect(title).toBe(@options.title)
-

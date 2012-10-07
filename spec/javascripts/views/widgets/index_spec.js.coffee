@@ -1,3 +1,5 @@
+#= require models/widget
+#= require collections/widgets
 #= require views/widgets/index
 #= require templates/texts/text
 #= require views/texts/text
@@ -5,19 +7,15 @@
 describe 'Views/Widgets/Index', ->
 
   beforeEach ->
-    @collection = new Backbone.Collection
+    @collection = new app.collections.Widgets
     @view = new app.views.WidgetsIndex { @collection }
 
-  it 'should render a single widget', ->
-    @collection.add title: 'Foo', type: 'Text'
-    expect(@view.$el).toContain '.widget'
-
   it 'should render multiple widgets', ->
-    @collection.reset(fixtures.widgets.valid)
+    @collection.reset fixtures.widgets.valid
     expect(@view.$('.widget').length).toEqual(2)
 
   it 'should render correct widget type', ->
-    @collection.add title: 'Foo', type: 'Text'
+    @collection.reset fixtures.widgets.valid
     expect(@view.$el).toContain '.widget-text'
 
   it 'should be sortable', ->

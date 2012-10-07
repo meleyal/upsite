@@ -7,4 +7,3 @@ xdescribe 'Views/Workspace', ->
 
   it 'should...', ->
     expect(false).toEqual(true)
-

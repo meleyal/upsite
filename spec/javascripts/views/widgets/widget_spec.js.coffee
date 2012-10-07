@@ -7,12 +7,14 @@ describe 'Views/Widget', ->
     collection = { url: '/collection' }
     app.views.Widget::template = JST['templates/texts/text']
     @model = new Backbone.Model
+    @model.data = -> true
     @model.collection = collection
     @view = new app.views.Widget { @model }
     @server = sinon.fakeServer.create()
 
   afterEach ->
     @server.restore()
+    @view.remove()
 
   it 'should save position when sorted', ->
     @model.on 'change', (model) ->
@@ -20,6 +22,7 @@ describe 'Views/Widget', ->
     @view.$el.trigger 'sorted', 2
 
   it 'should delete itself on clicking delete button', ->
+    @view.render()
     sinon.stub(window, 'confirm').returns(true)
     spy = sinon.spy()
     @model.on 'destroy', spy

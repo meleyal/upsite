@@ -6,4 +6,3 @@ class app.collections.Widgets extends Backbone.Collection
 
   comparator: (model) ->
     model.get('sort_order')
-

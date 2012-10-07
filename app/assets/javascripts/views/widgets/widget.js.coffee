@@ -12,7 +12,7 @@ class app.views.Widget extends Backbone.View
 
   render: (model) =>
     model ?= @model
-    @$el.html @template?(model.data())
+    @$el.html @template(model.data())
 
   sorted: (e, idx) =>
     delete @model.attributes.sort_order
