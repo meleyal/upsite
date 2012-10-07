@@ -11,6 +11,6 @@
 </div>
 
 <div class="content">
-  <h3><%= @model.get('title') %></h3>
-  <p><%- @model.get('body') %></p>
+  <h3><%= @title %></h3>
+  <p><%- @body %></p>
 </div>

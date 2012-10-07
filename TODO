@@ -1,10 +1,12 @@
 TODO
 
-- editing (resuse form + isNew()?)
+- editing
+- bootstrap widgets collection
+- fix sorting
+- escape html
 - validations for widget
-- make header editable (own widget class, deletable:false)
 - image widget / upload
 - theming (colors + font)
-- bootstrap widgets collection
+- make header editable (own widget class, deletable:false)
 ✓ reusable dialog view/template
 ✓ fix/test texts/new (saving)

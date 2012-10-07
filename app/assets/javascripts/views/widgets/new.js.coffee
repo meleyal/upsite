@@ -21,5 +21,5 @@ class app.views.WidgetsNew extends app.views.Dialog
 
   newText: (e) ->
     @remove()
-    new app.views.TextsNew
+    new app.views.TextsForm
     e.preventDefault()

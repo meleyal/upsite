@@ -1,13 +1,13 @@
 #= require models/widget
 #= require collections/widgets
-#= require templates/texts/new
-#= require views/texts/new
+#= require templates/texts/form
+#= require views/texts/form
 
-describe 'Views/TextsNew', ->
+describe 'Views/TextsForm', ->
 
   beforeEach ->
     app.widgets = new app.collections.Widgets
-    @view = new app.views.TextsNew
+    @view = new app.views.TextsForm
     @view.$('#title').val('Woody Allen')
     @server = sinon.fakeServer.create()
 

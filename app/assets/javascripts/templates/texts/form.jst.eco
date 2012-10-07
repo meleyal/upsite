@@ -3,7 +3,7 @@
   <div class="control-group">
     <label class="control-label" for="title">Title</label>
     <div class="controls">
-      <input type="text" name="title" id="title">
+    <input type="text" name="title" id="title" value="<%= @title %>">
       <p class="help-block">Supporting help text</p>
     </div>
   </div>
@@ -11,7 +11,7 @@
   <div class="control-group">
     <label class="control-label" for="body">Body</label>
     <div class="controls">
-      <textarea class="input-xlarge" name="body" id="body" rows="10"></textarea>
+      <textarea class="input-xlarge" name="body" id="body" rows="10"><%= @body %></textarea>
       <p class="help-block">Supporting help text</p>
     </div>
   </div>

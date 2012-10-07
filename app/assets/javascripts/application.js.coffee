@@ -20,5 +20,3 @@ $ =>
   app.widgets.fetch()
 
   #@workspace = new App.Views.Workspace
-  #new app.views.TextsNew
-  #new app.views.WidgetsNew
