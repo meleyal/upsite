@@ -1,6 +1,5 @@
 TODO
 
-- bootstrap widgets collection
 - fix sorting
 - escape html
 - validations
@@ -10,3 +9,4 @@ TODO
 ✓ reusable dialog view/template
 ✓ fix/test texts/new (saving)
 ✓ editing
+✓ bootstrap widgets collection

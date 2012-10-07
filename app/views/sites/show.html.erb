@@ -12,3 +12,9 @@
 <footer>
   &copy; <%= "#{Date.today.year} #{@site.title}" %>
 </footer>
+
+<%= javascript_tag do %>
+  $(document).ready(function(){
+    app.widgets.reset(<%= raw @site.widgets.to_json %>);
+  });
+<% end %>
