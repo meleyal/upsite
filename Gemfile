@@ -8,11 +8,11 @@ gem 'ranked-model'
 # gem 'rails-trash'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'bootstrap-sass', '~> 2.0.1'
+  gem 'bootstrap-sass'
   gem 'bootstrap-wysihtml5-rails'
   # gem 'bootstrap-colorpicker-rails'
   gem 'font-awesome-rails'
+  gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
