@@ -7,13 +7,19 @@ class app.views.TextsForm extends app.views.Dialog
   options:
     title: 'Text Widget'
 
+  editorOptions:
+    'font-styles': false
+    link: false
+    image: false
+    color: false
+
   events:
     'submit form': 'save'
 
   initialize: (options) ->
     super
     @render()
-    #@installEditor()
+    @installEditor()
 
   render: ->
     @renderContent @template(@model?.data())
@@ -22,6 +28,7 @@ class app.views.TextsForm extends app.views.Dialog
   save: (e) ->
     e.preventDefault()
     data = @$('form').serializeObject()
+    delete data._wysihtml5_mode
     if @model
       @model.save({ data }, { wait:true })
     else
@@ -32,10 +39,4 @@ class app.views.TextsForm extends app.views.Dialog
     @remove()
 
   installEditor: ->
-    @$('input#body').wysihtml5
-      'font-styles': false
-      emphasis: true
-      lists: true
-      link: false
-      image: false
-      color: false
+    @$('textarea').wysihtml5 @editorOptions

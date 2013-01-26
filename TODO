@@ -1,16 +1,16 @@
 TODO
 
-- enable html editor
-- escape html
-- xss protect bootstrap data
-- jbuilder?
 - update rails
 - update backbone
 - garbage collection
 - validations
+- jbuilder?
 - image widget / upload
 - theming (colors + font)
 - make header editable (own widget class, deletable:false)
 
 
  ✔ fix sorting @done (13-01-26 15:07)
+✔ enable html editor @done (13-01-26 15:48)
+✔ escape html @done (13-01-26 15:48)
+✔ xss protect bootstrap data @done (13-01-26 15:48)

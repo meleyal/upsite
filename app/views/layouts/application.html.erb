@@ -12,5 +12,8 @@
     <div class="container">
       <%= yield %>
     </div>
+    <script type="text/javascript">
+      $(document).ready(function(){ <%= yield :bootstrap_data %> });
+    </script>
   </body>
 </html>

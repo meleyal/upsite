@@ -13,8 +13,6 @@
   &copy; <%= "#{Date.today.year} #{@site.title}" %>
 </footer>
 
-<%= javascript_tag do %>
-  $(document).ready(function(){
-    app.widgets.reset(<%= raw @site.widgets.to_json %>);
-  });
+<% content_for :bootstrap_data do %>
+  app.widgets.reset(<%= json_escape @site.widgets.to_json.html_safe %>);
 <% end %>
