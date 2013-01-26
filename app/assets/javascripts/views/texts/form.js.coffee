@@ -30,12 +30,12 @@ class app.views.TextsForm extends app.views.Dialog
     data = @$('form').serializeObject()
     delete data._wysihtml5_mode
     if @model
-      @model.save({ data }, { wait:true })
+      @model.save { data }
     else
-      # why does create not use model defaults?
+      # TODO: Why does create not use model defaults?
       # sort_order_position is already set on model
       attrs = { sort_order_position: 0, data }
-      app.widgets.create(attrs, { wait:true })
+      app.widgets.create attrs, { wait: true }
     @remove()
 
   installEditor: ->

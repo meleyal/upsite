@@ -14,6 +14,7 @@
 
 $ =>
   app.widgets = new app.collections.Widgets
+  app.attachments = new app.collections.Attachments
   app.widgetsIndex = new app.views.WidgetsIndex el: '.widgets', collection: app.widgets
   app.hud = new app.views.Hud
   #@workspace = new App.Views.Workspace

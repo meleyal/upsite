@@ -1,8 +1,8 @@
 <div class="toolbar-row">
-  <a href="#" class="new-text symbol" title="Text">
+  <a href="#" class="symbol" title="Text" data-type="text">
     <i class="icon-font icon-large"></i>
   </a>
-  <!-- <a href="#" class="add symbol" title="Image">
+  <a href="#" class="symbol" title="Image" data-type="image">
     <i class="icon-picture icon-large"></i>
-  </a> -->
+  </a>
 </div>

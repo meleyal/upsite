@@ -41,6 +41,7 @@ GEM
     bootstrap-wysihtml5-rails (0.3.1.17)
       railties (>= 3.0)
     builder (3.0.4)
+    cocaine (0.4.2)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -90,6 +91,12 @@ GEM
     mime-types (1.19)
     multi_json (1.5.0)
     netrc (0.7.7)
+    paperclip (3.4.0)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.4.0)
+      mime-types
     polyglot (0.3.3)
     rack (1.4.4)
     rack-cache (1.2)
@@ -162,6 +169,7 @@ DEPENDENCIES
   hirb
   jasminerice
   jquery-rails
+  paperclip
   rails
   ranked-model
   sass-rails (~> 3.2.3)

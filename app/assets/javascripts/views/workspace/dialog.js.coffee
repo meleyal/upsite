@@ -10,7 +10,13 @@ class app.views.Dialog extends Backbone.View
     title: 'Untitled Dialog'
 
   initialize: ->
+    # TODO: use events hash and merge with child views
+    $(document).on 'keyup', @onKeyup
     @dialogRender()
+
+  onKeyup: (e) =>
+    switch e.which
+      when 27 then @remove()
 
   dialogRender: ->
     @options ||= @defaults

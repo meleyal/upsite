@@ -9,7 +9,7 @@ class app.views.WidgetsNew extends app.views.Dialog
     footer: false
 
   events:
-    'click .new-text': 'newText'
+    'click a': 'new'
 
   initialize: ->
     super
@@ -19,7 +19,10 @@ class app.views.WidgetsNew extends app.views.Dialog
     @renderContent @template()
     return this
 
-  newText: (e) ->
+  new: (e) ->
     @remove()
-    new app.views.TextsForm
     e.preventDefault()
+    { type } = $(e.currentTarget).data()
+    switch type
+      when 'text' then new app.views.TextsForm
+      when 'image' then new app.views.ImagesForm
