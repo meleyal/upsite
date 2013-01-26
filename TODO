@@ -1,12 +1,16 @@
 TODO
 
-- fix sorting
+- enable html editor
 - escape html
+- xss protect bootstrap data
+- jbuilder?
+- update rails
+- update backbone
+- garbage collection
 - validations
 - image widget / upload
 - theming (colors + font)
 - make header editable (own widget class, deletable:false)
-✓ reusable dialog view/template
-✓ fix/test texts/new (saving)
-✓ editing
-✓ bootstrap widgets collection
+
+
+ ✔ fix sorting @done (13-01-26 15:07)

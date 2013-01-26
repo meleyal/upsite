@@ -3,6 +3,7 @@ class app.views.Widget extends Backbone.View
   tagName: 'div'
 
   events:
+    'click': 'log'
     'sorted': 'sorted'
     'click .edit': 'edit'
     'click .delete': 'confirmDelete'
@@ -13,13 +14,17 @@ class app.views.Widget extends Backbone.View
   render: (model) =>
     model ?= @model
     @$el.html @template(model.data())
+    this
+
+  log: (e) =>
+    console.log @model.attributes
 
   sorted: (e, idx) =>
-    delete @model.attributes.sort_order
-    @model.save sort_order_position: idx
+    @model.save { sort_order_position: idx }, { wait: true }
+    @model.fetch()
 
   edit: (e) ->
-    new app.views.TextsForm({ @model })
+    new app.views.TextsForm { @model }
     e.preventDefault()
 
   confirmDelete: (e) ->
@@ -27,4 +32,3 @@ class app.views.Widget extends Backbone.View
       @remove()
       @model.destroy()
     e.preventDefault()
-

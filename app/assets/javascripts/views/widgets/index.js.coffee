@@ -11,23 +11,28 @@ class app.views.WidgetsIndex extends Backbone.View
 
   initialize: (options) ->
     { @collection } = options
-    @collection.bind 'reset sync', @addAll
+    @collection.bind 'reset', @addAll
+    @collection.bind 'add', @addOne
     @makeSortable()
 
   addOne: (model) =>
-    type = model.get 'type'
-    view = app.views[type]
-    widget = new view({ model }).render()
-    @$el.append widget
+    widget = @buildView model
+    @$el.prepend widget
 
   addAll: =>
     @$el.empty()
-    @collection.each @addOne
+    views = @collection.map @buildView
+    @$el.append views
+
+  buildView: (model) ->
+    type = model.get 'type'
+    view = app.views[type]
+    new view({ model }).render().el
 
   makeSortable: ->
     @$el.sortable @sortableOptions
 
   onSort: (e, ui) =>
     widgets = @$('.widget')
-    idx = widgets.index(ui.item)
+    idx = widgets.index ui.item
     ui.item.trigger 'sorted', idx
