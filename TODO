@@ -2,7 +2,6 @@ TODO:
 
 Image widget / upload:
 
-  - Handle delete site > delete attachments
   - Handle delete widget > delete attachment (+ file)
 
 

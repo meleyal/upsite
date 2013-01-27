@@ -3,7 +3,7 @@ class Attachment < ActiveRecord::Base
   belongs_to :site
 
   has_attached_file :upload, {
-    url: "/system/:site_id/:hash_:style.:extension",
+    url: "/uploads/:site_id/:hash_:style.:extension",
     hash_secret: "QXBhFYdt2JU7ZINf",
     styles: { medium: '300x300#' }
   }
