@@ -15,5 +15,5 @@
 /tmp
 
 # Ignore attachment uploads.
-/public/uploads
+/public/system
 

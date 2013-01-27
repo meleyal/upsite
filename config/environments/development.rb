@@ -34,4 +34,16 @@ Sitespot::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Paperclip
+  # config.paperclip_defaults = {
+  #   :storage => :s3,
+  #   :s3_host_name => 's3-eu-west-1.amazonaws.com',
+  #   :s3_credentials => {
+  #     :bucket => 'media.sitespot.dev',
+  #     :access_key_id => 'AKIAJA44JKXCBIUNGMYA',
+  #     :secret_access_key => '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'
+  #   }
+  # }
+
 end
