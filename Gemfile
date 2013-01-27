@@ -7,6 +7,7 @@ gem 'backbone-on-rails'
 gem 'sqlite3'
 gem 'ranked-model'
 gem 'paperclip'
+gem 'aws-sdk'
 # gem 'rails-trash'
 
 group :assets do

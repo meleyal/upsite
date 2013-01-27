@@ -1,9 +1,9 @@
 TODO:
 
 Image widget / upload:
-  - customize file path ( site.id/hash_preset.ext)
-  - save file to local file system in development, upload to s3 in production
 
+  - Handle delete site > delete attachments
+  - Handle delete widget > delete attachment (+ file)
 
 
 
@@ -19,8 +19,11 @@ Image widget / upload:
 - theming (colors + font)
 - make header editable (own widget class, deletable:false)
 - validations
+- jbuilder for attachment json
 - use view composition for dialog/forms?
 - garbage collection (use listenTo, track sub views)
 
 
- ✔ create Image + Text model instances, not generic Widget (are subclasses needed?) @done (13-01-27 17:13)
+✔ customize file path ( site.id/hash_preset.ext) @done (13-01-27 20:28)
+✔ save file to local file system in development, upload to s3 in production @done (13-01-27 20:27)
+✔ create Image + Text model instances, not generic Widget (are subclasses needed?) @done (13-01-27 17:13)
