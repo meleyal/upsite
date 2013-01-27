@@ -1,25 +1,8 @@
-TODO
+TODO:
 
-- image widget / upload
-
-      research paperclip, carrierwave
-      see backbone book - attachments
-
-      create a new image model
-      add a new icon to the hud
-      create a new form dialog
-
-      in the new image form view
-
-      on saving the form...
-
-      create a new attachment model
-
-
-
-      who should handle the upload?
-
-      the image model?
+Image widget / upload:
+  - customize file path ( site.id/hash_preset.ext)
+  - save file to local file system in development, upload to s3 in production
 
 
 
@@ -32,42 +15,12 @@ TODO
 
 
 
-
-      upload the image on save
-
-      submit the file with FormData
-      monitor the progress with xhr.upload
-
-      save file to local file system in development
-      upload to s3 in production
-
-      when uploaded...
-        save the image to the database
-        data.url = upload.url
-
-      resize to 300x300
-
-
-      own route for uploads!
-        /attachments
-        /uploads
-        return json url?
-
-      see basecamp/github api
-
-      general approach
-          read file from form
-          create new filedata object
-          manually submit it to /attachments
-          wait for response with URL
-          create image model with nested attachments object
-
-
-- cleanup attachments controller
+- remove /texts + images/ routes
 - theming (colors + font)
 - make header editable (own widget class, deletable:false)
 - validations
-- user view composition for dialog/forms?
-- jbuilder
-- use jquery_ujs + remove bb authtoken adapter
-- garbage collection
+- use view composition for dialog/forms?
+- garbage collection (use listenTo, track sub views)
+
+
+ ✔ create Image + Text model instances, not generic Widget (are subclasses needed?) @done (13-01-27 17:13)

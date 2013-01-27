@@ -17,7 +17,7 @@ class app.views.Widget extends Backbone.View
     this
 
   log: (e) =>
-    console.log @model.attributes
+    console.log @model
 
   sorted: (e, idx) =>
     @model.save { sort_order_position: idx }, { wait: true }

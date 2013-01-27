@@ -2,9 +2,9 @@
 
 class app.models.Image extends app.models.Widget
 
-  defaults:
-    type: 'Image'
-    sort_order_position: 0
+  # defaults:
+  #   type: 'Image'
+  #   sort_order_position: 0
 
   # initialize: ->
   #   console.log 'setting', @get('data').attachments

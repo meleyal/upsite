@@ -32,9 +32,7 @@ class app.views.TextsForm extends app.views.Dialog
     if @model
       @model.save { data }
     else
-      # TODO: Why does create not use model defaults?
-      # sort_order_position is already set on model
-      attrs = { sort_order_position: 0, data }
+      attrs = { type: 'Text', data }
       app.widgets.create attrs, { wait: true }
     @remove()
 

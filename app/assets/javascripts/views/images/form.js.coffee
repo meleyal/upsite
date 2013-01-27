@@ -29,8 +29,6 @@ class app.views.ImagesForm extends app.views.Dialog
     if @model
       @model.save { data }
     else
-      # TODO: Why does create not use model defaults?
-      # sort_order_position is already set on model
-      attrs = { sort_order_position: 0, type: 'Image', data }
+      attrs = { type: 'Image', data }
       app.widgets.create attrs, { wait: true }
     @remove()

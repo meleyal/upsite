@@ -1,12 +1,10 @@
 class app.models.Attachment extends Backbone.Model
 
   sync: (method, model, options) =>
-    console.log 'sync', method, model, options
     file = model.get 'file'
     formData = new FormData
     formData.append 'upload', file
     token = $("meta[name='csrf-token']").attr 'content'
-    console.log token
     formData.append 'authenticity_token', token
     req = new XMLHttpRequest
     # upload = req.upload
