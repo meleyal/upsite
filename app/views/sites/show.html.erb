@@ -7,12 +7,11 @@
 
 <div class="widgets row"></div>
 
-<hr>
-
-<footer>
+<footer class="page-footer">
   &copy; <%= "#{Date.today.year} #{@site.title}" %>
 </footer>
 
 <% content_for :bootstrap_data do %>
-  app.widgets.reset(<%= json_escape @site.widgets.to_json.html_safe %>);
+  <!-- app.widgets.reset(<%= json_escape @site.widgets.to_json.html_safe %>); -->
+  <!-- app.widgets.reset(<%= render(template: 'widgets/index.json').html_safe %>); -->
 <% end %>

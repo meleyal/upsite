@@ -6,6 +6,7 @@ class SitesController < ApplicationController
 
   def show
     @site = Site.find_by_subdomain!(request.subdomains.first)
+    # @widgets = @site.widgets.all
   end
 
   def new
