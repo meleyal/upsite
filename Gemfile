@@ -27,5 +27,5 @@ group :test, :development do
   gem 'wirble'
   gem 'hirb'
   gem 'awesome_print'
-  gem 'jasminerice'
+  # gem 'jasminerice'
 end

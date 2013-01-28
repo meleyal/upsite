@@ -1,15 +1,15 @@
 Sitespot::Application.routes.draw do
 
-  resources :sites
+  # resources :sites
 
   constraints :subdomain => /.+/ do
-    match '/' => 'sites#show'
+    get '/' => 'sites#show'
+    put '/' => 'sites#update'
     resources :widgets, except: [:new, :edit]
-    resources :texts, except: [:new, :edit]
-    resources :images, except: [:new, :edit]
-    resources :attachments, except: [:new, :edit]
+    # resources :attachments, except: [:new, :edit]
+    resources :attachments, only: [:create]
   end
 
-  root :to => 'sites#index'
+  # root :to => 'sites#index'
 
 end

@@ -11,8 +11,10 @@ class WidgetsController < ApplicationController
     @widget = @site.widgets.find(params[:id])
   end
 
+  # Override the location as it otherwise presumes
+  # a named route for the widget type (e.g. text_url)
   def create
-    respond_with @site.send(widget_type).create(params[:widget])
+    respond_with @site.send(widget_type).create(params[:widget]), location: nil
   end
 
   def update
