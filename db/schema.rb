@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130126193656) do
+ActiveRecord::Schema.define(:version => 20130128204519) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "site_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130126193656) do
     t.string   "subdomain"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "settings"
   end
 
   create_table "widgets", :force => true do |t|
