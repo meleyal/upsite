@@ -6,6 +6,7 @@ class app.views.Hud extends Backbone.View
 
   events:
     'click .add': 'add'
+    'click .design': 'design'
 
   initialize: ->
     @render()
@@ -14,8 +15,12 @@ class app.views.Hud extends Backbone.View
     @$el.html @template(@options)
     @$('a').tooltip placement: 'left'
     $('body').append @$el
-    return this
+    this
 
   add: (e) ->
     new app.views.WidgetsNew
+    e.preventDefault()
+
+  design: (e) ->
+    new app.views.SitesForm
     e.preventDefault()

@@ -1,3 +1,7 @@
 <a href="#" class="add symbol symbol-small" title="Add">
   <i class="icon-plus icon-large"></i>
 </a>
+
+<a href="#" class="design symbol symbol-small" title="Design">
+  <i class="icon-tint icon-large"></i>
+</a>

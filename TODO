@@ -1,25 +1,14 @@
 TODO:
 
 - theming (colors + font)
+
       see notes
-
-      ✔ new hud icon (design / settings?) @done (13-01-28 21:51)
-      ✔ add a settings column to sites model @done (13-01-28 21:51)
-
-      sites route -> resource with constraints?
-      sites controller
-      or post to root url
-
-      site model/collection?
-      new dialog
-      enter a hex color
-      save in site model (serialize)
-
-      render in head
+            map settings to BS variables
 
 
-
-
+Refine current features:
+- Why is order different between widgets.fetch + boostrapped?
+- Bootstrap data with jbuilder templates
 - Handle delete image widget > delete attachment (+ file)
 - make header editable (own widget class, deletable:false)
 - validations
@@ -29,5 +18,4 @@ TODO:
 - rename app sitespot > pagekit (https://github.com/get/Rename)
 - user signup (see paintbox)
 
-✔ remove /texts + images/ routes @done (13-01-28 22:21)
 

@@ -1,0 +1,60 @@
+https://twitter.com/settings/design
+
+colors
+  http://www.wufoo.com/gallery/designs/
+
+fonts
+  http://www.google.com/webfonts
+
+background
+  http://subtlepatterns.com/
+
+
+
+
+
+
+
+
+
+
+
+define what is themable (bg, content, text, links, see Bootstrap vars)
+
+see twitter, tumblr
+
+when you click the design tab...
+
+add columns to the site table for
+  background_color, link_color
+
+OR
+
+add own theme table / model
+
+
+
+this should be extendible to themes...
+
+site has_one theme (own theme table, with name/slug)
+
+can choose a preset theme from a list
+
+what happens when you customize it?
+
+a new (child?) theme is created
+
+start with
+
+  a form for entering
+
+  background color hex
+  links color hex
+
+render new style element inline with custom values
+add a user-style class to the body to override?
+
+
+store on site table?
+store on settings table?
+

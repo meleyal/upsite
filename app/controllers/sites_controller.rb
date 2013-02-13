@@ -1,12 +1,15 @@
 class SitesController < ApplicationController
 
+  before_filter :set_site
+  respond_to :json
+
   def index
     @sites = Site.all
   end
 
   def show
     @site = Site.find_by_subdomain!(request.subdomains.first)
-    # @widgets = @site.widgets.all
+    @widgets = @site.widgets.all
   end
 
   def new
@@ -27,12 +30,8 @@ class SitesController < ApplicationController
   end
 
   def update
-    @site = Site.find(params[:id])
-    if @site.update_attributes(params[:site])
-      redirect_to @site, notice: 'Site was successfully updated.'
-    else
-      render action: "edit"
-    end
+    @site.update_attributes(params[:site])
+    respond_with(@site)
   end
 
   def destroy

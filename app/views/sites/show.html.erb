@@ -12,6 +12,6 @@
 </footer>
 
 <% content_for :bootstrap_data do %>
-  <!-- app.widgets.reset(<%= json_escape @site.widgets.to_json.html_safe %>); -->
-  <!-- app.widgets.reset(<%= render(template: 'widgets/index.json').html_safe %>); -->
+  <!-- app.widgets.update(<%= render(template: 'widgets/index.json').html_safe %>); -->
+  app.site.set(<%= json_escape @site.to_json.html_safe %>);
 <% end %>
