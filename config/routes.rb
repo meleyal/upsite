@@ -10,6 +10,6 @@ Sitespot::Application.routes.draw do
     resources :attachments, only: [:create]
   end
 
-  # root :to => 'sites#index'
+  root :to => 'static_pages#home'
 
 end
