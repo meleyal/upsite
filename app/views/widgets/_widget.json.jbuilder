@@ -1,1 +1,1 @@
-json.(widget, :id, :type, :data)
+json.(widget, :id, :type, :sort_order, :data)

@@ -19,5 +19,4 @@ $ =>
   app.widgetsIndex = new app.views.WidgetsIndex el: '.widgets', collection: app.widgets
   app.theme = new app.views.SitesTheme model: app.site
   app.hud = new app.views.Hud
-  app.widgets.fetch()
   #@workspace = new App.Views.Workspace
