@@ -6,8 +6,8 @@ Sitespot::Application.routes.draw do
     get '/' => 'sites#show'
     put '/' => 'sites#update'
     resources :widgets, except: [:new, :edit]
-    # resources :attachments, except: [:new, :edit]
-    resources :attachments, only: [:create]
+    resources :attachments, except: [:new, :edit]
+    # resources :attachments, only: [:create]
   end
 
   root :to => 'static_pages#home'

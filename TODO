@@ -8,6 +8,7 @@ TODO:
 
 Refine current features:
 - Why is order different between widgets.fetch + boostrapped?
+- Try store for models http://railscasts.com/episodes/318-upgrading-to-rails-3-2?view=asciicast
 - Bootstrap data with jbuilder templates
 - Handle delete image widget > delete attachment (+ file)
 - make header editable (own widget class, deletable:false)
@@ -19,3 +20,8 @@ Refine current features:
 - user signup (see paintbox)
 
 
+
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✔ Update Rails @done (13-02-14 20:33)

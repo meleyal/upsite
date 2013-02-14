@@ -25,6 +25,7 @@ group :test, :development do
   gem 'sqlite3'
   gem 'wirble'
   gem 'hirb'
+  gem 'quiet_assets', :git => 'git://github.com/evrone/quiet_assets.git'
   gem 'awesome_print'
   # gem 'jasminerice'
 end
