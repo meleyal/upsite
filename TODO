@@ -3,23 +3,38 @@ TODO:
 
 
 
+
+
+
+
+
+
+- Review + test current
+
+- Validate text form
+      don't use data?
+        split into store / accessors
+      must have a title or a body
+      return from server
+
+
 Refine current features:
-- Try store for models http://railscasts.com/episodes/318-upgrading-to-rails-3-2?view=asciicast
+- Show upload progress
+- Validate upload format
+- Workspace view (controller?)
+- Garbage collection (use listenTo, track sub views)
 - Handle delete image widget > delete attachment (+ file)
-- make header editable (own widget class, deletable:false)
-- validations
-- jbuilder for attachment json
-- use view composition for dialog/forms?
-- garbage collection (use listenTo, track sub views)
-- rename app sitespot > pagekit (https://github.com/get/Rename)
-- user signup (see paintbox)
+- Validations
+- Use jbuilder for attachment json
+- User signup (see paintbox)
+- Rename app sitespot > pagekit (https://github.com/get/Rename)
+- Rename sites > pages?
+- Try store for models http://railscasts.com/episodes/318-upgrading-to-rails-3-2?view=asciicast
+
 
 
 
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
- ✔ Bootstrap data with jbuilder templates @done (13-02-14 21:03)
- ✔ Why is order different between widgets.fetch + boostrapped? @done (13-02-14 20:56)
- ✔ theming (bg colors) @done (13-02-14 20:37)
- ✔ Update Rails @done (13-02-14 20:33)
+ ✔ Use bootstrap grid for responsive layout @done

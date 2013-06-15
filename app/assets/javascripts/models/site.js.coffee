@@ -1,4 +1,4 @@
-class app.models.Site extends Backbone.Model
+class App.Site extends App.Model
 
   urlRoot: '/'
 

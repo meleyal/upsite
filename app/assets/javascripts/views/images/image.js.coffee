@@ -1,6 +1,6 @@
 #= require ../widgets/widget
 
-class app.views.Image extends app.views.Widget
+class App.ImageView extends App.WidgetView
 
   className: 'widget widget-image span4'
 

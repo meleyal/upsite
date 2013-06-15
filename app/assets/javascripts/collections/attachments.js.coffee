@@ -1,4 +1,4 @@
-class app.collections.Attachments extends Backbone.Collection
+class App.Attachments extends App.Collection
 
-  model: app.models.Attachment
+  model: App.Attachment
   url: '/attachments'

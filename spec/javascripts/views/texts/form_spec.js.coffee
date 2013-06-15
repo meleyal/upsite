@@ -7,7 +7,7 @@ describe 'Views/TextsForm', ->
 
   beforeEach ->
     app.widgets = new app.collections.Widgets
-    @view = new app.views.TextsForm
+    @view = new App.TextsForm
     @view.$('#title').val('Woody Allen')
     @fixture = fixtures.widgets.valid[0]
     @server = sinon.fakeServer.create()

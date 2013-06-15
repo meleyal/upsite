@@ -3,7 +3,7 @@
 xdescribe 'Views/Workspace', ->
 
   beforeEach ->
-    @view = new app.views.Workspace
+    @view = new App.Workspace
 
   it 'should...', ->
     expect(false).toEqual(true)

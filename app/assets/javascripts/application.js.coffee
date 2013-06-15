@@ -6,17 +6,16 @@
 #= require bootstrap-wysihtml5
 #= require underscore
 #= require backbone
-#= require namespace
+
+#= require app/namespace
+#= require app/app
+#= require models/model
+#= require models/widget
+#= require collections/collection
+
 #= require_tree ./models
 #= require_tree ./collections
 #= require_tree ./templates
 #= require_tree ./views
 
-$ =>
-  app.site = new app.models.Site
-  app.widgets = new app.collections.Widgets
-  app.attachments = new app.collections.Attachments
-  app.widgetsIndex = new app.views.WidgetsIndex el: '.widgets', collection: app.widgets
-  app.theme = new app.views.SitesTheme model: app.site
-  app.hud = new app.views.Hud
-  #@workspace = new App.Views.Workspace
+window.app = new App.Application

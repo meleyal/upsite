@@ -1,4 +1,4 @@
-class app.models.Attachment extends Backbone.Model
+class App.Attachment extends App.Model
 
   sync: (method, model, options) =>
     file = model.get 'file'

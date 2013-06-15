@@ -5,11 +5,11 @@ describe 'Views/Widget', ->
 
   beforeEach ->
     collection = { url: '/collection' }
-    app.views.Widget::template = JST['templates/texts/text']
+    App.Widget::template = JST['templates/texts/text']
     @model = new Backbone.Model
     @model.data = -> true
     @model.collection = collection
-    @view = new app.views.Widget { @model }
+    @view = new App.Widget { @model }
     @server = sinon.fakeServer.create()
 
   afterEach ->

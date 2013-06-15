@@ -1,11 +1,11 @@
-class app.collections.Widgets extends Backbone.Collection
+class App.Widgets extends App.Collection
 
-  model: app.models.Widget
+  model: App.Widget
   url: '/widgets'
 
-  model: (attrs, options) ->
-    if model = app.models[attrs.type]
-      new model attrs, options
-    else
-      console.warn 'Widget not found'
-      false
+  # model: (attrs, options) ->
+  #   if model = app.models[attrs.type]
+  #     new model attrs, options
+  #   else
+  #     console.warn 'Widget not found'
+  #     false

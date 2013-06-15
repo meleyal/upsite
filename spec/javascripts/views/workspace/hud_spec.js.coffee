@@ -4,7 +4,7 @@
 describe 'Views/Hud', ->
 
   beforeEach ->
-    @view = new app.views.Hud
+    @view = new App.Hud
     @body = $('body')
 
   afterEach ->

@@ -1,6 +1,6 @@
 #= require ../widgets/widget
 
-class app.views.Text extends app.views.Widget
+class App.TextView extends App.WidgetView
 
   className: 'widget widget-text span4'
 

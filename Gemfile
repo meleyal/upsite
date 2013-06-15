@@ -26,5 +26,5 @@ group :test, :development do
   gem 'hirb'
   gem 'quiet_assets', :git => 'git://github.com/evrone/quiet_assets.git'
   gem 'awesome_print'
-  # gem 'jasminerice'
+  gem 'jasminerice'
 end

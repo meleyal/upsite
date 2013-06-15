@@ -1,4 +1,4 @@
-class app.views.SitesTheme extends Backbone.View
+class App.SitesThemeView extends Backbone.View
 
   tagName: 'style'
 

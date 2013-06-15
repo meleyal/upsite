@@ -1,6 +1,6 @@
 #= require ../workspace/dialog
 
-class app.views.ImagesForm extends app.views.Dialog
+class App.ImagesFormView extends App.DialogView
 
   template: JST['templates/images/form']
 

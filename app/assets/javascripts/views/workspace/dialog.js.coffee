@@ -1,4 +1,4 @@
-class app.views.Dialog extends Backbone.View
+class App.DialogView extends Backbone.View
 
   tagName: 'div'
   className: 'modal'

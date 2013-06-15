@@ -1,6 +1,4 @@
-#= require ./widget
-
-class app.models.Text extends app.models.Widget
+class App.Text extends App.Widget
 
   # defaults:
   #   type: 'Text'

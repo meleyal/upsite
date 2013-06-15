@@ -1,4 +1,4 @@
-class app.views.Hud extends Backbone.View
+class App.HudView extends Backbone.View
 
   tagName: 'div'
   className: 'hud'
@@ -18,9 +18,9 @@ class app.views.Hud extends Backbone.View
     this
 
   add: (e) ->
-    new app.views.WidgetsNew
+    new App.WidgetsNewView
     e.preventDefault()
 
   design: (e) ->
-    new app.views.SitesForm
+    new App.SitesFormView
     e.preventDefault()

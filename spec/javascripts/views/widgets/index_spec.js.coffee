@@ -8,7 +8,7 @@ describe 'Views/Widgets/Index', ->
 
   beforeEach ->
     @collection = new app.collections.Widgets
-    @view = new app.views.WidgetsIndex { @collection }
+    @view = new App.WidgetsIndex { @collection }
 
   it 'should render multiple widgets', ->
     @collection.reset fixtures.widgets.valid

@@ -1,4 +1,4 @@
-class app.views.WidgetsIndex extends Backbone.View
+class App.WidgetsIndexView extends Backbone.View
 
   events:
     'sortupdate': 'onSort'
@@ -25,8 +25,8 @@ class app.views.WidgetsIndex extends Backbone.View
     @$el.append views
 
   buildView: (model) ->
-    type = model.get 'type'
-    view = app.views[type]
+    type = model.get('type') + 'View'
+    view = App[type]
     new view({ model }).render().el
 
   makeSortable: ->

@@ -1,6 +1,4 @@
-#= require ./widget
-
-class app.models.Image extends app.models.Widget
+class App.Image extends App.Widget
 
   # defaults:
   #   type: 'Image'

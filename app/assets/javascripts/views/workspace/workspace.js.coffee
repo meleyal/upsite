@@ -1,4 +1,4 @@
-class app.views.Workspace extends Backbone.View
+class App.WorkspaceView extends Backbone.View
 
   #el: 'body'
 
@@ -7,4 +7,4 @@ class app.views.Workspace extends Backbone.View
 
   #add: (e) ->
     #e.preventDefault()
-    #$(@el).append new App.Views.Toolbar
+    #$(@el).append new App.Toolbar

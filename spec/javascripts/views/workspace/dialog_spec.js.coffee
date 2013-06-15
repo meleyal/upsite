@@ -5,7 +5,7 @@ describe 'Views/Dialog', ->
 
   beforeEach ->
     @options = { title: 'Test' }
-    @view = new app.views.Dialog @options
+    @view = new App.Dialog @options
     @body = $('body')
 
   afterEach ->

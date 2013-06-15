@@ -1,4 +1,4 @@
-class app.views.Widget extends Backbone.View
+class App.WidgetView extends Backbone.View
 
   tagName: 'div'
 
@@ -24,7 +24,7 @@ class app.views.Widget extends Backbone.View
     @model.fetch()
 
   edit: (e) ->
-    new app.views.TextsForm { @model }
+    new App.TextsFormView { @model }
     e.preventDefault()
 
   confirmDelete: (e) ->

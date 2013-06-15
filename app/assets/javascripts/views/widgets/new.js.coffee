@@ -1,6 +1,6 @@
 #= require ../workspace/dialog
 
-class app.views.WidgetsNew extends app.views.Dialog
+class App.WidgetsNewView extends App.DialogView
 
   template: JST['templates/widgets/new']
 
@@ -24,5 +24,5 @@ class app.views.WidgetsNew extends app.views.Dialog
     e.preventDefault()
     { type } = $(e.currentTarget).data()
     switch type
-      when 'text' then new app.views.TextsForm
-      when 'image' then new app.views.ImagesForm
+      when 'text' then new App.TextsFormView
+      when 'image' then new App.ImagesFormView
