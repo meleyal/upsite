@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Sitespot::Application.load_tasks
+Pagekit::Application.load_tasks

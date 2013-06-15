@@ -1,4 +1,4 @@
-Sitespot::Application.routes.draw do
+Pagekit::Application.routes.draw do
 
   constraints :subdomain => /.+/ do
     get '/' => 'sites#show'

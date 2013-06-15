@@ -1,24 +1,14 @@
 TODO:
 
-
-
-
-
-
-
-
-
+Feature freeze!
 
 - Review + test current
+- Refine current features
+
+
+
 
 - Validate text form
-      don't use data?
-        split into store / accessors
-      must have a title or a body
-      return from server
-
-
-Refine current features:
 - Show upload progress
 - Validate upload format
 - Workspace view (controller?)
@@ -27,14 +17,10 @@ Refine current features:
 - Validations
 - Use jbuilder for attachment json
 - User signup (see paintbox)
-- Rename app sitespot > pagekit (https://github.com/get/Rename)
 - Rename sites > pages?
 - Try store for models http://railscasts.com/episodes/318-upgrading-to-rails-3-2?view=asciicast
 
-
-
-
-
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Rename app sitespot > pagekit (https://github.com/get/Rename) @done
  ✔ Use bootstrap grid for responsive layout @done
