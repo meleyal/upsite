@@ -6,6 +6,7 @@
 #= require bootstrap
 
 #= require app/namespace
+#= require app/app
 #= require models/model
 #= require models/widget
 #= require collections/collection

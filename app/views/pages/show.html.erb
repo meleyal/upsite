@@ -1,17 +1,17 @@
 <header class="page-header">
   <h1>
-    <%= @site.title %>
-    <small><%= @site.subdomain %>.sitespot.com</small>
+    <%= @page.title %>
+    <small><%= @page.subdomain %>.pagekitapp.com</small>
   </h1>
 </header>
 
 <div class="widgets row"></div>
 
 <footer class="page-footer">
-  &copy; <%= "#{Date.today.year} #{@site.title}" %>
+  &copy; <%= "#{Date.today.year} #{@page.title}" %>
 </footer>
 
 <% content_for :bootstrap_data do %>
   app.widgets.reset(<%= render_json_template 'widgets/index' %>);
-  app.site.set(<%= render_json_template 'sites/show' %>);
+  app.page.set(<%= render_json_template 'pages/show' %>);
 <% end %>

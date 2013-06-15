@@ -4,9 +4,9 @@ class CreateWidgets < ActiveRecord::Migration
       t.string :type
       t.integer :sort_order
       t.text :data
-      t.references :site
+      t.references :page
       t.timestamps
     end
-    add_index :widgets, :site_id
+    add_index :widgets, :page_id
   end
 end

@@ -1,8 +1,8 @@
 #= require ../workspace/dialog
 
-class App.SitesFormView extends App.DialogView
+class App.PagesFormView extends App.DialogView
 
-  template: JST['templates/sites/form']
+  template: JST['templates/pages/form']
 
   options:
     title: 'Design'
@@ -12,7 +12,8 @@ class App.SitesFormView extends App.DialogView
     'submit form': 'save'
 
   initialize: (options) ->
-    @model = app.site
+    # TODO: pass in as option (router?)
+    @model = app.page
     super
     @render()
 

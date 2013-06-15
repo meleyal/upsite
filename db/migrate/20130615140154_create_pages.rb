@@ -1,8 +1,9 @@
-class CreateSites < ActiveRecord::Migration
+class CreatePages < ActiveRecord::Migration
   def change
-    create_table :sites do |t|
+    create_table :pages do |t|
       t.string :title
       t.string :subdomain
+      t.text :settings
 
       t.timestamps
     end

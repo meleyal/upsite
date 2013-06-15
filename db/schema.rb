@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128204519) do
+ActiveRecord::Schema.define(:version => 20130615140154) do
 
   create_table "attachments", :force => true do |t|
-    t.integer  "site_id"
+    t.integer  "page_id"
     t.string   "upload_file_name"
     t.string   "upload_content_type"
     t.integer  "upload_file_size"
@@ -23,23 +23,23 @@ ActiveRecord::Schema.define(:version => 20130128204519) do
     t.datetime "updated_at",          :null => false
   end
 
-  create_table "sites", :force => true do |t|
+  create_table "pages", :force => true do |t|
     t.string   "title"
     t.string   "subdomain"
+    t.text     "settings"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "settings"
   end
 
   create_table "widgets", :force => true do |t|
     t.string   "type"
     t.integer  "sort_order"
     t.text     "data"
-    t.integer  "site_id"
+    t.integer  "page_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "widgets", ["site_id"], :name => "index_widgets_on_site_id"
+  add_index "widgets", ["page_id"], :name => "index_widgets_on_page_id"
 
 end

@@ -1,4 +1,4 @@
-class App.Site extends App.Model
+class App.Page extends App.Model
 
   urlRoot: '/'
 

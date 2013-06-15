@@ -1,8 +1,8 @@
-class App.SitesThemeView extends Backbone.View
+class App.PagesThemeView extends Backbone.View
 
   tagName: 'style'
 
-  template: JST['templates/sites/theme']
+  template: JST['templates/pages/theme']
 
   initialize: (options) ->
     $('head').append @render().el

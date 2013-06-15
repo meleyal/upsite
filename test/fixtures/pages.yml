@@ -3,7 +3,9 @@
 one:
   title: MyString
   subdomain: MyString
+  settings: MyText
 
 two:
   title: MyString
   subdomain: MyString
+  settings: MyText

@@ -1,30 +1,30 @@
 class AttachmentsController < ApplicationController
 
-  before_filter :set_site
+  before_filter :set_page
   respond_to :json
 
   def index
-    @attachments = @site.attachments.all
+    @attachments = @page.attachments.all
   end
 
   def show
-    @attachment = @site.attachments.find(params[:id])
+    @attachment = @page.attachments.find(params[:id])
   end
 
   def create
-    attachment = @site.attachments.new({ upload: params[:upload] })
+    attachment = @page.attachments.new({ upload: params[:upload] })
     attachment.save
     respond_with(attachment)
   end
 
   def update
-    attachment = @site.attachments.find(params[:id])
+    attachment = @page.attachments.find(params[:id])
     attachment.update_attributes(params[:attachment])
     respond_with(attachment)
   end
 
   def destroy
-    respond_with @site.attachments.destroy(params[:id])
+    respond_with @page.attachments.destroy(params[:id])
   end
 
 end

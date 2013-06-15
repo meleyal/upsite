@@ -1,5 +1,3 @@
-#= require app/app
-
 describe 'App/Application', ->
 
   it 'should exist', ->

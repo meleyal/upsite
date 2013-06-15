@@ -22,5 +22,5 @@ class App.HudView extends Backbone.View
     e.preventDefault()
 
   design: (e) ->
-    new App.SitesFormView
+    new App.PagesFormView
     e.preventDefault()

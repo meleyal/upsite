@@ -3,6 +3,10 @@ TODO:
 Feature freeze!
 
 - Review + test current
+
+turn off everything
+
+
 - Refine current features
 
 
@@ -17,10 +21,10 @@ Feature freeze!
 - Validations
 - Use jbuilder for attachment json
 - User signup (see paintbox)
-- Rename sites > pages?
 - Try store for models http://railscasts.com/episodes/318-upgrading-to-rails-3-2?view=asciicast
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Rename sites > pages? @done
  ✔ Rename app sitespot > pagekit (https://github.com/get/Rename) @done
  ✔ Use bootstrap grid for responsive layout @done

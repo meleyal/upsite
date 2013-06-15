@@ -1,9 +1,9 @@
-#= require models/site
+#= require models/page
 
-describe 'Models/Site', ->
+describe 'Models/Page', ->
 
   beforeEach ->
-    @model = new App.Site
+    @model = new App.Page
 
   it 'should exist', ->
     expect(@model).toBeDefined()
