@@ -20,7 +20,6 @@ group :assets do
 end
 
 group :test, :development do
-  gem 'heroku'
   gem 'unicorn'
   gem 'sqlite3'
   gem 'wirble'
