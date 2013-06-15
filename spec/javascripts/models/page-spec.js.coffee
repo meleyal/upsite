@@ -7,3 +7,7 @@ describe 'Models/Page', ->
 
   it 'should exist', ->
     expect(@model).toBeDefined()
+
+  it 'should create sub-models', ->
+    expect(@model.widgets).toBeDefined()
+    expect(@model.attachments).toBeDefined()

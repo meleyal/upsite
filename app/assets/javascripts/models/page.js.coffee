@@ -6,5 +6,9 @@ class App.Page extends App.Model
   url: -> @urlRoot
   isNew: -> false
 
+  initialize: ->
+    @widgets = new App.Widgets
+    @attachments = new App.Attachments
+
   data: -> @toJSON()
 

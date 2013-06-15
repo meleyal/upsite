@@ -8,6 +8,7 @@
 #= require backbone
 
 #= require app/namespace
+#= require app/router
 #= require app/app
 #= require models/model
 #= require models/widget
