@@ -12,6 +12,6 @@
 </footer>
 
 <% content_for :bootstrap_data do %>
-  app.widgets.reset(<%= render(template: 'widgets/index', formats: 'json').html_safe %>);
-  app.site.set(<%= render(template: 'sites/show', formats: 'json').html_safe %>);
+  app.widgets.reset(<%= render_json_template 'widgets/index' %>);
+  app.site.set(<%= render_json_template 'sites/show' %>);
 <% end %>

@@ -13,7 +13,7 @@
     </div>
     <%= javascript_include_tag "application" %>
     <script type="text/javascript">
-      $(document).ready(function(){ <%= yield :bootstrap_data %> });
+      <%= yield :bootstrap_data %>
     </script>
   </body>
 </html>
