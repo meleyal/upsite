@@ -2,11 +2,9 @@ class app.models.Site extends Backbone.Model
 
   urlRoot: '/'
 
-  url: ->
-    @urlRoot
+  # These are needed so we can PUT without an id.
+  url: -> @urlRoot
+  isNew: -> false
 
   data: -> @toJSON()
 
-  isNew: ->
-    console.log 'isNew'
-    false

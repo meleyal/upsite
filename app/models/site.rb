@@ -4,8 +4,7 @@ class Site < ActiveRecord::Base
   has_many :texts
   has_many :images
   has_many :attachments, :dependent => :destroy
-  serialize :settings
-
+  store :settings, accessors: [:background_color]
   attr_accessible :settings
 
 end

@@ -1,11 +1,14 @@
 class Text < Widget
 
   include RankedModel
+
+  store :data, accessors: [:title, :body]
+
   ranks :sort_order, :class_name => 'Widget'
 
-  def as_json(options={})
-    super only: [:id, :type, :sort_order, :data]
-  end
+  # def as_json(options={})
+  #   super only: [:id, :type, :sort_order, :data]
+  # end
 
   # example
 
