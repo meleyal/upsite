@@ -27,4 +27,5 @@ group :test, :development do
   gem 'quiet_assets', :git => 'git://github.com/evrone/quiet_assets.git'
   gem 'awesome_print'
   gem 'jasminerice'
+  gem 'guard-livereload'
 end
