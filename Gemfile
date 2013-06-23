@@ -21,7 +21,7 @@ end
 
 group :test, :development do
   gem 'unicorn'
-  gem 'sqlite3'
+  # gem 'sqlite3'
   gem 'wirble'
   gem 'hirb'
   gem 'quiet_assets', :git => 'git://github.com/evrone/quiet_assets.git'
