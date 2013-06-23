@@ -1,30 +1,50 @@
-TODO:
-
-Feature freeze!
-
-- Review + test current
-
-turn off everything
-
-
-- Refine current features
 
 
 
+Title:
 
-- Validate text form
-- Show upload progress
-- Validate upload format
-- Workspace view (controller?)
-- Garbage collection (use listenTo, track sub views)
-- Handle delete image widget > delete attachment (+ file)
-- Validations
-- Use jbuilder for attachment json
-- User signup (see paintbox)
-- Try store for models http://railscasts.com/episodes/318-upgrading-to-rails-3-2?view=asciicast
+PageKit
 
-＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
-Archive:
- ✔ Rename sites > pages? @done
- ✔ Rename app sitespot > pagekit (https://github.com/get/Rename) @done
- ✔ Use bootstrap grid for responsive layout @done
+Build a free website
+Websites for humans
+Easy peasy websites
+Websites made easy
+
+Create your own website
+Build your own website
+Make your own website
+
+DIY websites
+
+Website construction kit
+Everything you need...
+Simple websites
+
+
+WordPress.com - Get a Free Blog Here
+Weebly - Create a free website and a free blog
+Social Posters — Checkthis
+Mad Mimi Email Marketing : Create, Send, And Track HTML Email ...
+Send beautiful email newsletters with Campaign Monitor
+MailChimp: Send Better Email
+LinkedIn: World's Largest Professional Network
+
+
+
+
+
+
+
+✔ Signup form, create signup @done
+
+✔ Handle www/no subdomain @done
+
+- Typus backend?
+
+- Password protect rest of app
+
+- Translate into German
+
+- Language detection / switching
+
+

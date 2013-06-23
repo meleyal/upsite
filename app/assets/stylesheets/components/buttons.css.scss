@@ -1,0 +1,26 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+.btn {
+  -webkit-font-smoothing: antialiased;
+  border: none;
+  @include box-shadow(none);
+  @include transition(background .3s);
+  text-shadow: none !important;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.btn-large {
+  padding: 0 24px;
+  line-height: 42px;
+  font-size: $baseFontSize;
+  @include border-radius($borderRadiusLarge);
+}
+
+.btn-primary:hover {
+  background: lighten($green, 3%);
+  @include transition(background .3s);
+}

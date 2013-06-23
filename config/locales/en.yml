@@ -2,6 +2,5 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  app_name: 'PageKit'
-
-  hello: "Hello world"
+  app_name: "PageKit"
+  tagline: "The easiest way to make a website for your business, organization, or project."

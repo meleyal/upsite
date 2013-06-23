@@ -1,0 +1,63 @@
+@import 'core/variables';
+@import 'bootstrap';
+@import 'font-awesome';
+@import 'bootstrap-responsive';
+@import 'components/*';
+@import 'components/icons';
+
+body {
+  padding-bottom: 40px;
+}
+
+.container-narrow {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+hr {
+  margin: 40px 0;
+}
+
+header {
+  height: 380px;
+  padding-top: 50px;
+  margin-bottom: 40px;
+  background: #EEEEEE image-url('pattern.png') repeat 100% 30%;
+}
+
+header .lead {
+  color: rgba($textColor, .8);
+  font-size: 24px;
+  font-weight: 400;
+  margin: 25px 0 30px;
+}
+
+form {
+  margin: 25px 0;
+}
+
+@media (max-width: 767px) {
+  header {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+
+  header .lead,
+  header .btn {
+    font-size: 18px;
+  }
+
+  form {
+    input.input-large {
+      height: auto;
+    }
+    .btn {
+      display: block;
+      max-width: auto;
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+}

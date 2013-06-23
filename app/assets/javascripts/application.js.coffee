@@ -19,4 +19,4 @@
 #= require_tree ./templates
 #= require_tree ./views
 
-window.app = new App.Application
+# window.app = new App.Application

@@ -1,2 +1,15 @@
-$green: #46a546;
-$primaryButtonBackground: $green;
+//
+// Variables
+// --------------------------------------------------
+
+$grayDark:              #5a5a5a;
+$green:                 #00A79A;
+$linkColor:             $green;
+$sansFontFamily:        "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+// Buttons
+// -------------------------
+$btnPrimaryBackground:              $linkColor;
+$btnPrimaryBackgroundHighlight:     $linkColor;
+
