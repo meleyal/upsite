@@ -75,7 +75,7 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     ffi (1.9.0)
-    font-awesome-rails (3.2.1.1)
+    font-awesome-rails (3.2.1.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.4)
     guard (1.8.1)
@@ -198,22 +198,22 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
-  aws-sdk
-  backbone-on-rails
-  bootstrap-sass
-  bootstrap-wysihtml5-rails
+  aws-sdk (~> 1.8.0)
+  backbone-on-rails (~> 0.9.10)
+  bootstrap-sass (~> 2.3.2)
+  bootstrap-wysihtml5-rails (~> 0.3.1)
   coffee-rails (~> 3.2.1)
-  font-awesome-rails
+  font-awesome-rails (= 3.2.1)
   guard-livereload
   hirb
   jasminerice
-  jbuilder
-  jquery-rails
-  paperclip
-  pg
+  jbuilder (~> 1.0.2)
+  jquery-rails (~> 2.2.0)
+  paperclip (~> 3.4.0)
+  pg (~> 0.14.1)
   quiet_assets!
-  rails
-  ranked-model
+  rails (~> 3.2.13)
+  ranked-model (~> 0.2.0)
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)

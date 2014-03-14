@@ -11,4 +11,3 @@ describe 'App/Router', ->
 
   it 'should start Backbone.history', ->
     expect(@start).toHaveBeenCalled()
-

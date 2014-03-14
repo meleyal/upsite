@@ -10,7 +10,7 @@ class App.Router extends Backbone.Router
 
   index: ->
     console.log 'index', @page
-    # new App.WidgetsIndexView el: '.widgets', collection: @page.widgets
-    # new App.PagesThemeView model: @page
-    # new App.HudView
-    # @workspace = new App.WorkspaceView
+    new App.WidgetsIndexView el: '.widgets', collection: @page.widgets
+    new App.PagesThemeView model: @page
+    new App.HudView
+    @workspace = new App.WorkspaceView

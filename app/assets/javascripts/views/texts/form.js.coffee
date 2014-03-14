@@ -33,7 +33,7 @@ class App.TextsFormView extends App.DialogView
       @model.save { data }
     else
       attrs = { type: 'Text', data }
-      app.widgets.create attrs, { wait: true }
+      app.page.widgets.create attrs, { wait: true }
     @remove()
 
   installEditor: ->

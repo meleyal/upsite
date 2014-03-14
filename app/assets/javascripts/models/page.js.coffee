@@ -11,4 +11,3 @@ class App.Page extends App.Model
     @attachments = new App.Attachments
 
   data: -> @toJSON()
-

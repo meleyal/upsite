@@ -13,6 +13,7 @@ class App.WidgetView extends Backbone.View
 
   render: (model) =>
     model ?= @model
+    console.log 'WidgetView.render', model
     @$el.html @template(model.data())
     this
 

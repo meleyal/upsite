@@ -12,4 +12,5 @@
 
 <div class="content">
   <img src="<%= @attachments[0] %>" />
+  <img src="<%# @url %>" />
 </div>

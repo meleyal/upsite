@@ -21,7 +21,7 @@ class App.ImagesFormView extends App.DialogView
   upload: (e) ->
     e.preventDefault()
     file = @$('input')[0].files[0]
-    attachment = app.attachments.create { file }
+    attachment = app.page.attachments.create { file }
     attachment.on 'sync', (model, res) => @save res
 
   save: (attachment) ->
@@ -30,5 +30,5 @@ class App.ImagesFormView extends App.DialogView
       @model.save { data }
     else
       attrs = { type: 'Image', data }
-      app.widgets.create attrs, { wait: true }
+      app.page.widgets.create attrs, { wait: true }
     @remove()
