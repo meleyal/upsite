@@ -3,7 +3,7 @@
 #= require jquery-ui
 #= require jquery.ba-serializeobject
 #= require bootstrap
-#= require bootstrap-wysihtml5
+# require bootstrap-wysihtml5
 #= require underscore
 #= require backbone
 

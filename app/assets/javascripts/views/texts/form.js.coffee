@@ -19,7 +19,7 @@ class App.TextsFormView extends App.DialogView
   initialize: (options) ->
     super
     @render()
-    @installEditor()
+    # @installEditor()
 
   render: ->
     @renderContent @template(@model?.data())
@@ -28,7 +28,7 @@ class App.TextsFormView extends App.DialogView
   save: (e) ->
     e.preventDefault()
     data = @$('form').serializeObject()
-    delete data._wysihtml5_mode
+    # delete data._wysihtml5_mode
     if @model
       @model.save { data }
     else
