@@ -80,7 +80,7 @@ GEM
     eventmachine (1.0.3)
     execjs (2.2.1)
     ffi (1.9.3)
-    font-awesome-rails (3.2.1.0)
+    font-awesome-rails (4.1.0.0)
       railties (>= 3.2, < 5.0)
     foreman (0.74.0)
       dotenv (~> 0.11.1)
@@ -212,7 +212,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.2.0)
   bootstrap-wysihtml5-rails (~> 0.3.1)
   coffee-rails (~> 4.0.0)
-  font-awesome-rails (= 3.2.1)
+  font-awesome-rails (~> 4.1.0)
   foreman
   guard-livereload
   hirb
