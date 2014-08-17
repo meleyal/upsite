@@ -21,7 +21,7 @@ class PagesController < ApplicationController
   end
 
   def create
-    @page = Page.new(params[:page])
+    @page = Page.new(page_params)
     if @page.save
       redirect_to @page, notice: 'page was successfully created.'
     else
@@ -30,7 +30,7 @@ class PagesController < ApplicationController
   end
 
   def update
-    @page.update_attributes(params[:page])
+    @page.update_attributes(page_params)
     respond_with(@page)
   end
 
@@ -39,5 +39,12 @@ class PagesController < ApplicationController
     @page.destroy
     redirect_to pages_url
   end
+
+  private
+
+    def page_params
+      # params.require(:widget).permit(:type, :sort_order, :sort_order_position, :data, :page_id)
+      params.permit(settings: [:background_color])
+    end
 
 end
