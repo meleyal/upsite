@@ -1,1 +1,1 @@
-json.(page, :id, :title, :subdomain, :settings)
+json.(page, :id, :name, :subdomain, :settings)

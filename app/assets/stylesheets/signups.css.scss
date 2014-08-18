@@ -1,7 +1,7 @@
 @import 'core/variables';
 @import 'bootstrap';
 @import 'font-awesome';
-@import 'bootstrap-responsive';
+// @import 'bootstrap-responsive';
 @import 'components/*';
 @import 'components/icons';
 
@@ -26,7 +26,7 @@ header {
 }
 
 header .lead {
-  color: rgba($textColor, .8);
+  color: rgba($text-color, .8);
   font-size: 24px;
   font-weight: 400;
   margin: 25px 0 30px;

@@ -1,4 +1,3 @@
-upgrade rails
-upgrade bootstrap
-procfile
 signup process
+
+rename widgets > blocks > components?

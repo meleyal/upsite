@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :signups, only: [:new]
-
+  resources :pages
+  
   if Rails.env.development?
 
-    constraints :subdomain => /^(?!www\Z)(\w+)/ do
+    # constraints :subdomain => /^(?!www\Z)(\w+)/ do
+    constraints(:subdomain => /.+/) do
       get '/' => 'pages#show'
       put '/' => 'pages#update'
       # resources :pages, only: [:show, :update], :path => '/'
@@ -16,7 +17,6 @@ Rails.application.routes.draw do
   end
 
   root 'signups#new'
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.

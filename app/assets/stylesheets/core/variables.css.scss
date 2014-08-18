@@ -2,14 +2,20 @@
 // Variables
 // --------------------------------------------------
 
+$black: #000;
 $grayDark:              #5a5a5a;
 $green:                 #00A79A;
+$purple:                #A773D1;
 $linkColor:             $green;
-$sansFontFamily:        "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$font-family-sans-serif: 'Open Sans', sans-serif;
+// $font-family-sans-serif: 'Lato', sans-serif;
+
+$brand-primary: $purple
 
 
 // Buttons
 // -------------------------
-$btnPrimaryBackground:              $linkColor;
-$btnPrimaryBackgroundHighlight:     $linkColor;
+// $btnPrimaryBackground:              $linkColor;
+// $btnPrimaryBackgroundHighlight:     $linkColor;
 

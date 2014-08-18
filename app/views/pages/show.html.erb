@@ -1,6 +1,6 @@
 <header class="page-header">
   <h1>
-    <%= @page.title %>
+    <%= @page.name %>
     <small><%= @page.subdomain %>.pagekitapp.com</small>
   </h1>
 </header>
@@ -8,7 +8,7 @@
 <div class="widgets row"></div>
 
 <footer class="page-footer">
-  &copy; <%= "#{Date.today.year} #{@page.title}" %>
+  &copy; <%= "#{Date.today.year} #{@page.name}" %>
 </footer>
 
 <% content_for :bootstrap_data do %>

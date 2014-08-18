@@ -16,11 +16,11 @@
 .btn-large {
   padding: 0 24px;
   line-height: 42px;
-  font-size: $baseFontSize;
-  @include border-radius($borderRadiusLarge);
+  font-size: $font-size-base;
+  border-radius: $border-radius-large;
 }
 
 .btn-primary:hover {
-  background: lighten($green, 3%);
+  // background: lighten($green, 3%);
   @include transition(background .3s);
 }
