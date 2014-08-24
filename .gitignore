@@ -17,3 +17,6 @@
 # Ignore attachment uploads.
 /public/system
 
+# Mac stuff
+.DS_Store
+

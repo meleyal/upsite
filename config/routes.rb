@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :pages
-  resources :sessions, only: [:new, :create, :destroy]
-  
-  get '/signup', to: 'pages#new'
-
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
-
   if Rails.env.development?
+
+    resources :pages
+    resources :sessions, only: [:new, :create, :destroy]
+    
+    get '/signup', to: 'pages#new'
+    get '/login', to: 'sessions#new'
+    post '/login', to: 'sessions#create'
+    delete '/logout', to: 'sessions#destroy'
 
     # constraints :subdomain => /^(?!www\Z)(\w+)/ do
     constraints(:subdomain => /.+/) do
@@ -24,7 +23,6 @@ Rails.application.routes.draw do
   end
 
   root 'signups#new'
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

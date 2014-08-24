@@ -1,12 +1,7 @@
 .icon {
-  text-align: center;
-  border-radius: 100%;
-  border: 2px solid rgba(#5a5a5a, .1);
-  padding: 20px;
-  font-size: 45px;
-  @include square(55px);
+  color: $gray-light;
+  font-size: 50px;
   line-height: 55px;
   margin: 0 auto;
-  margin-bottom: 20px;
 }
 

@@ -1,17 +1,32 @@
 @import 'core/variables';
 @import 'bootstrap';
 @import 'font-awesome';
-// @import 'bootstrap-responsive';
 @import 'components/*';
-@import 'components/icons';
 
 body {
   padding-bottom: 40px;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+
+a {
+  @include transition(all, .1s);
+  border-bottom: 2px solid transparent;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    border-bottom: 2px solid lighten($brand-primary, 15%);
+    padding-bottom: 1px;
+  }
 }
 
 .container-narrow {
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
+}
+
+.center {
+  text-align: center;
 }
 
 hr {
@@ -19,45 +34,47 @@ hr {
 }
 
 header {
-  height: 380px;
-  padding-top: 50px;
-  margin-bottom: 40px;
-  background: #EEEEEE image-url('pattern.png') repeat 100% 30%;
+  height: 370px;
+  padding-top: 15px;
+  margin-bottom: 50px;
+  background: #FAFAFA image-url('pattern.png');
+  border-bottom: 1px solid $gray-light;
+}
+
+header h1 {
+  background: #fafafa;
+  display: inline-block;
 }
 
 header .lead {
-  color: rgba($text-color, .8);
-  font-size: 24px;
-  font-weight: 400;
-  margin: 25px 0 30px;
+  color: #50504F;
+  font-size: 34px;
+  font-weight: 300;
+  margin: 12px 0 30px;
+}
+
+header .btn {
+  padding: 14px 30px;
 }
 
 form {
   margin: 25px 0;
+  .form-control {
+    height: 50px;
+    color: $text-color;
+    @include box-shadow(none); 
+    border: 2px solid $gray;
+    border-radius: 2px;
+    &:focus {
+      @include box-shadow(none); 
+      border-color: lighten($brand-primary, 15%);
+    }
+  }
 }
 
-@media (max-width: 767px) {
-  header {
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 70px;
-    padding-right: 70px;
-  }
-
-  header .lead,
-  header .btn {
-    font-size: 18px;
-  }
-
-  form {
-    input.input-large {
-      height: auto;
-    }
-    .btn {
-      display: block;
-      max-width: auto;
-      width: 100%;
-      margin-top: 10px;
-    }
-  }
+h4 {
+  color: $gray-dark;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }

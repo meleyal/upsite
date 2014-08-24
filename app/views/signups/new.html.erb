@@ -2,50 +2,58 @@
   <div class="container center">
     <h1><img src="<%= image_path('pagekit.png') %>" alt="PageKit" width="350"></h1>
     <p class="lead">The easiest way to make a website<br> for your business, organization, or project.</p>
-    <a class="btn btn-large btn-primary" href="#soon">Get started</a>
+    <a class="btn btn-lg btn-primary" href="#soon">Get started&hellip;</a>
   </div>
 </header>
-
 
 <div class="main">
   <div class="container-narrow center">
 
-    <div class="row-fluid">
-      <div class="span4">
-        <div class="icon"><i class="icon-magic"></i></div>
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="icon"><i class="fa fa-magic"></i></div>
         <h4>Easy to use</h4>
         <p>Publish text, photos and more with drag & drop simplicity.</p>
       </div>
 
-      <div class="span4">
-        <div class="icon"><i class="icon-cloud"></i></div>
+      <div class="col-xs-4">
+        <div class="icon"><i class="fa fa-cloud"></i></div>
         <h4>No setup</h4>
         <p>Your site lives in the cloud, no technical support required.</p>
       </div>
 
-      <div class="span4">
-        <div class="icon"><i class="icon-tint"></i></div>
+      <div class="col-xs-4">
+        <div class="icon"><i class="fa fa-tint"></i></div>
         <h4>Great design</h4>
-        <p>Professional templates, easily customized to suit your style.</p>
+        <p>Professional templates, easily customized to suit you.</p>
       </div>
     </div>
 
     <hr>
 
     <div id="soon" class="row">
+      <div class="col-xs-8 col-xs-offset-2 form-inline">
+        
       <h4>Coming soon</h4>
-      <p>Enter your email to hear when we launch</p>
+      <p>Enter your email to hear when we launch:</p>
       <form action="http://pagekitapp.createsend.com/t/i/s/jhai/" method="post">
-        <input class="input-large span4" type="text" name="cm-jhai-jhai" id="jhai-jhai" placeholder="you@example.com">
-        <button class="btn btn-primary btn-large" type="submit">OK</button>
+        <input class="form-control input-lg" size="25" type="text" name="cm-jhai-jhai" id="jhai-jhai" placeholder="you@example.com">&nbsp;
+        <button class="btn btn-success btn-lg" type="submit"><small>OK</small></button>
       </form>
-      <p>
-        <a href="https://twitter.com/pagekitapp"><i class="icon-twitter"></i> Twitter</a> &nbsp;
-        <!-- <a href="#"><i class="icon-facebook"></i> Facebook</a> -->
-      </p>
+      </div>
     </div>
 
     <hr>
 
   </div>
 </div>
+
+<footer>
+  <div class="container center">
+    <ul class="list-inline">
+      <li>&copy; <%= Date.today.year %> PageKit</li>
+      <li>Made in Vienna</li>
+      <li><a href="https://twitter.com/pagekitapp"><i class="fa fa-twitter"></i> Twitter</a></li>
+    </ul>
+  </div>
+</footer>

@@ -2,20 +2,21 @@
 // Variables
 // --------------------------------------------------
 
+$white: #fff;
 $black: #000;
-$grayDark:              #5a5a5a;
-$green:                 #00A79A;
-$purple:                #A773D1;
-$linkColor:             $green;
+$blue: #4285f4;
+$gray-dark: #616e7c;
+$gray: lighten($gray-dark, 45%);
+$gray-light: lighten($gray-dark, 50%);
+$purple: #a773d1;
 
-$font-family-sans-serif: 'Open Sans', sans-serif;
-// $font-family-sans-serif: 'Lato', sans-serif;
+$text-color: lighten($gray-dark, 20%);
+$font-size-base: 18px;
+$font-family-sans-serif: 'Lato', sans-serif;
 
-$brand-primary: $purple
+$brand-primary: $blue;
+$input-color-placeholder: $gray;
+$link-hover-color: $brand-primary;
 
-
-// Buttons
-// -------------------------
-// $btnPrimaryBackground:              $linkColor;
-// $btnPrimaryBackgroundHighlight:     $linkColor;
-
+$btn-default-color: $gray-dark;
+$btn-default-bg: $gray-light;

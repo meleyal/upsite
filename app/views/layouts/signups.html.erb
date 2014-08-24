@@ -2,35 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title><%= t 'app_name' %>: Make your own website</title>
+    <title>Make your own website | <%= t 'app_name' %></title>
     <meta name="description" content="<%= t 'tagline' %>">
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:600,700,400' rel='stylesheet' type='text/css'>
-    <!-- <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>  -->
+    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'> 
     <%= stylesheet_link_tag "signups" %>
   </head>
   <body>
-
-
-    <% if current_user %>
-      Logged in :)
-      <%= link_to "Logout", logout_path, method: "delete" %> | 
-      <%= link_to "My page", root_url(subdomain: current_page.subdomain) %> 
-    <% else %>
-      Not logged in :(
-      <%= link_to "Login", login_path %> 
-    <% end %>
-
     <%= yield %>
-
-    <footer>
-      <div class="container center">
-        <p>
-          &copy; <%= Date.today.year %> PageKit &nbsp; Made in Vienna
-        </p>
-      </div>
-    </footer>
 
     <%= javascript_include_tag "signups" %>
 
@@ -46,6 +26,5 @@
 
       </script>
     <% end %>
-
   </body>
 </html>
