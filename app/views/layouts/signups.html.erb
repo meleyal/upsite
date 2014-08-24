@@ -12,6 +12,16 @@
   </head>
   <body>
 
+
+    <% if current_user %>
+      Logged in :)
+      <%= link_to "Logout", logout_path, method: "delete" %> | 
+      <%= link_to "My page", root_url(subdomain: current_page.subdomain) %> 
+    <% else %>
+      Not logged in :(
+      <%= link_to "Login", login_path %> 
+    <% end %>
+
     <%= yield %>
 
     <footer>

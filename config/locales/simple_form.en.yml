@@ -14,8 +14,8 @@ en:
     placeholders:
       defaults:
         name  : Your site name
-        email: Your email
-        password: Choose a password
+        email: Email
+        password: Password
     # labels:
     #   defaults:
     #     password: 'Password'

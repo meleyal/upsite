@@ -20,6 +20,18 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
   app_name: PageKit
   tagline: Make your own website
+  activerecord:
+      # models:
+      #   user: Dude
+      # attributes:
+      #   user:
+      #     first_name: "Name first"
+  helpers:
+    submit:
+      session: 
+        submit: Login
+    #   create: "Create %{model}"
+    #   submit: "Save %{model}"
+    #   update: "Update %{model}"

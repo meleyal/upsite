@@ -1,0 +1,7 @@
+<h1>Login</h1>
+
+<%= simple_form_for :session, url: sessions_path do |f| %>
+  <%= f.input :email, label: false, input_html: { class: 'input-lg' } %>
+  <%= f.input :password, label: false, input_html: { class: 'input-lg' } %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>

@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140817181454) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["page_id"], name: "index_users_on_page_id", using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
   create_table "widgets", force: true do |t|
     t.string   "type"

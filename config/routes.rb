@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
 
   resources :pages
+  resources :sessions, only: [:new, :create, :destroy]
   
+  get '/signup', to: 'pages#new'
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
   if Rails.env.development?
 
     # constraints :subdomain => /^(?!www\Z)(\w+)/ do

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-
+  include Login
   layout 'signups', only: [:new]
   before_action :set_page, only: [:show, :edit, :update, :destroy]
   respond_to :json
@@ -39,14 +39,11 @@ class PagesController < ApplicationController
     # @page.owner = @user
     # @page.owner =
 
-    respond_to do |format|
-      if @page.save
-        format.html { redirect_to root_url(subdomain: @page.subdomain), notice: 'Page was successfully created.' }
-        format.json { render :show, status: :created, location: @page }
-      else
-        format.html { render :new }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
+    if @page.save
+      login @user
+      redirect_to root_url(subdomain: @page.subdomain), notice: 'Page was successfully created.'
+    else
+      render :new
     end
   end
 

@@ -8,6 +8,14 @@
     <%= stylesheet_link_tag "application" %>
   </head>
   <body>
+    <% if current_user %>
+      Logged in as <%= current_user.email %> :)
+      <%= link_to "Logout", logout_path, method: "delete" %> 
+    <% else %>
+      Not logged in :(
+      <%= link_to "Login", login_path %> 
+    <% end %>
+
     <div class="container">
       <%= yield %>
     </div>
