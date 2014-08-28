@@ -1,23 +1,14 @@
-@import 'core/variables';
+@import 'base/variables';
 @import 'bootstrap';
 @import 'font-awesome';
+@import 'base/*';
 @import 'components/*';
 
 body {
-  padding-bottom: 40px;
+  padding: 0 0 40px 0;
   line-height: 1.5;
   letter-spacing: 0.5px;
-}
-
-a {
-  @include transition(all, .1s);
-  border-bottom: 2px solid transparent;
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    border-bottom: 2px solid lighten($brand-primary, 15%);
-    padding-bottom: 1px;
-  }
+  background: 0;
 }
 
 .container-narrow {
@@ -25,56 +16,44 @@ a {
   margin: 0 auto;
 }
 
-.center {
-  text-align: center;
-}
-
 hr {
   margin: 40px 0;
 }
 
 header {
-  height: 370px;
   padding-top: 15px;
   margin-bottom: 50px;
-  background: #FAFAFA image-url('pattern.png');
+  background: #fafafa image-url('pattern.png');
   border-bottom: 1px solid $gray-light;
-}
 
-header h1 {
-  background: #fafafa;
-  display: inline-block;
-}
+  @media (min-width: $screen-sm) {
+    height: 370px;
+  }
 
-header .lead {
-  color: #50504F;
-  font-size: 34px;
-  font-weight: 300;
-  margin: 12px 0 30px;
-}
+  h1 {
+    background: #fafafa;
+    display: inline-block;
+    
+    // img {
+    //   width: 200px;
+    // }
+  }
 
-header .btn {
-  padding: 14px 30px;
+  .lead {
+    color: #50504F;
+    font-weight: $font-weight-light;
+    margin: 12px 0 30px;
+
+    @media (min-width: $screen-sm) {
+      font-size: 34px;
+    }
+  }
+
+  .btn {
+    padding: 14px 30px;
+  }
 }
 
 form {
   margin: 25px 0;
-  .form-control {
-    height: 50px;
-    color: $text-color;
-    @include box-shadow(none); 
-    border: 2px solid $gray;
-    border-radius: 2px;
-    &:focus {
-      @include box-shadow(none); 
-      border-color: lighten($brand-primary, 15%);
-    }
-  }
-}
-
-h4 {
-  color: $gray-dark;
-  font-size: 25px;
-  font-weight: bold;
-  letter-spacing: 1px;
 }

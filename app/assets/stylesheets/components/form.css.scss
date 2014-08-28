@@ -1,0 +1,16 @@
+//
+// Forms
+// --------------------------------------------------
+
+.form-control {
+  height: 50px;
+  color: $text-color;
+  border: 2px solid $gray;
+  border-radius: 2px;
+  @include box-shadow(none); 
+
+  &:focus {
+    @include box-shadow(none); 
+    border-color: lighten($brand-primary, 15%);
+  }
+}
