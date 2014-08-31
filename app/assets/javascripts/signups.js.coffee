@@ -1,3 +1,4 @@
 #= require jquery
 
-$('.js-trigger-focus').on 'click', -> $('form input').trigger 'focus'
+$('.js-trigger-focus').on 'click', -> 
+  setTimeout (-> $('form input').trigger('focus')), 100
