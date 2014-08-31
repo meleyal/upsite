@@ -1,14 +1,15 @@
 @import 'base/variables';
 @import 'bootstrap';
 @import 'font-awesome';
-@import 'base/*';
 @import 'components/*';
 
 body {
-  padding: 0 0 40px 0;
-  line-height: 1.5;
-  letter-spacing: 0.5px;
+  padding: 0 0 10px 0;
   background: 0;
+
+  @media (min-width: $screen-sm) {
+    padding-bottom: 30px;
+  }
 }
 
 .container-narrow {
@@ -17,43 +18,68 @@ body {
 }
 
 hr {
-  margin: 40px 0;
+  margin: 20px 0;
+
+  @media (min-width: $screen-sm) {
+    margin: 40px 0;
+  }
 }
 
 header {
-  padding-top: 15px;
-  margin-bottom: 50px;
+  padding: 15px 0 40px 0;
+  margin-bottom: 30px;
   background: #fafafa image-url('pattern.png');
   border-bottom: 1px solid $gray-light;
 
   @media (min-width: $screen-sm) {
+    margin-bottom: 50px;
     height: 370px;
   }
+}
 
-  h1 {
-    background: #fafafa;
-    display: inline-block;
-    
-    // img {
-    //   width: 200px;
-    // }
+header .btn {
+  padding: 14px 30px;
+}
+
+.brand {
+  background: #fafafa;
+  display: inline-block;
+  
+  img {
+    width: 290px;
   }
 
-  .lead {
-    color: #50504F;
-    font-weight: $font-weight-light;
-    margin: 12px 0 30px;
-
-    @media (min-width: $screen-sm) {
-      font-size: 34px;
+  @media (min-width: $screen-sm) {
+    img {
+      width: 350px;
     }
   }
+}
 
-  .btn {
-    padding: 14px 30px;
+
+.lead {
+  color: #50504F;
+  font-weight: $font-weight-light;
+  margin: 12px 0 30px;
+  font-size: 24px;
+
+  @media (min-width: $screen-sm) {
+    font-size: 34px;
   }
 }
 
 form {
-  margin: 25px 0;
+  margin: 15px 0;
+}
+
+form .btn {
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+
+  @media (min-width: $screen-sm) {
+    margin-top: 0;
+    display: inline-block;
+    width: auto;
+  }
 }

@@ -1,8 +1,8 @@
 <header>
-  <div class="container center">
-    <h1><img src="<%= image_path('pagekit.png') %>" alt="PageKit" width="350"></h1>
-    <p class="lead">The easiest way to make a website<br> for your business, organization, or project.</p>
-    <a class="btn btn-lg btn-primary" href="#soon">Get started&hellip;</a>
+  <div class="container container-narrow center">
+    <h1 class="brand"><img src="<%= image_path('pagekit.png') %>" alt="<%= t 'app_name' %>"></h1>
+    <p class="lead"><%= t 'tagline' %></p>
+    <a class="btn btn-lg btn-primary js-trigger-focus" href="#soon"><%= t '.get_started' %>&hellip;</a>
   </div>
 </header>
 
@@ -12,20 +12,20 @@
     <div class="row">
       <div class="col-sm-4">
         <div class="icon"><i class="fa fa-magic"></i></div>
-        <h4>Easy to use</h4>
-        <p>Publish text, photos and more with drag & drop simplicity.</p>
+        <h4><%= t '.features.one.title' %></h4>
+        <p><%= t '.features.one.body' %></p>
       </div>
 
       <div class="col-sm-4">
         <div class="icon"><i class="fa fa-cloud"></i></div>
-        <h4>No setup</h4>
-        <p>Your site lives in the cloud, no technical support required.</p>
+        <h4><%= t '.features.two.title' %></h4>
+        <p><%= t '.features.two.body' %></p>
       </div>
 
       <div class="col-sm-4">
         <div class="icon"><i class="fa fa-tint"></i></div>
-        <h4>Great design</h4>
-        <p>Professional templates, easily customized to suit you.</p>
+        <h4><%= t '.features.three.title' %></h4>
+        <p><%= t '.features.three.body' %></p>
       </div>
     </div>
 
@@ -34,11 +34,11 @@
     <div id="soon" class="row">
       <div class="col-sm-8 col-sm-offset-2 form-inline">
         
-      <h4>Coming soon</h4>
-      <p>Enter your email to hear when we launch:</p>
+      <h4><%= t '.coming_soon.title' %></h4>
+      <p><%= t '.coming_soon.body' %></p>
       <form action="http://pagekitapp.createsend.com/t/i/s/jhai/" method="post">
-        <input class="form-control input-lg" size="25" type="text" name="cm-jhai-jhai" id="jhai-jhai" placeholder="you@example.com">&nbsp;
-        <button class="btn btn-success btn-lg" type="submit"><small>OK</small></button>
+        <input class="form-control input-lg" size="25" type="text" name="cm-jhai-jhai" id="jhai-jhai" placeholder="<%= t '.coming_soon.email' %>">
+        <button class="btn btn-success btn-lg" type="submit"><%= t '.coming_soon.button' %></button>
       </form>
       </div>
     </div>
@@ -51,9 +51,10 @@
 <footer>
   <div class="container center">
     <ul class="list-inline">
-      <li>&copy; <%= Date.today.year %> PageKit</li>
-      <li>Made in Vienna</li>
-      <li><a href="https://twitter.com/pagekitapp"><i class="fa fa-twitter"></i> Twitter</a></li>
+      <li>&copy; <%= Date.today.year %> <%= t 'app_name' %></li>
+      <li><%= t 'made_in_vienna' %></li>
+      <!-- <li><a href="https://twitter.com/pagekitapp"><i class="fa fa-twitter"></i> Twitter</a></li> -->
+      <!-- <li><a href="https://www.facebook.com/pagekitapp"><i class="fa fa-facebook"></i> Facebook</a></li> -->
     </ul>
   </div>
 </footer>

@@ -13,4 +13,9 @@
     @include box-shadow(none); 
     border-color: lighten($brand-primary, 15%);
   }
+
+  &[type="text"],
+  &[type="email"] {
+    -webkit-appearance: none;
+  }
 }
