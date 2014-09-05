@@ -1,22 +1,6 @@
-// @import 'base/variables';
-// @import 'bootstrap';
+@import 'base/variables';
+@import 'bootstrap';
 // @import 'bootstrap-wysihtml5';
-// @import 'font-awesome';
-// @import 'base/base';
-// @import 'components/*';
-// @import 'workspace/*';
-
-.page-header {
-  border-bottom: 1px solid rgba(#666, 0.1);
-}
-
-.page-footer {
-  color: #999;
-  padding-top: 9px;
-  margin: 30px 0 20px;
-  border-top: 1px solid rgba(#666, 0.1);
-}
-
-.toolbar-row {
-  text-align: center;
-}
+@import 'font-awesome';
+@import 'base/*';
+@import 'components/*';

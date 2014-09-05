@@ -10,13 +10,25 @@
   text-align: center;
   background: grey;
   border-radius: 400px;
-  color: white;
-  -webkit-transition: all .3s;
-  &:hover {
-    color: white;
+  color: $white;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: $white;
     text-decoration: none;
-    background: $green;
+    border: none;
+
+    &.add {
+      background: $green;
+    }
+
+    &.design {
+      background: $purple;
+    }
   }
+
 }
 
 .symbol-small {

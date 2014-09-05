@@ -2,26 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title><%= t 'app_name' %></title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%= stylesheet_link_tag "application" %>
+    
+    <title><%= t 'app_name' %></title>
+
+    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
   <body>
-    <% if current_user %>
+    <!-- <% if current_user %>
       Logged in as <%= current_user.email %> :)
       <%= link_to "Logout", logout_path, method: "delete" %> 
     <% else %>
       Not logged in :(
       <%= link_to "Login", login_path %> 
-    <% end %>
+    <% end %> -->
 
-    <div class="container">
-      <%= yield %>
-    </div>
-    <%= javascript_include_tag "application" %>
-    <script type="text/javascript">
-      <%= yield :bootstrap_data %>
-    </script>
+    <%= yield %>
   </body>
 </html>

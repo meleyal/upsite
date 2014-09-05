@@ -2,7 +2,6 @@ class PagesController < ApplicationController
   include Login
   layout 'signups', only: [:new]
   before_action :set_page, only: [:show, :edit, :update, :destroy]
-  respond_to :json
 
   def index
     @pages = Page.all

@@ -1,5 +1,4 @@
 class Attachment < ActiveRecord::Base
-
   belongs_to :page
 
   has_attached_file :upload, {
@@ -11,9 +10,4 @@ class Attachment < ActiveRecord::Base
   def upload_url
     upload.url :medium
   end
-
-  def as_json(options={})
-    super only: [:id], methods: [:upload_url]
-  end
-
 end

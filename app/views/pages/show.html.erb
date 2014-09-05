@@ -1,17 +1,33 @@
 <header class="page-header">
+  <div class="container">
   <h1>
     <%= @page.name %>
     <small><%= @page.subdomain %>.pagekitapp.com</small>
   </h1>
+  </div>
 </header>
 
-<div class="widgets row"></div>
+<div class="container">
+  <div class="row">
+    <%= render @widgets %> 
+  </div>
+</div>
 
 <footer class="page-footer">
-  &copy; <%= "#{Date.today.year} #{@page.name}" %>
+  <div class="container">
+    &copy; <%= "#{Date.today.year} #{@page.name}" %>
+  </div>
 </footer>
 
-<% content_for :bootstrap_data do %>
-  app.page.set(<%= render_json_template 'pages/show' %>);
-  app.page.widgets.reset(<%= render_json_template 'widgets/index' %>);
-<% end %>
+<div class="hud">
+  <a href="<%= new_widget_path %>" class="add symbol symbol-small" title="Add" data-toggle="modal" rel="tooltip" data-target="#modal" data-placement="left">
+    <i class="fa fa-plus fa-lg"></i>
+  </a>
+
+  <a href="#" class="design symbol symbol-small" title="Design" rel="tooltip" data-placement="left">
+    <i class="fa fa-tint fa-lg"></i>
+  </a>
+</div>
+
+<%= render 'modal' %>
+<%= render 'modal', size: 'small' %>

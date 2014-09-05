@@ -1,5 +1,6 @@
 #= require jquery
 #= require jquery_ujs
+#= require turbolinks
 #= require jquery-ui
 #= require jquery.ba-serializeobject
 #= require bootstrap
@@ -18,5 +19,6 @@
 #= require_tree ./collections
 #= require_tree ./templates
 #= require_tree ./views
+#= require_tree ./plugins
 
-window.app = new App.Application
+# window.app = new App.Application

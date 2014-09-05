@@ -13,4 +13,5 @@ class Page < ActiveRecord::Base
   has_many :attachments, dependent: :destroy
 
   store :settings, accessors: [:background_color]
+
 end

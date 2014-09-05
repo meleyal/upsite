@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.1'
 
 gem 'rails', '~> 4.1.0'
+gem 'turbolinks'
 gem 'jbuilder'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -29,7 +30,7 @@ gem 'rails_12factor', group: :production
 group :test, :development do
   gem 'wirble'
   gem 'hirb'
-  gem 'quiet_assets', :git => 'git://github.com/evrone/quiet_assets.git'
+  # gem 'quiet_assets', :git => 'git://github.com/evrone/quiet_assets.git'
   gem 'awesome_print'
   gem 'guard-livereload', require: false
   gem 'rb-fsevent'

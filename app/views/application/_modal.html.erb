@@ -1,0 +1,19 @@
+<!-- Modal -->
+
+<%
+  case size ||= ''
+    when 'small'
+      id = 'modal'
+      class_name = 'modal'
+    else
+      id = 'modal-lg'
+      class_name = 'modal-lg'
+  end
+%>
+
+<div class="modal fade" id="<%= id %>" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>

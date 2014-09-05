@@ -15,7 +15,10 @@ Rails.application.routes.draw do
       get '/' => 'pages#show'
       put '/' => 'pages#update'
       # resources :pages, only: [:show, :update], :path => '/'
-      resources :widgets, except: [:new, :edit]
+      resources :widgets do
+        # member 'type', only: [:new, :create, :edit, :update]
+        # get 'type', on: :member
+      end
       resources :attachments, except: [:new, :edit]
       # resources :attachments, only: [:create]
     end
