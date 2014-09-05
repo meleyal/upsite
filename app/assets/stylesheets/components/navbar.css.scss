@@ -1,0 +1,15 @@
+//
+// Navbar
+// --------------------------------------------------
+
+.navbar-brand {
+  padding-top: 10px;
+}
+
+.navbar a {
+  &:hover,
+  &:focus,
+  &:active {
+    border: none;
+  }
+}

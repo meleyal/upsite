@@ -1,26 +1,26 @@
 Rails.application.routes.draw do
 
-  # if Rails.env.development?
+  if Rails.env.development?
 
-  #   resources :pages
-  #   resources :sessions, only: [:new, :create, :destroy]
+    resources :pages
+    resources :sessions, only: [:new, :create, :destroy]
     
-  #   get '/signup', to: 'pages#new'
-  #   get '/login', to: 'sessions#new'
-  #   post '/login', to: 'sessions#create'
-  #   delete '/logout', to: 'sessions#destroy'
+    get '/signup', to: 'pages#new'
+    get '/login', to: 'sessions#new'
+    post '/login', to: 'sessions#create'
+    delete '/logout', to: 'sessions#destroy'
 
-  #   # constraints :subdomain => /^(?!www\Z)(\w+)/ do
-  #   constraints(:subdomain => /.+/) do
-  #     get '/' => 'pages#show'
-  #     put '/' => 'pages#update'
-  #     # resources :pages, only: [:show, :update], :path => '/'
-  #     resources :widgets, except: [:new, :edit]
-  #     resources :attachments, except: [:new, :edit]
-  #     # resources :attachments, only: [:create]
-  #   end
+    # constraints :subdomain => /^(?!www\Z)(\w+)/ do
+    constraints(:subdomain => /.+/) do
+      get '/' => 'pages#show'
+      put '/' => 'pages#update'
+      # resources :pages, only: [:show, :update], :path => '/'
+      resources :widgets, except: [:new, :edit]
+      resources :attachments, except: [:new, :edit]
+      # resources :attachments, only: [:create]
+    end
 
-  # end
+  end
 
   root 'signups#new'
 

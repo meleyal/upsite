@@ -1,7 +1,13 @@
-<h1>Login</h1>
+<% content_for :page_title, 'Login' %>
+<% content_for :body_class, 'bg-pattern' %>
 
-<%= simple_form_for :session, url: sessions_path do |f| %>
-  <%= f.input :email, label: false, input_html: { class: 'input-lg' } %>
-  <%= f.input :password, label: false, input_html: { class: 'input-lg' } %>
-  <%= f.button :submit, class: 'btn btn-primary' %>
-<% end %>
+<%# render 'navbar' %>
+
+<div class="container-centered">
+  <%= simple_form_for :session, url: sessions_path, html: { class: 'form-centered' } do |f| %>
+    <%= f.input :email, label: false, input_html: { class: 'input-lg' } %>
+    <%= f.input :password, label: false, input_html: { class: 'input-lg' } %>
+    <%= f.button :submit, class: 'btn btn-success btn-lg btn-block' %>
+  <% end %>
+
+</div>

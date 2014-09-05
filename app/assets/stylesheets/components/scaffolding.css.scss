@@ -7,9 +7,19 @@ body {
   background: #eee;
   line-height: 1.5;
   letter-spacing: 0.5px;
+
+  &.bg-pattern {
+    background: image-url('pattern.png');
+  }
+}
+
+.container-centered {
+  margin: 10% auto 0;
+  text-align: center;
 }
 
 a {
+  padding-bottom: 1px;
   border-bottom: 2px solid transparent;
   @include transition(all, .1s);
   
@@ -17,6 +27,5 @@ a {
   &:focus {
     text-decoration: none;
     border-bottom: 2px solid lighten($brand-primary, 15%);
-    padding-bottom: 1px;
   }
 }

@@ -2,6 +2,15 @@
 // Forms
 // --------------------------------------------------
 
+.form-centered {
+  max-width: 500px;
+  margin: 0 auto;
+  background: $white;
+  padding: 40px;
+  border: 1px solid $gray-light;
+  border-radius: $border-radius-base;
+}
+
 .form-control {
   height: 50px;
   color: $text-color;

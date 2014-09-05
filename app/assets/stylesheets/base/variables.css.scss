@@ -22,3 +22,6 @@ $link-hover-color: $brand-primary;
 
 $btn-default-color: $gray-dark;
 $btn-default-bg: $gray-light;
+// $navbar-height:                    50px;
+$navbar-default-bg:                $white;
+$navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
