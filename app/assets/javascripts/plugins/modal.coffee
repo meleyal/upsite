@@ -10,8 +10,8 @@ $(document)
     $(this).removeData('bs.modal')
 
   # autofocus first input when modal is shown
-  .on 'shown.bs.modal', '.modal', ->
-    $(this).find('input.string').focus()
+  # .on 'shown.bs.modal', '.modal', ->
+    # $(this).find('input.string').not('.colorpicker').focus()
 
   # load remote content in modals with target="self"
   .on 'click', '[data-toggle="modal"]', ->
@@ -19,8 +19,6 @@ $(document)
     if $el.data 'target' is 'self'
       $content = $el.parents '.modal-content'
       $content.load $el.attr('href')
-      # console.log $el.attr 'href'
-      # console.log 'click!'
 
   # # scale large modals relative to the window
   # .on 'show.bs.modal loaded.bs.modal', '#modal-lg', ->

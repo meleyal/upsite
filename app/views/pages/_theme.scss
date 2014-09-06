@@ -1,0 +1,19 @@
+<% content_for :stylesheets do %>
+
+  <% if @page.font == 'Lato' %>
+    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+  <% end %>
+
+  <style>
+
+    body {
+      font-family: <%= @page.font %>;
+      background-color: <%= @page.background_color %>;
+    }
+
+    <%= @page.custom_css %>
+
+  </style>
+  
+<% end %>
+

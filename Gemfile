@@ -19,6 +19,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'bootstrap-wysihtml5-rails', '~> 0.3.1'
+gem 'bootstrap-colorpicker-rails'
 gem 'font-awesome-rails', '~> 4.1.0'
 
 # server

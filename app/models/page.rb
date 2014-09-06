@@ -13,6 +13,6 @@ class Page < ActiveRecord::Base
   has_many :headers
   has_many :attachments, dependent: :destroy
 
-  store :settings, accessors: [:background_color]
+  store :settings, accessors: [:font, :background_color, :theme_color, :custom_css]
 
 end

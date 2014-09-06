@@ -1,3 +1,6 @@
+<%= render 'theme.scss' %>
+
+
 <header class="page-header">
   <div class="container">
   <h1>
@@ -19,17 +22,6 @@
   </div>
 </footer>
 
-<div class="hud">
-  <a href="<%= new_widget_path %>" class="add symbol symbol-small" title="Add" data-toggle="modal" data-target="#modal" rel="tooltip"  data-placement="left">
-    <i class="fa fa-plus fa-lg"></i>
-  </a>
-
-  <a href="#" class="design symbol symbol-small" title="Design" rel="tooltip" data-placement="left">
-    <i class="fa fa-tint fa-lg"></i>
-  </a>
-</div>
-
-
-
+<%= render 'hud' %>
 <%= render 'modal' %>
 <%= render 'modal', size: 'small' %>

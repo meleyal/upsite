@@ -1,14 +1,15 @@
 class PagesController < ApplicationController
+
   include Login
   layout 'signups', only: [:new]
   before_action :set_page, only: [:show, :edit, :update, :destroy]
+  layout :false, only: [:edit] # shown in modal popup
 
   def index
     @pages = Page.all
   end
 
   def show
-    ap 'show'
     # @page = Page.find_by(subdomainrequest.subdomains.first)
     @widgets = @page.widgets.all
   end
@@ -21,7 +22,6 @@ class PagesController < ApplicationController
   end
 
   def edit
-    @page = Page.find(params[:id])
   end
 
   def create
@@ -48,8 +48,11 @@ class PagesController < ApplicationController
   end
 
   def update
-    @page.update_attributes(page_params)
-    respond_with(@page)
+    if @page.update(page_params)
+      head :ok, location: request.referrer
+    else
+      render json: { page: @page.errors }, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -72,7 +75,7 @@ class PagesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
       # params.require(:page).permit(:name, :subdomain, owner_attributes: [:email])
-      params.require(:page).permit(:name, :subdomain)
+      params.require(:page).permit(:name, :subdomain, :font, :background_color, :custom_css)
     end
 
     def user_params
