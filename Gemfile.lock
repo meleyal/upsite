@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/evrone/quiet_assets.git
+  revision: 0dd78145f313e3cf619e6dee742f9ce136bc98ad
+  specs:
+    quiet_assets (1.0.3)
+      railties (>= 3.1, < 5.0)
+
+GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: c3bc4af79df2f3f51500a38d8a84aa682f9ad009
   branch: master
@@ -227,6 +234,7 @@ DEPENDENCIES
   jquery-ui-rails
   paperclip (~> 3.4.0)
   pg
+  quiet_assets!
   rails (~> 4.1.0)
   rails_12factor
   ranked-model

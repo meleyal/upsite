@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   end
 
   def show
+    ap 'show'
     # @page = Page.find_by(subdomainrequest.subdomains.first)
     @widgets = @page.widgets.all
   end

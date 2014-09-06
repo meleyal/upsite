@@ -1,16 +1,23 @@
 .symbol {
   $size: 100px;
+  $size: 70px;
   width: $size;
   height: $size;
   line-height: $size;
   display: inline-block;
-  margin: 0 20px 0 0;
+  margin: 0 10px 20px 10px;
   font-size: 40px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
-  background: grey;
-  border-radius: 400px;
+  background: $gray;
+  // background: $blue;
+  // background: none;
   color: $white;
+  // color: $gray-dark;
+  // border: 4px solid $gray;
+  background: #ccc;
+  border-radius: 400px;
 
   &:hover,
   &:focus,

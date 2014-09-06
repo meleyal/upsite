@@ -7,11 +7,11 @@
   </div>
 </header>
 
-<div class="container">
-  <div class="row">
-    <%= render @widgets %> 
-  </div>
+
+<div class="row">
+  <%= render @widgets %> 
 </div>
+
 
 <footer class="page-footer">
   <div class="container">
@@ -20,7 +20,7 @@
 </footer>
 
 <div class="hud">
-  <a href="<%= new_widget_path %>" class="add symbol symbol-small" title="Add" data-toggle="modal" rel="tooltip" data-target="#modal" data-placement="left">
+  <a href="<%= new_widget_path %>" class="add symbol symbol-small" title="Add" data-toggle="modal" data-target="#modal" rel="tooltip"  data-placement="left">
     <i class="fa fa-plus fa-lg"></i>
   </a>
 
@@ -28,6 +28,8 @@
     <i class="fa fa-tint fa-lg"></i>
   </a>
 </div>
+
+
 
 <%= render 'modal' %>
 <%= render 'modal', size: 'small' %>

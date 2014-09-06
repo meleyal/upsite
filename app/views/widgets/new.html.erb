@@ -1,1 +1,50 @@
-<%= render 'form' %>
+<% if params[:type] %>
+
+  <%= render "widgets/#{params[:type]}/form" %>
+
+<% else %>
+
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Add content</h4>
+  </div>
+
+  <div class="modal-body">      
+    <div class="text-center">
+      <a href="<%= new_widget_path(type: 'header') %>" class="symbol" title="Header" rel="tooltip" data-toggle="modal" data-target="self" >
+        <i class="fa fa-bookmark fa-lg"></i>
+      </a>
+      <a href="<%= new_widget_path(type: 'text') %>" class="symbol" title="Text" rel="tooltip" data-toggle="modal" data-target="self" >
+        <i class="fa fa-font fa-lg"></i>
+      </a>
+      <a href="#" class="symbol" title="Divider" rel="tooltip">
+        <i class="fa fa-minus fa-lg"></i>
+      </a>
+      <a href="#" class="symbol" title="Image" rel="tooltip">
+        <i class="fa fa-image fa-lg"></i>
+      </a>
+      <a href="#" class="symbol" title="Video" rel="tooltip">
+        <i class="fa fa-video-camera fa-lg"></i>
+      </a>
+      <a href="#" class="symbol" title="Audio" rel="tooltip">
+        <i class="fa fa-microphone fa-lg"></i>
+      </a>
+      <a href="#" class="symbol" title="Download" rel="tooltip">
+        <i class="fa fa-file fa-lg"></i>
+      </a>
+      <a href="#" class="symbol" title="Contact" rel="tooltip">
+        <i class="fa fa-user fa-lg"></i>
+      </a>
+      <a href="#" class="symbol" title="Map" rel="tooltip">
+        <i class="fa fa-map-marker fa-lg"></i>
+      </a>
+      <a href="#" class="symbol" title="Event" rel="tooltip">
+        <i class="fa fa-calendar-o fa-lg"></i>
+      </a>
+      <a href="#" class="symbol" title="Footer" rel="tooltip">
+        <i class="fa fa-copyright fa-lg"></i>
+      </a>
+    </div>
+  </div>
+
+<% end %>

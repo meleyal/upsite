@@ -3,46 +3,46 @@
 // --------------------------------------------------
 
 
-.btn {
-  border: none;
-  @include box-shadow(none);
-  @include transition(all .3s);
-  text-shadow: none !important;
-  text-transform: uppercase;
-  font-weight: 500;
-  letter-spacing: 1px;
-  border-radius: 2px;
-  box-shadow: 0 2px 5px 0 rgba($black, 0.2);
+// .btn {
+//   border: none;
+//   @include box-shadow(none);
+//   @include transition(all .3s);
+//   text-shadow: none !important;
+//   text-transform: uppercase;
+//   font-weight: 500;
+//   letter-spacing: 1px;
+//   border-radius: 2px;
+//   box-shadow: 0 2px 5px 0 rgba($black, 0.2);
 
-  &:hover,
-  &:focus {
-    border: none;
-  }
-}
+//   &:hover,
+//   &:focus {
+//     border: none;
+//   }
+// }
 
-.btn-lg {
-  line-height: 1;
-  padding: 12px 16px;
-}
+// .btn-lg {
+//   line-height: 1;
+//   padding: 12px 16px;
+// }
 
-.btn-default {
-  &:hover,
-  &:focus {
-    background-color: lighten($gray-light, 2%);
-  }
-}
+// .btn-default {
+//   &:hover,
+//   &:focus {
+//     background-color: lighten($gray-light, 2%);
+//   }
+// }
 
-.btn-primary {
-  &:hover,
-  &:focus {
-    background-color: lighten($brand-primary, 8%);
-  }
-}
+// .btn-primary {
+//   &:hover,
+//   &:focus {
+//     background-color: lighten($brand-primary, 8%);
+//   }
+// }
 
-.btn-success {
-  // height: 50px;
-  &:hover,
-  &:focus {
-    background-color: lighten($brand-success, 8%);
-  }
-}
+// .btn-success {
+//   // height: 50px;
+//   &:hover,
+//   &:focus {
+//     background-color: lighten($brand-success, 8%);
+//   }
+// }

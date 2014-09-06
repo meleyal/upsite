@@ -1,3 +1,3 @@
 
-$(document).on 'ready', ->
-  $('[rel="tooltip"]').tooltip()
+$(document).on 'page:change', ->
+  $('body').tooltip selector: '[rel="tooltip"]'

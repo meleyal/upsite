@@ -17,7 +17,7 @@ $black: #000;
 $blue: #4285f4;
 $green: #5cb85c;
 $gray-dark: #616e7c;
-$gray: lighten($gray-dark, 45%);
+// $gray: lighten($gray-dark, 45%);
 $gray-light: lighten($gray-dark, 50%);
 $purple: #a773d1;
 
@@ -30,8 +30,8 @@ $link-hover-color: $brand-primary;
 // Typography
 // -------------------
 
-$font-size-base: 18px;
-$font-size-small: $font-size-base * .8;
+// $font-size-base: 18px;
+// $font-size-small: $font-size-base * .8;
 $font-family-sans-serif: 'Lato', sans-serif;
 $font-weight-light: 300;
 
@@ -54,4 +54,4 @@ $navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
 // Forms
 // -------------------
 
-$input-color-placeholder: $gray;
+// $input-color-placeholder: $gray;
