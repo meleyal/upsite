@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   if Rails.env.development?
 
-    # resources :pages
+    resources :pages
     resources :sessions, only: [:new, :create, :destroy]
     
     get '/signup', to: 'pages#new'
@@ -12,18 +12,25 @@ Rails.application.routes.draw do
 
     # constraints :subdomain => /^(?!www\Z)(\w+)/ do
     constraints(:subdomain => /.+/) do
-      get '/' => 'pages#show'
-      # put '/' => 'pages#update'
-      # get 'settings/design' => 'pages#edit'
-      # post 'settings/design' => 'pages#update'
-      resource :page
 
+      get '/' => 'pages#show'
+
+      get 'settings/design' => 'design#edit'
+      patch 'settings/design' => 'design#update'
+
+      get 'settings/account' => 'account#edit'
+      patch 'settings/account' => 'account#update'
+
+      # resource :page
+      # put '/' => 'pages#update'
       # get '/edit' => 'pages#edit' 
       # resources :pages, only: [:show, :update], :path => '/'
+
       resources :widgets do
         # member 'type', only: [:new, :create, :edit, :update]
         # get 'type', on: :member
       end
+      
       resources :attachments, except: [:new, :edit]
       # resources :attachments, only: [:create]
     end

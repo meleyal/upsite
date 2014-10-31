@@ -2,8 +2,7 @@ class PagesController < ApplicationController
 
   include Login
   layout 'signups', only: [:new]
-  before_action :set_page, only: [:show, :edit, :update, :destroy]
-  layout :false, only: [:edit] # shown in modal popup
+  before_action :set_page, only: [:show, :destroy]
 
   def index
     @pages = Page.all
@@ -19,9 +18,6 @@ class PagesController < ApplicationController
     @page = Page.new # (owner: @user)
     # @page = Page.new
     # @page.users.build
-  end
-
-  def edit
   end
 
   def create
@@ -44,14 +40,6 @@ class PagesController < ApplicationController
       redirect_to root_url(subdomain: @page.subdomain), notice: 'Page was successfully created.'
     else
       render :new
-    end
-  end
-
-  def update
-    if @page.update(page_params)
-      head :ok, location: request.referrer
-    else
-      render json: { page: @page.errors }, status: :unprocessable_entity
     end
   end
 

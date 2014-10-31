@@ -1,9 +1,4 @@
-<%
-  title = 'Edit widget'
-  url = page_path
-%>
-
-<%= simple_form_for(@page, url: url, remote: true) do |f| %>
+<%= simple_form_for(@page, url: settings_design_path, remote: true) do |f| %>
 
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>

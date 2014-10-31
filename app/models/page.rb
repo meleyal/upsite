@@ -11,8 +11,7 @@ class Page < ActiveRecord::Base
   has_many :texts
   has_many :images
   has_many :headers
-  has_many :attachments, dependent: :destroy
 
-  store :settings, accessors: [:font, :background_color, :theme_color, :custom_css]
+  store :settings, accessors: [:font, :background_color, :theme_color, :custom_css, :cc_number, :cc_type, :cc_cvc]
 
 end

@@ -18,12 +18,14 @@ $blue: #4285f4;
 $green: #5cb85c;
 $gray-dark: #616e7c;
 // $gray: lighten($gray-dark, 45%);
-$gray-light: lighten($gray-dark, 50%);
+$gray-light: lighten($gray-dark, 35%);
 $purple: #a773d1;
 
 
 // $body-bg:               #fff !default;
 $brand-primary: $blue;
+$brand-success: $green;
+$state-success-text: $green;
 
 // $text-color: lighten($gray-dark, 20%);
 $link-hover-color: $brand-primary;
@@ -34,8 +36,8 @@ $link-hover-color: $brand-primary;
 
 // $font-size-base: 18px;
 // $font-size-small: $font-size-base * .8;
-// $font-family-sans-serif: 'Lato', sans-serif;
-// $font-weight-light: 300;
+$font-family-sans-serif: 'Lato', sans-serif;
+$font-weight-light: 300;
 
 
 // Buttons

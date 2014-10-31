@@ -3,7 +3,7 @@
   url = widgets_path(type: 'header')
 %>
 
-<%= simple_form_for(@widget, as: :widget, url: url, remote: true) do |f| %>
+<%= simple_form_for(@widget, as: :widget, url: url, remote: true, :html => { :multipart => true }) do |f| %>
 
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -12,6 +12,9 @@
 
   <div class="modal-body">      
     <%= f.input :title %>    
+    <%= f.fields_for :attachments do |ff| %>
+      <%= ff.file_field :upload %>
+    <% end %>
   </div>
 
   <div class="modal-footer">

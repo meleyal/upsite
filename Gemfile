@@ -10,6 +10,7 @@ gem 'backbone-on-rails', '~> 0.9.10'
 gem 'ranked-model'
 gem 'simple_form', '~> 3.1.0.rc2', github: 'plataformatec/simple_form', branch: 'master'
 gem 'paperclip', '~> 3.4.0'
+gem 'remotipart', '~> 1.2'
 gem 'aws-sdk', '~> 1.8.0'
 gem 'bcrypt', '~> 3.1.7'
 
@@ -29,6 +30,7 @@ gem 'pg'
 gem 'rails_12factor', group: :production
 
 group :test, :development do
+  gem 'dotenv-rails'
   gem 'wirble'
   gem 'hirb'
   gem 'quiet_assets', :git => 'git://github.com/evrone/quiet_assets.git'
