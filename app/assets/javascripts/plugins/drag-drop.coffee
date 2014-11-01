@@ -14,7 +14,7 @@ onSort = (e, ui) ->
   data = widget: { sort_order_position: idx }
   $.ajax url, method: 'PUT', data: data
 
-$(document).on 'ready', ->
+$(document).on 'ready page:load', ->
   $(document.body).sortable options
   $(document).on 'sortupdate', 'body', onSort
 

@@ -1,7 +1,7 @@
-class Text < Widget
+class Navigation < Widget
   store :data, accessors: [:title, :body]
   
   def to_partial_path
-    'widgets/text/text'
+    'widgets/navigation/navigation'
   end
 end
