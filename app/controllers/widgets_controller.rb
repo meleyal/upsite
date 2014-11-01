@@ -14,7 +14,7 @@ class WidgetsController < ApplicationController
 
   def new
     @widget = @page.send(widget_type).new 
-    3.times { @widget.attachments.build } 
+    @widget.attachments.build
   end
 
   def edit

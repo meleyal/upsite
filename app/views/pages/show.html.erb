@@ -1,26 +1,8 @@
 <%= render 'theme.scss' %>
 
-
-<header class="page-header">
-  <div class="container">
-  <h1>
-    <%= @page.name %>
-    <small><%= @page.subdomain %>.pagekitapp.com</small>
-  </h1>
-  </div>
-</header>
-
-
 <div class="row">
   <%= render @widgets %> 
 </div>
-
-
-<footer class="page-footer">
-  <div class="container">
-    &copy; <%= "#{Date.today.year} #{@page.name}" %>
-  </div>
-</footer>
 
 <%= render 'hud' %>
 <%= render 'modal' %>
