@@ -13,6 +13,7 @@ gem 'paperclip', '~> 3.4.0'
 gem 'remotipart', '~> 1.2'
 gem 'aws-sdk', '~> 1.8.0'
 gem 'bcrypt', '~> 3.1.7'
+gem 'redcarpet', '~> 3.0.0'
 
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -21,7 +22,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'bootstrap-wysihtml5-rails', '~> 0.3.1'
 gem 'bootstrap-colorpicker-rails'
-gem 'font-awesome-rails', '~> 4.1.0'
+gem 'font-awesome-rails', '~> 4.2.0'
 
 # server
 gem 'unicorn'

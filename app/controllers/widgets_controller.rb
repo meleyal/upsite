@@ -35,11 +35,17 @@ class WidgetsController < ApplicationController
 
   def update
     @widget.update_attributes(widget_params)
-    respond_with(@widget)
+    if @widget.save
+      head :ok, location: request.referrer
+    else
+      render json: { widget: @widget.errors }, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    respond_with @widget.destroy(params[:id])
+    @page.widgets.destroy(params[:id])
+    # head :no_content, location: request.referrer
+    redirect_to request.referrer
   end
 
   protected

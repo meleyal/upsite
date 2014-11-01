@@ -1,8 +1,23 @@
-<header class="page-header">
+<header class="widget page-header">
   <div class="container">
+
+
+    <div class="widget-controls">
+      <a href="<%= edit_widget_path(header, params: { type: 'header' }) %>" title="" data-toggle="modal" data-target="#modal">
+        <i class="fa fa-pencil"></i>
+      </a>
+      <a href="#" title="">
+        <i class="fa fa-trash-o"></i>
+      </a>
+      <a href="#" class="move" title="">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+
     <h1>
       <img src="<%= header.attachments.first.upload.url %>" alt="<%= @page.name %>" class="img-responsive">
     </h1>
+
   </div>
 </header>
 

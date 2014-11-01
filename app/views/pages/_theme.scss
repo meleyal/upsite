@@ -11,7 +11,7 @@
       background-color: <%= @page.background_color %>;
     }
 
-    <%= @page.custom_css %>
+    <%= @page.custom_css.html_safe %>
 
   </style>
   

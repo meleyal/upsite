@@ -1,20 +1,24 @@
-<div class="col-md-4">
+<div class="widget">
+
+  <div class="container container-narrow">
   
-  <div class="widget-controls">
-    <a href="#" class="edit" title="">
-      <i class="icon-pencil"></i>
-    </a>
-    <a href="#" class="delete" title="">
-      <i class="icon-trash"></i>
-    </a>
-    <a href="#" class="move" title="">
-      <i class="icon-move"></i>
-    </a>
+    <div class="widget-controls">
+      <a href="<%= edit_widget_path(text, params: { type: 'text' }) %>" title="" data-toggle="modal" data-target="#modal">
+        <i class="fa fa-pencil"></i>
+      </a>
+      <a href="<%= widget_path(text) %>" title="" data-method="delete" data-confirm="Are you sure you want to delete this widget?">
+        <i class="fa fa-trash-o"></i>
+      </a>
+      <a href="#" class="move" title="">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+
+    <div class="content">
+      <%= markdown text.body %>
+    </div>
+
   </div>
 
-  <div class="content">
-    <h3><%= text.title %></h3>
-    <p><%= text.body %></p>
-  </div>
   
 </div>

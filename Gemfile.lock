@@ -94,7 +94,7 @@ GEM
     eventmachine (1.0.3)
     execjs (2.2.1)
     ffi (1.9.3)
-    font-awesome-rails (4.1.0.0)
+    font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
     foreman (0.74.0)
       dotenv (~> 0.11.1)
@@ -181,6 +181,7 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
+    redcarpet (3.0.0)
     remotipart (1.2.1)
     sass (3.2.19)
     sass-rails (4.0.3)
@@ -232,7 +233,7 @@ DEPENDENCIES
   bootstrap-wysihtml5-rails (~> 0.3.1)
   coffee-rails (~> 4.0.0)
   dotenv-rails
-  font-awesome-rails (~> 4.1.0)
+  font-awesome-rails (~> 4.2.0)
   foreman
   guard-livereload
   hirb
@@ -246,6 +247,7 @@ DEPENDENCIES
   rails_12factor
   ranked-model
   rb-fsevent
+  redcarpet (~> 3.0.0)
   remotipart (~> 1.2)
   sass-rails (~> 4.0.3)
   simple_form (~> 3.1.0.rc2)!

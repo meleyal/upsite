@@ -47,5 +47,6 @@ attrToId = (name, attr) ->
 #
 
 $(document).on 'ajax:success', 'form[data-remote]', (..., xhr) ->
+  console.log 'ajax:success'
   if location = xhr.getResponseHeader 'Location'
     Turbolinks.visit location
