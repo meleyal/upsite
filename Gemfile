@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.1'
 
 gem 'rails', '~> 4.1.0'
-gem 'turbolinks'
+gem 'turbolinks', '~> 2.4.0'
 gem 'jbuilder'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
