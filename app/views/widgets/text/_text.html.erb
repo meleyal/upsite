@@ -1,4 +1,6 @@
-<div class="widget" data-url="<%= widget_path(text) %>">
+<% attachment = text.attachments.first %>
+
+<div class="widget widget-text" data-url="<%= widget_path(text) %>">
 
   <div class="container container-narrow">
   
@@ -15,7 +17,11 @@
     </div>
 
     <div class="content">
+      <% if attachment %>
+        <img src="<%= attachment.upload.url %>" class="img-responsive pull-<%= text.layout.gsub('image-', '') %>">
+      <% end %>
       <%= markdown text.body %>
+
     </div>
 
   </div>

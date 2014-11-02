@@ -8,7 +8,7 @@
   end
 %>
 
-<%= simple_form_for(@widget, as: :widget, url: url, remote: true) do |f| %>
+<%= simple_form_for(@widget, as: :widget, url: url, remote: true, :html => { :multipart => true }) do |f| %>
 
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -19,6 +19,11 @@
     <%= f.input :body, as: 'text', input_html: { rows: 10 },
                  hint: 'Text can be formatted with <a href="http://markdown-here.com/livedemo.html">Markdown</a>.'.html_safe %>
 
+    <%= f.fields_for :attachments do |ff| %>
+      <%= ff.input :upload, label: 'Image' %>
+    <% end %>
+
+    <%= f.input :layout, collection: ['image-left', 'image-right'] %>
   </div>
 
   <div class="modal-footer">
