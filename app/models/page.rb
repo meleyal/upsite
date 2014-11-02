@@ -13,6 +13,7 @@ class Page < ActiveRecord::Base
   has_many :headers
   has_many :dividers
   has_many :navigations
+  has_many :downloads
 
   store :settings, accessors: [:font, :background_color, :theme_color, :custom_css, :cc_number, :cc_type, :cc_cvc]
 

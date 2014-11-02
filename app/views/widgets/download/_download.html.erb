@@ -1,0 +1,16 @@
+<% attachment = download.attachments.first %>
+
+<div class="widget widget-download" data-url="<%= widget_path(download) %>">
+  <div class="container">
+
+    <%# debug download.attachments.first.upload_file_name %>
+
+    <a href="<%= attachment.upload_url %>" download="<%= attachment.upload_file_name %>">
+      <img src="<%= image_path('pdf.gif') %>"><br>
+      <strong><%= download.title %></strong><br>
+      PDF <%= number_to_human_size(attachment.upload_file_size) %>
+    </a>
+
+  </div>
+</div>
+
