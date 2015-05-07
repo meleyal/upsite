@@ -1,22 +1,9 @@
 
-placeholder logos, images
 
 
-
-space for ads
-
-pagekit branding / badge
+on sort, post to widgets/id with 
+  sort_order_position: idx
 
 
-
-
-contstrain on route for widget types
-
-
-sanitize css
-https://devblog.supportbee.com/2011/08/15/sanitizing-css-in-rails/
-
-
-signup complete message
-  redirect back to homepage
-  replace form with thank you message
+how to get url to post to?
+  data-attribute?
