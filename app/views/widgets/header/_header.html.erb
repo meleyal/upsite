@@ -1,12 +1,11 @@
-<header class="widget page-header" data-url="<%= widget_path(header) %>" id="top">
+<header class="widget showbox" data-url="<%= widget_path(header) %>" id="top">
   <div class="container">
-
 
     <div class="widget-controls">
       <a href="<%= edit_widget_path(header, params: { type: 'header' }) %>" title="" data-toggle="modal" data-target="#modal">
         <i class="fa fa-pencil"></i>
       </a>
-      <a href="#" title="">
+      <a href="<%= widget_path(header) %>" title="" data-method="delete" data-confirm="Are you sure you want to delete this widget?">
         <i class="fa fa-trash-o"></i>
       </a>
       <a href="#" class="move" title="">

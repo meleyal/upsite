@@ -2,8 +2,8 @@
 
 <div class="widget widget-text" data-url="<%= widget_path(text) %>">
 
-  <div class="container container-narrow">
-  
+  <div class="container">
+
     <div class="widget-controls">
       <a href="<%= edit_widget_path(text, params: { type: 'text' }) %>" title="" data-toggle="modal" data-target="#modal">
         <i class="fa fa-pencil"></i>
@@ -21,10 +21,9 @@
         <img src="<%= attachment.upload.url %>" class="img-responsive pull-<%= text.layout.gsub('image-', '') %>">
       <% end %>
       <%= markdown text.body %>
-
     </div>
 
   </div>
 
-  
+
 </div>

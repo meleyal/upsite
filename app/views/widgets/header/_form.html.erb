@@ -1,5 +1,5 @@
 <%
-  title = 'Create header'
+  title = 'Create Showbox'
   url = widgets_path(type: 'header')
 %>
 
@@ -10,9 +10,9 @@
     <h4 class="modal-title"><%= title %></h4>
   </div>
 
-  <div class="modal-body">          
+  <div class="modal-body">
     <%= f.fields_for :attachments do |ff| %>
-      <%= ff.input :upload, label: 'Image' %>
+      <%= ff.input :upload, label: 'Image', hint: 'Use the Showbox to showcase the key content of your page.' %>
     <% end %>
   </div>
 

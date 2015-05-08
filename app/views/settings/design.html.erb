@@ -5,15 +5,16 @@
     <h4 class="modal-title">Design</h4>
   </div>
 
-  <div class="modal-body">      
-    <%= f.input :font, collection: ['Helvetica', 'Lato', 'Georgia'], include_blank: false, hint: 'Preview all of the <a href="https://www.google.com/fonts#ReviewPlace:refine/Collection:Lato|Arvo" target="_blank">available fonts</a>.'.html_safe %>
+  <div class="modal-body">
+    <%= f.input :font, collection: ['Helvetica', 'Lato', 'Georgia', 'Gill Sans'], include_blank: false, hint: 'Preview all of the <a href="https://www.google.com/fonts#ReviewPlace:refine/Collection:Lato|Arvo" target="_blank">available fonts</a>.'.html_safe %>
 
-    <%= f.input :background_color, input_html: { data: { toggle: 'colorpicker' } } %>    
-    <%= f.input :theme_color, input_html: { data: { toggle: 'colorpicker' } } %>    
+    <%= f.input :background_color, input_html: { data: { toggle: 'colorpicker' } } %>
+    <%= f.input :primary_color, input_html: { data: { toggle: 'colorpicker' } } %>
+    <%= f.input :secondary_color, input_html: { data: { toggle: 'colorpicker' } } %>
 
     <fieldset>
-      <legend>Advanced</legend> 
-      <%= f.input :custom_css, hint: 'PageKit is built on <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>. Your themes and custom styles should work here too.'.html_safe %>    
+      <legend>Advanced</legend>
+      <%= f.input :custom_css, hint: 'PageKit is built on <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>. Your themes and custom styles should work here too.'.html_safe %>
     </fieldset>
   </div>
 

@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 
   include Login
   layout 'signups', only: [:new]
-  before_action :set_page, only: [:show, :destroy]
+  before_action :set_page, only: [:show, :edit, :destroy]
 
   def index
     @pages = Page.all
@@ -43,6 +43,15 @@ class PagesController < ApplicationController
     end
   end
 
+  def update
+    @page.update_attributes(page_params)
+    if @page.save
+      head :ok, location: request.referrer
+    else
+      render json: { page: @page.errors }, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @page = Page.find(params[:id])
     @page.destroy
@@ -63,7 +72,7 @@ class PagesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
       # params.require(:page).permit(:name, :subdomain, owner_attributes: [:email])
-      params.require(:page).permit(:name, :subdomain, :font, :background_color, :custom_css)
+      params.require(:page).permit(:name, :subdomain, :font, :primary_color, :secondary_color, :custom_css)
     end
 
     def user_params

@@ -47,6 +47,7 @@ attrToId = (name, attr) ->
 #
 
 $(document).on 'ajax:success', 'form[data-remote]', (..., xhr) ->
-  console.log 'ajax:success'
-  if location = xhr.getResponseHeader 'Location'
-    Turbolinks.visit location
+  # FIXME: hack for remotipart uploads sending no location header
+  # if location = xhr.getResponseHeader 'Location'
+  #   Turbolinks.visit location
+  Turbolinks.visit window.location

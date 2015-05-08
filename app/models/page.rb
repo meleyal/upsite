@@ -15,6 +15,6 @@ class Page < ActiveRecord::Base
   has_many :navigations
   has_many :downloads
 
-  store :settings, accessors: [:font, :background_color, :theme_color, :custom_css, :cc_number, :cc_type, :cc_cvc]
+  store :settings, accessors: [:font, :background_color, :primary_color, :secondary_color, :custom_css, :cc_number, :cc_type, :cc_cvc]
 
 end

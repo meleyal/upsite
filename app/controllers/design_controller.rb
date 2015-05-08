@@ -22,7 +22,7 @@ class DesignController < ApplicationController
     end
 
     def page_params
-      params.require(:page).permit(:font, :background_color, :custom_css)
+      params.require(:page).permit(:font, :background_color, :primary_color, :secondary_color, :custom_css)
     end
-    
+
 end

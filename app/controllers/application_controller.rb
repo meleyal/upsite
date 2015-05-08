@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    ap session[:user_id]
-    @current_user ||= session[:user_id] ? User.find(session[:user_id]) : nil
+    # @current_user ||= session[:user_id] ? User.find(session[:user_id]) : nil
+    @current_user ||= User.first
   end
 
   def current_page

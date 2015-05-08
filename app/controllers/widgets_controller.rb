@@ -1,6 +1,6 @@
 class WidgetsController < ApplicationController
 
-  before_action :set_page 
+  before_action :set_page
   before_action :set_widget, only: [:show, :edit, :update, :destroy]
   layout :false, only: [:new, :edit] # shown in modal popup
 
@@ -13,7 +13,7 @@ class WidgetsController < ApplicationController
   end
 
   def new
-    @widget = @page.send(widget_type).new 
+    @widget = @page.send(widget_type).new
     @widget.attachments.build
   end
 
