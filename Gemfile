@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.2.2'
 
 gem 'rails', '~> 4.1.0'
 gem 'turbolinks', '~> 2.4.0'
