@@ -1,7 +1,11 @@
-class Header < Widget
-  store :data, accessors: [:title]
-  
+class Header < Block
+  store :data, accessors: [:text, :background_color]
+
   def to_partial_path
-    'widgets/header/header'
+    'blocks/header/showbox'
+  end
+
+  def image
+    attachments.first.upload.url rescue nil
   end
 end

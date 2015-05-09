@@ -1,4 +1,4 @@
-class Image < Widget
+class Image < Block
   include RankedModel
-  ranks :sort_order, :class_name => 'Widget'
+  ranks :sort_order, :class_name => 'Block'
 end

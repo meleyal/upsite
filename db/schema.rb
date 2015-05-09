@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20140817181454) do
   enable_extension "plpgsql"
 
   create_table "attachments", force: true do |t|
-    t.integer  "widget_id"
+    t.integer  "block_id"
     t.string   "upload_file_name"
     t.string   "upload_content_type"
     t.integer  "upload_file_size"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20140817181454) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "blocks", force: true do |t|
+    t.string   "type"
+    t.integer  "sort_order"
+    t.text     "data"
+    t.integer  "page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blocks", ["page_id"], name: "index_blocks_on_page_id", using: :btree
 
   create_table "pages", force: true do |t|
     t.string   "name"
@@ -49,16 +60,5 @@ ActiveRecord::Schema.define(version: 20140817181454) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["page_id"], name: "index_users_on_page_id", using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
-
-  create_table "widgets", force: true do |t|
-    t.string   "type"
-    t.integer  "sort_order"
-    t.text     "data"
-    t.integer  "page_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "widgets", ["page_id"], name: "index_widgets_on_page_id", using: :btree
 
 end

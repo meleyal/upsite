@@ -9,3 +9,6 @@
 
 user = User.create({ email: 'william.meleyal@gmail.com', password: 'password', password_confirmation: 'password' })
 page = Page.create({ name: 'meleyal', owner: user })
+
+# user = User.create({ email: 'william.meleyal+1@gmail.com', password: 'password', password_confirmation: 'password' })
+# page = Page.create({ name: 'craftwerk', owner: user })

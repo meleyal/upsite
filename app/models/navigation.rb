@@ -1,7 +1,7 @@
-class Navigation < Widget
+class Navigation < Block
   store :data, accessors: [:title, :body]
-  
+
   def to_partial_path
-    'widgets/navigation/navigation'
+    'blocks/navigation/navigation'
   end
 end

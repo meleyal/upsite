@@ -1,7 +1,7 @@
-class Text < Widget
+class Text < Block
   store :data, accessors: [:title, :body, :layout]
-  
+
   def to_partial_path
-    'widgets/text/text'
+    'blocks/text/text'
   end
 end

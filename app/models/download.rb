@@ -1,7 +1,7 @@
-class Download < Widget
+class Download < Block
   store :data, accessors: [:title]
-  
+
   def to_partial_path
-    'widgets/download/download'
+    'blocks/download/download'
   end
 end

@@ -1,9 +1,14 @@
 <%
   title = 'Create Showbox'
-  url = widgets_path(type: 'header')
+  url = blocks_path(type: 'header')
+
+  if @block.persisted?
+    title = 'Edit Showbox'
+    url = block_path(type: 'header', id: @block.id)
+  end
 %>
 
-<%= simple_form_for(@widget, as: :widget, url: url, remote: true, :html => { :multipart => true }) do |f| %>
+<%= simple_form_for(@block, as: :block, url: url, remote: true, :html => { :multipart => true }) do |f| %>
 
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -11,9 +16,13 @@
   </div>
 
   <div class="modal-body">
+    <%= f.input :text %>
+
     <%= f.fields_for :attachments do |ff| %>
       <%= ff.input :upload, label: 'Image', hint: 'Use the Showbox to showcase the key content of your page.' %>
     <% end %>
+
+    <%= f.input :background_color, input_html: { data: { toggle: 'colorpicker' } } %>
   </div>
 
   <div class="modal-footer">

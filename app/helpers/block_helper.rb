@@ -1,4 +1,4 @@
-module WidgetHelper
+module BlockHelper
   def markdown(text)
     @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, {
       hard_wrap: true

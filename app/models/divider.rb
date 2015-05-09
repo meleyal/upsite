@@ -1,7 +1,7 @@
-class Divider < Widget
+class Divider < Block
   store :data, accessors: [:title]
-  
+
   def to_partial_path
-    'widgets/divider/divider'
+    'blocks/divider/divider'
   end
 end

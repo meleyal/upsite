@@ -7,7 +7,7 @@ class Page < ActiveRecord::Base
   validates :subdomain, uniqueness: true
 
   # has_many :widgets, :dependent => :destroy, -> { order(:sort_order) }
-  has_many :widgets, -> { order(:sort_order) }
+  has_many :blocks, -> { order(:sort_order) }
   has_many :texts
   has_many :images
   has_many :headers

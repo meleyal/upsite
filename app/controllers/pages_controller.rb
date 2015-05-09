@@ -10,7 +10,7 @@ class PagesController < ApplicationController
 
   def show
     # @page = Page.find_by(subdomainrequest.subdomains.first)
-    @widgets = @page.widgets.all
+    @blocks = @page.blocks.all
   end
 
   def new
@@ -65,7 +65,7 @@ class PagesController < ApplicationController
     end
 
     # def page_params
-    #   # params.require(:widget).permit(:type, :sort_order, :sort_order_position, :data, :page_id)
+    #   # params.require(:block).permit(:type, :sort_order, :sort_order_position, :data, :page_id)
     #   params.permit(settings: [:background_color])
     # end
 

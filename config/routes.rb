@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
     resources :pages
     resources :sessions, only: [:new, :create, :destroy]
-    
+
     get '/signup', to: 'pages#new'
     get '/login', to: 'sessions#new'
     post '/login', to: 'sessions#create'
@@ -23,14 +23,14 @@ Rails.application.routes.draw do
 
       # resource :page
       # put '/' => 'pages#update'
-      # get '/edit' => 'pages#edit' 
+      # get '/edit' => 'pages#edit'
       # resources :pages, only: [:show, :update], :path => '/'
 
-      resources :widgets do
+      resources :blocks do
         # member 'type', only: [:new, :create, :edit, :update]
         # get 'type', on: :member
       end
-      
+
       resources :attachments, except: [:new, :edit]
       # resources :attachments, only: [:create]
     end
