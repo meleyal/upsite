@@ -1,10 +1,10 @@
 <%
   title = 'Create Showbox'
-  url = blocks_path(type: 'header')
+  url = blocks_path(type: 'showbox')
 
   if @block.persisted?
     title = 'Edit Showbox'
-    url = block_path(type: 'header', id: @block.id)
+    url = block_path(type: 'showbox', id: @block.id)
   end
 %>
 

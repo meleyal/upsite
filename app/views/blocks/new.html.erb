@@ -13,8 +13,8 @@
     <div class="text-center">
 
 
-      <% if @page.headers.length < 1 %>
-        <a href="<%= new_block_path(type: 'header') %>" class="btn symbol" <%= 'disabled' if @page.headers.length > 0 %> title="Showbox" rel="tooltip" data-toggle="modal" data-target="self" >
+      <% if @page.showboxes.length < 1 %>
+        <a href="<%= new_block_path(type: 'showbox') %>" class="btn symbol" title="Showbox" rel="tooltip" data-toggle="modal" data-target="self" >
           <i class="fa fa-bookmark fa-lg"></i>
         </a>
       <% end %>

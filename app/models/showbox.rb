@@ -1,8 +1,8 @@
-class Header < Block
+class Showbox < Block
   store :data, accessors: [:text, :background_color]
 
   def to_partial_path
-    'blocks/header/showbox'
+    'blocks/showbox/showbox'
   end
 
   def image

@@ -10,7 +10,7 @@ class Page < ActiveRecord::Base
   has_many :blocks, -> { order(:sort_order) }
   has_many :texts
   has_many :images
-  has_many :headers
+  has_many :showboxes
   has_many :dividers
   has_many :navigations
   has_many :downloads
