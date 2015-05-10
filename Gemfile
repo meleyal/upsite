@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.2.2'
 
-gem 'rails', '~> 4.1.0'
+gem 'rails', '~> 4.2.0'
+gem 'responders', '~> 2.0'
 gem 'turbolinks', '~> 2.4.0'
 gem 'jbuilder'
 gem 'jquery-rails'
@@ -15,9 +16,9 @@ gem 'aws-sdk', '~> 1.8.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'redcarpet', '~> 3.0.0'
 
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.1.0'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'bootstrap-wysihtml5-rails', '~> 0.3.1'

@@ -4,6 +4,7 @@ class Attachment < ActiveRecord::Base
   # before_post_process :skip_for_documents
 
   has_attached_file :upload,
+    path: ":rails_root/public/system/:app_name_:hash_:style.:extension",
     url: "/system/:app_name_:hash_:style.:extension",
     hash_secret: "QXBhFYdt2JU7ZINf"
     # styles: { medium: '300x300#' }

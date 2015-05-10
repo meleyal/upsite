@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140817181454) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attachments", force: true do |t|
+  create_table "attachments", force: :cascade do |t|
     t.integer  "block_id"
     t.string   "upload_file_name"
     t.string   "upload_content_type"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20140817181454) do
     t.datetime "updated_at"
   end
 
-  create_table "blocks", force: true do |t|
+  create_table "blocks", force: :cascade do |t|
     t.string   "type"
     t.integer  "sort_order"
     t.text     "data"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140817181454) do
 
   add_index "blocks", ["page_id"], name: "index_blocks_on_page_id", using: :btree
 
-  create_table "pages", force: true do |t|
+  create_table "pages", force: :cascade do |t|
     t.string   "name"
     t.string   "subdomain"
     t.text     "settings"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20140817181454) do
 
   add_index "pages", ["subdomain"], name: "index_pages_on_subdomain", unique: true, using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
     t.string   "remember_token"

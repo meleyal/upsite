@@ -5,4 +5,11 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( signups.css signups.js )
+Rails.application.config.assets.precompile += %w( 
+  signups.css 
+  signups.js 
+  bootstrap-colorpicker/saturation.png
+  bootstrap-colorpicker/hue.png
+  bootstrap-colorpicker/alpha.png
+  bootstrap-colorpicker/hue-horizontal.png
+  bootstrap-colorpicker/alpha-horizontal.png)

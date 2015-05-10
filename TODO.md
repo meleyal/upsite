@@ -1,9 +1,9 @@
 
 
-
-on sort, post to widgets/id with 
-  sort_order_position: idx
+Style guide
 
 
-how to get url to post to?
-  data-attribute?
+http://designmodo.github.io/Flat-UI/
+http://getbootstrap.com/getting-started/#examples
+
+
