@@ -12,8 +12,10 @@ class BlocksController < ApplicationController
   end
 
   def new
-    @block = @page.send(block_type).new
-    @block.attachments.build
+    if block_type
+      @block = @page.send(block_type).new
+      @block.attachments.build
+    end
   end
 
   def edit
@@ -46,7 +48,7 @@ class BlocksController < ApplicationController
   protected
 
     def block_type
-      params[:type] ? params[:type].underscore.pluralize.to_s : 'texts'
+      params[:type].present? ? params[:type].underscore.pluralize.to_s : nil
     end
 
   private
@@ -60,7 +62,6 @@ class BlocksController < ApplicationController
         :type,
         :sort_order,
         :sort_order_position,
-        :page_id,
         :title,
         :body,
         :text,

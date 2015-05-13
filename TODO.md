@@ -1,9 +1,8 @@
 
 
+
 Technical debt:
 
-block_params per type
-modals
 uploads
 
 

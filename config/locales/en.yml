@@ -5,7 +5,7 @@ en:
   made_in_vienna: Made in Vienna
 
   signups:
-    new: 
+    new:
       get_started: Get started
       features:
         one:
@@ -18,9 +18,9 @@ en:
           title: Great design
           body: Professional templates, easily customized to suit your style.
       coming_soon:
-        title: Coming soon 
+        title: Coming soon
         body: Enter your email for updates
-        email: you@example.com 
+        email: you@example.com
         button: OK
 
   activerecord:
@@ -31,8 +31,10 @@ en:
       #     first_name: "Name first"
   helpers:
     submit:
-      session: 
+      session:
         submit: Login
-    #   create: "Create %{model}"
+    submit:
+      block:
+        create: "Create"
+        update: "Update"
     #   submit: "Save %{model}"
-    #   update: "Update %{model}"
