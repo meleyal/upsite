@@ -5,7 +5,6 @@ class BlocksController < ApplicationController
   layout :false, only: [:new, :edit] # shown in modal popup
 
   def index
-    ap 'foo'
     @blocks = @page.blocks.all
   end
 
@@ -20,11 +19,7 @@ class BlocksController < ApplicationController
   def edit
   end
 
-  # Override the location as it otherwise presumes
-  # a named route for the block type (e.g. text_url)
   def create
-    # ap params
-    # p block_type
     @block = @page.send(block_type).new(block_params)
     if @block.save
       head :created, location: request.referrer
@@ -61,11 +56,6 @@ class BlocksController < ApplicationController
     end
 
     def block_params
-      # ap params[:type]
-      # type = params[:type].to_sym
-      # params.require(:block).permit(:type, :sort_order, :sort_order_position, :data, :page_id)
-      # params.permit(:type, :sort_order, :sort_order_position, :page_id, data: [:title, :body])
-      # params.require(:text).permit(:type, :sort_order, :sort_order_position, :page_id, data: [:title, :body])
       params.require(:block).permit(
         :type,
         :sort_order,
@@ -77,8 +67,6 @@ class BlocksController < ApplicationController
         :layout,
         :background_color,
         attachments_attributes: [:upload])
-      # params.permit(:sort_order, :sort_order_position, :page_id, :title, :body)
-      # params.require(type).permit(:sort_order, :sort_order_position, :page_id, :title, :body)
     end
 
 end
