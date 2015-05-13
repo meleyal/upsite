@@ -9,7 +9,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'backbone-on-rails', '~> 0.9.10'
 gem 'ranked-model'
-gem 'simple_form', '~> 3.1.0.rc2', github: 'plataformatec/simple_form', branch: 'master'
+gem 'simple_form', '~> 3.1.0'
 gem 'paperclip', '~> 3.4.0'
 gem 'remotipart', '~> 1.2'
 gem 'aws-sdk', '~> 1.8.0'
@@ -21,7 +21,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 
 gem 'bootstrap-sass', '~> 3.2.0'
-gem 'bootstrap-wysihtml5-rails', '~> 0.3.1'
 gem 'bootstrap-colorpicker-rails'
 gem 'font-awesome-rails', '~> 4.2.0'
 
@@ -38,5 +37,4 @@ group :test, :development do
   gem 'quiet_assets', :git => 'git://github.com/evrone/quiet_assets.git'
   gem 'awesome_print'
   gem 'guard-livereload', require: false
-  gem 'rb-fsevent'
 end

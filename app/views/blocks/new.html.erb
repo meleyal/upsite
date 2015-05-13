@@ -1,7 +1,5 @@
 <% if params[:type] %>
-
   <%= render "blocks/#{params[:type]}/form" %>
-
 <% else %>
 
   <div class="modal-header">
@@ -11,7 +9,6 @@
 
   <div class="modal-body">
     <div class="text-center">
-
 
       <% if @page.showboxes.length < 1 %>
         <a href="<%= new_block_path(type: 'showbox') %>" class="btn symbol" title="Showbox" rel="tooltip" data-toggle="modal" data-target="self" >
@@ -23,40 +20,6 @@
         <i class="fa fa-font fa-lg"></i>
       </a>
 
-      <a href="<%= new_block_path(type: 'divider') %>" class="btn symbol" title="Divider" rel="tooltip" data-toggle="modal" data-target="self">
-        <i class="fa fa-minus fa-lg"></i>
-      </a>
-
-      <% if @page.navigations.length < 1 %>
-        <a href="<%= new_block_path(type: 'navigation') %>" class="btn symbol" title="Navigation" rel="tooltip" data-toggle="modal" data-target="self">
-          <i class="fa fa-bars fa-lg"></i>
-        </a>
-      <% end %>
-
-      <a href="<%= new_block_path(type: 'download') %>" class="btn symbol" title="Download" rel="tooltip" data-toggle="modal" data-target="self">
-        <i class="fa fa-file fa-lg"></i>
-      </a>
-
-      <!--
-      <a href="#" class="btn symbol" title="Video" rel="tooltip">
-        <i class="fa fa-video-camera fa-lg"></i>
-      </a>
-      <a href="#" class="btn symbol" title="Audio" rel="tooltip">
-        <i class="fa fa-microphone fa-lg"></i>
-      </a>
-      <a href="#" class="btn symbol" title="Contact" rel="tooltip">
-        <i class="fa fa-user fa-lg"></i>
-      </a>
-      <a href="#" class="btn symbol" title="Map" rel="tooltip">
-        <i class="fa fa-map-marker fa-lg"></i>
-      </a>
-      <a href="#" class="btn symbol" title="Event" rel="tooltip">
-        <i class="fa fa-calendar-o fa-lg"></i>
-      </a>
-      <a href="#" class="btn symbol" title="Footer" rel="tooltip">
-        <i class="fa fa-copyright fa-lg"></i>
-      </a>
-      -->
     </div>
   </div>
 

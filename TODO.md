@@ -1,13 +1,7 @@
 
-jsonb column type:
-
-http://nandovieira.com/using-postgresql-and-jsonb-with-ruby-on-rails
-
-
 
 Technical debt:
 
-remove unused block types
 block_params per type
 modals
 uploads
