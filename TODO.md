@@ -1,12 +1,5 @@
 
 
-
-Technical debt:
-
-uploads
-
-
-
 Style guide (static):
 
 http://designmodo.com/startup
