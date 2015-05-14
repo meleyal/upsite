@@ -29,9 +29,9 @@ Rails.application.routes.draw do
       resources :blocks do
         # member 'type', only: [:new, :create, :edit, :update]
         # get 'type', on: :member
+        resources :attachments, except: [:new, :edit], defaults: { format: 'json' }
       end
 
-      resources :attachments, except: [:new, :edit]
       # resources :attachments, only: [:create]
     end
 

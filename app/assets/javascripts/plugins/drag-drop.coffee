@@ -5,13 +5,13 @@
 options =
   tolerance: 'pointer'
   handle: '.move'
-  placeholder: 'widget-placeholder'
+  placeholder: 'block-placeholder'
   forcePlaceholderSize: true
 
 onSort = (e, ui) ->
   { url } = ui.item.data()
-  idx = $('.widget').index ui.item
-  data = widget: { sort_order_position: idx }
+  idx = $('.block').index ui.item
+  data = block: { sort_order_position: idx }
   $.ajax url, method: 'PUT', data: data
 
 $(document).on 'ready page:load', ->

@@ -1,15 +1,7 @@
 class AttachmentsController < ApplicationController
 
-  before_filter :set_page
+  before_filter :set_page, :set_block
   respond_to :json
-
-  def index
-    @attachments = @page.attachments.all
-  end
-
-  def show
-    @attachment = @page.attachments.find(params[:id])
-  end
 
   def create
     attachment = @page.attachments.new({ upload: params[:upload] })
@@ -24,7 +16,14 @@ class AttachmentsController < ApplicationController
   end
 
   def destroy
-    respond_with @page.attachments.destroy(params[:id])
+    @block.attachments.destroy(params[:id])
+    redirect_to request.referrer
+  end
+
+  private
+
+  def set_block
+    @block = @page.blocks.find(params[:block_id])
   end
 
 end
