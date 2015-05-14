@@ -1,7 +1,13 @@
 <% content_for :page_title, @page.name %>
 
 <%= render 'theme.scss' %>
-<%= render @blocks %>
+
+<% if false && @blocks.present? %>
+  <%= render @blocks %>
+<% else %>
+  <%= render 'blank_slate' %>
+<% end %>
+
 <%= render 'hud' %>
 <%= render 'modal' %>
 <%= render 'modal', size: 'small' %>

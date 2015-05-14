@@ -2,3 +2,51 @@
 // Utilities
 // --------------------------------------------------
 
+.vertical-center {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  @include translate(-50%, -50%);
+}
+
+.blank-slate {
+  // border: 3px dashed $text-muted;
+  // border-radius: 5px;
+  padding: 40px;
+  color: lighten($gray, 50%);
+  // box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+  // display: none;
+  // font-family: 'Gloria Hallelujah', cursive;
+  // font-family: 'Rock Salt', cursive;
+  font-family: 'Reenie Beanie', cursive;
+  line-height: 1;
+  letter-spacing: -2px;
+  @include rotate(-5deg);
+  // background: $gray-light;
+  // border: 2px dashed lighten($gray, 50%);
+  // border-radius: 10px;
+  font-size: 30px;
+
+  a {
+    color: lighten($gray, 50%);
+    // text-decoration: underline;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+
+.blank-slate-lead {
+  font-size: 60px;
+  letter-spacing: -4px;
+  // margin-bottom: 40px;
+}
+
+.blank-slate-title {
+  // margin-top: 0;
+  // color: lighten($gray, 30%);
+  font-size: 80px;
+  letter-spacing: -4px;
+  text-decoration: underline;
+}

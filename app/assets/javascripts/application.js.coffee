@@ -7,3 +7,10 @@
 #= require bootstrap-colorpicker
 
 #= require_tree ./plugins
+
+
+$(document).on 'page:change', ->
+  unless $('.blocks').length
+    $('.hud .add')
+      .attr('title', 'Get started')
+      .trigger('focus')

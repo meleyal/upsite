@@ -9,6 +9,10 @@ body {
   }
 }
 
+a {
+  @include transition(all .2s);
+}
+
 .container-centered {
   margin: 10% auto 0;
   text-align: center;
