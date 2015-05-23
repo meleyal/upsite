@@ -1,8 +1,26 @@
 .block-text {
 
+  $brand-primary: #00bce2;
+
+  h2 {
+    color: darken($brand-primary, 10%);
+  }
+
+  h3, h4 {
+    color: $brand-primary;
+  }
+
   img {
     padding: 20px;
     max-width: 300px;
   }
 
+  a {
+    color: $brand-primary;
+  }
+
+}
+
+.block-text-fill {
+  background-color: lighten($brand-primary, 35%);
 }

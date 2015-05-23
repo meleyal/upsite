@@ -21,6 +21,8 @@ Rails.application.routes.draw do
       get 'settings/account' => 'account#edit'
       patch 'settings/account' => 'account#update'
 
+      resources :help, only: [:new, :create]
+
       # resource :page
       # put '/' => 'pages#update'
       # get '/edit' => 'pages#edit'

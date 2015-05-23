@@ -6,23 +6,87 @@
 
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h4 class="modal-title">Add</h4>
+    <!-- <h4 class="modal-title">Add</h4> -->
   </div>
 
   <div class="modal-body">
     <div class="text-center">
-
-      <% if @page.showboxes.length < 1 %>
-        <a href="<%= new_block_path(type: 'showbox') %>" class="btn symbol" title="Showbox" rel="tooltip" data-toggle="modal" data-target="self" >
+      <!-- Navbar -->
+      <a href="<%= new_block_path(type: 'navbar') %>" class="btn btn-circle disabled" data-toggle="modal" data-target="self" >
+        <p class="symbol">
           <i class="fa fa-bookmark fa-lg"></i>
-        </a>
-      <% end %>
+        </p>
+        <p>Menu Bar</p>
+      </a>
 
-      <a href="<%= new_block_path(type: 'text') %>" class="btn symbol" title="Text" rel="tooltip" data-toggle="modal" data-target="self" >
-        <i class="fa fa-font fa-lg"></i>
+      <!-- Text -->
+      <a href="<%= new_block_path(type: 'text') %>" class="btn btn-circle" data-toggle="modal" data-target="self" >
+        <p class="symbol">
+          <i class="fa fa-align-left fa-lg"></i>
+        </p>
+        <p>Text</p>
+      </a>
+
+      <!-- Image -->
+      <a href="<%= new_block_path(type: 'image') %>" class="btn btn-circle" data-toggle="modal" data-target="self">
+        <p class="symbol">
+          <i class="fa fa-camera fa-lg"></i><br>
+        </p>
+        <p>Image</p>
+      </a>
+
+      <!-- Gallery -->
+      <a href="<%= new_block_path(type: 'gallery') %>" class="btn btn-circle disabled" data-toggle="modal" data-target="self">
+        <p class="symbol">
+          <i class="fa fa-th fa-lg"></i><br>
+        </p>
+        <p>Gallery</p>
+      </a>
+
+      <!-- Video -->
+      <a href="<%= new_block_path(type: 'video') %>" class="btn btn-circle disabled" data-toggle="modal" data-target="self">
+        <p class="symbol">
+          <i class="fa fa-video-camera fa-lg"></i><br>
+        </p>
+        <p>Video</p>
+      </a>
+
+      <!-- Profile -->
+      <a href="<%= new_block_path(type: 'profile') %>" class="btn btn-circle disabled" data-toggle="modal" data-target="self">
+        <p class="symbol">
+          <i class="fa fa-user fa-lg"></i><br>
+        </p>
+        <p>Profile</p>
+      </a>
+
+      <!-- Files -->
+      <a href="<%= new_block_path(type: 'files') %>" class="btn btn-circle disabled" data-toggle="modal" data-target="self">
+        <p class="symbol">
+          <i class="fa fa-file fa-lg"></i><br>
+        </p>
+        <p>Files</p>
+      </a>
+
+      <!-- Map -->
+      <a href="<%= new_block_path(type: 'map') %>" class="btn btn-circle disabled" data-toggle="modal" data-target="self">
+        <p class="symbol">
+          <i class="fa fa-map-marker fa-lg"></i><br>
+        </p>
+        <p>Map</p>
+      </a>
+
+      <!-- More -->
+      <a href="<%= new_help_path(message: 'You should add...') %>" class="btn btn-circle" data-toggle="modal" data-target="self">
+        <p class="symbol">
+          <i class="fa fa-plus fa-lg"></i><br>
+        <p>More</p>
       </a>
 
     </div>
   </div>
+
+  <!-- <div class="modal-footer modal-footer-btn">
+    <a href="#" class="btn btn-lg btn-default btn-block">More...</a>
+  </div> -->
 
 <% end %>

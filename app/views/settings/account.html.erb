@@ -3,58 +3,88 @@
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
     <h4 class="modal-title">Account</h4>
+    <!-- Tabs -->
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
+      <li><a href="#billing" data-toggle="tab">Billing</a></li>
+    </ul>
   </div>
 
-  <div class="modal-body">      
+  <div class="modal-body">
+    <div class="tab-content">
 
-    <%# f.input :name %>    
-    <%# f.input :subdomain, input_html: { readonly: true } %>    
+      <div class="tab-pane active" id="settings">
+        <%= f.input :name %>
 
-    <p class="lead">Upgrade to <strong>Pro</strong> for only <strong>&euro;25</strong> per year</p>
+        <div class="form-group">
+          <label class="control-label">URL</label>
+          <div class="input-group">
+            <input type="text" class="form-control">
+            <span class="input-group-addon">.pagekitapp.com</span>
+          </div>
+          <p class="help-block">Want to use your own domain? <a href="#billing" data-toggle="tab">Upgrade to Pro</a></p>
+        </div>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>&nbsp;</th>
-          <th>Free</th>
-          <th>Pro</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>No ads</th>
-          <td><i class="fa fa-lg fa-times text-muted"></i></td>
-          <td><i class="fa fa-lg fa-check text-success"></i></td>
-        </tr>
-        <tr>
-          <th>Custom domain</th>
-          <td><i class="fa fa-lg fa-times text-muted"></i></td>
-          <td><i class="fa fa-lg fa-check text-success"></i></td>
-        </tr>
-        <tr>
-          <th>More storage <span class="text-muted">(1GB)</span></th>
-          <td><i class="fa fa-lg fa-times text-muted"></i></td>
-          <td><i class="fa fa-lg fa-check text-success"></i></td>
-        </tr>
-        <tr>
-          <th>Warm, fuzzy feeling</th>
-          <td><i class="fa fa-lg fa-times text-muted"></i></td>
-          <td><i class="fa fa-lg fa-check text-success"></i></td>
-        </tr>
-      </tbody>
-    </table>
+        <%= f.input :description, hint: 'Describe your site in a few words for search engines.' %>
 
-    <fieldset>
-      <h4><i class="fa fa-credit-card"></i> Credit card</h4>
-      <p>Payments are processed by <a href="#">Stripe</a> and billed yearly. You can cancel at any time.</p>
-      <%= f.input :cc_number, label: 'Number' %>
-      <%= f.input :cc_type, label: 'Type', collection: ['Visa', 'MasterCard', 'American Express'] %>
-    </fieldset>
+        <div class="form-group">
+          <label class="control-label">Category</label>
+          <select class="form-control"><option>Select...</option></select>
+          <p class="help-block">What is your site about?</p>
+        </div>
+
+      </div>
+
+      <!-- Pro -->
+      <div class="tab-pane" id="billing">
+
+        <p class="lead">Upgrade to <strong>Pro</strong> for only <strong>&euro;25</strong> per year</p>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>Free</th>
+              <th>Pro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>No ads</th>
+              <td><i class="fa fa-lg fa-times text-muted"></i></td>
+              <td><i class="fa fa-lg fa-check text-success"></i></td>
+            </tr>
+            <tr>
+              <th>Custom domain</th>
+              <td><i class="fa fa-lg fa-times text-muted"></i></td>
+              <td><i class="fa fa-lg fa-check text-success"></i></td>
+            </tr>
+            <tr>
+              <th>More storage <span class="text-muted">(1GB)</span></th>
+              <td><i class="fa fa-lg fa-times text-muted"></i></td>
+              <td><i class="fa fa-lg fa-check text-success"></i></td>
+            </tr>
+            <tr>
+              <th>Warm, fuzzy feeling</th>
+              <td><i class="fa fa-lg fa-times text-muted"></i></td>
+              <td><i class="fa fa-lg fa-check text-success"></i></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <fieldset>
+          <h4><i class="fa fa-credit-card"></i> Credit card</h4>
+          <p>Payments are processed by <a href="#">Stripe</a> and billed yearly. You can cancel at any time.</p>
+          <%= f.input :cc_number, label: 'Number' %>
+          <%= f.input :cc_type, label: 'Type', collection: ['Visa', 'MasterCard', 'American Express'] %>
+        </fieldset>
+      </div>
+    </div>
 
   </div>
 
   <div class="modal-footer">
-    <%= f.button :submit, 'Upgrade', class: 'btn btn-success' %>
+    <%= f.button :submit, class: 'btn btn-success' %>
   </div>
 
 <% end %>

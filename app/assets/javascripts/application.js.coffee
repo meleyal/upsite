@@ -5,12 +5,15 @@
 #= require jquery.remotipart
 #= require bootstrap
 #= require bootstrap-colorpicker
+# require nprogress
+# require nprogress-turbolinks
+# require nprogress-ajax
 
 #= require_tree ./plugins
 
 
 $(document).on 'page:change', ->
-  unless $('.blocks').length
+  unless $('.block').length
     $('.hud .add')
       .attr('title', 'Get started')
       .trigger('focus')

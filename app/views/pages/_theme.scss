@@ -8,12 +8,11 @@
 
     body {
       font-family: <%= @page.font %>;
-      background-color: <%= @page.background_color %>;
     }
 
     <%= (@page.custom_css.html_safe) if @page.custom_css.present? %>
 
   </style>
-  
+
 <% end %>
 

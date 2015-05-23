@@ -31,10 +31,10 @@ en:
       #     first_name: "Name first"
   helpers:
     submit:
+      create: Create
+      update: Update
       session:
         submit: Login
-    submit:
-      block:
-        create: "Create"
-        update: "Update"
+      help:
+        submit: Send
     #   submit: "Save %{model}"

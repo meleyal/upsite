@@ -2,7 +2,7 @@ class BlocksController < ApplicationController
 
   before_action :set_page
   before_action :set_block, only: [:show, :edit, :update, :destroy]
-  layout :false, only: [:new, :edit] # shown in modal popup
+  # layout :false, only: [:new, :edit] # shown in modal popup
 
   def index
     @blocks = @page.blocks.all

@@ -5,7 +5,13 @@
 <% if false && @blocks.present? %>
   <%= render @blocks %>
 <% else %>
-  <%= render 'blank_slate' %>
+  <%# render 'blank_slate' %>
+  <%= render 'styleguide/nav_bar' %>
+  <%= render 'styleguide/image_fill' %>
+  <%# render 'styleguide/spacer' %>
+  <%= render 'styleguide/text' %>
+  <%= render 'styleguide/text_fill' %>
+  <%= render 'styleguide/image' %>
 <% end %>
 
 <%= render 'hud' %>

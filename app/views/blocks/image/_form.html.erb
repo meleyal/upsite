@@ -1,6 +1,6 @@
 <%
-  url = blocks_path(type: 'showbox')
-  url = block_path(type: 'showbox', id: @block.id) if @block.persisted?
+  url = blocks_path(type: 'image')
+  url = block_path(type: 'image', id: @block.id) if @block.persisted?
 %>
 
 <%= simple_form_for(@block, as: :block, url: url, remote: true, :html => { :multipart => true }) do |f| %>
@@ -14,7 +14,7 @@
     <%= f.input :text %>
 
     <%= f.fields_for :attachments do |ff| %>
-      <%= ff.input :upload, label: 'Image', hint: 'Use the Showbox to showcase the key content of your page.' %>
+      <%= ff.input :upload, label: 'Image', hint: 'Use the image to showcase the key content of your page.' %>
     <% end %>
 
     <%= f.input :background_color, input_html: { data: { toggle: 'colorpicker' } } %>

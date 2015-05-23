@@ -5,9 +5,11 @@
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><%= content_for :page_title %> | <%= t 'app_name' %></title>
-    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie|Gloria+Hallelujah|Rock+Salt' rel='stylesheet' type='text/css'>
+    <title><%= content_for :page_title %> | <%= t 'app_name' %> | <%= t 'tagline_short' %></title>
+    <!-- <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'> -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie|Gloria+Hallelujah|Rock+Salt' rel='stylesheet' type='text/css'> -->
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -24,5 +26,8 @@
     <% end %> -->
 
     <%= yield %>
+
+    <%# render 'intercom' %>
+    <%# render 'doorbell' %>
   </body>
 </html>
