@@ -39,5 +39,9 @@ group :test, :development do
   gem 'hirb'
   gem 'quiet_assets', :git => 'git://github.com/evrone/quiet_assets.git'
   gem 'awesome_print'
+
+  gem 'guard', '>= 2.2.2', require: false
   gem 'guard-livereload', require: false
+  gem 'rack-livereload'
+  gem 'rb-fsevent', require: false
 end
