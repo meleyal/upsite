@@ -8,6 +8,7 @@
 
     body {
       font-family: <%= @page.font %>;
+      background: rgba(red, 0.5);
     }
 
     <%= (@page.custom_css.html_safe) if @page.custom_css.present? %>

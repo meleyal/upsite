@@ -2,7 +2,7 @@ class BlocksController < ApplicationController
 
   before_action :set_page
   before_action :set_block, only: [:show, :edit, :update, :destroy]
-  # layout :false, only: [:new, :edit] # shown in modal popup
+  layout :false, only: [:new, :edit] # shown in modal popup
 
   def index
     @blocks = @page.blocks.all
@@ -24,7 +24,9 @@ class BlocksController < ApplicationController
   def create
     @block = @page.send(block_type).new(block_params)
     if @block.save
-      head :created, location: request.referrer
+      # Uploading an attachment creates the resource, so return the new resource url
+      # to change the form to a PUT request (see dropzone.js)
+      render json: { url: block_url(@block) }, status: :created, location: request.referrer
     else
       render json: { block: @block.errors }, status: :unprocessable_entity
     end

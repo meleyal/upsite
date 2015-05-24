@@ -1,4 +1,4 @@
-class image < Block
+class Image < Block
   store :data, accessors: [:text, :background_color]
 
   def to_partial_path

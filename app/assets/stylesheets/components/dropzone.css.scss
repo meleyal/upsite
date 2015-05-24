@@ -1,0 +1,16 @@
+.dropzone {
+  border: 1px dashed $input-border;
+  border-radius: $input-border-radius;
+  margin: 0 3px 0 2px;
+
+  &.dz-started {
+    border: 1px solid $input-border;
+  }
+
+  .dz-preview {
+    .dz-image {
+      border-radius: 5px;
+    }
+  }
+}
+

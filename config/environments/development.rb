@@ -30,7 +30,7 @@ Rails.application.configure do
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
-  
+
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
@@ -39,9 +39,12 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  # Automatically inject JavaScript needed for LiveReload
+  config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
+
   # Set path so Paperclip can find imagemagick
   Paperclip.options[:command_path] = "/usr/local/bin/"
-  
+
   # Paperclip S3 config.
   # config.paperclip_defaults = {
   #   :storage => :s3,

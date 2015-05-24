@@ -3,7 +3,7 @@
   url = block_path(type: 'image', id: @block.id) if @block.persisted?
 %>
 
-<%= simple_form_for(@block, as: :block, url: url, remote: true, :html => { :multipart => true }) do |f| %>
+<%= simple_form_for(@block, as: :block, url: url, remote: true, :html => { multipart: true }) do |f| %>
 
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -13,11 +13,13 @@
   <div class="modal-body">
     <%= f.input :text %>
 
-    <%= f.fields_for :attachments do |ff| %>
-      <%= ff.input :upload, label: 'Image', hint: 'Use the image to showcase the key content of your page.' %>
-    <% end %>
+    <div class="form-group">
+      <label class="control-label">Image</label>
+      <div id="dropzone-wrapper" class="dropzone"></div>
+      <div id="dropzone-previews"></div>
+    </div>
 
-    <%= f.input :background_color, input_html: { data: { toggle: 'colorpicker' } } %>
+    <%# f.input :background_color, input_html: { data: { toggle: 'colorpicker' } } %>
   </div>
 
   <div class="modal-footer">
