@@ -4,6 +4,7 @@
 #
 
 Dropzone.autoDiscover = false
+dropzone = null
 
 createDropzone = ->
   options =
@@ -13,9 +14,9 @@ createDropzone = ->
     headers: 'X-CSRF-Token' : $('meta[name="csrf-token"]').attr('content')
     previewsContainer: '#dropzone-wrapper'
 
-  myDropzone = new Dropzone('#dropzone-wrapper', options)
-
-  myDropzone.on 'success', onSuccess
+  dropzone = new Dropzone('#dropzone-wrapper', options)
+  dropzone.on 'success', onSuccess
+  dropzone.on 'addedfile', onAddedFile
 
 
 # Update the form to perform a PUT on the created resource
@@ -24,6 +25,10 @@ onSuccess = (file, res) ->
     .attr('action', res.url)
     .append("<input type='hidden' name='_method' value='put'>")
 
+# Show advanced options
+onAddedFile = ->
+  if dropzone.files.length > 1
+    $('[data-form-advanced-options]').removeClass('hidden')
 
 $(document).on 'page:change', ->
 
