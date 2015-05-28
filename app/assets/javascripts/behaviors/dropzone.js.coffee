@@ -28,7 +28,7 @@ onSuccess = (file, res) ->
 # Show advanced options
 onAddedFile = ->
   if dropzone.files.length > 1
-    $('[data-form-advanced-options]').removeClass('hidden')
+    $('[data-behavior~=form-advanced]').removeClass('hidden')
 
 $(document).on 'page:change', ->
 

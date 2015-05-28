@@ -9,9 +9,7 @@
 # require nprogress
 # require nprogress-turbolinks
 # require nprogress-ajax
-
-#= require_tree ./plugins
-
+#= require_tree ./behaviors
 
 $(document).on 'page:change', ->
   unless $('.block').length
