@@ -1,3 +1,7 @@
+#
+# Analytics
+#
+
 $(document).on 'click', '[data-track]', (e) ->
   e.preventDefault()
   console.log $(this).data()
