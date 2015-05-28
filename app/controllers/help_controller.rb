@@ -1,4 +1,7 @@
 class HelpController < ApplicationController
+
+  layout :false, only: [:new] # shown in modal popup
+
   # GET /helps/new
   def new
     # @help = Help.new
