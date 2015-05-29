@@ -5,13 +5,18 @@
   <% end %>
 
   <style>
+    <% theme_color = '#00bce2' %>
 
     body {
       font-family: <%= @page.font %>;
-      background: rgba(red, 0.5);
     }
 
-    <%= (@page.custom_css.html_safe) if @page.custom_css.present? %>
+    h1, h2, h3, h4, h5, h6,
+    a {
+      color: <%= theme_color %>;
+    }
+
+    <%# (@page.custom_css.html_safe) if @page.custom_css.present? %>
 
   </style>
 

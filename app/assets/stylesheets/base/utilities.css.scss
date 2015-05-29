@@ -3,10 +3,11 @@
 // --------------------------------------------------
 
 .vertical-center {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  @include translate(-50%, -50%);
+  position: relative;
+  // top: 0;
+  // top: 35%;
+  // left: 50%;
+  // @include translate(0, -50%);
 }
 
 .blank-slate {
