@@ -4,81 +4,26 @@
 @import 'components/*';
 
 body {
-  padding: 0 0 10px 0;
-  background: 0;
-
-  @media (min-width: $screen-sm) {
-    padding-bottom: 30px;
-  }
-}
-
-.container-narrow {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-hr {
-  margin: 20px 0;
-
-  @media (min-width: $screen-sm) {
-    margin: 40px 0;
-  }
+  background: #fafafa image-url('pattern.png');
 }
 
 header {
-  padding: 15px 0 40px 0;
+  padding: 40px;
   margin-bottom: 30px;
-  background: #fafafa image-url('pattern.png');
-  border-bottom: 1px solid $gray-light;
-
-  @media (min-width: $screen-sm) {
-    margin-bottom: 50px;
-  }
+  width: 500px;
+  background: white;
+  margin: 0 auto;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
 }
 
-header .btn {
-  padding: 14px 30px;
+input {
+  text-align: center;
 }
 
-.brand {
-  background: #fafafa;
-  display: inline-block;
-  
-  img {
-    width: 290px;
-  }
-
-  @media (min-width: $screen-sm) {
-    img {
-      width: 350px;
-    }
-  }
+.btn-block {
+  margin-top: 15px;
+  // background-color: #a870d3;
+  // text-transform: uppercase;
 }
 
 
-.lead {
-  color: #50504F;
-  font-weight: $font-weight-light;
-  margin: 12px 0 30px;
-  font-size: 24px;
-
-  @media (min-width: $screen-sm) {
-    font-size: 34px;
-  }
-}
-
-form {
-  margin: 15px 0;
-}
-
-form .btn {
-  margin-top: 10px;
-  display: block;
-  width: 100%;
-
-  @media (min-width: $screen-sm) {
-    margin-top: 0;
-    display: inline-block;
-    width: auto;
-  }
-}

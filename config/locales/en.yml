@@ -1,5 +1,5 @@
 en:
-  app_name: PageKit
+  app_name: Upsite
   tagline: The easiest way to make a website for your business, organization, or project.
   tagline_short: Make your own website
   made_in_vienna: Made in Vienna
@@ -21,7 +21,7 @@ en:
         title: Coming soon
         body: Enter your email for updates
         email: you@example.com
-        button: OK
+        button: Be the first to try it...
 
   activerecord:
       # models:
