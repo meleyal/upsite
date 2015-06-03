@@ -11,8 +11,8 @@
   </div>
 
   <div class="modal-body">
-    <%= f.input :body, as: 'text', input_html: { rows: 10 },
-                 hint: 'Text can be formatted with <a href="http://markdown-here.com/livedemo.html">Markdown</a>.'.html_safe %>
+    <%= f.input :body, as: 'text', input_html: { rows: 6 },
+                 hint: 'Text can be formatted with <a href="http://markdown-here.com/livedemo.html" target="_blank">Markdown</a>.'.html_safe %>
 
     <% if @block.persisted? && @block.attachments.present? %>
       <div class="form-group">
@@ -33,7 +33,21 @@
       </div>
     <% end %>
 
-    <%= f.input :layout, collection: ['image-left', 'image-right'] %>
+    <div class="form-group">
+      <label class="control-label">Format</label>
+      <div class="radio">
+        <label>
+          <input type="radio" checked>
+          <i class="fa fa-indent"></i> image left
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio">
+          <i class="fa fa-outdent"></i> image right
+        </label>
+      </div>
+    </div>
   </div>
 
   <div class="modal-footer">
