@@ -10,10 +10,14 @@ body {
 header {
   padding: 40px;
   margin-bottom: 30px;
-  width: 500px;
+  max-width: 500px;
   background: white;
   margin: 0 auto;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+
+img {
+  margin: 0 auto;
 }
 
 input {
@@ -22,8 +26,4 @@ input {
 
 .btn-block {
   margin-top: 15px;
-  // background-color: #a870d3;
-  // text-transform: uppercase;
 }
-
-
