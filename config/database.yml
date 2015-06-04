@@ -17,7 +17,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: pagekit_development
+  database: upsite_development
   host: localhost
   pool: 5
   password:
@@ -46,7 +46,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: pagekit_test
+  database: upsite_test
   host: localhost
   pool: 5
   password:
@@ -54,6 +54,6 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: pagekit_production
+  database: upsite_production
   pool: 5
   password:

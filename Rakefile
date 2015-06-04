@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Pagekit::Application.load_tasks
+Upsite::Application.load_tasks
