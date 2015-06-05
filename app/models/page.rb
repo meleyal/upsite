@@ -6,7 +6,7 @@ class Page < ActiveRecord::Base
   validates :name, presence: true
   validates :subdomain, uniqueness: true
 
-  store :settings, accessors: [:font, :theme_color, :custom_css, :cc_number, :cc_type, :name, :subdomain, :description]
+  store :settings, accessors: [:font, :theme_color, :custom_css, :cc_number, :cc_type, :name, :description]
 
   # has_many :widgets, :dependent => :destroy, -> { order(:sort_order) }
   has_many :blocks, -> { order(:sort_order) }
