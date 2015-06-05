@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   if Rails.env.development?
-
     resources :pages
     resources :sessions, only: [:new, :create, :destroy]
 
@@ -12,7 +11,6 @@ Rails.application.routes.draw do
 
     # constraints :subdomain => /^(?!www\Z)(\w+)/ do
     constraints(:subdomain => /.+/) do
-
       get '/' => 'pages#show'
 
       get 'settings/design' => 'design#edit'
@@ -23,18 +21,9 @@ Rails.application.routes.draw do
 
       resources :help, only: [:new, :create]
 
-      # resource :page
-      # put '/' => 'pages#update'
-      # get '/edit' => 'pages#edit'
-      # resources :pages, only: [:show, :update], :path => '/'
-
       resources :blocks do
-        # member 'type', only: [:new, :create, :edit, :update]
-        # get 'type', on: :member
         resources :attachments, except: [:new, :edit], defaults: { format: 'json' }
       end
-
-      # resources :attachments, only: [:create]
     end
 
   end
