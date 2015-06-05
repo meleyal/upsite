@@ -48,10 +48,6 @@ class PagesController < ApplicationController
 
   private
 
-    def set_page
-      @page = Page.find_by!(:subdomain => request.subdomain)
-    end
-
     def page_params
       params.require(:page).permit(:name, :subdomain, :font, :primary_color, :secondary_color, :custom_css)
     end
