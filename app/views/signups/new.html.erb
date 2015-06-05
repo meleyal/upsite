@@ -2,7 +2,6 @@
   <div class="text-center">
     <img src="<%= asset_path('upsite.png') %>" class="img-responsive">
     <p class="lead"><%= t 'tagline' %></p>
-
     <!-- Begin MailChimp Signup Form -->
     <div id="mc_embed_signup">
       <form action="//upsite.us11.list-manage.com/subscribe/post?u=e023d1db2025a850463718055&amp;id=f0c599c3f5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -16,7 +15,7 @@
           <div class="response" id="mce-success-response" style="display:none"></div>
         </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
           <div style="position: absolute; left: -5000px;"><input type="text" name="b_e023d1db2025a850463718055_f0c599c3f5" tabindex="-1" value=""></div>
-          <div class="clear"><input type="submit" value="Be the first to try it" name="subscribe" id="mc-embedded-subscribe" class="btn btn-success btn-block btn-lg"></div>
+          <div class="clear"><input type="submit" value="<%= t '.submit' %>" name="subscribe" id="mc-embedded-subscribe" class="btn btn-success btn-block btn-lg"></div>
           </div>
       </form>
     </div>

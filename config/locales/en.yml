@@ -2,26 +2,10 @@ en:
   app_name: Upsite
   tagline: The easiest way to make a website for your business, organization, or project.
   tagline_short: Make your own website
-  made_in_vienna: Made in Vienna
 
   signups:
     new:
-      get_started: Get started
-      features:
-        one:
-          title: Easy to use
-          body: Publish text, photos and more with drag & drop simplicity.
-        two:
-          title: No setup
-          body: Your site lives in the cloud, no technical support required.
-        three:
-          title: Great design
-          body: Professional templates, easily customized to suit your style.
-      coming_soon:
-        title: Coming soon
-        body: Enter your email for updates
-        email: you@example.com
-        button: Be the first to try it...
+      submit: Be the first to try it...
 
   activerecord:
       # models:
@@ -29,6 +13,7 @@ en:
       # attributes:
       #   user:
       #     first_name: "Name first"
+
   helpers:
     submit:
       create: Create
@@ -37,4 +22,4 @@ en:
         submit: Login
       help:
         submit: Send
-    #   submit: "Save %{model}"
+        # submit: "Save %{model}"
