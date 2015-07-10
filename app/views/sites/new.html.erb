@@ -1,10 +1,10 @@
-<%= simple_form_for(@page) do |f| %>
-  <% if @page.errors.any? %>
+<%= simple_form_for(@site) do |f| %>
+  <% if @site.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+      <h2><%= pluralize(@site.errors.count, "error") %> prohibited this site from being saved:</h2>
 
       <ul>
-      <% @page.errors.full_messages.each do |message| %>
+      <% @site.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -15,14 +15,10 @@
     <%= f.input :name %>
   </div>
 
-  <div class="field">
-    <%# f.input :subdomain %>
-  </div>
-
   <%= simple_fields_for @user do |u| %>
     <%= u.input :email %>
     <%= u.input :password %>
-    <%= u.input :password_confirmation %>
+    <%# u.input :password_confirmation %>
   <% end %>
 
   <div class="actions">

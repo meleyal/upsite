@@ -1,12 +1,12 @@
 class ApplicationController < ActionController::Base
   include Locale
 
-  helper_method :current_user, :current_page
+  helper_method :current_user, :current_site
   protect_from_forgery with: :exception
   before_filter :set_locale
 
-  def set_page
-    @page ||= Page.find_by_subdomain!(request.subdomains.first)
+  def set_site
+    @site ||= Site.find_by!(subdomain: request.subdomains.first)
   end
 
   def current_user
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.first
   end
 
-  def current_page
-    @current_page ||= current_user ? current_user.page : nil
+  def current_site
+    @current_site ||= current_user ? current_user.sites : nil
   end
 end

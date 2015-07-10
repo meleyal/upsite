@@ -18,6 +18,8 @@ en:
     submit:
       create: Create
       update: Update
+      site:
+        create: Let's get started!
       session:
         submit: Login
       help:

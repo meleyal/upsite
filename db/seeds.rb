@@ -7,8 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-user = User.create({ email: 'william.meleyal@gmail.com', password: 'password', password_confirmation: 'password' })
-page = Page.create({ name: 'meleyal', owner: user })
+free_plan = Plan.create(name: 'Free', code: 'free', cost_per_year: 0)
+pro_plan = Plan.create(name: 'Pro', code: 'pro', cost_per_year: 35)
 
-# user = User.create({ email: 'william.meleyal+1@gmail.com', password: 'password', password_confirmation: 'password' })
-# page = Page.create({ name: 'craftwerk', owner: user })
+user = User.create(email: 'william.meleyal@gmail.com', password: 'password', password_confirmation: 'password', plan: free_plan)
+
+site = Site.create(name: "Meleyal", subdomain: 'meleyal', owner: user)
+membership = SiteMembership.create(site: site, user: user)

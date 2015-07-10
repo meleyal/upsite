@@ -5,28 +5,24 @@ class SignupsController < ApplicationController
 
   def create
     @account = Account.new
-    @page = @account.page.new(page_params)
+    @site = @account.site.new(site_params)
     # @signup = Signup.new(params[:signup])
 
-    respond_to do |format|
-      if @page.save
-        format.html { redirect_to @page, notice: 'Page was successfully created.' }
-        # format.json { render json: @signup, status: :created, location: @signup }
-      else
-        format.html { render action: "new" }
-        # format.json { render json: @signup.errors, status: :unprocessable_entity }
-      end
+    if @site.save
+      redirect_to @site
+    else
+      render action: "new"
     end
   end
 
   private
 
-    def page_params
-      params.require(:page).permit(:title)
-    end
+  def site_params
+    params.require(:site).permit(:name)
+  end
 
-    def user_params
-      params.require(:user).permit(:email, :password)
-    end
+  def user_params
+    params.require(:user).permit(:email, :password)
+  end
 
 end

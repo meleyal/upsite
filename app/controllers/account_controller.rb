@@ -1,6 +1,6 @@
 class AccountController < ApplicationController
 
-  before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action :set_site, only: [:show, :edit, :update, :destroy]
   layout :false, only: [:edit] # shown in modal popup
 
   def edit
@@ -8,21 +8,17 @@ class AccountController < ApplicationController
   end
 
   def update
-    if @page.update(page_params)
+    if @site.update(site_params)
       head :ok, location: request.referrer
     else
-      render json: { page: @page.errors }, status: :unprocessable_entity
+      render json: { site: @site.errors }, status: :unprocessable_entity
     end
   end
 
   private
 
-    def set_page
-      @page = Page.find_by!(:subdomain => request.subdomain)
-    end
-
-    def page_params
-      params.require(:page).permit(:name, :subdomain)
-    end
+  def site_params
+    params.require(:site).permit(:name, :subdomain)
+  end
 
 end

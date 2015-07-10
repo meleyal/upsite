@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  
+
   include Login
 
   layout 'signups'
@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       login user
-      redirect_to root_url(subdomain: user.page.subdomain)
+      redirect_to root_url(subdomain: user.site.subdomain)
     else
       flash.now[:error] = 'Wrong email or password'
       render 'new'
