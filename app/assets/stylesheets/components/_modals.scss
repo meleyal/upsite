@@ -1,0 +1,33 @@
+//
+// Modals
+// --------------------------------------------------
+
+.modal {
+  form {
+    margin: 0;
+  }
+}
+
+.modal-header,
+.modal-footer {
+  border-color: $white;
+}
+
+.modal-header {
+  .nav-tabs {
+    margin-top: 10px;
+  }
+}
+
+.modal-footer-btn {
+  padding: 0;
+
+  .btn-block {
+    background: $gray-lighter;
+    border: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    text-transform: uppercase;
+    color: $gray-light;
+  }
+}

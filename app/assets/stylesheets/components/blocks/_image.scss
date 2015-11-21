@@ -1,0 +1,27 @@
+.block-image {
+  overflow: hidden;
+  // background-image: none !important;
+
+  // text-align: center;
+  // position: relative;
+  // margin-bottom: 30px;
+
+  // h1 {
+  //   @include translate(0, 20%);
+  // }
+}
+
+.block-image-fill {
+  height: 60vh;
+  background-position: 50% 0%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  img {
+    visibility: hidden;
+  }
+}
+
+.img-border {
+  border: 1px solid $gray-lighter;
+}

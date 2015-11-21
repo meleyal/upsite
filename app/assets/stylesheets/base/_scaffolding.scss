@@ -1,0 +1,42 @@
+//
+// Scaffolding
+// --------------------------------------------------
+
+body {
+  font-weight: $font-weight-base;
+}
+
+a {
+  @include transition(all .2s);
+}
+
+.container-centered {
+  margin: 10% auto 0;
+  text-align: center;
+}
+
+.container-narrow {
+  margin: 0 auto;
+  width: 620px;
+}
+
+.spacer {
+  border: 0;
+  margin: 0;
+}
+
+.spacer-xs {
+  padding: 10px 0;
+}
+
+.spacer-sm {
+  padding: 15px 0;
+}
+
+.spacer-md {
+  padding: 30px 0;
+}
+
+.spacer-lg {
+  padding: 40px 0;
+}

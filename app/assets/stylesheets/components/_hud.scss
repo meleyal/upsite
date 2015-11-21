@@ -1,0 +1,16 @@
+//
+// Hud
+// --------------------------------------------------
+
+.hud {
+  width: 50px;
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  z-index: 50000;
+}
+
+.hud-bottom {
+  top: auto;
+  bottom: 20px;
+}

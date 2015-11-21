@@ -1,0 +1,14 @@
+<% content_for :title, t('.title') %>
+
+<div class="container">
+  <header class="page-header text-center">
+    <h1><%= t '.title' %></h1>
+  </header>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <%= t_markdown '.body' %>
+    </div>
+  </div>
+</div>
+
+<hr class="spacer spacer-lg">

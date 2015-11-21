@@ -4,7 +4,12 @@ Rails.application.routes.draw do
     resources :sites, only: [:new, :create]
     resources :sessions, only: [:new, :create, :destroy]
 
-    get '/signup', to: 'sites#new'
+    # get '/signup', to: 'sites#new'
+    # constraints plan: /(free|pro)/ do
+    #   get  '/signup/:plan',           to: 'signups#new',    as: :signup
+    #   post '/signup/:plan',           to: 'signups#create', as: :signup_post
+    #   get  '/signup/:plan/complete',  to: 'signups#show',   as: :signup_complete
+    # end
     get '/login', to: 'sessions#new'
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
@@ -27,6 +32,10 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'signups#new'
+  get '/signup', to: 'signups#new'
+  get '/signup/complete', to: 'signups#show'
+  get '/terms', to: 'website#terms'
+  get '/privacy', to: 'website#privacy'
+  root 'website#index'
 
 end

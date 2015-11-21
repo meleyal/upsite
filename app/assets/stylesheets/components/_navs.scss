@@ -1,0 +1,10 @@
+//
+// Navs
+// --------------------------------------------------
+
+.nav-tabs {
+  a {
+    @include transition(none);
+    color: $gray-light;
+  }
+}

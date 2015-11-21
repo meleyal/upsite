@@ -1,0 +1,21 @@
+<div class="navbar navbar-default">
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- Brand -->
+      <a class="navbar-brand" href="<%= root_url(subdomain: 'www') %>">
+        <img alt="Upsite" src="<%= image_path('upsite.png') %>" height="34">
+      </a>
+    </div>
+
+    <!-- Menu -->
+    <div class="collapse navbar-collapse" id="navbar-menu">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#pricing">Pricing</a></li>
+        <!-- <li><a href="#">Login</a></li> -->
+        <li><a href="<%= signup_path %>" class="btn btn-success-outline navbar-btn">Sign up for free</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>

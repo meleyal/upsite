@@ -1,18 +1,19 @@
 class SignupsController < ApplicationController
+  layout 'website'
 
   def new
   end
 
   def create
-    @account = Account.new
-    @site = @account.site.new(site_params)
-    # @signup = Signup.new(params[:signup])
-
-    if @site.save
-      redirect_to @site
-    else
-      render action: "new"
-    end
+    # @account = Account.new
+    # @site = @account.site.new(site_params)
+    # # @signup = Signup.new(params[:signup])
+    #
+    # if @site.save
+    #   redirect_to @site
+    # else
+    #   render action: "new"
+    # end
   end
 
   private
@@ -24,5 +25,4 @@ class SignupsController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :password)
   end
-
 end
