@@ -1,7 +1,6 @@
 class SitesController < ApplicationController
 
   include Login
-  layout 'signups', only: [:new]
   before_action :set_site, only: [:show, :edit, :destroy]
 
   def index
@@ -51,11 +50,11 @@ class SitesController < ApplicationController
 
   private
 
-    def site_params
-      params.require(:site).permit(:name, :subdomain, :font, :primary_color, :secondary_color, :custom_css)
-    end
+  def site_params
+    params.require(:site).permit(:name, :subdomain, :font, :primary_color, :secondary_color, :custom_css)
+  end
 
-    def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
 end

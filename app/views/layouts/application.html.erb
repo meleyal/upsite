@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <title><%= content_for?(:title) ? content_for(:title) : t('tagline_short') %> | <%= t('app_name') %></title>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><%= content_for :page_title %> | <%= t 'app_name' %> | <%= t 'tagline_short' %></title>
-    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-    <!-- <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie|Gloria+Hallelujah|Rock+Salt' rel='stylesheet' type='text/css'> -->
+  <!-- Assets -->
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+  <!-- <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'> -->
+  <!-- <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'> -->
+  <!-- <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie|Gloria+Hallelujah|Rock+Salt' rel='stylesheet' type='text/css'> -->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= yield :stylesheets %>
+</head>
+<body>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= yield :stylesheets %>
-  </head>
-  <body>
+  <!-- <% if current_user %>
+    Logged in as <%= current_user.email %> :)
+    <%= link_to "Logout", logout_path, method: "delete" %>
+  <% else %>
+    Not logged in :(
+    <%= link_to "Login", login_path %>
+  <% end %> -->
 
-    <!-- <% if current_user %>
-      Logged in as <%= current_user.email %> :)
-      <%= link_to "Logout", logout_path, method: "delete" %>
-    <% else %>
-      Not logged in :(
-      <%= link_to "Login", login_path %>
-    <% end %> -->
+  <%= yield %>
 
-    <%= yield %>
-
-    <%# render 'intercom' %>
-    <%# render 'doorbell' %>
-  </body>
+</body>
 </html>

@@ -4,18 +4,11 @@ Rails.application.routes.draw do
     resources :sites, only: [:new, :create]
     resources :sessions, only: [:new, :create, :destroy]
 
-    # get '/signup', to: 'sites#new'
-    # constraints plan: /(free|pro)/ do
-    #   get  '/signup/:plan',           to: 'signups#new',    as: :signup
-    #   post '/signup/:plan',           to: 'signups#create', as: :signup_post
-    #   get  '/signup/:plan/complete',  to: 'signups#show',   as: :signup_complete
-    # end
     get '/login', to: 'sessions#new'
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
 
     constraints :subdomain => /^(?!www\Z)(\w+)/ do
-    # constraints(:subdomain => /.+/) do
       get '/' => 'sites#show'
 
       get 'settings/design' => 'design#edit'
