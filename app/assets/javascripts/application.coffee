@@ -8,9 +8,3 @@
 #= require bootstrap
 #= require bootstrap-colorpicker
 #= require_tree ./behaviors
-
-$(document).on 'page:change', ->
-  unless $('.block').length
-    $('.hud .add')
-      .attr('title', 'Get started')
-      .trigger('focus')

@@ -1,4 +1,5 @@
-<div class="block block-text col-sm-4">
+<div class="block block-text col-sm-4" data-url="<%= block_path(text) %>">
+  <%= render 'blocks/controls', block: text %>
   <div class="block-inner">
     <%= markdown text.body %>
   </div>

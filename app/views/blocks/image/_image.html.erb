@@ -1,4 +1,5 @@
-<div class="block block-image col-sm-4">
+<div class="block block-image col-sm-4" data-url="<%= block_path(image) %>">
+  <%= render 'blocks/controls', block: image %>
   <div class="block-inner">
     <% if image.url.present? %>
       <a href="<%= image.url %>">

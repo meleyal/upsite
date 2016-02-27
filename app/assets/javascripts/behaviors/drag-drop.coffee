@@ -5,7 +5,7 @@
 options =
   tolerance: 'pointer'
   handle: '.move'
-  placeholder: 'block-placeholder'
+  placeholder: 'block block-placeholder col-sm-4'
   forcePlaceholderSize: true
 
 onSort = (e, ui) ->
@@ -15,5 +15,5 @@ onSort = (e, ui) ->
   $.ajax url, method: 'PUT', data: data
 
 $(document).on 'ready page:load', ->
-  $('.container').sortable options
-  # $(document).on 'sortupdate', '.page-content .container', onSort
+  $('[data-sortable]').sortable options
+  $(document).on 'sortupdate', '[data-sortable]', onSort
