@@ -5,8 +5,11 @@ class Block < ActiveRecord::Base
   has_many :attachments, dependent: :destroy
   accepts_nested_attributes_for :attachments
 
-  # serialize :data
   ranks :sort_order, :class_name => 'Block'
   default_scope { rank(:sort_order) }
 
+  def to_partial_path
+    type = self.type.downcase
+    "blocks/#{type}/#{type}"
+  end
 end

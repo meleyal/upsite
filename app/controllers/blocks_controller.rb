@@ -8,17 +8,11 @@ class BlocksController < ApplicationController
     @blocks = @site.blocks.all
   end
 
-  def show
-  end
-
   def new
     if block_type
       @block = @site.send(block_type).new
       @block.attachments.build
     end
-  end
-
-  def edit
   end
 
   def create
@@ -64,11 +58,9 @@ class BlocksController < ApplicationController
         :type,
         :sort_order,
         :sort_order_position,
-        :title,
         :body,
-        :text,
-        :layout,
-        :background_color,
+        :url,
+        :color,
         attachments_attributes: [:upload])
     end
 

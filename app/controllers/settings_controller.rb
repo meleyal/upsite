@@ -1,11 +1,7 @@
-class AccountController < ApplicationController
+class SettingsController < ApplicationController
 
   before_action :set_site, only: [:show, :edit, :update, :destroy]
   layout :false, only: [:edit] # shown in modal popup
-
-  def edit
-    render 'settings/account'
-  end
 
   def update
     if @site.update(site_params)
@@ -18,7 +14,7 @@ class AccountController < ApplicationController
   private
 
   def site_params
-    params.require(:site).permit(:name, :subdomain)
+    params.require(:site).permit(:name, :description, :color)
   end
 
 end

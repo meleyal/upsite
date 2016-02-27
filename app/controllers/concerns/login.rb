@@ -1,5 +1,4 @@
 module Login
-
   extend ActiveSupport::Concern
 
   private
@@ -13,8 +12,7 @@ module Login
 
     def logout
       current_user.update_attribute(:remember_token, User.digest(User.new_remember_token))
-      cookies.delete(:remember_token, domain: :all) 
+      cookies.delete(:remember_token, domain: :all)
       reset_session
     end
-
 end

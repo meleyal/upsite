@@ -3,4 +3,4 @@
 #
 
 $(document).on 'ready page:change', ->
-  $('[data-toggle="tooltip"]').tooltip()
+  $('[rel="tooltip"]').tooltip()

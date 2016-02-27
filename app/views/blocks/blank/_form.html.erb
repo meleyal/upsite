@@ -1,15 +1,16 @@
-<% url = blocks_path(type: 'text') %>
+<% url = blocks_path(type: 'blank') %>
 
 <%= simple_form_for(@block, as: :block, url: url, remote: true) do |f| %>
 
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h4 class="modal-title">Add Text</h4>
+    <h4 class="modal-title">Add Blank</h4>
   </div>
 
   <div class="modal-body">
-    <%= f.input :body, label: false, input_html: { rows: 6 },
-                 hint: 'Text can be formatted with <a href="http://markdown-here.com/livedemo.html" target="_blank">Markdown</a>.'.html_safe %>
+    <%= f.input :color,
+                input_html: { data: { toggle: 'colorpicker' } },
+                placeholder: 'optional' %>
   </div>
 
   <div class="modal-footer">

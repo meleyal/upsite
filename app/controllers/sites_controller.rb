@@ -51,7 +51,7 @@ class SitesController < ApplicationController
   private
 
   def site_params
-    params.require(:site).permit(:name, :subdomain, :font, :primary_color, :secondary_color, :custom_css)
+    params.require(:site).permit(:name, :subdomain)
   end
 
   def user_params

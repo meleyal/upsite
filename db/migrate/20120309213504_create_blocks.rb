@@ -3,11 +3,12 @@ class CreateBlocks < ActiveRecord::Migration
     create_table :blocks do |t|
       t.string :type
       t.integer :sort_order
-      t.jsonb :data, null: false, default: '{}'
+      t.text :body
+      t.string :url
+      t.string :color
       t.references :site
       t.timestamps
     end
     add_index :blocks, :site_id
-    add_index :blocks, :data, using: :gin
   end
 end

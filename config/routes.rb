@@ -10,15 +10,9 @@ Rails.application.routes.draw do
 
     constraints :subdomain => /^(?!www\Z)(\w+)/ do
       get '/' => 'sites#show'
-
-      get 'settings/design' => 'design#edit'
-      patch 'settings/design' => 'design#update'
-
-      get 'settings/account' => 'account#edit'
-      patch 'settings/account' => 'account#update'
-
+      get 'settings' => 'settings#edit'
+      patch 'settings' => 'settings#update'
       resources :help, only: [:new, :create]
-
       resources :blocks do
         resources :attachments, except: [:new, :edit], defaults: { format: 'json' }
       end

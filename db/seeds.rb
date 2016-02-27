@@ -12,5 +12,8 @@ pro_plan = Plan.create(name: 'Pro', code: 'pro', cost_per_year: 35)
 
 user = User.create(email: 'william.meleyal@gmail.com', password: 'password', password_confirmation: 'password', plan: free_plan)
 
-site = Site.create(name: "Meleyal", subdomain: 'meleyal', owner: user, settings: nil)
-membership = SiteMembership.create(site: site, user: user)
+site1 = Site.create(name: "Meleyal", subdomain: 'meleyal', owner: user, settings: nil)
+site2 = Site.create(name: "syrrup", subdomain: 'syrrup', owner: user, settings: nil)
+
+membership = SiteMembership.create(site: site1, user: user)
+membership = SiteMembership.create(site: site2, user: user)

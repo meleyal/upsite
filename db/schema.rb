@@ -29,13 +29,14 @@ ActiveRecord::Schema.define(version: 20150709154408) do
   create_table "blocks", force: :cascade do |t|
     t.string   "type"
     t.integer  "sort_order"
-    t.jsonb    "data",       default: {}, null: false
+    t.text     "body"
+    t.string   "url"
+    t.string   "color"
     t.integer  "site_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "blocks", ["data"], name: "index_blocks_on_data", using: :gin
   add_index "blocks", ["site_id"], name: "index_blocks_on_site_id", using: :btree
 
   create_table "plans", force: :cascade do |t|
@@ -59,16 +60,18 @@ ActiveRecord::Schema.define(version: 20150709154408) do
 
   create_table "sites", force: :cascade do |t|
     t.string   "name"
+    t.string   "description"
     t.string   "subdomain"
     t.string   "domain"
-    t.jsonb    "settings",   default: {}, null: false
+    t.string   "color"
+    t.jsonb    "settings",    default: {}
     t.string   "owner_id"
     t.datetime "deleted_at"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
-  add_index "sites", ["owner_id"], name: "index_sites_on_owner_id", unique: true, using: :btree
+  add_index "sites", ["owner_id"], name: "index_sites_on_owner_id", using: :btree
   add_index "sites", ["settings"], name: "index_sites_on_settings", using: :gin
   add_index "sites", ["subdomain"], name: "index_sites_on_subdomain", unique: true, using: :btree
 

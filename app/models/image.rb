@@ -1,11 +1,5 @@
 class Image < Block
-  store :data, accessors: [:text, :background_color]
-
-  def to_partial_path
-    'blocks/image/image'
-  end
-
   def image
-    attachments.first.upload.url rescue nil
+    attachments.first.upload.url(:medium) rescue nil
   end
 end

@@ -1,0 +1,2 @@
+class Blank < Block
+end

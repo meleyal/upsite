@@ -4,8 +4,6 @@ class Site < ActiveRecord::Base
   # Attributes
   #
 
-  store :settings, accessors: [:font, :theme_color, :custom_css, :cc_number, :cc_type, :name, :description]
-
   ##
   # Associations
   #
@@ -15,9 +13,11 @@ class Site < ActiveRecord::Base
   has_many :site_memberships, dependent: :destroy
   has_many :users, through: :site_memberships
   has_many :blocks, -> { order(:sort_order) }, dependent: :destroy
-  # has_many :widgets, :dependent => :destroy, -> { order(:sort_order) }
-  # has_many :texts
-  # has_many :images
+  has_many :texts
+  has_many :images
+  has_many :videos
+  has_many :embeds
+  has_many :blanks
 
   ##
   # Validations & Callbacks

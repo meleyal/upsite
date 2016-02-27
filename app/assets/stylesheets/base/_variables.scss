@@ -14,7 +14,7 @@ $container-large-desktop: ((940px + $grid-gutter-width));
 // -------------------
 
 $white: #fff;
-$black: #202224;
+$black: #000;
 $green: #00D37A;
 $blue: #48A0DE;
 
@@ -30,7 +30,7 @@ $yellow: #efc400;
 $brand-primary: $green;
 $brand-success: $green;
 
-$text-color: #4A4A4A;
+$text-color: $black;
 $link-color: $blue;
 
 $input-color: $text-color;
@@ -40,11 +40,12 @@ $input-color-placeholder: darken($gray-lighter, 10%);
 // Typography
 // -------------------
 
-$font-size-base: 17px;
+$font-size-base: 12px;
 $line-height-base: 1.5;
 $font-size-small: 14px;
-$font-family-sans-serif: 'Lato', sans-serif;
+$font-family-sans-serif: 'Helvetica', sans-serif;
 
+$font-size-h1: 48px;
 $font-size-h2: 24px;
 $font-size-h3: 18px;
 
@@ -56,7 +57,9 @@ $headings-font-weight: 900;
 // Components
 // -------------------
 
-// $border-radius-large: 2px;
+$border-radius-small: 0px;
+$border-radius-medium: 0px;
+$border-radius-large: 0px;
 
 
 // Buttons
@@ -95,3 +98,16 @@ $well-border: #EEEEEE;
 // -------------------
 
 $panel-body-padding: 36px;
+
+
+// Modals
+// -------------------
+
+$modal-backdrop-bg:           #000;
+$modal-backdrop-opacity:      0.3;
+
+// $modal-content-bg:                             #fff !default;
+//** Modal content border color
+$modal-content-border-color:                   rgba(0,0,0,.1);
+//** Modal content border color **for IE8**
+// $modal-content-fallback-border-color:          #fff;

@@ -1,23 +1,7 @@
-<% content_for :stylesheets do %>
-
-  <% if @site.font == 'Lato' %>
-    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
-  <% end %>
 
   <style>
-    <% theme_color = '#00bce2' %>
-
-    body {
-      font-family: <%= @site.font %>;
+    .block-text a,
+    .block-text a:hover {
+      color: <%= @site.color %>;
     }
-
-    h1, h2, h3
-    a {
-      color: <%= theme_color %>;
-    }
-
-    <%# (@site.custom_css.html_safe) if @site.custom_css.present? %>
-
   </style>
-
-<% end %>

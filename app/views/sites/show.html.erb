@@ -1,20 +1,35 @@
 <% content_for :title, @site.name %>
 
-<%= debug @site.name %>
-
 <%= render 'theme.css.scss' %>
 
-<% if false && @blocks.present? %>
-  <%= render @blocks %>
-<% else %>
-  <%= render 'styleguide/text', image_align: 'right' %>
-  <%# render 'styleguide/nav_bar' %>
-  <%# render 'styleguide/image_fill' %>
-  <%# render 'styleguide/spacer' %>
-  <%# render 'styleguide/text_fill' %>
-  <%# render 'styleguide/image' %>
-  <%# render 'blank_slate' %>
-<% end %>
+<div class="page-header">
+  <div class="container">
+    <div class="col-sm-12">
+      <h1><%= @site.name %></h1>
+      <p><%= @site.description %></p>
+    </div>
+  </div>
+</div>
+
+<div class="page-content">
+  <div class="container">
+    <% if @blocks.present? %>
+      <%= render @blocks %>
+    <% else %>
+      <%# render 'styleguide/text' %>
+      <%# render 'styleguide/image' %>
+      <%# render 'styleguide/embed' %>
+      <%# render 'styleguide/text' %>
+      <%# render 'styleguide/embed' %>
+      <%# render 'styleguide/image' %>
+      <%# render 'styleguide/nav_bar' %>
+      <%# render 'styleguide/image_fill' %>
+      <%# render 'styleguide/spacer' %>
+      <%# render 'styleguide/text_fill' %>
+      <%# render 'blank_slate' %>
+    <% end %>
+  </div>
+</div>
 
 <%= render 'hud' %>
 <%= render 'modal' %>

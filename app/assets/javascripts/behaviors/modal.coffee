@@ -15,8 +15,8 @@ $(document)
     document.dispatchEvent event
 
   # autofocus first input when modal is shown
-  # .on 'shown.bs.modal', '.modal', ->
-    # $(this).find('input.string').not('.colorpicker').focus()
+  .on 'shown.bs.modal', '.modal', ->
+    $(this).find('.form-group :input').first().focus()
 
   # load remote content in modals with target="self"
   # .on 'click', '[data-toggle="modal"]', ->
