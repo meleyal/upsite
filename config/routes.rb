@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
 
   get '/signup', to: 'signups#new'
+  post '/signup', to: 'signups#create'
   get '/signup/complete', to: 'signups#show'
   get '/terms', to: 'website#terms'
   get '/privacy', to: 'website#privacy'

@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
 
   has_secure_password
   validates :password, length: { minimum: 6 }, presence: true
+  # validates_acceptance_of :terms
+  validates :terms, acceptance: true
+  attr_accessor :terms
   # validates :password_confirmation, presence: true
 
   def pro?

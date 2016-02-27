@@ -5,6 +5,7 @@
 .btn-success {
   $background: $btn-success-bg;
   $border: $btn-success-border;
+  border: none !important;
 
   &:focus,
   &.focus,

@@ -2,13 +2,11 @@
 // Variables
 // --------------------------------------------------
 
-
 // Grid
 // -------------------
 
 $grid-gutter-width:       30px !default;
 $container-large-desktop: ((940px + $grid-gutter-width));
-
 
 // Colors
 // -------------------
@@ -29,6 +27,7 @@ $yellow: #efc400;
 
 $brand-primary: $green;
 $brand-success: $green;
+$brand-danger: #c00;
 
 $text-color: $black;
 $link-color: $blue;
@@ -36,13 +35,12 @@ $link-color: $blue;
 $input-color: $text-color;
 $input-color-placeholder: darken($gray-lighter, 10%);
 
-
 // Typography
 // -------------------
 
 $font-size-base: 12px;
 $line-height-base: 1.5;
-$font-size-small: 14px;
+$font-size-small: 12px;
 $font-family-sans-serif: 'Helvetica', sans-serif;
 
 $font-size-h1: 48px;
@@ -53,31 +51,35 @@ $font-weight-base: 400;
 $font-weight-bold: 900;
 $headings-font-weight: 900;
 
-
 // Components
 // -------------------
 
+$border-radius-base: 0px;
 $border-radius-small: 0px;
 $border-radius-medium: 0px;
 $border-radius-large: 0px;
 
+// Forms
+// -------------------
+
+$state-danger-text: #c00;
 
 // Buttons
 // -------------------
 
-$btn-border-radius-large: 2px;
-$btn-success-bg: $brand-primary;
-
+$btn-border-radius-base: 0;
+$btn-border-radius-large: 0;
+$btn-border-radius-small: 0;
 
 // Navbar
 // -------------------
 
-$navbar-height: 70px;
+$navbar-height: 40px;
 $navbar-default-bg: $white;
 $navbar-default-border: none;
-$navbar-default-link-color: rgba($text-color, .6);
+$navbar-inverse-link-color: #fff;
 $navbar-default-link-hover-color: #333;
-
+$navbar-border-radius: 0;
 
 // Jumbotron
 // -------------------
@@ -86,28 +88,15 @@ $jumbotron-bg: transparent;
 $jumbotron-font-size: 20px;
 $jumbotron-heading-font-size: 42px;
 
-
 // Wells
 // -------------------
 
 $well-bg: rgba(#FAFAFA, 0.5);
 $well-border: #EEEEEE;
 
-
-// Panels
-// -------------------
-
-$panel-body-padding: 36px;
-
-
 // Modals
 // -------------------
 
 $modal-backdrop-bg:           #000;
 $modal-backdrop-opacity:      0.3;
-
-// $modal-content-bg:                             #fff !default;
-//** Modal content border color
-$modal-content-border-color:                   rgba(0,0,0,.1);
-//** Modal content border color **for IE8**
-// $modal-content-fallback-border-color:          #fff;
+$modal-content-border-color:  rgba(0,0,0,.1);

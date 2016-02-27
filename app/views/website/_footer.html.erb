@@ -1,24 +1,13 @@
 <footer class="footer">
   <div class="container">
-    <div class="row">
-      <div class="col-sm-6 text-left">
-        <p class="small">
-          &copy; <%= Date.today.year %> Billions &amp; Billions Ltd.
-        </p>
-      </div>
-      <div class="col-sm-6 text-right">
-        <ul class="list-inline">
-          <li>
-            <a href="<%= terms_path %>">Terms</a>
-          </li>
-          <li>
-            <a href="<%= privacy_path %>">Privacy</a>
-          </li>
-          <li>
-            <a href="mailto:hello@upsite.io">Contact</a>
-          </li>
-        </ul>
-      </div>
+    <div class="text-center">
+      <small class="text-muted">
+        &copy; <%= Date.today.year %> Billions &amp; Billions Ltd. /
+        <a href="<%= terms_path %>">Terms</a> /
+        <a href="<%= privacy_path %>">Privacy</a> /
+        <a href="http://upsiteapp.tumblr.com">Blog</a> /
+        <a href="mailto:hello@upsite.io">Contact</a>
+      </small>
     </div>
   </div>
 </footer>

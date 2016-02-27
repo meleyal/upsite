@@ -1,36 +1,14 @@
 class SitesController < ApplicationController
-
   include Login
   before_action :set_site, only: [:show, :edit, :destroy]
+  before_action :allow_iframe, only: [:show]
 
   def index
-    @sites = Site.all
+    @sites = Site.active
   end
 
   def show
     @blocks = @site.blocks.all
-  end
-
-  def new
-    @user = User.new
-    @site = Site.new
-  end
-
-  def create
-    @site = Site.new(site_params)
-    @user = User.new(user_params)
-    @user.plan = Plan.find_by(code: 'free')
-
-    # TODO: move to model callback?
-    @site.owner = @user
-    @site.users << @user
-
-    if @site.save
-      login @user
-      redirect_to root_url(subdomain: @site.subdomain)
-    else
-      render :new
-    end
   end
 
   def update
@@ -51,10 +29,14 @@ class SitesController < ApplicationController
   private
 
   def site_params
-    params.require(:site).permit(:name, :subdomain)
+    params.require(:site).permit(:name, :subdomain, owner_attributes: [:email, :password, :password_confirmation])
   end
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:owner).permit(:email, :password, :password_confirmation)
+  end
+
+  def allow_iframe
+    response.headers.delete 'X-Frame-Options' if params[:iframe].present?
   end
 end

@@ -23,7 +23,9 @@ class Site < ActiveRecord::Base
   # Validations & Callbacks
   #
 
-  # before_validation { self.subdomain = name.parameterize }
+  scope :active, -> { where(deleted_at: nil) }
+
+  before_validation { self.subdomain = name.parameterize }
 
   validates :name, presence: true
   validates :subdomain, { uniqueness: true, exclusion: { in: %w(www app api admin mail ftp development stage test demo) } }

@@ -1,51 +1,34 @@
 <%= content_for :title, 'Sign up' %>
 
-<div class="container">
-  <div class="vertical-center">
-    <div class="text-center">
+<div class="vertical-center">
+  <div class="text-center">
+    <h1>
       <a href="<%= root_url(subdomain: 'www') %>">
-        <img alt="Upsite" src="<%= image_path('upsite.png') %>" height="45">
+        <%= t('app_name') %>
       </a>
-      <hr class="spacer spacer-sm">
-      <h2>Coming Soon!</h2>
-      <p class="lead">
-        Upsite is almost ready, get a personal invite when we launch:
-      </p>
-    </div>
-    <hr class="spacer spacer-xs">
-    <div class="row">
-      <div class="col-sm-6 col-sm-offset-3">
-        <!-- Begin MailChimp Signup Form -->
-        <div id="mc_embed_signup">
-          <form action="//upsite.us11.list-manage.com/subscribe/post?u=e023d1db2025a850463718055&amp;id=f0c599c3f5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-            <div id="mc_embed_signup_scroll">
-              <div class="mc-field-group form-group">
-                <label class="control-label">Your name</label>
-                <input type="text" value="" name="NAME" class="form-control input-lg name" id="mce-NAME" autofocus>
-              </div>
-
-              <div class="mc-field-group form-group">
-                <label class="control-label">Your email</label>
-                <input type="email" value="" name="EMAIL" class="form-control input-lg required email" id="mce-EMAIL" placeholder="you@example.com">
-              </div>
-
-              <div id="mce-responses" class="clear">
-                <div class="response" id="mce-error-response" style="display:none"></div>
-                <div class="response" id="mce-success-response" style="display:none"></div>
-              </div>
-
-              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style="position: absolute; left: -5000px;"><input type="text" name="b_e023d1db2025a850463718055_f0c599c3f5" tabindex="-1" value=""></div>
-
-              <hr class="spacer spacer-xs">
-
-              <input type="submit" value="Get an invite" name="subscribe" id="mc-embedded-subscribe" class="btn btn-success btn-block btn-lg">
-            </div>
-          </form>
-        </div>
-        <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[1]='NAME';ftypes[1]='text';fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-        <!--End mc_embed_signup-->
-      </div>
+    </h1>
+    <p class="lead">
+      <%= t('tagline_short') %>
+    </p>
+  </div>
+  <hr class="spacer spacer-xs">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= simple_form_for @site, url: signup_path, html: { class: 'form-centered' } do |f| %>
+        <%= f.input :name, label: "Your site name (e.g. Luigi's Pizza)", input_html: { class: 'input-lg' }, autofocus: true %>
+        <%= f.fields_for :owner do |ff| %>
+          <%= ff.input :email, label: 'Your email', input_html: { class: 'input-lg' } %>
+          <%= ff.input :password, label: 'Create a password', input_html: { class: 'input-lg' } %>
+          <%= content_for(:the_links) do %>
+            &nbsp;&nbsp;I accept the <%= link_to "Terms of Service", terms_path, tabindex: -1 %>
+            and <%=link_to "Privacy Policy", privacy_path, tabindex: -1 %>
+          <% end %>
+          <p>
+          <%= ff.input :terms, as: :boolean, :label => content_for(:the_links), wrapper: :vertical_boolean %>
+          </p>
+        <% end %>
+        <%= f.button :submit, class: 'btn btn-success btn-lg btn-block' %>
+      <% end %>
     </div>
   </div>
 </div>

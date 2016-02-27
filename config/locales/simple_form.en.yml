@@ -3,8 +3,8 @@ en:
     required:
       html: ''
 
-    placeholders:
-      defaults:
-        name  : Your site name (e.g. Luigi's Pizza)
-        email: Your email
-        password: Create a password
+    # placeholders:
+    #   defaults:
+    #     name: Your site name (e.g. Luigi's Pizza)
+    #     email: Your email
+    #     password: Create a password

@@ -31,8 +31,10 @@
   </div>
 </div>
 
-<%= render 'hud' %>
-<%= render 'modal' %>
-<%= render 'modal', size: 'small' %>
+<% if current_user == @site.owner && !params[:iframe].present? %>
+  <%= render 'hud' %>
+  <%= render 'modal' %>
+  <%= render 'modal', size: 'small' %>
+<% end %>
 
 <!-- <a class="app-link" href="http://www.upsite.io/" target="_blank" title="<%= t('tagline') %>"><%= t('app_name') %></a> -->

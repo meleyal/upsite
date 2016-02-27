@@ -81,3 +81,29 @@
     height: 280px !important;
   }
 }
+
+.block-site {
+  .block-inner {
+    background: #eee;
+    position: relative;
+  }
+
+  .block-caption {
+    background: #eee;
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 5px;
+    color: #fff;
+  }
+
+  iframe {
+    pointer-events: none;
+    width: 290px;
+    height: 280px;
+    border: 0;
+    transform: scale(0.9);
+
+  }
+}

@@ -6,9 +6,6 @@
   max-width: 500px;
   margin: 0 auto;
   background: $white;
-  padding: 40px;
-  border: 1px solid $gray-light;
-  border-radius: $border-radius-base;
 }
 
 .addon-color {
@@ -18,4 +15,20 @@
 .help-block {
   font-size: $font-size-small;
   color: $gray-light;
+}
+
+.form-control {
+  border: 3px solid #eee;
+  box-shadow: none;
+}
+
+label {
+  a {
+    color: $black;
+    text-decoration: underline;
+    .has-error & {
+      color: #c00;
+    }
+  }
+
 }
