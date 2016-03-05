@@ -3,6 +3,8 @@
 // --------------------------------------------------
 
 .btn-success {
+  // text-transform: uppercase;
+  font-weight: bold;
   $background: $btn-success-bg;
   $border: $btn-success-border;
   border: none !important;
@@ -34,16 +36,26 @@
   color: $btn-success-bg !important;
 }
 
+.btn-sm {
+  color: #fff;
+  background: #eee;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
 .btn-circle {
-  color: $gray-light;
+  color: #555;
   font-weight: $font-weight-bold;
   &:hover,
   &:focus,
   &:active,
   &.active {
-    color: $gray;
+    @include box-shadow(none);
     @include transition(all, .2s);
     @include translate(0, -2px);
+    @include scale(1.1);
   }
 
   &.disabled {
@@ -52,24 +64,21 @@
 }
 
 .btn-lg {
-  padding: 16px 26px;
+  padding: 12px 16px;
   font-weight: $font-weight-bold;
+  margin-top: 10px;
 }
 
-@mixin btn-social($color) {
-  font-weight: 700;
-  border: 2px solid $color;
-  &,
-  &:hover,
-  &:focus {
-    color: $color;
+.btn-link {
+  text-decoration: underline;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  &, &:hover {
+    color: $black;
   }
 }
 
-.btn-twitter {
-  @include btn-social(#54ABEE);
-}
-
-.btn-facebook {
-  @include btn-social(#4763A1);
+.btn-group {
+  margin-bottom: 5px;
 }

@@ -7,7 +7,10 @@ class Attachment < ActiveRecord::Base
     hash_secret: "QXBhFYdt2JU7ZINf",
     styles: { medium: '300x300#' }
 
-  validates_attachment_content_type :upload, :content_type => ["image/jpeg", "image/gif", "image/png"]
+  validates_attachment :upload,
+    presence: true,
+    content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] },
+    size: { less_than: 4.megabytes }
 
   def upload_url
     upload.url :medium

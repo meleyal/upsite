@@ -1,12 +1,15 @@
-<div class="block block-image col-sm-4" data-url="<%= block_path(image) %>">
+<div class="block block-image col-sm-4" data-id="<%= image.id %>">
+
   <%= render 'blocks/controls', block: image %>
+
   <div class="block-inner">
-    <% if image.url.present? %>
-      <a href="<%= image.url %>">
-    <% end %>
-      <img src="<%= image.image %>">
-    <% if image.url.present? %>
-      </a>
+    <% if image.image.present? %>
+      <% if image.link_url.present? %><a href="<%= image.link_url %>"><% end %>
+        <img src="<%= image.image %>">
+      <% if image.link_url.present? %></a><% end %>
+    <% else %>
+      <a data-embed href="<%= image.embed_url %>"></a>
     <% end %>
   </div>
+
 </div>

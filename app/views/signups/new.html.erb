@@ -1,34 +1,44 @@
 <%= content_for :title, 'Sign up' %>
 
-<div class="vertical-center">
-  <div class="text-center">
-    <h1>
-      <a href="<%= root_url(subdomain: 'www') %>">
-        <%= t('app_name') %>
-      </a>
-    </h1>
-    <p class="lead">
-      <%= t('tagline_short') %>
-    </p>
-  </div>
+<div class="page-content">
   <hr class="spacer spacer-xs">
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <%= simple_form_for @site, url: signup_path, html: { class: 'form-centered' } do |f| %>
-        <%= f.input :name, label: "Your site name (e.g. Luigi's Pizza)", input_html: { class: 'input-lg' }, autofocus: true %>
+    <div class="col-sm-6">
+
+      <%= simple_form_for @site, url: signup_path do |f| %>
+
+        <!-- Site -->
+        <%= f.input :name,
+                    label: "Your site name (e.g. Luigi's Pizza)",
+                    input_html: {
+                      class: 'input-lg',
+                        data: {
+                          autofill: '#site_subdomain',
+                          autofocus: true
+                        }
+                    }
+         %>
+
+        <!-- User -->
         <%= f.fields_for :owner do |ff| %>
           <%= ff.input :email, label: 'Your email', input_html: { class: 'input-lg' } %>
-          <%= ff.input :password, label: 'Create a password', input_html: { class: 'input-lg' } %>
-          <%= content_for(:the_links) do %>
-            &nbsp;&nbsp;I accept the <%= link_to "Terms of Service", terms_path, tabindex: -1 %>
+          <%= ff.input :password, label: 'Choose a password', input_html: { class: 'input-lg' } %>
+
+          <!-- Terms -->
+          <%= content_for(:links) do %>
+            I accept the <%= link_to "Terms of Service", terms_path, tabindex: -1 %>
             and <%=link_to "Privacy Policy", privacy_path, tabindex: -1 %>
           <% end %>
           <p>
-          <%= ff.input :terms, as: :boolean, :label => content_for(:the_links), wrapper: :vertical_boolean %>
+            <%= ff.input :terms, as: :boolean, :label => content_for(:links), wrapper: :vertical_boolean %>
           </p>
         <% end %>
-        <%= f.button :submit, class: 'btn btn-success btn-lg btn-block' %>
+
+
+        <%= f.button :submit, class: 'btn btn-success btn-lg' %>
+        <span class="text-muted help-inline">No credit-card required</span>
       <% end %>
     </div>
   </div>
+  <hr class="spacer spacer-xs">
 </div>

@@ -1,10 +1,15 @@
-<div class="block-controls">
-  <a href="#" class="move" title="">
-    <i class="fa fa-bars"></i>
-  </a>
-
-  <a href="<%= block_path(block) %>" data-method="delete"
-    data-confirm="Are you sure you want to delete this block?">
-    <i class="fa fa-trash-o"></i>
-  </a>
-</div>
+<% if current_user == @site.owner %>
+  <div class="block-controls">
+    <a href="#" class="move" title="Drag to move" rel="tooltip" data-trigger="hover" data-animation="false" data-placement="left">
+      <i class="fa fa-arrows"></i>
+    </a>
+    <a href="<%= block_path(block) %>" data-method="delete"
+      data-confirm="Are you sure you want to delete this block?"
+      title="Delete"
+      rel="tooltip"
+      data-placement="left"
+      data-animation="false">
+      <i class="fa fa-trash-o"></i>
+    </a>
+  </div>
+<% end %>

@@ -4,10 +4,16 @@
 
 .dropzone {
   min-height: 0px;
+
   border: 1px dashed $input-border;
   border-radius: $input-border-radius;
   margin: 0 3px 0 2px;
-  padding: 10px;
+  padding: 10px 10px;
+
+  .dz-default {
+    min-height: 134px;
+    line-height: 134px;
+  }
 
   &.dz-started {
     border: 1px solid $input-border;
@@ -19,7 +25,17 @@
 
   .dz-preview {
     .dz-image {
-      border-radius: 5px;
+      border-radius: 0;
+    }
+    .dz-details {
+      display: none;
+    }
+
+    &:hover .dz-image img {
+      filter: none;
+      -webkit-filter: none;
+      transform: none;
     }
   }
+
 }

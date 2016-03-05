@@ -15,8 +15,8 @@ $(document)
     document.dispatchEvent event
 
   # autofocus first input when modal is shown
-  .on 'shown.bs.modal', '.modal', ->
-    $(this).find('.form-group :input').first().focus()
+  .on 'loaded.bs.modal', '.modal', ->
+    $(this).find('.form-group :input[data-autofocus]').first().focus()
 
   # load remote content in modals with target="self"
   # .on 'click', '[data-toggle="modal"]', ->
@@ -38,3 +38,10 @@ $(document)
   # .on 'show.bs.modal loaded.bs.modal', '#modal-lg', ->
   #   $(this).find('.modal-body')
   #     .css('height', $(window).height() * .75)
+
+  # .on 'ajax:error', '.modal form', (e, xhr) ->
+  #   $modal = $(e.currentTarget).parents('.modal')
+  #   content = xhr.responseText
+  #
+  #   if (xhr.status is 500)
+  #     $modal.find('.modal-content').html(content)

@@ -1,0 +1,31 @@
+<div class="block block-ad col-sm-4">
+  <div class="block-inner">
+    <h2>
+      <a href="#" title="Learn more about Ads on Upsite.">Ads</a>
+    </h2>
+
+    <p>This site is supported by:</p>
+    <ul class="list-unstyled">
+      <% @sponsors.each do |s| %>
+        <li>
+          <a class="btn btn-sm" href="<%= root_url(subdomain: s.subdomain, ref: @site.subdomain) %>"
+            style="border-color: <%= s.color %>; background: <%= s.color %>;"
+            rel="tooltip" data-placement="left" title="<%= s.description %>">
+            <%= s.name %>
+          </a>
+        </li>
+      <% end %>
+      <li>
+      </li>
+    </ul>
+
+    <br><br>
+
+    Made with
+    <a href="<%= root_url(subdomain: 'www', ref: @site.subdomain) %>"
+       xrel="tooltip" data-placement="left" title="<%= t('tagline_short') %>"
+       style="color: black;">
+      <strong>Upsite.</strong>
+    </a>
+  </div>
+</div>

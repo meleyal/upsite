@@ -1,0 +1,31 @@
+trix-toolbar {
+  .history_tools,
+  button.block-level,
+  button.strike {
+    display: none;
+  }
+}
+
+trix-editor {
+  min-height: 200px;
+
+  * {
+    font-size: 12px;
+  }
+
+  ul, ol {
+    padding-left: 15px;
+  }
+
+  blockquote {
+    border-left: 2px solid #ccc;
+    padding: 5px 10px;
+    font-style: italic;
+  }
+
+  pre {
+    font-family: Courier, monospace;
+    font-size: 11px;
+    padding: 5px;
+  }
+}

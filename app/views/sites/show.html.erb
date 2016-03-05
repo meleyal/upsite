@@ -3,38 +3,34 @@
 <%= render 'theme.css.scss' %>
 
 <div class="page-header">
-  <div class="container">
-    <div class="col-sm-12">
-      <h1><%= @site.name %></h1>
-      <p><%= @site.description %></p>
-    </div>
-  </div>
+  <h1><%= @site.name %></h1>
+  <p><%= @site.description %></p>
 </div>
 
-<div class="page-content">
-  <div class="container" data-sortable>
-    <% if @blocks.present? %>
-      <%= render @blocks %>
-    <% else %>
-      <%# render 'styleguide/text' %>
-      <%# render 'styleguide/image' %>
-      <%# render 'styleguide/embed' %>
-      <%# render 'styleguide/text' %>
-      <%# render 'styleguide/embed' %>
-      <%# render 'styleguide/image' %>
-      <%# render 'styleguide/nav_bar' %>
-      <%# render 'styleguide/image_fill' %>
-      <%# render 'styleguide/spacer' %>
-      <%# render 'styleguide/text_fill' %>
-      <%# render 'blank_slate' %>
+<div class="xblocks page-content row" data-sortable>
+  <% if params[:iframe].present? %>
+    <%= render @blocks.limit(1) %>
+  <% elsif @blocks.present? %>
+    <%= render @blocks %>
+    <% if true # !@site.owner.pro? && @blocks.length >= 5 %>
+      <%= render 'blocks/ad/ad' %>
     <% end %>
-  </div>
+  <% end %>
 </div>
 
-<% if current_user == @site.owner && !params[:iframe].present? %>
-  <%= render 'hud' %>
-  <%= render 'modal' %>
-  <%= render 'modal', size: 'small' %>
+<% if !params[:iframe].present? %>
+  <% if current_user == @site.owner %>
+    <%= render 'hud' %>
+    <%= render 'modal' %>
+    <%= render 'modal', size: 'small' %>
+  <% end %>
 <% end %>
 
-<!-- <a class="app-link" href="http://www.upsite.io/" target="_blank" title="<%= t('tagline') %>"><%= t('app_name') %></a> -->
+<footer class="page-footer">
+  <small class="text-muted">
+    &copy; <%= Date.today.year %> <%= @site.name %>
+    <% unless current_user %>
+      / <%= link_to "Log in", login_url(subdomain: 'www') %>
+    <% end %>
+  </small>
+</footer>

@@ -1,20 +1,30 @@
 class ApplicationController < ActionController::Base
-  include Locale
+  # include Locale
+  # before_action :set_locale
+  before_action :authenticate
 
-  helper_method :current_user, :current_site
+  # Prevent CSRF attacks by raising an exception.
   protect_from_forgery with: :exception
-  before_filter :set_locale
+
+  private
+
+  def authenticate
+    redirect_to login_url(subdomain: 'www') unless current_user
+  end
+
+  def require_site_owner
+    if current_user != @site.owner
+      redirect_to login_url(subdomain: 'www')
+    end
+  end
 
   def set_site
-    @site ||= Site.find_by!(subdomain: request.subdomains.first)
+    @site ||= current_user.sites.find_by!(subdomain: request.subdomains.first)
   end
 
   def current_user
-    # @current_user ||= session[:user_id] ? User.find(session[:user_id]) : nil
-    @current_user ||= User.first
+    @current_user ||= session[:user_id] ? User.find(session[:user_id]) : nil
   end
 
-  def current_site
-    @current_site ||= current_user ? current_user.sites : nil
-  end
+  helper_method :current_user
 end

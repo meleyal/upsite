@@ -1,29 +1,26 @@
 class HelpController < ApplicationController
+  before_action :set_site
+  before_action :require_site_owner
+  layout :false
 
-  layout :false, only: [:new] # shown in modal popup
+  class HelpMessageForm < ActiveModel::Form
+    self.model_name = 'help_message'
+    attribute :message, :string
+    validates_presence_of :message
+  end
 
-  # GET /helps/new
   def new
-    # @help = Help.new
+    @help_message = HelpMessageForm.new
   end
 
-  # POST /helps
   def create
-    @help = Help.new(help_params)
+    @help_message = HelpMessageForm.new(params[:help_message])
 
-    respond_to do |format|
-      if @help.save
-        format.html { redirect_to @help, notice: 'Help was successfully created.' }
-        format.json { render :show, status: :created, location: @help }
-      else
-        format.html { render :new }
-        format.json { render json: @help.errors, status: :unprocessable_entity }
-      end
+    if @help_message.valid?
+      NotificationsMailer.help_email(current_user, @help_message.message).deliver_later
+      redirect_to request.referrer
+    else
+      render :new, status: :unprocessable_entity
     end
   end
-
-  private
-    def help_params
-      params[:help]
-    end
 end

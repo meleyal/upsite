@@ -1,13 +1,20 @@
 <% content_for :page_title, 'Login' %>
-<% content_for :body_class, 'bg-pattern' %>
 
-<%# render 'navbar' %>
-
-<div class="container-centered">
-  <%= simple_form_for :session, url: sessions_path, html: { class: 'form-centered' } do |f| %>
-    <%= f.input :email, label: false, input_html: { class: 'input-lg' } %>
-    <%= f.input :password, label: false, input_html: { class: 'input-lg' } %>
-    <%= f.button :submit, class: 'btn btn-success btn-lg btn-block' %>
-  <% end %>
-
+<div class="page-content">
+  <hr class="spacer spacer-xs">
+  <div class="row">
+    <div class="col-sm-6">
+      <% if flash[:error] %>
+        <div class="alert alert-danger">
+          <%= flash[:error] %>
+        </div>
+      <% end %>
+      <%= simple_form_for :session, url: login_path do |f| %>
+        <%= f.input :email, input_html: { class: 'input-lg', autofocus: true } %>
+        <%= f.input :password, input_html: { class: 'input-lg' } %>
+        <%= f.button :submit, class: 'btn btn-success btn-lg' %>
+      <% end %>
+    </div>
+  </div>
+  <hr class="spacer spacer-xs">
 </div>

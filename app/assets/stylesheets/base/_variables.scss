@@ -20,7 +20,9 @@ $gray-darker: lighten(#000, 13.5%);
 $gray-dark: lighten(#000, 20%);
 $gray: #9E9EA6;
 $gray-light: lighten(#000, 60%);
+// $gray-light: #eee;
 $gray-lighter: lighten(#000, 93.5%);
+
 
 $purple: #a773d1;
 $yellow: #efc400;
@@ -33,7 +35,7 @@ $text-color: $black;
 $link-color: $blue;
 
 $input-color: $text-color;
-$input-color-placeholder: darken($gray-lighter, 10%);
+$input-color-placeholder: darken($gray-lighter, 20%);
 
 // Typography
 // -------------------
@@ -74,9 +76,9 @@ $btn-border-radius-small: 0;
 // Navbar
 // -------------------
 
-$navbar-height: 40px;
-$navbar-default-bg: $white;
-$navbar-default-border: none;
+$navbar-height: 38px;
+$navbar-inverse-bg: #323232;
+$navbar-inverse-border: none;
 $navbar-inverse-link-color: #fff;
 $navbar-default-link-hover-color: #333;
 $navbar-border-radius: 0;

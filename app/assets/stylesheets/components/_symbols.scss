@@ -13,7 +13,7 @@
   font-size: 40px;
   font-weight: bold;
   text-align: center;
-  background: $gray-light;
+  background: #ccc;
   color: $white;
   border-radius: 400px;
 
@@ -48,4 +48,38 @@
   line-height: $size;
   width: $size;
   height: $size;
+}
+
+.symbol-gray {
+  // background-color: #738089;
+}
+
+.symbol-gray-light {
+  // background-color: #ddd;
+  // background-color: #738089;
+}
+
+.symbol-red {
+  // background-color: #da5d3a;
+  // background-color: #738089;
+}
+
+.symbol-orange {
+  // background-color: #f39a18;
+  // background-color: #738089;
+}
+
+.symbol-green {
+  // background-color: #51bd88;
+  // background-color: #738089;
+}
+
+.symbol-blue {
+  // background-color: #43a6d8;
+  // background-color: #738089;
+}
+
+.symbol-purple {
+  // background-color: #a77ac3;
+  // background-color: #738089;
 }

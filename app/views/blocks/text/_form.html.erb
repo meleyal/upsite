@@ -8,8 +8,7 @@
   </div>
 
   <div class="modal-body">
-    <%= f.input :body, label: false, input_html: { rows: 6 },
-                 hint: 'Text can be formatted with <a href="http://markdown-here.com/livedemo.html" target="_blank">Markdown</a>.'.html_safe %>
+    <%= f.trix_editor :body, rows: 20 %>
   </div>
 
   <div class="modal-footer">

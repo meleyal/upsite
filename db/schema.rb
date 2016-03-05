@@ -28,9 +28,11 @@ ActiveRecord::Schema.define(version: 20150709154408) do
 
   create_table "blocks", force: :cascade do |t|
     t.string   "type"
-    t.integer  "sort_order"
+    t.integer  "position"
+    t.string   "title"
     t.text     "body"
-    t.string   "url"
+    t.string   "link_url"
+    t.string   "embed_url"
     t.string   "color"
     t.integer  "site_id"
     t.datetime "created_at"
@@ -64,15 +66,14 @@ ActiveRecord::Schema.define(version: 20150709154408) do
     t.string   "subdomain"
     t.string   "domain"
     t.string   "color"
-    t.jsonb    "settings",    default: {}
+    t.boolean  "featured"
     t.string   "owner_id"
     t.datetime "deleted_at"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "sites", ["owner_id"], name: "index_sites_on_owner_id", using: :btree
-  add_index "sites", ["settings"], name: "index_sites_on_settings", using: :gin
   add_index "sites", ["subdomain"], name: "index_sites_on_subdomain", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|

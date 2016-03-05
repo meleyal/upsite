@@ -1,12 +1,8 @@
 class BlocksController < ApplicationController
-
   before_action :set_site
-  before_action :set_block, only: [:show, :edit, :update, :destroy]
-  layout :false, only: [:new, :edit] # shown in modal popup
-
-  def index
-    @blocks = @site.blocks.all
-  end
+  before_action :require_site_owner
+  before_action :set_block, only: [:show, :update, :destroy]
+  layout :false
 
   def new
     if block_type
@@ -17,6 +13,7 @@ class BlocksController < ApplicationController
 
   def create
     @block = @site.send(block_type).new(block_params)
+
     if @block.save
       # Uploading an attachment creates the resource, so return the new resource url
       # to change the form to a PUT request (see dropzone.js)
@@ -37,7 +34,20 @@ class BlocksController < ApplicationController
 
   def destroy
     @site.blocks.destroy(params[:id])
-    # head :no_content, location: request.referrer
+    redirect_to request.referrer
+  end
+
+  def sort
+    params[:block][:ids].each_with_index do |id, index|
+      @site.blocks.find(id).update_attribute(:position, index + 1)
+    end
+    redirect_to request.referrer
+  end
+
+  def shuffle
+    @site.blocks.all.each_with_index do |block, index|
+      block.update_attribute :position, Random.rand(0..@site.blocks.count)
+    end
     redirect_to request.referrer
   end
 
@@ -55,13 +65,13 @@ class BlocksController < ApplicationController
 
     def block_params
       params.require(:block).permit(
+        :ids,
         :type,
-        :sort_order,
-        :sort_order_position,
+        :position,
         :body,
-        :url,
+        :embed_url,
+        :link_url,
         :color,
         attachments_attributes: [:upload])
     end
-
 end

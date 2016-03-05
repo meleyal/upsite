@@ -13,7 +13,7 @@
 
       <!-- Text -->
       <a href="<%= new_block_path(type: 'text') %>" class="btn btn-circle" data-toggle="modal" data-target="self" >
-        <p class="symbol">
+        <p class="symbol symbol-purple">
           <i class="fa fa-align-left fa-lg"></i>
         </p>
         <p>Text</p>
@@ -21,7 +21,7 @@
 
       <!-- Image -->
       <a href="<%= new_block_path(type: 'image') %>" class="btn btn-circle" data-toggle="modal" data-target="self">
-        <p class="symbol">
+        <p class="symbol symbol-green">
           <i class="fa fa-camera fa-lg"></i><br>
         </p>
         <p>Image</p>
@@ -29,36 +29,41 @@
 
       <!-- Video -->
       <a href="<%= new_block_path(type: 'video') %>" class="btn btn-circle" data-toggle="modal" data-target="self">
-        <p class="symbol">
+        <p class="symbol symbol-red">
           <i class="fa fa-video-camera fa-lg"></i><br>
         </p>
         <p>Video</p>
       </a>
 
-      <!-- Embed -->
-      <a href="<%= new_block_path(type: 'embed') %>" class="btn btn-circle" data-toggle="modal" data-target="self">
-        <p class="symbol">
-          <i class="fa fa-cloud fa-lg"></i><br>
+      <!-- Audio -->
+      <a href="<%= new_block_path(type: 'audio') %>" class="btn btn-circle" data-toggle="modal" data-target="self">
+        <p class="symbol symbol-orange">
+          <i class="fa fa-microphone fa-lg"></i><br>
         </p>
-        <p>Embed</p>
+        <p>Audio</p>
+      </a>
+
+      <!-- Map -->
+      <a href="<%= new_block_path(type: 'map') %>" class="btn btn-circle" data-toggle="modal" data-target="self">
+        <p class="symbol symbol-blue">
+          <i class="fa fa-map-marker fa-lg"></i><br>
+        </p>
+        <p>Map</p>
       </a>
 
       <!-- Blank -->
       <a href="<%= new_block_path(type: 'blank') %>" class="btn btn-circle" data-toggle="modal" data-target="self">
-        <p class="symbol">
+        <p class="symbol symbol-gray">
           <i class="fa fa-square-o fa-lg"></i><br>
         </p>
-        <p>Blank</p>
-      </a>
-
-      <!-- More -->
-      <a href="<%= new_help_path(message: 'Something missing? Let us know what you want to add...') %>" class="btn btn-circle" data-toggle="modal" data-target="self">
-        <p class="symbol">
-          <i class="fa fa-plus fa-lg"></i><br>
-        <p>More</p>
+        <p>Space</p>
       </a>
 
     </div>
+  </div>
+
+  <div class="modal-footer text-right" style="padding-top: 0;">
+    <a href="<%= new_help_path(message: 'Something missing? Let us know what you want to add...') %>" class="btn btn-link" data-toggle="modal" data-target="self">More...</a>
   </div>
 
 <% end %>

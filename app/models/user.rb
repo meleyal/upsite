@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_create :create_remember_token
+  # after_create :add_to_mailing_list
 
   has_many :site_memberships, dependent: :destroy
   has_many :sites, through: :site_memberships
@@ -12,14 +13,21 @@ class User < ActiveRecord::Base
                     uniqueness: true
 
   has_secure_password
-  validates :password, length: { minimum: 6 }, presence: true
-  # validates_acceptance_of :terms
+  validates :password, length: { minimum: 6 }, presence: true, on: :create
   validates :terms, acceptance: true
   attr_accessor :terms
   # validates :password_confirmation, presence: true
 
+  def site
+    self.sites.first
+  end
+
   def pro?
     plan.code != 'free'
+  end
+
+  def sudo?
+    self.id == 1
   end
 
   def User.new_remember_token
@@ -32,7 +40,12 @@ class User < ActiveRecord::Base
 
   private
 
-  def create_remember_token
-    self.remember_token = User.digest(User.new_remember_token)
-  end
+    def create_remember_token
+      self.remember_token = User.digest(User.new_remember_token)
+    end
+
+    def add_to_mailing_list
+      client = Mailchimp::API.new(ENV['MAILCHIMP_API_KEY'])
+      client.lists.subscribe(ENV['MAILCHIMP_LIST_ID'], { email: self.email }, nil, email_type = 'text', double_optin = false)
+    end
 end

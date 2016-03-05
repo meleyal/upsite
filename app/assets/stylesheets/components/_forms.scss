@@ -2,24 +2,26 @@
 // Forms
 // --------------------------------------------------
 
-.form-centered {
-  max-width: 500px;
-  margin: 0 auto;
-  background: $white;
-}
-
-.addon-color {
-  display: block;
-}
-
 .help-block {
   font-size: $font-size-small;
-  color: $gray-light;
+
+  &, a {
+    color: $gray-light;
+  }
+
+  a {
+    text-decoration: underline;
+  }
 }
 
 .form-control {
-  border: 3px solid #eee;
+  border: 1px solid #bbb;
   box-shadow: none;
+  padding: 18px 15px;
+}
+
+textarea.form-control {
+  padding-top: 10px;
 }
 
 label {
@@ -30,5 +32,32 @@ label {
       color: #c00;
     }
   }
+}
 
+.has-error {
+  .form-control {
+    & {
+      border-color: #bbb;
+      @include box-shadow(none);
+    }
+
+    &:focus {
+      border-color: $input-border-focus;
+      @include form-control-focus($input-border-focus);
+    }
+  }
+
+  .control-label, label, label a {
+    color: $black;
+  }
+
+  .help-block {
+    text-align: right;
+    font-weight: bold;
+  }
+}
+
+.btn-lg + .help-inline {
+  display: inline-block;
+  @include translate(20px, 4px);
 }

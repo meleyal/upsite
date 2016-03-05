@@ -1,2 +1,0 @@
-class Embed < Block
-end

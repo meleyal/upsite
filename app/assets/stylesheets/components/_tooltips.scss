@@ -4,4 +4,8 @@
 
 .tooltip {
   white-space: nowrap;
+
+  .tooltip-inner {
+    max-width: none;
+  }
 }

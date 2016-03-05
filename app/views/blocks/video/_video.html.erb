@@ -1,6 +1,9 @@
-<div class="block block-video col-sm-4" data-url="<%= block_path(video) %>">
+<div class="block block-video xcol-sm-4" data-id="<%= video.id %>">
+
   <%= render 'blocks/controls', block: video %>
+
   <div class="block-inner">
-    <a href="<%= video.url %>"></a>
+    <a data-embed href="<%= video.embed_url %>"></a>
   </div>
+
 </div>

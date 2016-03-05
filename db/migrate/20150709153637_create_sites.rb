@@ -6,7 +6,7 @@ class CreateSites < ActiveRecord::Migration
       t.string :subdomain
       t.string :domain
       t.string :color
-      t.jsonb :settings, default: {}
+      t.boolean :featured
       t.string :owner_id
       t.timestamp :deleted_at
 
@@ -14,6 +14,5 @@ class CreateSites < ActiveRecord::Migration
     end
     add_index :sites, :owner_id
     add_index :sites, :subdomain, unique: true
-    add_index :sites, :settings, using: :gin
   end
 end

@@ -1,14 +1,17 @@
 class SitesController < ApplicationController
-  include Login
-  before_action :set_site, only: [:show, :edit, :destroy]
+  before_action :set_site, except: [:show]
+  before_action :require_site_owner, except: [:show]
+  skip_before_action :authenticate, only: [:show]
   before_action :allow_iframe, only: [:show]
-
-  def index
-    @sites = Site.active
-  end
+  layout :false, except: [:show]
 
   def show
-    @blocks = @site.blocks.all
+    @site = Site.all.find_by!(subdomain: request.subdomains.first)
+    @blocks = @site.blocks.includes(:attachments).all
+    @sponsors = Site.active.pro.order("RANDOM()").limit(5)
+  end
+
+  def edit
   end
 
   def update
@@ -20,23 +23,13 @@ class SitesController < ApplicationController
     end
   end
 
-  def destroy
-    @site = Site.find(params[:id])
-    @site.destroy
-    redirect_to sites_url
-  end
-
   private
 
-  def site_params
-    params.require(:site).permit(:name, :subdomain, owner_attributes: [:email, :password, :password_confirmation])
-  end
+    def site_params
+      params.require(:site).permit(:name, :description, :color)
+    end
 
-  def user_params
-    params.require(:owner).permit(:email, :password, :password_confirmation)
-  end
-
-  def allow_iframe
-    response.headers.delete 'X-Frame-Options' if params[:iframe].present?
-  end
+    def allow_iframe
+      response.headers.delete 'X-Frame-Options' if params[:iframe].present?
+    end
 end

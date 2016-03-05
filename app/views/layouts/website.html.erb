@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Meta -->
   <meta charset="utf-8">
@@ -7,6 +8,7 @@
   <meta name="description" content="<%= t 'tagline' %>">
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico?v=1">
 
   <!-- Assets -->
   <%= stylesheet_link_tag "website" %>
@@ -14,23 +16,12 @@
 </head>
 
 <body>
-  <%# render 'navbar' %>
   <div class="container">
+    <%= render 'website/header' %>
     <%= yield %>
+    <%= render 'website/footer' %>
   </div>
-  <%= render 'website/footer' %>
-
-  <% if Rails.env.production? %>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-730987-26', 'auto');
-      ga('send', 'pageview');
-    </script>
-  <% end %>
+  <%= render 'analytics' if Rails.env.production? %>
 </body>
 
 </html>

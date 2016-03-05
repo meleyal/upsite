@@ -1,7 +1,7 @@
 en:
-  app_name: Upsite
+  app_name: Upsite.
   tagline: The easiest way to make a website for your business, organization, or project.
-  tagline_short: A simple way to make a website for anything.
+  tagline_short: A simple, free way to make a website for anything.
 
   signups:
     new:
@@ -19,9 +19,9 @@ en:
       create: Create
       update: Update
       site:
-        create: Continue
+        create: Create your site
       session:
         submit: Login
-      help:
+      help_message:
         submit: Send
         # submit: "Save %{model}"

@@ -1,15 +1,14 @@
-<% url = blocks_path(type: 'embed') %>
+<% url = blocks_path(type: 'map') %>
 
 <%= simple_form_for(@block, as: :block, url: url, remote: true) do |f| %>
 
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h4 class="modal-title">Add Embed</h4>
+    <h4 class="modal-title">Add Map</h4>
   </div>
 
   <div class="modal-body">
-    <%= f.input :url, label: 'Embed URL',
-                 hint: 'e.g. SoundCloud, Twitter, anything...' %>
+    <%= f.input :embed_url, label: 'Map Link', placeholder: 'maps.google.com' %>
   </div>
 
   <div class="modal-footer">
