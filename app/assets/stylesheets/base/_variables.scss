@@ -5,8 +5,10 @@
 // Grid
 // -------------------
 
-$grid-gutter-width:       30px !default;
-$container-large-desktop: ((940px + $grid-gutter-width));
+$grid-gutter-width:       30px;
+
+$container-md: (960px + $grid-gutter-width);
+$container-lg: $container-md;
 
 // Colors
 // -------------------

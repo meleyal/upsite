@@ -5,6 +5,7 @@
   <!-- Meta -->
   <meta charset="utf-8">
   <title><%= content_for?(:title) ? content_for(:title) : t('tagline_short') %> | <%= t('app_name') %></title>
+  <meta name="description" content="<%= t 'tagline' %>">
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="/favicon.ico?v=1">
@@ -16,7 +17,6 @@
 </head>
 
 <body>
-  <%# render 'navbar' %>
   <div class="container">
     <%= yield %>
   </div>

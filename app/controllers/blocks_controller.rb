@@ -1,7 +1,7 @@
 class BlocksController < ApplicationController
   before_action :set_site
   before_action :require_site_owner
-  before_action :set_block, only: [:show, :update, :destroy]
+  before_action :set_block, only: [:update, :destroy]
   layout :false
 
   def new

@@ -48,14 +48,43 @@
 .btn-circle {
   color: #555;
   font-weight: $font-weight-bold;
+  @include transition(all, .2s);
+
   &:hover,
   &:focus,
   &:active,
   &.active {
     @include box-shadow(none);
-    @include transition(all, .2s);
     @include translate(0, -2px);
-    @include scale(1.1);
+    // @include scale(1.1);
+
+    .symbol-gray {
+      background-color: #738089;
+    }
+
+    .symbol-gray-light {
+      background-color: #ddd;
+    }
+
+    .symbol-red {
+      background-color: #da5d3a;
+    }
+
+    .symbol-orange {
+      background-color: #f39a18;
+    }
+
+    .symbol-green {
+      background-color: #51bd88;
+    }
+
+    .symbol-blue {
+      background-color: #43a6d8;
+    }
+
+    .symbol-purple {
+      background-color: #a77ac3;
+    }
   }
 
   &.disabled {

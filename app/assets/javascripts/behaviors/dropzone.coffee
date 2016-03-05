@@ -33,6 +33,7 @@ onSuccess = (file, res) ->
 
 onError = (file, error, xhr) ->
   $('.dz-error-message').text(error.block.attachments[0])
+  $('#new_block .btn-success').attr('disabled', true)
 
 # Show advanced options
 onAddedFile = ->

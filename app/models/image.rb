@@ -1,5 +1,5 @@
 class Image < Block
-  ATTACHMENT_QUOTA = 5
+  ATTACHMENT_QUOTA = 30
 
   validates :embed_url, format: /https?:\/\/.*/, allow_blank: true
   validates :link_url, format: /https?:\/\/.*/, allow_blank: true
@@ -11,7 +11,7 @@ class Image < Block
 
   def validate_attachment_quota
     if self.attachments.present? && self.site.attachments.count > ATTACHMENT_QUOTA
-      errors.add(:attachments, 'Upload limit reached') 
+      errors.add(:attachments, 'Upload limit reached')
     end
   end
 end

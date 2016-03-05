@@ -1,10 +1,4 @@
 class Site < ActiveRecord::Base
-
-
-  ##
-  # Associations
-  #
-
   belongs_to :owner, class_name: 'User'
   accepts_nested_attributes_for :owner
   has_many :site_memberships, dependent: :destroy
@@ -16,11 +10,7 @@ class Site < ActiveRecord::Base
   has_many :videos
   has_many :audios
   has_many :maps
-  has_many :blanks
-
-  ##
-  # Validations & Callbacks
-  #
+  has_many :spaces
 
   scope :active, -> { where(deleted_at: nil) }
   scope :pro, -> { joins(:users).where(users: { plan_id: 2 }) }
@@ -33,7 +23,6 @@ class Site < ActiveRecord::Base
       self.subdomain = subdomain
     end
   }
-
   validates :name, presence: true
   validates :subdomain, {
     presence: true,
@@ -44,5 +33,4 @@ class Site < ActiveRecord::Base
   }
   validates :color, format: /#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})/, allow_blank: true
   validates :description, length: { maximum: 600 }
-
 end

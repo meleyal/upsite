@@ -27,8 +27,24 @@
     .dz-image {
       border-radius: 0;
     }
+
     .dz-details {
       display: none;
+    }
+
+    .dz-error-message {
+      border-radius: 0;
+      background: $brand-danger;
+      white-space: nowrap;
+      padding: 3px 8px;
+      font-size: 12px;
+      line-height: 1.4;
+      text-align: center;
+      opacity: 1;
+
+      &:after {
+        border-bottom-color: $brand-danger;
+      }
     }
 
     &:hover .dz-image img {

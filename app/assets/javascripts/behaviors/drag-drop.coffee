@@ -3,16 +3,14 @@
 #
 
 options =
-  items: '.block:not(.block-not-ad)'
+  items: '.block:not(.block-not-an-ad)'
   tolerance: 'pointer'
   handle: '.move'
-  placeholder: 'block block-placeholder col-sm-4'
+  placeholder: 'block block-drag-guide'
   forcePlaceholderSize: true
-  cancel: '.block-ad'
   cursor: 'move'
 
 onStart = (e, ui) ->
-  # console.log 'onStart', e, ui
   $(e.currentTarget).find('.move').tooltip('destroy')
 
 onSort = (e, ui) ->
@@ -24,3 +22,4 @@ $(document).on 'ready page:load', ->
   $('[data-sortable]').sortable options
   $(document).on 'sortupdate', '[data-sortable]', onSort
   $(document).on 'sortstart', '[data-sortable]', onStart
+  $(document).on 'click', '.move', (e) -> e.preventDefault()

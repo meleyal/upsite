@@ -7,7 +7,7 @@
   <p><%= @site.description %></p>
 </div>
 
-<div class="xblocks page-content row" data-sortable>
+<div class="blocks" data-sortable>
   <% if params[:iframe].present? %>
     <%= render @blocks.limit(1) %>
   <% elsif @blocks.present? %>

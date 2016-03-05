@@ -1,31 +1,5 @@
 
 
-- responsive grid (flexbox?)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- admin flag for users
-
-
 
 
 
@@ -36,7 +10,6 @@ homepage
     https://goo.gl/q7thAr
 
 
-link to home page from site
 
 
 
@@ -47,7 +20,7 @@ link to home page from site
 
 Later
 
-- enable mailchimp
+- add new user to mailchimp
 - force www redirect?
 - explore / tags / community
 - password reset?
@@ -59,3 +32,4 @@ Later
 - replace embedly (oembed, custom?)
 - replace jquery-ui with html5sortable
 - merge website + application layout/js/css
+- cleanup dropzone on closing image modal

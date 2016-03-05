@@ -1,13 +1,11 @@
-<div class="row">
+<div class="blocks">
   <% @sites.each do |site| %>
-    <div class="block block-site col-md-4">
+    <div class="block block-site" style="background-color: <%= site.color %>;">
       <a href="<%= root_url(subdomain: site.subdomain) %>">
-        <div class="block-inner" style="background-color: <%= site.color %>;">
-          <iframe src="<%= root_url(subdomain: site.subdomain, iframe: true) %>"></iframe>
-          <span class="block-caption" style="background-color: <%= site.color %>;">
-            <%= root_url(subdomain: site.subdomain).gsub('http://', '').gsub('/', '') %>
-          </span>
-        </div>
+        <iframe src="<%= root_url(subdomain: site.subdomain, iframe: true) %>" scrolling="no"></iframe>
+        <span class="block-caption" style="background-color: <%= site.color %>;">
+          <%= root_url(subdomain: site.subdomain).gsub('http://', '').gsub('/', '') %>
+        </span>
       </a>
     </div>
   <% end %>

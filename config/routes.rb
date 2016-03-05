@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get 'settings' => 'sites#edit'
     patch 'settings' => 'sites#update'
     resources :help, only: [:new, :create]
-    resources :blocks do
+    resources :blocks, only: [:new, :create, :update, :destroy] do
       post 'shuffle', on: :collection
       post 'sort', on: :collection
     end
