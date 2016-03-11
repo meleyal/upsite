@@ -1,20 +1,9 @@
 
 
 
-- push to heroku
-   git push heroku
-   heroku run rake db:reset db:migrate db:seed
-
-- change default seed passwords
-    heroku run rails console
-    u = User.first/last
-    u.password = generated
-
-
 Later
 
 - upgrade heroku plan
-- add S3 to Cyberduck
 - import live db script
 - staging env?
 - caching
