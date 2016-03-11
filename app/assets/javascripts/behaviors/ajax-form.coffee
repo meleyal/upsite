@@ -26,6 +26,7 @@ renderErrors = ($form, json) ->
       renderError $form, name, attr, errors
 
 renderError = ($form, name, attr, errors) ->
+  console.log 'render errorzzzz'
   id = attrToId name, attr
   messageText = errors.join ', '
   $field = $form.find id

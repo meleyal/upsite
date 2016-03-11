@@ -83,10 +83,13 @@
 .block-image {
   overflow: hidden;
   line-height: 300px;
+  text-align: center;
 
   img {
-    min-width: 100%;
-    height: auto;
+    object-fit: cover;
+    object-position: top left;
+    width: 300px;
+    height: 300px;
   }
 
   img ~ a {
@@ -117,14 +120,19 @@
 }
 
 .block-site {
+  background: #eee;
 
   .block-caption {
     background: #eee;
+    color: #555;
     display: inline-block;
     position: absolute;
     right: 5px;
     bottom: 5px;
     padding: 5px 10px;
+  }
+
+  &.is-themed .block-caption {
     color: #fff;
   }
 

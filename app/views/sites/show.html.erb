@@ -12,7 +12,7 @@
     <%= render @blocks.limit(1) %>
   <% elsif @blocks.present? %>
     <%= render @blocks %>
-    <% if true # !@site.owner.pro? && @blocks.length >= 5 %>
+    <% if !@site.owner.pro? && @blocks.length >= 5 %>
       <%= render 'blocks/ad/ad' %>
     <% end %>
   <% end %>

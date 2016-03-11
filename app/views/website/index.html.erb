@@ -1,6 +1,6 @@
 <div class="blocks">
   <% @sites.each do |site| %>
-    <div class="block block-site" style="background-color: <%= site.color %>;">
+    <div class="block block-site <%= 'is-themed' if site.color.present? %>" style="background-color: <%= site.color %>;">
       <a href="<%= root_url(subdomain: site.subdomain) %>">
         <iframe src="<%= root_url(subdomain: site.subdomain, iframe: true) %>" scrolling="no"></iframe>
         <span class="block-caption" style="background-color: <%= site.color %>;">

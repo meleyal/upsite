@@ -8,7 +8,10 @@
   </div>
 
   <div class="modal-body">
-    <%= f.trix_editor :body, rows: 20 %>
+    <div class="form-group">
+      <%= f.trix_editor :body, rows: 20, input: :block_body %>
+      <span class="help-block"></span>
+    </div>
   </div>
 
   <div class="modal-footer">

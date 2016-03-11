@@ -1,8 +1,10 @@
 class Image < Block
   ATTACHMENT_QUOTA = 30
 
+  # TODO: one of these should be present
   validates :embed_url, format: /https?:\/\/.*/, allow_blank: true
   validates :link_url, format: /https?:\/\/.*/, allow_blank: true
+  
   validate :validate_attachment_quota
 
   def image
