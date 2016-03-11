@@ -1,8 +1,8 @@
 
 
 
-Later
-
+- ssl issue
+- seeds
 - upgrade heroku plan
 - import live db script
 - staging env?
