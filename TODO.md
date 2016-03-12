@@ -1,7 +1,6 @@
 
 
 - upgrade heroku plan
-- import live db script
 - email sending?
 
 - password reset?
