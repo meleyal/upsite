@@ -2,7 +2,6 @@
 
 - upgrade heroku plan
 - import live db script
-- fix seeds
 - email sending?
 
 - password reset?
