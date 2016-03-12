@@ -1,12 +1,8 @@
 
 
-- email sending?
-- upgrade heroku plan
-
 - password reset?
 - remember me
 - delete site (deactivate)
-- staging env?
 - caching - cloudflare?
 - explore / tags / community
 - oauth login
