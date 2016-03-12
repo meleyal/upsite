@@ -5,6 +5,6 @@
 
 ```ruby
 u = User.first
-s = Site.create(title: 'Carl Sagan', owner: u)
+s = Site.create(name: 'syrrup', owner: u)
 m = SiteMembership.create(user: u, site: s)
 ```

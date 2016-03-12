@@ -1,12 +1,19 @@
 <div class="blocks">
   <% @sites.each do |site| %>
     <div class="block block-site <%= 'is-themed' if site.color.present? %>" style="background-color: <%= site.color %>;">
-      <a href="<%= root_url(subdomain: site.subdomain) %>">
-        <iframe src="<%= root_url(subdomain: site.subdomain, iframe: true) %>" scrolling="no"></iframe>
-        <span class="block-caption" style="background-color: <%= site.color %>;">
-          <%= root_url(subdomain: site.subdomain).gsub('http://', '').gsub('/', '') %>
-        </span>
-      </a>
+      <a class="block-link" href="<%= root_url(subdomain: site.subdomain) %>"></a>
+      <div class="block-inner">
+        <div class="page-header">
+          <h1><%= site.name %></h1>
+          <p><%= site.description %></p>
+        </div>
+        <div class="blocks">
+          <%= render site.blocks.limit(1) %>
+        </div>
+      </div>
+      <span class="block-caption" style="background-color: <%= site.color %>;">
+        <%= root_url(subdomain: site.subdomain).gsub('http://', '').gsub('/', '') %>
+      </span>
     </div>
   <% end %>
 </div>

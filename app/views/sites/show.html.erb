@@ -8,9 +8,7 @@
 </div>
 
 <div class="blocks" data-sortable>
-  <% if params[:iframe].present? %>
-    <%= render @blocks.limit(1) %>
-  <% elsif @blocks.present? %>
+  <% if @blocks.present? %>
     <%= render @blocks %>
     <% if !@site.owner.pro? && @blocks.length >= 5 %>
       <%= render 'blocks/ad/ad' %>
@@ -18,12 +16,10 @@
   <% end %>
 </div>
 
-<% if !params[:iframe].present? %>
-  <% if current_user == @site.owner %>
-    <%= render 'hud' %>
-    <%= render 'modal' %>
-    <%= render 'modal', size: 'small' %>
-  <% end %>
+<% if current_user == @site.owner %>
+  <%= render 'hud' %>
+  <%= render 'modal' %>
+  <%= render 'modal', size: 'small' %>
 <% end %>
 
 <footer class="page-footer">

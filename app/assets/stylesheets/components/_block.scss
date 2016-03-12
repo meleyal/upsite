@@ -122,6 +122,27 @@
 .block-site {
   background: #eee;
 
+  .block-link {
+    display: block;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  .block-inner {
+    background: #fff;
+    pointer-events: none;
+    width: 300px;
+    height: 300px;
+    border: 0;
+    transform: scale(0.9);
+    overflow: hidden;
+    padding: 20px;
+  }
+
   .block-caption {
     background: #eee;
     color: #555;
@@ -136,17 +157,10 @@
     color: #fff;
   }
 
-  a {
-    display: block;
+  .page-header {
+    padding: 10px 0;
   }
 
-  iframe {
-    pointer-events: none;
-    width: 300px;
-    height: 300px;
-    border: 0;
-    transform: scale(0.9);
-  }
 }
 
 .block-not-an-ad {

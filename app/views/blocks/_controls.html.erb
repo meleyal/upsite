@@ -1,4 +1,4 @@
-<% if current_user == @site.owner %>
+<% if @site && current_user == @site.owner %>
   <div class="block-controls">
     <a href="#" class="move" title="Drag to move" rel="tooltip" data-trigger="hover" data-animation="false" data-placement="left">
       <i class="fa fa-arrows"></i>

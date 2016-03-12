@@ -4,7 +4,7 @@
 
   <% if image.image.present? %>
     <% if image.link_url.present? %><a href="<%= image.link_url %>"><% end %>
-      <img src="<%= image.image %>">
+      <img src="<%= image.image.gsub('http://', request.protocol) %>">
     <% if image.link_url.present? %></a><% end %>
   <% else %>
     <a data-embed href="<%= image.embed_url %>"></a>

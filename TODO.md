@@ -1,17 +1,16 @@
 
 
-
-- ssl issue
-- seeds
 - upgrade heroku plan
 - import live db script
-- staging env?
-- caching
-- force www redirect?
-- explore / tags / community
+- fix seeds
+- email sending?
+
 - password reset?
 - remember me
 - delete site (deactivate)
+- staging env?
+- caching - cloudflare?
+- explore / tags / community
 - oauth login
 - stats
 - replace embedly (oembed, custom?)
