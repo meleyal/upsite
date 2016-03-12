@@ -82,7 +82,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Paperclip config.
+  # Storage config.
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
@@ -92,7 +92,9 @@ Rails.application.configure do
     }
   }
 
-  # SendGrid config.
+  # Email config.
+  config.action_mailer.default_url_options = { host: 'upsite.io' }
+  config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '587',

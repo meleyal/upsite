@@ -17,7 +17,7 @@ class HelpController < ApplicationController
     @help_message = HelpMessageForm.new(params[:help_message])
 
     if @help_message.valid?
-      NotificationsMailer.help_email(current_user, @help_message.message).deliver_later
+      NotificationsMailer.help_email(current_user, @help_message.message).deliver_now
       redirect_to request.referrer
     else
       render :new, status: :unprocessable_entity
