@@ -1,7 +1,7 @@
 
 
-- upgrade heroku plan
 - email sending?
+- upgrade heroku plan
 
 - password reset?
 - remember me
