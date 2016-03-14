@@ -1,6 +1,16 @@
 <div class="blocks">
   <% @sites.each do |site| %>
-    <div class="block block-site <%= 'is-themed' if site.color.present? %>" style="background-color: <%= site.color %>;">
+    <% next if site.blocks.count < 1 %>
+    <style>
+      #<%= dom_id(site) %>,
+      #<%= dom_id(site) %> .block-caption {
+        background-color: <%= site.color %>;
+      }
+      #<%= dom_id(site) %> a {
+        color: <%= site.color %>
+      }
+    </style>
+    <div id="<%= dom_id(site) %>" class="block block-site <%= 'is-themed' if site.color.present? %>">
       <a class="block-link" href="<%= root_url(subdomain: site.subdomain) %>"></a>
       <div class="block-inner">
         <div class="page-header">
@@ -11,7 +21,7 @@
           <%= render site.blocks.limit(1) %>
         </div>
       </div>
-      <span class="block-caption" style="background-color: <%= site.color %>;">
+      <span class="block-caption">
         <%= root_url(subdomain: site.subdomain).gsub('http://', '').gsub('/', '') %>
       </span>
     </div>

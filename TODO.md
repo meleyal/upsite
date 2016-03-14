@@ -1,7 +1,5 @@
 
 
-
-
 - how to make money? (discuss with Lo)
 
   - $1 per site
@@ -21,11 +19,6 @@ Google AdSense
   - upsite
 
   - meleyal (+ redirect meleyal.com)
-
-  - billions
-    - update link in footer (b.illions.co)
-
-  - syrrup
 
   - lo
    - send password
