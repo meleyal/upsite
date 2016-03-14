@@ -27,11 +27,11 @@ gem 'unicorn'
 gem 'foreman'
 gem 'pg'
 gem 'rails_12factor', group: :production
+gem 'hirb', require: false
 
 group :test, :development do
   gem 'dotenv-rails'
   gem 'wirble'
-  gem 'hirb'
   gem 'quiet_assets', :git => 'git://github.com/evrone/quiet_assets.git'
   gem 'awesome_print'
   gem 'guard', '>= 2.2.2', require: false

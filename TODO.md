@@ -1,14 +1,67 @@
 
 
+
+
+- how to make money? (discuss with Lo)
+
+  - $1 per site
+  - 'in-app purchases' / upgrades
+  - Kickstarter
+  - Feature bounty
+
+
+Google AdSense
+- link units
+- delete button -> stripe modal
+
+
+
+- demo sites
+
+  - upsite
+
+  - meleyal (+ redirect meleyal.com)
+
+  - billions
+    - update link in footer (b.illions.co)
+
+  - syrrup
+
+  - lo
+   - send password
+
+
+
+- promotion stage 1    
+    - friends
+      nic
+      oli
+      ribo
+    - mailing list
+
+- promotion stage 2
+    wollzelle
+    show hacker news
+    product hunt
+    twitter (promo?)
+    facebook (promo?)
+    skiff slack
+    pspdfkit slack
+
+
+
+
+Later
+
+- change video music?
 - password reset?
 - remember me
 - delete site (deactivate)
 - caching - cloudflare?
 - explore / tags / community
 - oauth login
-- stats
 - replace embedly (oembed, custom?)
 - replace jquery-ui with html5sortable
-- merge website + application layout/js/css
+- merge website + application layout
 - cleanup dropzone on closing image modal
-- mobile layout
+- optimize mobile layout
