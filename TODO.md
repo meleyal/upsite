@@ -1,11 +1,13 @@
 
 
+
 - how to make money? (discuss with Lo)
 
   - $1 per site
   - 'in-app purchases' / upgrades
   - Kickstarter
   - Feature bounty
+  - Patreon
 
 
 Google AdSense
@@ -30,7 +32,16 @@ Google AdSense
       nic
       oli
       ribo
+      lo's friends
+      facebook
+
     - mailing list
+
+
+
+
+
+
 
 - promotion stage 2
     wollzelle
