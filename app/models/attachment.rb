@@ -5,14 +5,10 @@ class Attachment < ActiveRecord::Base
     path: ":rails_root/public/system/:app_name_:hash_:style.:extension",
     url: "/system/:app_name_:hash_:style.:extension",
     hash_secret: "QXBhFYdt2JU7ZINf",
-    styles: { medium: '300x300#' }
+    styles: { medium: '300x300#', medium_2x: '600x600#' }
 
   validates_attachment :upload,
     presence: true,
     content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] },
     size: { less_than: 4.megabytes }
-
-  def upload_url
-    upload.url :medium
-  end
 end

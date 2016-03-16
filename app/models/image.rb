@@ -4,11 +4,14 @@ class Image < Block
   # TODO: one of these should be present
   validates :embed_url, format: /https?:\/\/.*/, allow_blank: true
   validates :link_url, format: /https?:\/\/.*/, allow_blank: true
-  
   validate :validate_attachment_quota
 
   def image
     attachments.first.upload.url(:medium) rescue nil
+  end
+
+  def image_2x
+    attachments.first.upload.url(:medium_2x) rescue nil
   end
 
   def validate_attachment_quota
