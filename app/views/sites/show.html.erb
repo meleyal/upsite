@@ -10,7 +10,7 @@
 <div class="blocks" data-sortable>
   <% if @blocks.present? %>
     <%= render @blocks %>
-    <% if !@site.owner.pro? && @blocks.length >= 5 %>
+    <% if @blocks.length >= 1 # !@site.owner.pro? && @blocks.length >= 5 %>
       <%= render 'blocks/ad/ad' %>
     <% end %>
   <% end %>
