@@ -2,13 +2,20 @@
 <html lang="en">
 
 <head>
-  <!-- Meta -->
   <meta charset="utf-8">
-  <title><%= content_for?(:title) ? content_for(:title) : t('tagline_short') %> | <%= t('app_name') %></title>
-  <meta name="description" content="<%= t 'tagline' %>">
-  <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+
+  <title><%= content_for?(:title) ? content_for(:title) : t('tagline_short') %> | <%= t('app_name') %></title>
+
+  <!-- Favicons -->
   <link rel="shortcut icon" href="/favicon.ico?v=2">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:image" content="<%= image_url('avatar.png') %>">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="400">
 
   <!-- Assets -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
