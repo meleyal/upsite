@@ -4,19 +4,22 @@
       <%= t('app_name') %>
     </a>
   </h1>
-  <p class="pull-right text-muted">
-    <a href="https://player.vimeo.com/video/158535034?autoplay=true"
-      target="_blank"
-      rel="tooltip"
-      title="Watch a 2-minute video">Help</a> /
-    <span
-      rel="tooltip"
-      style="cursor: pointer;"
-      title="View the latest sites below">Explore</span>
+  <p class="pull-right">
+    <span class="text-muted">
+      <a href="https://player.vimeo.com/video/158535034?autoplay=true"
+        target="_blank"
+        rel="tooltip"
+        title="Watch a 2-minute video">Help</a> /
+      <span
+        rel="tooltip"
+        style="cursor: pointer;"
+        title="View the latest sites below">Explore</span> /
+      <a href="<%= login_path %>" data-no-turbolink>Login</a>
+    </span>
+    &nbsp;
+    <a href="<%= signup_path %>" class="btn btn-success">Get started &rarr;</a>
   </p>
   <p>
     <%= t('tagline') %>
-    <a href="<%= login_path %>" data-no-turbolink>Login</a> or
-    <a href="<%= signup_path %>">Get started &rarr;</a>
   </p>
 </div>
