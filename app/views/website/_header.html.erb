@@ -6,23 +6,18 @@
   </h1>
   <div class="row">
     <div class="col-xs-12 col-sm-6">
-      <p><%= t('tagline') %></p>
+      <p>
+        <%= t('tagline') %>
+      </p>
     </div>
     <div class="col-xs-12 col-sm-6">
       <p style="margin-top: 1px;" class="text-right">
-        <span class="text-muted">
-          <a href="https://player.vimeo.com/video/158535034?autoplay=true"
-            target="_blank"
-            rel="tooltip"
-            title="Watch a 2-minute video">Help</a> /
-          <span
-            rel="tooltip"
-            style="cursor: pointer;"
-            title="View the latest sites below">Explore</span> /
-          <a href="<%= login_path %>" data-no-turbolink>Login</a>
-        </span>
+        <a href="https://player.vimeo.com/video/158535034?autoplay=true"
+          class="btn btn-default"
+          target="_blank">See how it works</a>
         &nbsp;
-        <a href="<%= signup_path %>" class="btn btn-success">Get started &rarr;</a>
+        <a href="<%= signup_path %>"
+          class="btn btn-success">Get started &rarr;</a>
       </p>
     </div>
   </div>

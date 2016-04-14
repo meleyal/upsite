@@ -6,7 +6,7 @@
   font-weight: bold;
   $background: $btn-success-bg;
   $border: $btn-success-border;
-  border: none !important;
+  border-color: $btn-success-bg;
 
   &:focus,
   &.focus,
