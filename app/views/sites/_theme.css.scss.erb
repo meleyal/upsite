@@ -1,6 +1,8 @@
-<style>
-  .block-text a,
-  .block-text a:hover {
-    color: <%= @site.color %>;
-  }
-</style>
+<% if @site.color.present? %>
+  <style>
+    .block-text a,
+    .block-text a:hover {
+      color: <%= @site.color %>;
+    }
+  </style>
+<% end %>

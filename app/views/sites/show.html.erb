@@ -1,5 +1,6 @@
 <% content_for :title, @site.name %>
-
+<% content_for :preview_image, site_preview_image(@site) %>
+<% content_for :favicon, site_favicon_link(@site) %>
 <%= render 'theme.css.scss' %>
 
 <div class="page-header">
