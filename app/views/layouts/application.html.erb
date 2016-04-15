@@ -12,10 +12,13 @@
   <link rel="shortcut icon" href="<%= content_for(:favicon) %>">
 
   <!-- Open Graph Tags -->
+  <meta property="og:url" content="<%= content_for(:url) %>">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<%= content_for(:title) %> | <%= t('app_name') %>">
+  <meta property="og:description" content="<%= content_for(:description) %>">
   <meta property="og:image" content="<%= content_for(:preview_image) %>">
   <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="400">
-  <meta property="og:image:height" content="400">
+  <meta property="fb:app_id" content="221451268244315">
 
   <!-- Assets -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>

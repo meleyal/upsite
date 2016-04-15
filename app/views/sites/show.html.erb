@@ -1,5 +1,7 @@
 <% content_for :title, @site.name %>
-<% content_for :preview_image, site_preview_image(@site) %>
+<% content_for :url, root_url(subdomain: @site.subdomain) %>
+<% content_for :description, @site.description %>
+<% content_for :preview_image, site_preview_image_link(@site) %>
 <% content_for :favicon, site_favicon_link(@site) %>
 <%= render 'theme.css.scss' %>
 

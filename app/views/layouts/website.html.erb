@@ -12,10 +12,11 @@
   <link rel="shortcut icon" href="/favicon.ico?v=4">
 
   <!-- Open Graph Tags -->
-  <!-- <meta property="og:image" content=""> -->
-  <!-- <meta property="og:image:type" content="image/png"> -->
-  <!-- <meta property="og:image:width" content="400"> -->
-  <!-- <meta property="og:image:height" content="400"> -->
+  <meta property="og:url" content="<%= root_url(subdomain: 'www') %>">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<%= t('tagline_short') %> | <%= t('app_name') %>">
+  <meta property="og:description" content="<%= t('tagline') %>">
+  <meta property="fb:app_id" content="221451268244315">
 
   <!-- Assets -->
   <%= stylesheet_link_tag "application" %>
