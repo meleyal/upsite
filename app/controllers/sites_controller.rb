@@ -8,7 +8,8 @@ class SitesController < ApplicationController
   def show
     @site = Site.all.find_by!(subdomain: request.subdomains.first)
     @blocks = @site.blocks.includes(:attachments).all
-    @sponsors = Site.active.pro.order("RANDOM()").limit(5).where.not(id: @site.id)
+    # @sponsors = Site.active.pro.order("RANDOM()").limit(5).where.not(id: @site.id)
+    @sponsors = Site.active.order("RANDOM()").limit(5).where.not(id: @site.id)
   end
 
   def edit
