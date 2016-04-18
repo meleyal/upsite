@@ -8,7 +8,7 @@ admin = User.create(email: 'admin@upsite.io', password: 'password', plan: pro_pl
 bill = User.create(email: 'william.meleyal@gmail.com', password: 'password', plan: pro_plan)
 lo = User.create(email: 'luciagbequio@gmail.com', password: 'password', plan: pro_plan)
 
-['Upsite.', 'Help'].each do |name|
+['Upsite', 'Help'].each do |name|
   site = Site.create(name: name, owner: admin)
   SiteMembership.create(site: site, user: admin)
 end

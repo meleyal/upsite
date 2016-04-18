@@ -1,5 +1,4 @@
-# Upsite.
-
+# Upsite
 
 ## How to create a Site in the console
 

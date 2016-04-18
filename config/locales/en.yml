@@ -1,7 +1,7 @@
 en:
-  app_name: Upsite.
+  app_name: Upsite
   tagline: A simple, free way to make a website for anything.
-  tagline_short: Websites made simple.
+  tagline_short: Websites made simple
 
   signups:
     new:
