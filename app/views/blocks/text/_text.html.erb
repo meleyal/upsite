@@ -3,7 +3,7 @@
   <%= render 'blocks/controls', block: text %>
 
   <div class="block-content">
-    <%= markdown text.body %>
+    <%= markdown sanitize(text.body, tags: %w(strong em a ul ol li blockquote br p)) %>
   </div>
-  
+
 </div>
