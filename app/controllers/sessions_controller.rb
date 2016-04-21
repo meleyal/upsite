@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  include Login
   layout 'website'
   before_action :redirect_signed_in_user, only: [:new]
   skip_before_action :authenticate

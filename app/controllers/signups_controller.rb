@@ -1,5 +1,4 @@
 class SignupsController < ApplicationController
-  include Login
   layout 'website'
   skip_before_action :authenticate
 
@@ -28,8 +27,7 @@ class SignupsController < ApplicationController
 
   private
 
-    def site_params
-      params.require(:site).permit(:name, :subdomain, owner_attributes: [:email, :password, :terms])
-    end
-
+  def site_params
+    params.require(:site).permit(:name, :subdomain, owner_attributes: [:email, :password, :terms])
+  end
 end
