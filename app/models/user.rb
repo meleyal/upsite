@@ -45,11 +45,7 @@ class User < ActiveRecord::Base
     end
 
     def add_to_mailing_list
-      # catch error if email is already subscribed to list
-      begin
-        client = Mailchimp::API.new(ENV['MAILCHIMP_API_KEY'])
-        client.lists.subscribe(ENV['MAILCHIMP_LIST_ID'], { email: self.email }, nil, email_type = 'text', double_optin = false)
-      rescue
-      end
+      client = Mailchimp::API.new(ENV['MAILCHIMP_API_KEY'])
+      client.lists.subscribe(ENV['MAILCHIMP_LIST_ID'], { email: self.email }, nil, email_type = 'text', double_optin = false)
     end
 end
