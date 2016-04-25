@@ -9,8 +9,7 @@ module SitesHelper
   end
 
   def site_preview_image_link(site)
-    # site.images.first.try(:image_2x)
-    color = site.color.present? ? site.color.gsub('#', '') : 'eeeeee'
-    "http://placeholdit.imgix.net/~text?bg=#{color}&w=600&h=600".html_safe
+    image = site.images.order(:position).first
+    image.try(:image_2x) || image.try(:embed_url) || ''
   end
 end
