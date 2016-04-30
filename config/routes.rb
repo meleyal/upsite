@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     post '/signup', to: 'signups#create'
     get '/terms', to: 'website#terms'
     get '/privacy', to: 'website#privacy'
+    get '/faq', to: 'website#faq'
     root 'website#index'
   end
 
