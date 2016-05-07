@@ -1,9 +1,8 @@
 <footer class="page-footer">
   <small class="text-muted">
     &copy; <%= Date.today.year %> <a href="http://b.illions.co" target="_blank">Billions &amp; Billions Ltd</a> /
-    <a href="<%= terms_path %>">Terms</a> /
-    <a href="<%= privacy_path %>">Privacy</a> /
-    <a href="<%= faq_path %>">FAQ</a> /
+    <a href="<%= legal_path %>">Legal</a> /
+    <a href="<%= root_url(subdomain: 'faq') %>" data-no-turbolink>FAQ</a> /
     <a href="mailto:hello@upsite.io">Contact</a> /
     <a href="<%= login_path %>" data-no-turbolink>Log in</a>
   </small>

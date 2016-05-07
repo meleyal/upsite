@@ -40,3 +40,16 @@ a {
 .spacer-lg {
   padding: 40px 0;
 }
+
+.col-2 {
+  @media (min-width: $screen-sm-min) {
+    column-count: 2;
+    column-gap: 30px;
+
+    .col-break {
+      display: block;
+      break-after: column;
+      border: 0;
+    }
+  }
+}

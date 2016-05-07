@@ -17,9 +17,9 @@ Rails.application.routes.draw do
     delete '/logout', to: 'sessions#destroy'
     get '/signup', to: 'signups#new'
     post '/signup', to: 'signups#create'
-    get '/terms', to: 'website#terms'
-    get '/privacy', to: 'website#privacy'
-    get '/faq', to: 'website#faq'
+    get '/terms', to: redirect('/legal')
+    get '/privacy', to: redirect('/legal')
+    get '/legal', to: 'website#legal'
     root 'website#index'
   end
 

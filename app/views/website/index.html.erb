@@ -15,7 +15,7 @@
       <div class="block-inner">
         <div class="page-header">
           <h1><%= site.name %></h1>
-          <p><%= site.description %></p>
+          <%= markdown(site.description) if site.description.present? %>
         </div>
         <div class="blocks">
           <%= render site.blocks.limit(1) %>

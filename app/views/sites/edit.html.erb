@@ -8,6 +8,7 @@
   <div class="modal-body">
     <%= f.input :name %>
     <%= f.input :description %>
+    <%= f.input(:domain) if current_user.sudo? %>
     <%= f.input :color, label: 'Favorite color', input_html: { data: { toggle: 'colorpicker' } } %>
   </div>
 
