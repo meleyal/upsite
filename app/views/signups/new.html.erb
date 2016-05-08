@@ -26,8 +26,8 @@
 
           <!-- Terms -->
           <%= content_for(:links) do %>
-            I accept the <%= link_to "Terms of Service", terms_path, tabindex: -1 %>
-            and <%=link_to "Privacy Policy", privacy_path, tabindex: -1 %>
+            I accept the <%= link_to "Terms of Service", legal_path, tabindex: -1 %>
+            and <%=link_to "Privacy Policy", legal_path, tabindex: -1 %>
           <% end %>
           <p>
             <%= ff.input :terms, as: :boolean, :label => content_for(:links), wrapper: :vertical_boolean %>
