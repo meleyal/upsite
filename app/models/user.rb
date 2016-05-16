@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_create :create_remember_token
-  after_create :add_to_mailing_list
+  after_create :add_to_mailing_list if Rails.env.production?
 
   has_many :site_memberships, dependent: :destroy
   has_many :sites, through: :site_memberships
