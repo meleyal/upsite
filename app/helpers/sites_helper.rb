@@ -12,4 +12,8 @@ module SitesHelper
     image = site.images.order(:position).first
     image.try(:image_2x) || image.try(:embed_url) || ''
   end
+
+  def site_link(site)
+    root_url(subdomain: site.subdomain)
+  end
 end

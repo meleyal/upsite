@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   # validates :password_confirmation, presence: true
 
   def site
-    self.sites.first
+    self.sites.active.first
   end
 
   def pro?

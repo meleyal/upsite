@@ -16,8 +16,13 @@
           class="btn btn-link"
           target="_blank">See how it works</a>
         &nbsp;
-        <a href="<%= signup_path %>"
-          class="btn btn-success">Get started &rarr;</a>
+        <% if current_user %>
+          <a href="<%= site_link(current_user.site) %>"
+            class="btn btn-success">Go to your site &rarr;</a>
+        <% else %>
+          <a href="<%= signup_path %>"
+            class="btn btn-success">Get started &rarr;</a>
+        <% end %>
       </p>
     </div>
   </div>

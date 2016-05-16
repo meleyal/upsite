@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get '/' => 'sites#show'
     get 'settings' => 'sites#edit'
     patch 'settings' => 'sites#update'
+    get 'sites' => 'sites#index'
     resources :help, only: [:new, :create]
     resources :blocks, only: [:new, :create, :update, :destroy] do
       post 'shuffle', on: :collection
