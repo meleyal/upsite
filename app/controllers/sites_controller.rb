@@ -2,7 +2,6 @@ class SitesController < ApplicationController
   before_action :set_site, except: [:show]
   before_action :require_site_owner, except: [:show]
   skip_before_action :authenticate, only: [:show]
-  before_action :allow_iframe, only: [:show]
   layout :false, except: [:show]
 
   def show
@@ -28,9 +27,5 @@ class SitesController < ApplicationController
 
     def site_params
       params.require(:site).permit(:name, :description, :color)
-    end
-
-    def allow_iframe
-      response.headers.delete 'X-Frame-Options' if params[:iframe].present?
     end
 end
