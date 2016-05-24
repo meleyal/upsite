@@ -4,6 +4,10 @@ class SitesController < ApplicationController
   skip_before_action :authenticate, only: [:show]
   layout :false, except: [:show]
 
+  def index
+    @sites = current_user.sites.active
+  end
+
   def show
     @site = Site.all.find_by!(subdomain: request.subdomains.first)
     @blocks = @site.blocks.includes(:attachments).all

@@ -20,23 +20,30 @@
          %>
 
         <!-- User -->
-        <%= f.fields_for :owner do |ff| %>
-          <%= ff.input :email, label: 'Your email', input_html: { class: 'input-lg' } %>
-          <%= ff.input :password, label: 'Choose a password', input_html: { class: 'input-lg' } %>
-
-          <!-- Terms -->
-          <%= content_for(:links) do %>
-            I accept the <%= link_to "Terms of Service", legal_path, tabindex: -1 %>
-            and <%=link_to "Privacy Policy", legal_path, tabindex: -1 %>
+        <% if current_user %>
+          <%= f.fields_for :owner do |ff| %>
+            <%= ff.input :email, label: 'Your email', input_html: { class: 'input-lg', disabled: true, value: current_user.email } %>
           <% end %>
-          <p>
-            <%= ff.input :terms, as: :boolean, :label => content_for(:links), wrapper: :vertical_boolean %>
-          </p>
+        <% else %>
+          <%= f.fields_for :owner do |ff| %>
+            <%= ff.input :email, label: 'Your email', input_html: { class: 'input-lg' } %>
+            <%= ff.input :password, label: 'Choose a password', input_html: { class: 'input-lg' } %>
+
+            <!-- Terms -->
+            <%= content_for(:links) do %>
+              I accept the <%= link_to "Terms of Service", legal_path, tabindex: -1 %>
+              and <%=link_to "Privacy Policy", legal_path, tabindex: -1 %>
+            <% end %>
+            <p>
+              <%= ff.input :terms, as: :boolean, :label => content_for(:links), wrapper: :vertical_boolean %>
+            </p>
+          <% end %>
         <% end %>
 
-
         <%= f.button :submit, class: 'btn btn-success btn-lg' %>
-        <span class="text-muted help-inline">No credit-card required</span>
+        <% if !current_user %>
+          <span class="text-muted help-inline">No credit-card required</span>
+        <% end %>
       <% end %>
     </div>
   </div>

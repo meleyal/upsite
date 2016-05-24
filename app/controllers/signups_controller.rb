@@ -10,7 +10,7 @@ class SignupsController < ApplicationController
 
   def create
     @site = Site.new(site_params)
-    @user = User.new(site_params[:owner_attributes])
+    @user = current_user || User.new(site_params[:owner_attributes])
     @user.plan = Plan.find_by(code: 'free')
 
     # TODO: move to model callback?

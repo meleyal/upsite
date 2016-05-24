@@ -26,17 +26,43 @@
     text-decoration: none;
     border: none;
     outline: none;
+  }
 
-    &.add {
-      background: $green;
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    &.symbol-gray {
+      background-color: #738089;
     }
 
-    &.account {
-      background: #4f72f7;
+    &.symbol-gray-light {
+      background-color: #ddd;
     }
 
-    &.symbol-help {
-      background: $yellow;
+    &.symbol-red {
+      background-color: $red;
+    }
+
+    &.symbol-orange {
+      background-color: $orange;
+    }
+
+    &.symbol-yellow {
+      background-color: $yellow;
+    }
+
+    &.symbol-green {
+      // background-color: $green;
+      background-color: #36CC83;
+    }
+
+    &.symbol-blue {
+      background-color: #43a6d8;
+    }
+
+    &.symbol-purple {
+      background-color: #a77ac3;
     }
   }
 }
@@ -44,7 +70,7 @@
 .symbol-small {
   $size: 60px;
   margin: 0 0 10px 0;
-  background: #ccc;
+  background: #D6D6D6;
   font-size: 20px;
   line-height: $size;
   width: $size;
