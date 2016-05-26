@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     get 'sites' => 'sites#index'
     resources :help, only: [:new, :create]
     resources :blocks, only: [:new, :create, :update, :destroy] do
-      post 'shuffle', on: :collection
       post 'sort', on: :collection
     end
   end

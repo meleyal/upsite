@@ -44,13 +44,6 @@ class BlocksController < ApplicationController
     redirect_to request.referrer
   end
 
-  def shuffle
-    @site.blocks.all.each_with_index do |block, index|
-      block.update_attribute :position, Random.rand(0..@site.blocks.count)
-    end
-    redirect_to request.referrer
-  end
-
   protected
 
     def block_type
