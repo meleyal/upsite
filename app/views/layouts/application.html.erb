@@ -31,7 +31,7 @@
     <%= yield %>
   </div>
   <%= render 'analytics' if Rails.env.production? %>
-  <%= render 'intercom' if current_user %>
+  <%= render 'intercom' %>
 </body>
 
 </html>
