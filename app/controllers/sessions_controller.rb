@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   layout 'website'
   before_action :redirect_signed_in_user, only: [:new]
   skip_before_action :authenticate
+  skip_before_filter :verify_authenticity_token, :only => :destroy
 
   def new
   end
