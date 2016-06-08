@@ -1,6 +1,6 @@
 module SitesHelper
   def site_favicon_link(site)
-    if site.color
+    if site.color.present?
       color = site.color.gsub('#', '')
       "http://placeholdit.imgix.net/~text?bg=#{color}&w=32&h=32".html_safe
     else
@@ -14,6 +14,10 @@ module SitesHelper
   end
 
   def site_link(site)
-    root_url(subdomain: site.subdomain)
+    if site.is_a?(String)
+      root_url(subdomain: site)
+    else
+      root_url(subdomain: site.subdomain)
+    end
   end
 end

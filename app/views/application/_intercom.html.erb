@@ -11,6 +11,7 @@
         name: "<%= current_user.site.name %>",
         created_at: <%= current_user.site.created_at.to_i %>,
         blocks_count: <%= current_user.site.blocks.count %>,
+        site_url: "<%= site_link(current_user.site) %>",
       },
     <% end %>
   };

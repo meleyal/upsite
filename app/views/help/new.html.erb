@@ -3,15 +3,35 @@
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
     <h4 class="modal-title">Help / Feedback</h4>
-    <p>Stuck with something? Have a great idea? Let us know!</p>
   </div>
 
   <div class="modal-body">
-    <%= f.input :message, as: :text, input_html: { rows: 8 } %>
+    <p>
+      Let us know if you have any questions or feedback, we read and reply to every message:
+    </p>
+    <%= f.input :message, as: :text, label: false, input_html: { value: params[:message], placeholder: 'Write your message here...', rows: 8 } %>
+    <p class="clearfix text-right small text-muted">
+      <span class="pull-right">
+        <img src="<%= image_path('team/bill.jpg') %>" class="img-circle" width="50">
+        <img src="<%= image_path('team/lo.jpg') %>" class="img-circle" width="50">
+        <img src="<%= image_path('team/maite.jpg') %>" class="img-circle" width="50">
+      </span>
+      <span class="pull-right" style="display: inline-block; margin: 10px 20px 0 0;">
+        <em>Bill, Lucia &amp; Maite</em><br>
+         – Upsite Help Team
+      </span>
+    </p>
   </div>
-
   <div class="modal-footer">
-    <%= f.button :submit, class: 'btn btn-success' %>
+    <%= f.button :submit, class: 'btn btn-success', style: 'min-width: 160px;' %>
+    <div class="pull-left">
+      <a class="btn btn-default" target="help" href="<%= help_article_url(subdomain: @site.subdomain, slug: 'start') %>">
+        <i class="fa fa-book"></i> Getting started guide
+      </a>&nbsp;
+      <a class="btn btn-default" target="help" href="http://faq.upsite.io/">
+        <i class="fa fa-question-circle"></i> FAQ
+      </a>
+    </div>
   </div>
 
 <% end %>

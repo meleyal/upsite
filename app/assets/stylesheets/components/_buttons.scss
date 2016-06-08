@@ -2,6 +2,12 @@
 // Buttons
 // --------------------------------------------------
 
+.btn-default {
+  &:hover, &:focus {
+    background: lighten($gray-lighter, 3%);
+  }
+}
+
 .btn-success {
   font-weight: bold;
   $background: $btn-success-bg;

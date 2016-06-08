@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     patch 'settings' => 'sites#update'
     get 'sites' => 'sites#index'
     resources :help, only: [:new, :create]
+    get 'help/:slug', to: 'help#show', as: 'help_article'
     resources :blocks, only: [:new, :create, :update, :destroy] do
       post 'sort', on: :collection
     end

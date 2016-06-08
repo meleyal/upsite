@@ -9,6 +9,19 @@
   </div>
 
   <div class="modal-body">
+
+    <% if @blocks.blank? %>
+      <div class="text-center">
+        <h4 style="margin-top: -22px;">
+          Hey! Check out the
+          <a href="<%= help_article_url(subdomain: @site.subdomain, slug: 'start') %>" target="help">
+            getting started guide
+          </a>
+        </h4>
+        <hr class="spacer spacer-xs">
+      </div>
+    <% end %>
+
     <div class="text-center">
 
       <!-- Text -->
