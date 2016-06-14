@@ -2,6 +2,30 @@
   padding: 12px;
 }
 
+.alert-info {
+  background: #5299fc;
+  color: $white;
+  font-weight: bold;
+  border: 0;
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: $white;
+    text-decoration: underline;
+  }
+
+  .close {
+    opacity: 1;
+    color: $white;
+    text-shadow: none;
+    font-weight: normal;
+    margin-top: -3px;
+  }
+}
+
 .alert-danger {
   background: none;
   font-weight: bold;

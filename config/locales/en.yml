@@ -26,3 +26,12 @@ en:
       help_message:
         submit: Send
         # submit: "Save %{model}"
+
+  simple_form:
+    required:
+      html: ''
+    # placeholders:
+    #   defaults:
+    #     name: Your site name (e.g. Luigi's Pizza)
+    #     email: Your email
+    #     password: Create a password

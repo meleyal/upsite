@@ -1,0 +1,36 @@
+en:
+  website:
+    cookies:
+      message:
+        We use cookies to deliver our services and ensure you get the best experience. By using our website, you agree to the use of cookies as described in our <a href="%{link}" target="legal">Cookie Policy</a>.
+
+      body: |
+        ## Cookie Policy
+
+        ---
+
+        Like many other web services, "upsite.io" uses cookies. The use of cookies is a prerequisite for the "upsite.io" service.
+
+        ###What are cookies?
+
+        A cookie is a small text file that a website saves on your computer or mobile device when you visit the site. It enables the website to remember your actions and preferences (such as login, language, font size and other display preferences) over a period of time, so you don’t have to keep re-entering them whenever you come back to the site or browse from one page to another.
+
+        Cookies generally do not hold any information to identify an individual person, but are instead used to identify a browser on an individual machine.
+
+        If you prefer, you can restrict, block or delete cookies by changing your browser settings but that may mean that the website won't work properly
+
+        For more information about cookies and their impact on you and your browsing visit www.aboutcookies.org.
+
+        ### How do we use cookies?
+
+        * **Necessary cookies** are essential in helping you to make use of the features and services we offer on the "upsite.io" website. Without these cookies, the services you want to use cannot be provided. These cookies do not gather information about you that could be used to identify you, and they do not monitor or remember where you have been on the internet.
+
+        * **Functional cookies** allow us to provide you with a better online experience when you use our website. They do not gather or store any information which would allow us to identify you personally.
+
+        * **Performance cookies** help us to understand how our customers use our site, so we can keep our products and services relevant, easy to use and up to date. For example, we can see which products and services are most popular, identify when and where errors occur, and test different versions of a page in order to provide an improved online experience. Sometimes, the services we use to collect this information may be operated by other companies on our behalf. They may use similar technologies to cookies, known as "web beacons" or "tags". These are anonymous and, as they are only used for statistical purposes, they do not contain or collect any information that identifies you.
+
+        * **Targeting cookies** may be set during your visit by carefully selected and monitored suppliers (third parties). The purpose of these cookies is "behavioural advertising" (also known as "behavioural targeting" or "remarketing"), which is a means of showing you relevant products and services based on what you appear to be interested in. Although these cookies can track your visits around the web they don't know who you are. Without these cookies, online advertisements you encounter will be less relevant to you and your interests.
+
+        ### How to control cookies
+
+        You can control and/or delete cookies as you wish – for details, see  [aboutcookies.org](http://www.aboutcookies.org/). You can delete all cookies that are already on your computer and you can set most browsers to prevent them from being placed. If you do this, however, you may have to manually adjust some preferences every time you visit a site and some services and functionalities may not work.

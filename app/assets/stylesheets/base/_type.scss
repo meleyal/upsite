@@ -31,6 +31,10 @@ h3 {
   text-decoration: underline;
 }
 
+.text-small {
+  font-size: $font-size-small; 
+}
+
 .text-link {
   &,
   &:hover,
