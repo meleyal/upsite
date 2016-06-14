@@ -23,6 +23,14 @@
   <%= render 'hud' %>
   <%= render 'modal' %>
   <%= render 'modal', size: 'small' %>
+
+  <% content_for :javascripts do %>
+    <% if flash[:analytics].present? %>
+      <script>
+        Intercom('trackEvent', '<%= flash[:analytics] %>');
+      </script>
+    <% end %>
+  <% end %>
 <% end %>
 
 <footer class="page-footer">

@@ -15,6 +15,9 @@ class BlocksController < ApplicationController
     @block = @site.send(block_type).new(block_params)
 
     if @block.save
+      # Track 'used-product' event if user has created 5 blocks
+      flash[:analytics] = 'used-product' if @site.blocks.reload.count == 5
+
       # Uploading an attachment creates the resource, so return the new resource url
       # to change the form to a PUT request (see dropzone.js)
       render json: { url: block_url(@block) }, status: :created, location: request.referrer
