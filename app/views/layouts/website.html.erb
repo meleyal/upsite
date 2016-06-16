@@ -22,17 +22,25 @@
   <!-- Assets -->
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
+
+  <!-- Analytics -->
+  <%= render 'facebook' if Rails.env.production? %>
 </head>
 
 <body>
+
   <%= render 'cookie_consent_banner' %>
+
   <div class="container">
     <%= render 'website/header' %>
     <%= yield %>
     <%= render 'website/footer' %>
   </div>
-  <%= render 'analytics' if Rails.env.production? %>
+
+  <!-- Analytics -->
+  <%= render 'google' if Rails.env.production? %>
   <%= render 'intercom' %>
+  
 </body>
 
 </html>
