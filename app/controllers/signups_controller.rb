@@ -19,6 +19,7 @@ class SignupsController < ApplicationController
 
     if @site.save
       login @user
+      flash[:analytics_new_signup] = true
       redirect_to root_url(subdomain: @site.subdomain)
     else
       render 'signups/new'
