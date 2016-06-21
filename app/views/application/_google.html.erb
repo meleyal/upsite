@@ -10,7 +10,7 @@
 </script>
 
 <% if flash[:analytics_new_signup].present? %>
-  <!-- Google Adwords Sign-up Conversion Tracking -->
+  <!-- Google Adwords Signup Conversion Tracking -->
   <script type="text/javascript">
   /* <![CDATA[ */
   var google_conversion_id = 879918355;
@@ -28,4 +28,9 @@
   <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/879918355/?label=O9kTCIbuvWcQk_rJowM&amp;guid=ON&amp;script=0"/>
   </div>
   </noscript>
+
+  <!-- Google Analytics Signup Event -->
+  <script>
+    ga('send', 'event', 'User', 'signup');
+  </script>
 <% end %>
