@@ -14,16 +14,19 @@ h1 {
   a:hover,
   a:focus {
     color: $black;
+    // color: $green;
     text-decoration: none;
   }
 }
 
 h2 {
   letter-spacing: -1px;
+  margin-bottom: 20px;
 }
 
 h3 {
   letter-spacing: -.5px;
+  margin-bottom: 20px;
 }
 
 .text-muted a {
@@ -32,7 +35,7 @@ h3 {
 }
 
 .text-small {
-  font-size: $font-size-small; 
+  font-size: $font-size-small;
 }
 
 .text-link {
@@ -70,12 +73,30 @@ ul ul {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
-
-  font-size: 14px;
-  line-height: 20px;
 }
 
 .text-medium {
   font-size: 15px;
   color: #666;
+}
+
+mark {
+  background: rgba(yellow, .2);
+}
+
+blockquote {
+  font-size: $font-size-base;
+  border-left: 3px solid #ddd;
+  padding-left: 8px;
+  font-style: italic;
+
+  cite {
+    font-style: normal;
+    font-size: 11px;
+  }
+}
+
+.underline {
+  color: $text-color;
+  border-bottom: 2px solid $green;
 }

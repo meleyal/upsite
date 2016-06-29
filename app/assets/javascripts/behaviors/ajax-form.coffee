@@ -26,7 +26,6 @@ renderErrors = ($form, json) ->
       renderError $form, name, attr, errors
 
 renderError = ($form, name, attr, errors) ->
-  console.log 'render errorzzzz'
   id = attrToId name, attr
   messageText = errors.join ', '
   $field = $form.find id
@@ -50,5 +49,8 @@ attrToId = (name, attr) ->
 $(document).on 'ajax:success', 'form[data-remote]', (..., xhr) ->
   # FIXME: hack for remotipart uploads sending no location header
   if location = xhr.getResponseHeader 'Location'
-    Turbolinks.visit location
-  # Turbolinks.visit window.location
+    if xhr.getResponseHeader('turbolinks') is 'false'
+      window.location = location
+    else
+      Turbolinks.visit location
+      # Turbolinks.visit window.location

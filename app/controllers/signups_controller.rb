@@ -20,9 +20,18 @@ class SignupsController < ApplicationController
     if @site.save
       login @user
       flash[:analytics_new_signup] = true
-      redirect_to root_url(subdomain: @site.subdomain)
+      if request.xhr?
+        response.headers['turbolinks'] = 'false'
+        render json: {}, status: :created, location: root_url(subdomain: @site.subdomain)
+      else
+        redirect_to root_url(subdomain: @site.subdomain)
+      end
     else
-      render 'signups/new'
+      if request.xhr?
+        render json: { site: @site.errors }, status: :unprocessable_entity
+      else
+        render 'signups/new'
+      end
     end
   end
 

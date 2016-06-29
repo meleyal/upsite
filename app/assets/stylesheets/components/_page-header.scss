@@ -2,6 +2,7 @@
   padding: 40px 0 25px 0;
   margin: 0;
   border: 0;
+  // color: $green;
 
   h1 {
     margin: 0;
@@ -11,9 +12,11 @@
     font-size: 14px;
     line-height: 20px;
     margin-top: 5px;
+    font-weight: bold;
 
     > a:not(.btn) {
       color: #000;
+      // color: $green;
       text-decoration: underline;
     }
   }
@@ -25,4 +28,5 @@
       text-align: right;
     }
   }
+
 }

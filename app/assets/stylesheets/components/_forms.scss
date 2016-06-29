@@ -48,7 +48,11 @@ label {
   }
 
   .control-label, label, label a {
-    color: $black;
+    color: inherit;
+  }
+
+  &.text-muted label {
+    color: $text-muted;
   }
 
   .help-block {
@@ -60,4 +64,8 @@ label {
 .btn-lg + .help-inline {
   display: inline-block;
   @include translate(20px, 4px);
+}
+
+label.small {
+  font-size: $font-size-small;
 }

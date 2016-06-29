@@ -10,20 +10,16 @@
         <%= t('tagline') %>
       </p>
     </div>
-    <div class="col-xs-12 col-sm-6">
-      <p style="margin-top: 1px;" class="text-right">
-        <a href="https://player.vimeo.com/video/158535034?autoplay=true"
-          class="btn btn-link"
-          target="_blank">See how it works</a>
-        &nbsp;
+    <div class="col-xs-12 col-sm-6 text-right">
+      <div style="margin-top: -35px;">
         <% if current_user %>
           <a href="<%= site_link(current_user.site) %>"
             class="btn btn-success">Go to your site &rarr;</a>
         <% else %>
           <a href="<%= signup_path %>"
-            class="btn btn-success">Get started &rarr;</a>
+            class="btn btn-success btn-lg">Get started &rarr;</a>
         <% end %>
-      </p>
+      </div>
     </div>
   </div>
 </div>

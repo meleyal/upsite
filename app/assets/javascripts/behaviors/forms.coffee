@@ -3,7 +3,6 @@
 # Autofill one field based on the value of another
 #
 $(document).on 'change', '[data-autofill]', (e) ->
-  console.log 'change'
   $input = $(e.currentTarget)
   selector = $input.data('autofill')
   $(selector).val($input.val()).trigger('autofill').trigger('change')
