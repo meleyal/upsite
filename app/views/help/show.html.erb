@@ -55,7 +55,7 @@
   </div>
   <div class="media-body">
     <h2 class="media-heading">Add your content</h2>
-    <p class="lead">Aim to answer the following questions:</p>
+    <h3>Aim to answer the following questions:</h3>
     <div class="row">
       <div class="col-sm-4">
         <h4>
@@ -63,8 +63,14 @@
           What?
         </h4>
         <ul>
-          <li>What do you do? (services, products)</li>
-          <li>What results can you show?<br> (publications, press, testimonials)</li>
+          <li>
+            What do you do?<br>
+            (services / products)
+            </li>
+          <li>
+            What results can you show?<br>
+            (publications, press, testimonials)
+          </li>
         </ul>
       </div>
       <div class="col-sm-4">
@@ -73,8 +79,14 @@
           Who?
         </h4>
         <ul>
-          <li>Who are you / your team?<br> (name, photo, bio, qualifications)</li>
-          <li>Who do you work with? (clients, partners)</li>
+          <li>
+            Who are you / your team?<br>
+            (name, photo, bio, qualifications)
+          </li>
+          <li>
+            Who do you work with?<br>
+            (clients, partners)
+          </li>
         </ul>
       </div>
       <div class="col-sm-4">
@@ -88,6 +100,9 @@
           <li>What is your story?</li>
         </ul>
       </div>
+    </div>
+    <hr class="spacer spacer-xs">
+    <div class="row">
       <div class="col-sm-4">
         <h4>
           <i class="fa fa-gears"></i>&nbsp;
@@ -105,8 +120,14 @@
           Where?
         </h4>
         <ul>
-          <li>Where are you? (address, map)</li>
-          <li>How do people contact you?<br> (contact details)</li>
+          <li>
+            Where are you?<br>
+            (address, map)
+          </li>
+          <li>
+            How do people contact you?<br>
+            (phone, email, social media)
+          </li>
         </ul>
       </div>
       <div class="col-sm-4">
@@ -115,13 +136,16 @@
           When?
         </h4>
         <ul>
-          <li>Do you have upcoming/past events?<br> (talks, gigs, exhibitions)</li>
-          <li>Do you have any time-limited offers / promotions?</li>
+          <li>
+            Do you have upcoming events?<br>
+            (talks, gigs, exhibitions)
+          </li>
+          <li>Do you have any current offers / promotions?</li>
         </ul>
       </div>
     </div>
     <hr class="spacer spacer-sm">
-    <p class="lead">Also consider the following ideas:</p>
+    <h3>Also consider the following ideas:</h3>
     <div class="row">
       <div class="col-sm-4">
         <h4>
@@ -185,18 +209,18 @@
     <hr class="spacer spacer-xs">
     <div class="row">
       <% [
-        'koru-consulting',
-        'manitou-supply',
-        'meleyal',
-        'cacciatore',
-        'haidutschek',
-        'zardulu',
-        'william-lee',
-        'maite-lopez-galeano-realizadora',
+        { name: 'koru-consulting', color: '#9e25e8' },
+        { name: 'manitou-supply', color: '#debaa1' },
+        { name: 'meleyal', color: '#00d37a' },
+        { name: 'cacciatore', color: '#ffb800' },
+        { name: 'haidutschek', color: '#020cfa' },
+        { name: 'zardulu', color: '#21bf92' },
+        { name: 'william-lee', color: '#1f3f4d' },
+        { name: 'maite-lopez-galeano-realizadora', color: '#f01060' },
       ].each do |s| %>
         <div class="col-sm-3">
-          <a class="img-border" href="<%= site_link(s) %>" target="examples" style="display: block; max-height: 227px; overflow: hidden; margin-bottom: 30px;">
-            <img class="img-responsive" src="<%= image_path("examples/#{s}.png") %>">
+          <a class="img-border" href="<%= site_link(s[:name]) %>" target="examples" style="display: block; max-height: 227px; overflow: hidden; margin-bottom: 30px; border-color: <%= s[:color] %>;">
+            <img class="img-responsive" src="<%= image_path("examples/#{s[:name]}.png") %>">
           </a>
         </div>
       <% end %>
@@ -253,7 +277,7 @@
   <div class="media-body">
     <h2 class="media-heading">Need help?</h2>
         <p>
-          Thank you for using Upsite. For more help or to share feedback just get in touch:
+          Thanks for using Upsite. For help or to share feedback get in touch:
         </p>
     <div class="row">
       <div class="col-sm-4">
