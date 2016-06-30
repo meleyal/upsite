@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     get '/privacy', to: redirect('/legal')
     get '/legal', to: 'website#legal'
     get '/business', to: 'landing_pages#business'
+    get '/creative', to: 'landing_pages#creative'
     root 'website#index'
   end
 

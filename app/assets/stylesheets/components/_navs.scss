@@ -1,6 +1,5 @@
 .nav-tabs {
   margin-bottom: 15px;
-  font-size: 1.5em;
 }
 
 .nav-tabs  a {
@@ -10,21 +9,4 @@
 .nav-tabs .active a {
   color: $green !important;
   font-weight: bold;
-}
-
-.jumbotron {
-  .nav-pills {
-    a {
-      color: #999 !important;
-      border-radius: 50px;
-      background: #eee !important;
-      border: none;
-    }
-
-    .active a {
-      // color: $green !important;
-      font-weight: bold !important;
-      // background: #ccc;
-    }
-  }
 }
