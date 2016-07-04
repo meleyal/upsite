@@ -32,7 +32,7 @@
   <%= render 'cookie_consent_banner' %>
 
   <div class="container">
-    <%= render 'website/header' %>
+    <%= render('website/header') unless content_for?(:header).present? %>
     <%= yield %>
     <%= render 'website/footer' %>
   </div>

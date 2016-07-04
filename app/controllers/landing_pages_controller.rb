@@ -1,6 +1,7 @@
 class LandingPagesController < ApplicationController
   skip_before_action :authenticate
   before_action :set_site
+  layout 'website'
 
   private
 
