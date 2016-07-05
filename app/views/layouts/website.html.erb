@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 
   <title><%= content_for?(:title) ? content_for(:title) : t('tagline_short') %> | <%= t('app_name') %></title>
+  <meta name="description" content="<%= content_for?(:description) ? content_for(:description) : t('tagline') %>">
 
   <!-- Favicons -->
   <link rel="shortcut icon" href="/favicon.ico?v=4">
