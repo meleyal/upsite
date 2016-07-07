@@ -37,6 +37,7 @@
 
   <!-- Analytics -->
   <%= render 'google' if Rails.env.production? %>
+  <%= render 'twitter' if Rails.env.production? %>
   <%= render 'intercom' %>
   <%= yield :javascripts %>
 
