@@ -1,0 +1,37 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">&times;</button>
+  <h4 class="modal-title">
+    Donate
+  </h4>
+</div>
+
+<div class="modal-body text-center" style="margin-bottom: 20px;">
+  <p style="margin-bottom: 20px;">
+    <img class="img-circle" src="<%= image_path('icon.png') %>" width="50">
+  </p>
+  <h3>
+    Do you find Upsite useful?
+  </h3>
+  <p>
+    Please consider becoming a patron.
+  </p>
+  <p>
+     <mark>$1 per month</mark> will help keep Upsite online and available to everyone,<br> and fund development to make Upsite even better!
+  </p>
+  <p>
+    As a patron your name or business will be featured on our patrons page,<br>
+    you'll get the inside story of what's happening with Upsite,<br>
+    and you'll have a voice in shaping its future direction.
+  </p><br>
+  <p>
+    <a href="<%= donate_url(subdomain: 'www') %>" class="btn btn-patreon" target="donate">
+      Support <strong>Upsite</strong> on&nbsp;
+      <img src="<%= image_path('patreon.png') %>" width="76">
+    </a>
+  </p>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Not right now</button>
+  <!-- <button type="button" class="btn btn-default" data-dismiss="modal">I've already donated</button> -->
+</div>

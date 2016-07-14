@@ -110,3 +110,12 @@
 .btn .label {
   padding-bottom: 2px;
 }
+
+.btn-patreon {
+  &,
+  &:hover,
+  &:focus {
+    color: #fff;
+    background: #f45c0e;
+  }
+}
