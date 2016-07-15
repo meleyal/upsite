@@ -99,4 +99,10 @@ blockquote {
 .underline {
   color: $text-color;
   border-bottom: 2px solid $green;
+
+  &:hover,
+  &:focus {
+    color: $text-color;
+    text-decoration: none !important;
+  }
 }

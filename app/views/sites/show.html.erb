@@ -13,9 +13,6 @@
 <div class="blocks" data-sortable>
   <% if @blocks.present? %>
     <%= render @blocks %>
-    <% if @blocks.length >= 1 # !@site.owner.pro? && @blocks.length >= 5 %>
-      <%= render 'blocks/ad/ad' %>
-    <% end %>
   <% end %>
 </div>
 
@@ -34,6 +31,12 @@
 <% end %>
 
 <footer class="page-footer">
+  <small class="text-muted pull-right">
+    Made with
+    <a href="<%= signup_url(subdomain: 'www', ref: @site.subdomain) %>" class="underline" rel="tooltip" data-placement="left" title="Make a site like this for free" style="margin-left: 2px;">
+      <strong>Upsite</strong>
+    </a>
+  </small>
   <small class="text-muted">
     &copy; <%= Date.today.year %> <%= @site.name %>
     <% unless current_user %>
