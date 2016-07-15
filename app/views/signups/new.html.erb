@@ -4,9 +4,7 @@
   <hr class="spacer spacer-xs">
   <div class="row">
     <div class="col-sm-6">
-
       <%= simple_form_for @site, url: signup_path do |f| %>
-
         <!-- Site -->
         <%= f.input :name,
                     label: "Your site name (e.g. Luigi's Pizza)",
@@ -45,6 +43,22 @@
           <span class="text-muted help-inline">No credit-card required</span>
         <% end %>
       <% end %>
+    </div>
+    <div class="col-sm-5" style="margin-top: 16px;">
+      <div class="well" style="border: 0; border-left: 5px solid #eee;">
+        <h3>
+          How much does Upsite cost?
+        </h3>
+        <p>
+          Upsite is <mark>completely <strong>free</strong></mark>.
+          It's entirely user-supported via crowdfunding. If you find Upsite useful your support is always welcome, but there is <strong>no obligation</strong> to donate.
+        </p>
+        <hr class="spacer spacer-xs">
+        <p class="text-muted">
+          See how Upsite helps your <a href="<%= business_url %>">business</a> and <a href="<%= creative_path %>">creative</a> projects.
+          Questions? <a href="mailto:help@upsite.io?subject=Signup">Contact us</a>.
+        </p>
+      </div>
     </div>
   </div>
   <hr class="spacer spacer-xs">
