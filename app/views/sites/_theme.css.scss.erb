@@ -1,5 +1,8 @@
 <% if @site.color.present? %>
   <style>
+    html {
+      background: <%= @site.border.present? ? @site.color : '#fff' %>;
+    }
     .block-text a,
     .block-text a:hover {
       color: <%= @site.color %>;

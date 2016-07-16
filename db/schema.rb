@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709154408) do
+ActiveRecord::Schema.define(version: 20160716091202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 20150709154408) do
 
   add_index "blocks", ["site_id"], name: "index_blocks_on_site_id", using: :btree
 
+  create_table "pages", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.string   "subdomain",  limit: 255
+    t.text     "settings"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "plans", force: :cascade do |t|
     t.string   "name"
     t.string   "code"
@@ -48,6 +56,12 @@ ActiveRecord::Schema.define(version: 20150709154408) do
     t.decimal  "cost_per_year"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+  end
+
+  create_table "signups", force: :cascade do |t|
+    t.string   "email",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "site_memberships", force: :cascade do |t|
@@ -69,8 +83,9 @@ ActiveRecord::Schema.define(version: 20150709154408) do
     t.boolean  "featured"
     t.string   "owner_id"
     t.datetime "deleted_at"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "border",      default: true
   end
 
   add_index "sites", ["owner_id"], name: "index_sites_on_owner_id", using: :btree
@@ -91,6 +106,17 @@ ActiveRecord::Schema.define(version: 20150709154408) do
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["plan_id"], name: "index_users_on_plan_id", using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+
+  create_table "widgets", force: :cascade do |t|
+    t.string   "type",       limit: 255
+    t.integer  "sort_order"
+    t.text     "data"
+    t.integer  "page_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "widgets", ["page_id"], name: "index_widgets_on_page_id", using: :btree
 
   add_foreign_key "site_memberships", "sites"
   add_foreign_key "site_memberships", "users"

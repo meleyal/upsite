@@ -8,8 +8,8 @@
   <div class="modal-body">
     <%= f.input :name %>
     <%= f.input :description, as: :text, input_html: { rows: 4 }, hint: '600 character limit' %>
-    <%= f.input(:domain) if current_user.sudo? %>
     <%= f.input :color, label: 'Favorite color', input_html: { data: { toggle: 'colorpicker' } } %>
+    <%= f.input :border, label: 'Page border', hint: 'Show or hide the colored page border', as: :select %>
   </div>
 
   <div class="modal-footer">

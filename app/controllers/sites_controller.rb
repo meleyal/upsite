@@ -30,6 +30,6 @@ class SitesController < ApplicationController
   private
 
     def site_params
-      params.require(:site).permit(:name, :description, :color)
+      params.require(:site).permit(:name, :description, :color, :border)
     end
 end
