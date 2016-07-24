@@ -1,0 +1,88 @@
+<script>
+  Intercom('trackEvent', 'viewed-upgrade-modal', { source: '<%= params[:source] %>' });
+</script>
+
+<div style="border: 0px solid #00D37A; background: url(<%= image_path('banner.png') %>) 25% -10%; background-size: 300px;">
+
+<div class="modal-header" style="padding-bottom: 0;">
+  <button type="button" class="close" data-dismiss="modal">&times;</button>
+  <h3 class="modal-title text-center" style="font-size: 24px; margin-top: 20px;">
+    Get
+      Upsite
+      <span class="label label-success" style="display: inline-block; transform: translate(0px, -3px);">PRO</span>
+      for only <span class="underline">$32</span> per year
+  </h3>
+  <p class="lead text-center">
+    That's less than a cup of coffee per month!
+  </p>
+  <hr style="margin-bottom: 0;">
+</div>
+
+<div class="modal-body" style="background: #fff; padding-bottom: 0;">
+  <h4 class="text-center" style="margin-bottom: 25px;">
+    Great features, no strings attached:
+  </h4>
+  <div class="row">
+    <div class="col-sm-5 col-sm-offset-1">
+      <ul class="fa-ul" style="font-size: 14px;">
+        <li>
+          <i class="fa-li fa fa-bullhorn"></i>
+          Remove advertising
+        </li>
+        <li>
+          <i class="fa-li fa fa-globe"></i>
+          Use your own domain name
+        </li>
+        <li>
+          <i class="fa-li fa fa-cubes"></i>
+          Create multiple sites
+        </li>
+        <li>
+          <i class="fa-li fa fa-user"></i>
+          Invite collaborators
+        </li>
+        <li>
+          <i class="fa-li fa fa-clone"></i>
+          More content options
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-5">
+        <ul class="fa-ul" style="font-size: 14px;">
+          <li>
+            <i class="fa-li fa fa-pie-chart"></i>
+            Stats about your site
+          </li>
+          <li>
+            <i class="fa-li fa fa-life-ring"></i>
+            VIP support
+          </li>
+          <li>
+            <i class="fa-li fa fa-money"></i>
+            Only $32 per year <span class="text-muted">
+          </li>
+          <li>
+            <i class="fa-li fa fa-ban"></i>
+            No hidden fees
+          </li>
+          <li>
+            <i class="fa-li fa fa-sign-out"></i>
+            Cancel at any time
+          </li>
+        </ul>
+    </div>
+  </div>
+  <hr style="margin-bottom: 0; padding-bottom: 0;">
+</div>
+
+<div class="modal-footer" style="padding-top: 25px;">
+  <div class="pull-left" style="margin-top: 8px;">
+    <span class="text-muted">
+      <i class="fa fa-lock"></i>&nbsp;
+      Payments are securely processed with <strong>Stripe</strong>
+    </span>
+  </div>
+  <a href="<%= upgrade_confirm_path %>" class="btn btn-success" data-target="self">Upgrade now</a>
+</div>
+
+</div>

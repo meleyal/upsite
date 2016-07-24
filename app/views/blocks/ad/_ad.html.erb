@@ -1,29 +1,28 @@
 <div class="block block-not-an-ad">
   <h2>Ads</h2>
 
-  <p>This site is supported by:</p>
-  <ul class="list-unstyled">
-    <% @sponsors.each do |s| %>
-      <li>
-        <a class="btn btn-sm" href="<%= root_url(subdomain: s.subdomain, ref: @site.subdomain) %>"
-          target="_blank"
-          style="border-color: <%= s.color %>; background: <%= s.color %>;"
-          rel="tooltip" data-placement="right" title="<%= s.description %>">
-          <%= s.name %>
-        </a>
-      </li>
-    <% end %>
-    <li>
-    </li>
-  </ul>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- Display #1 -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-3056529423236801"
+       data-ad-slot="6569274576"
+       data-ad-format="auto"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
 
-  <br><br>
-
-  Made with
-  <a href="<%= root_url(subdomain: 'www', ref: @site.subdomain) %>"
-     target="_blank"
-     rel="tooltip" data-placement="right" title="Make a site like this"
-     style="color: black;">
-    <strong><%= t('app_name') %></strong>
-  </a>
+  <% if @site && current_user == @site.owner %>
+    <div class="block-controls">
+      <a href="<%= upgrade_path(source: 'remove-ads') %>"
+        title="Remove Ads <span class='label label-success'>PRO</label>"
+        data-toggle="modal" data-target="#modal"
+        data-html="true"
+        rel="tooltip"
+        data-placement="left"
+        data-animation="false">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </div>
+  <% end %>
 </div>

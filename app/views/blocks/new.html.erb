@@ -76,7 +76,9 @@
   </div>
 
   <div class="modal-footer text-right" style="padding-top: 0;">
-    <a href="<%= new_help_path(message: 'Something missing? Let us know what you want to add...') %>" class="btn btn-link" data-toggle="modal" data-target="self">More...</a>
+    <a href="<%= upgrade_path(source: 'more-blocks') %>" class="btn btn-default" data-toggle="modal" data-target="self">
+      More... <span class="label label-success">PRO</span>
+    </a>
   </div>
 
 <% end %>

@@ -36,9 +36,13 @@
 }
 
 .btn-success-outline {
-  border: 2px solid $btn-success-bg;
-  border-radius: 2px;
+  border: 1px solid $btn-success-bg;
   color: $btn-success-bg !important;
+}
+
+.btn-danger-outline {
+  border: 1px solid $btn-danger-bg;
+  color: $btn-danger-bg !important;
 }
 
 .btn-sm {
