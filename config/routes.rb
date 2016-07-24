@@ -24,7 +24,6 @@ Rails.application.routes.draw do
     get '/legal', to: 'website#legal'
     get '/business', to: 'landing_pages#business'
     get '/creative', to: 'landing_pages#creative'
-    get '/blog', to: redirect('http://upsiteapp.tumblr.com/')
     get '/donate', to: redirect('https://www.patreon.com/upsiteapp')
     root 'website#index'
   end
