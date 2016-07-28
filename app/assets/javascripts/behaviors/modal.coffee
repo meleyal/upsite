@@ -19,11 +19,11 @@ $(document)
     $(this).find('.form-group :input[data-autofocus]').first().focus()
 
   # load remote content in modals with target="self"
-  # .on 'click', '[data-toggle="modal"]', ->
-  #   $el = $(this)
-  #   if $el.data 'target' is 'self'
-  #     $content = $el.parents '.modal-content'
-  #     $content.load $el.attr('href')
+  .on 'click', '[data-toggle="modal"]', ->
+    $el = $(this)
+    if $el.data 'target' is 'self'
+      $content = $el.parents '.modal-content'
+      $content.load $el.attr('href')
 
   # replace content of modal when clicking a 'self' link
   .on 'click', '.modal a[data-target="self"]', (e) ->

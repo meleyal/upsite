@@ -8,4 +8,10 @@
   .tooltip-inner {
     max-width: none;
   }
+
+  .label {
+    display: inline-block;
+    @include translate(0, -1px);
+    padding-top: 3px;
+  }
 }

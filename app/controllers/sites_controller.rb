@@ -11,7 +11,7 @@ class SitesController < ApplicationController
   def show
     @site = Site.all.find_by!(subdomain: request.subdomains.first)
     @blocks = @site.blocks.includes(:attachments).all
-    # @sponsors = Site.active.order("RANDOM()").limit(5).where.not(id: @site.id)
+    @ad = current_ads.sample
   end
 
   def edit
@@ -24,6 +24,18 @@ class SitesController < ApplicationController
     else
       render json: { site: @site.errors }, status: :unprocessable_entity
     end
+  end
+
+  def upgrade
+    if cookies[:clicked_upgrade_button_experiment].present?
+      render 'upgrade_confirm'
+    else
+      render 'upgrade'
+    end
+  end
+
+  def upgrade_confirm
+    cookies.permanent[:clicked_upgrade_button_experiment] = true
   end
 
   private

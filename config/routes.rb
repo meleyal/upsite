@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
+  constraints :subdomain => /ads/ do
+    get '/click/:id', to: 'ads#show', as: 'ad'
+  end
+
   constraints :subdomain => /^(?!www\Z)(\w+)/ do
     get '/' => 'sites#show'
     get 'settings' => 'sites#edit'
     patch 'settings' => 'sites#update'
-    get 'donate' => 'sites#donate'
+    get 'upgrade' => 'sites#upgrade'
+    get 'upgrade_confirm' => 'sites#upgrade_confirm'
     get 'sites' => 'sites#index'
     resources :help, only: [:new, :create]
     get 'help/:slug', to: 'help#show', as: 'help_article'

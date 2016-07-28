@@ -21,6 +21,9 @@ en:
       update: Update
       site:
         create: Create your site
+        update: Save
+      block:
+        create: Post
       session:
         submit: Login
       help_message:

@@ -7,7 +7,7 @@
 
   <div class="modal-body">
     <p>
-      Let us know if you have any questions or feedback, we read and reply to every message:
+      Let us know if you have any questions or feedback.
     </p>
     <%= f.input :message, as: :text, label: false, input_html: { value: params[:message], placeholder: 'Write your message here...', rows: 8 } %>
     <p class="clearfix text-right small text-muted">
@@ -22,10 +22,13 @@
     </p>
   </div>
   <div class="modal-footer">
-    <%= f.button :submit, class: 'btn btn-success', style: 'min-width: 160px;' %>
+      <a href="<%= upgrade_path(source: 'help') %>" data-target="self" class="btn btn-default">
+        Priority support <span class="label label-success">PRO</span>
+      </a>
+      <%= f.button :submit, class: 'btn btn-success', style: 'min-width: 100px;' %>
     <div class="pull-left">
       <a class="btn btn-default" target="help" href="<%= help_article_url(subdomain: @site.subdomain, slug: 'start') %>">
-        <i class="fa fa-book"></i> Getting started guide
+        <i class="fa fa-book"></i> Guide
         <span class="label label-warning">NEW</span>
       </a>&nbsp;
       <a class="btn btn-default" target="help" href="http://faq.upsite.io/">

@@ -2,22 +2,19 @@
 // Forms
 // --------------------------------------------------
 
-.help-block {
-  font-size: $font-size-small;
-
-  &, a {
-    color: $gray-light;
-  }
-
-  a {
-    text-decoration: underline;
-  }
-}
-
 .form-control {
   border: 1px solid #bbb;
   box-shadow: none;
   padding: 18px 15px;
+}
+
+.control-label {
+  .label {
+    display: inline-block;
+    @include translate(0px, -1px);
+    padding-top: 3px;
+    padding-bottom: 2px;
+  }
 }
 
 textarea.form-control {
@@ -32,6 +29,27 @@ label {
       color: #c00;
     }
   }
+}
+
+label.small {
+  font-size: $font-size-small;
+}
+
+.help-block {
+  font-size: $font-size-small;
+
+  &, a {
+    color: $gray-light;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+.btn-lg + .help-inline {
+  display: inline-block;
+  @include translate(20px, 4px);
 }
 
 .has-error {
@@ -61,11 +79,14 @@ label {
   }
 }
 
-.btn-lg + .help-inline {
-  display: inline-block;
-  @include translate(20px, 4px);
-}
+// Disabled 'PRO' fields
+.form-group-click-target {
+  color: #000 !important;
+  display: block;
 
-label.small {
-  font-size: $font-size-small;
+  &,
+  .control-label,
+  .form-control {
+    cursor: pointer;
+  }
 }
