@@ -39,9 +39,6 @@
         <% end %>
 
         <%= f.button :submit, class: 'btn btn-success btn-lg' %>
-        <% if !current_user %>
-          <span class="text-muted help-inline">No credit-card required</span>
-        <% end %>
       <% end %>
     </div>
     <div class="col-sm-5" style="margin-top: 16px;">
@@ -50,8 +47,9 @@
           How much does Upsite cost?
         </h3>
         <p>
-          Upsite is <mark>completely <strong>free</strong></mark>.
-          It's entirely user-supported via crowdfunding. If you find Upsite useful your support is always welcome, but there is <strong>no obligation</strong> to donate.
+          Upsite is <mark>completely <strong>free</strong></mark>, no credit-card is required.<br>
+          We have a <strong>Pro plan</strong> that offers more advanced features,<br>
+          but there's no obligation to upgrade.
         </p>
         <hr class="spacer spacer-xs">
         <p class="text-muted">

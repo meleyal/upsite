@@ -1,28 +1,48 @@
-<div class="block block-not-an-ad">
-  <h2>Ads</h2>
+<div style="clear: both;">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <!-- Display #1 -->
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-3056529423236801"
-       data-ad-slot="6569274576"
-       data-ad-format="auto"></ins>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  <div class="block visible-lg"></div>
 
-  <% if @site && current_user == @site.owner %>
-    <div class="block-controls">
-      <a href="<%= upgrade_path(source: 'remove-ads') %>"
-        title="Remove Ads <span class='label label-success'>PRO</label>"
-        data-toggle="modal" data-target="#modal"
-        data-html="true"
-        rel="tooltip"
-        data-placement="left"
-        data-animation="false">
-        <i class="fa fa-trash-o"></i>
+  <div class="block block-not-ad">
+
+    <!-- Label -->
+    <span class="label not-ad-label">
+      AD
+    </span>
+
+    <!-- Ad -->
+    <div class="not-ad-media">
+      <a href="<%= ad_url(id: ad['id'], subdomain: 'ads') %>"
+         target="_blank"
+         class="not-ad-img">
+        <img src="<%= image_path("not-ads/#{ad['image']}") %>" width="160" height="122">
+      </a>
+      <p class="not-ad-text">
+        <a href="<%= ad_url(id: ad['id'], subdomain: 'ads') %>"
+           target="_blank">
+          <%= ad['text'].html_safe %>
+        </a>
+      </p>
+      <a class="not-ad-via" href="mailto:ads@upsite.io?subject=Advertise with Upsite">
+        Ads via Upsite
       </a>
     </div>
-  <% end %>
+
+    <!-- Controls -->
+    <% if @site && current_user == @site.owner %>
+      <div class="block-controls">
+        <a href="<%= upgrade_path(source: 'remove-ads') %>"
+          title="Remove Ads <span class='label label-success'>PRO</label>"
+          data-toggle="modal" data-target="#modal"
+          data-html="true"
+          rel="tooltip"
+          data-placement="left"
+          data-animation="false">
+          <i class="fa fa-trash-o"></i>
+        </a>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="block visible-lg"></div>
+
 </div>

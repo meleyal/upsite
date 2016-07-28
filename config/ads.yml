@@ -1,0 +1,22 @@
+# require 'SecureRandom'
+# SecureRandom.hex => "57e0bb7cbda829681b5f9dda002d75da"
+
+- id: 57e0bb7cbda829681b5f9dda002d75da
+  url: http://www.upsite.io
+  text: 'Upsite - a simpler way<br> to make a website for anything.'
+  image: 'upsite.png'
+  # params:
+  #   utm_source: upsite
+  #   utm_medium: banner
+  #   utm_content: tco-lp
+  #   utm_campaign: Second
+
+- id: 0490ec5e798a748a8646d058150cc9b4
+  url: https://itunes.apple.com/gb/podcast/shadow-of-the-wing/id1099255231
+  text: 'Discover the story of Hilgram Lodge,<br> where danger lay in every corridor...'
+  image: 'shadow-of-the-wing.png'
+  # params:
+  #   utm_source: upsite
+  #   utm_medium: banner
+  #   utm_content: tco-lp
+  #   utm_campaign: Second

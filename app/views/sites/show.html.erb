@@ -13,6 +13,7 @@
 <div class="blocks" data-sortable>
   <% if @blocks.present? %>
     <%= render @blocks %>
+    <%= render 'blocks/ad/ad', ad: @ad %>
   <% end %>
 </div>
 

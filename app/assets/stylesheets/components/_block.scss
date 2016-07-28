@@ -56,7 +56,7 @@
 // -------------------
 
 .block-text {
-  background: #eee;
+  background: #f0f0f0;
   padding: 10px;
 
   * {
@@ -165,46 +165,27 @@
       margin-bottom: 10px;
     }
   }
-
 }
 
-.block-not-an-ad {
-  border: 2px solid #fafafa;
-  padding: 10px;
+.block-not-ad {
+  background: #fbfbfb;
+  border: 2px solid #eee !important;
+  padding: 7.5px;
 
-  h2 {
+  .not-ad-label {
     background: #efc522;
-    color: #fff;
-    margin-top: 2px;
-    margin-bottom: 20px;
-    display: inline-block;
-    padding: 4px 6px;
-    font-weight: normal;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-size: 9px;
-    line-height: 1.2;
-
-    a {
-      color: #fff;
-    }
   }
 
-  ul {
-    padding-left: 0;
+  .not-ad-media {
+    text-align: center;
+    padding: 20px 10px;
+  }
 
-    li {
-      margin-bottom: 5px;
-
-      .btn {
-        border: 0;
-        border-bottom: 3px solid #eee;
-        background: none !important;
-        color: #000;
-        padding: 3px 6px;
-        padding-left: 0;
-        padding-bottom: 0;
-      }
-    }
+  .not-ad-via {
+    font-size: 11px;
+    margin-top: 20px;
+    color: #ccc;
+    text-align: center;
+    display: block;
   }
 }

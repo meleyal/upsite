@@ -2,9 +2,7 @@
   Intercom('trackEvent', 'viewed-upgrade-modal', { source: '<%= params[:source] %>' });
 </script>
 
-<div style="border: 0px solid #00D37A; background: url(<%= image_path('banner.png') %>) 25% -10%; background-size: 300px;">
-
-<div class="modal-header" style="padding-bottom: 0;">
+<div class="modal-header" style="padding-bottom: 0; background: url(<%= image_path('banner.png') %>) 0% 0%; background-size: 500px;">
   <button type="button" class="close" data-dismiss="modal">&times;</button>
   <h3 class="modal-title text-center" style="font-size: 24px; margin-top: 20px;">
     Get
@@ -55,7 +53,7 @@
           </li>
           <li>
             <i class="fa-li fa fa-life-ring"></i>
-            VIP support
+            Priority support
           </li>
           <li>
             <i class="fa-li fa fa-money"></i>
@@ -83,6 +81,4 @@
     </span>
   </div>
   <a href="<%= upgrade_confirm_path %>" class="btn btn-success" data-target="self">Upgrade now</a>
-</div>
-
 </div>

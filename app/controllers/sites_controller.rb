@@ -11,8 +11,7 @@ class SitesController < ApplicationController
   def show
     @site = Site.all.find_by!(subdomain: request.subdomains.first)
     @blocks = @site.blocks.includes(:attachments).all
-    # @sponsors = Site.active.pro.order("RANDOM()").limit(5).where.not(id: @site.id)
-    @sponsors = Site.active.order("RANDOM()").limit(5).where.not(id: @site.id)
+    @ad = current_ads.sample
   end
 
   def edit
@@ -28,7 +27,7 @@ class SitesController < ApplicationController
   end
 
   def upgrade
-    if cookies[:clicked_upgrade_confirm_test_button].present?
+    if cookies[:clicked_upgrade_button_experiment].present?
       render 'upgrade_confirm'
     else
       render 'upgrade'
@@ -36,7 +35,7 @@ class SitesController < ApplicationController
   end
 
   def upgrade_confirm
-    # cookies.permanent[:clicked_upgrade_confirm_test_button] = true
+    cookies.permanent[:clicked_upgrade_button_experiment] = true
   end
 
   private

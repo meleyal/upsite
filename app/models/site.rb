@@ -35,7 +35,7 @@ class Site < ActiveRecord::Base
     uniqueness: true,
     length: { :within => 1..60 },
     format: { :with => /[a-z0-9\-]+/ },
-    exclusion: %w(www ftp mail pop smtp admin ssl sftp api development stage test demo upsite)
+    exclusion: %w(www ftp mail pop smtp admin ssl sftp api development stage test demo upsite ads)
   }
   validates :color, format: /#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})/, allow_blank: true
   validates :description, length: { maximum: 600 }

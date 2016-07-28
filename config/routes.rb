@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  constraints :subdomain => /ads/ do
+    get '/click/:id', to: 'ads#show', as: 'ad'
+  end
+
   constraints :subdomain => /^(?!www\Z)(\w+)/ do
     get '/' => 'sites#show'
     get 'settings' => 'sites#edit'
