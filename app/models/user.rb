@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_create :create_remember_token
-  after_create :add_to_mailing_list if Rails.env.production?
 
   has_many :site_memberships, dependent: :destroy
   has_many :sites, through: :site_memberships
@@ -42,10 +41,5 @@ class User < ActiveRecord::Base
 
     def create_remember_token
       self.remember_token = User.digest(User.new_remember_token)
-    end
-
-    def add_to_mailing_list
-      client = Mailchimp::API.new(ENV['MAILCHIMP_API_KEY'])
-      client.lists.subscribe(ENV['MAILCHIMP_LIST_ID'], { email: self.email }, nil, email_type = 'text', double_optin = false)
     end
 end
