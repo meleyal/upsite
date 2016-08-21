@@ -23,9 +23,6 @@
   <!-- Assets -->
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
-
-  <!-- Analytics -->
-  <%= render 'facebook' if Rails.env.production? %>
 </head>
 
 <body>
@@ -40,7 +37,6 @@
 
   <!-- Analytics -->
   <%= render 'google' if Rails.env.production? %>
-  <%= render 'twitter' if Rails.env.production? %>
   <%= render 'intercom' %>
 
 </body>

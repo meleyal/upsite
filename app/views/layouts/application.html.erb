@@ -24,9 +24,6 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= yield :stylesheets %>
-
-  <!-- Analytics -->
-  <%= render 'facebook' if Rails.env.production? %>
 </head>
 
 <body>
@@ -37,7 +34,6 @@
 
   <!-- Analytics -->
   <%= render 'google' if Rails.env.production? %>
-  <%= render 'twitter' if Rails.env.production? %>
   <%= render 'intercom' %>
   <%= yield :javascripts %>
 
