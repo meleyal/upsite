@@ -19,7 +19,7 @@ class SignupsController < ApplicationController
 
     if @site.save
       login @user
-      flash[:analytics_new_signup] = true
+      flash[:analytics_signup] = true
       if request.xhr?
         response.headers['turbolinks'] = 'false'
         render json: {}, status: :created, location: root_url(subdomain: @site.subdomain)

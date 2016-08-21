@@ -36,6 +36,7 @@ class SitesController < ApplicationController
 
   def upgrade_confirm
     cookies.permanent[:clicked_upgrade_button_experiment] = true
+    flash[:analytics_upgrade] = true
   end
 
   private
