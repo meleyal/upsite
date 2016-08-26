@@ -1,9 +1,6 @@
 en:
   website:
     cookies:
-      message:
-        We use cookies to deliver our services and ensure you get the best experience. By using our website, you agree to the use of cookies as described in our <a href="%{link}" target="legal">Cookie Policy</a>.
-
       body: |
         ## Cookie Policy
 

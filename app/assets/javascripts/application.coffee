@@ -4,7 +4,6 @@
 #= require jquery-ui
 #= require jquery.remotipart
 #= require jquery.embedly
-#= require js.cookie
 #= require trix
 #= require dropzone
 #= require bootstrap
