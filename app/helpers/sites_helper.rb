@@ -8,11 +8,6 @@ module SitesHelper
     end
   end
 
-  def site_preview_image_link(site)
-    image = site.images.order(:position).first
-    image.try(:image_2x) || image.try(:embed_url) || ''
-  end
-
   def site_link(site)
     if site.is_a?(String)
       root_url(subdomain: site)

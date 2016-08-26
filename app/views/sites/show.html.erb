@@ -1,7 +1,6 @@
 <% content_for :title, @site.name %>
 <% content_for :url, root_url(subdomain: @site.subdomain) %>
 <% content_for :description, @site.description %>
-<%# content_for :preview_image, site_preview_image_link(@site) %>
 <% content_for :favicon, site_favicon_link(@site) %>
 <%= render 'theme.css.scss' %>
 
@@ -21,14 +20,6 @@
   <%= render 'hud' %>
   <%= render 'modal' %>
   <%= render 'modal', size: 'small' %>
-
-  <% content_for :javascripts do %>
-    <% if flash[:analytics].present? %>
-      <script>
-        Intercom('trackEvent', '<%= flash[:analytics] %>');
-      </script>
-    <% end %>
-  <% end %>
 <% end %>
 
 <footer class="page-footer">
