@@ -2,11 +2,11 @@
 # SecureRandom.hex => "57e0bb7cbda829681b5f9dda002d75da"
 
 - id: 57e0bb7cbda829681b5f9dda002d75da
-  url: http://www.upsite.io/about/
+  url: http://www.upsite.io/landing/simple
   text: 'Upsite - a simpler way<br> to make a website for anything.'
   image: 'upsite.png'
   params:
     utm_source: upsite
     utm_medium: banner
     utm_campaign: 57e0bb7
-    utm_content: app-icon-simpler
+    utm_content: app-icon-simple

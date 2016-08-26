@@ -1,15 +1,15 @@
 <% content_for :header, 'false' %>
-<% content_for :description, "Upsite is the easiest way to build a simple, effective website in as little as 10 minutes." %>
+<% content_for :description, t("landing.#{params[:slug]}.headline") %>
 
 <hr class="spacer spacer-lg">
 
 <div class="row">
   <div class="col-md-10">
   <h1 style="margin-top: 5px;">
-    Upsite – websites made simple
+    <%= t("landing.#{params[:slug]}.headline") %>
   </h1>
   <p class="lead">
-    A simple, free service to build a one-page website that's perfect for small businesses and creatives.
+    <%= t("landing.#{params[:slug]}.tagline") %>
   </p>
   </div>
 </div>
