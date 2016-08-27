@@ -2,11 +2,12 @@ class LandingPagesController < ApplicationController
   skip_before_action :authenticate
   before_action :set_site
   layout 'website'
-  PAGES = %w(simple)
+  ADS = %w(simple one)
 
   def index
-    render(status: 404) unless PAGES.include?(params[:slug])
-    # version = params[:version] || 'a'
+    @ad = params[:ad]
+    # @version = params[:version] || 'a'
+    render(status: 404) unless ADS.include?(@ad)
     # render "index_#{version}"
     render 'index_a'
   end

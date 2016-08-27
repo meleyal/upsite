@@ -1,16 +1,18 @@
 <% content_for :header, 'false' %>
-<% content_for :description, t("landing.#{params[:slug]}.headline") %>
+<% content_for :title, t("landing.#{@ad}.headline") %>
+<% content_for :description, t("landing.#{@ad}.tagline") %>
 
 <hr class="spacer spacer-lg">
 
 <div class="row">
-  <div class="col-md-10">
-  <h1 style="margin-top: 5px;">
-    <%= t("landing.#{params[:slug]}.headline") %>
-  </h1>
-  <p class="lead">
-    <%= t("landing.#{params[:slug]}.tagline") %>
-  </p>
+  <div class="col-md-12">
+    <h1 style="margin-top: 5px;">
+      <strong class="underline">Upsite</strong> <span>-</span>
+      <%= t("landing.#{@ad}.headline") %>
+    </h1>
+    <p class="lead">
+      <%= t("landing.#{@ad}.tagline") %>
+    </p>
   </div>
 </div>
 
@@ -273,7 +275,7 @@
     </ul>
     <hr class="spacer spacer-sm">
     <p class="small text-muted text-right" style="font-size: 14px; color: #bbb;">
-      Questions? <a href="mailto:help@upsite.io?subject=Business">Contact us</a>
+      Questions? <a href="mailto:help@upsite.io?subject=Signup">Contact us</a>
     </p>
   </div>
 </div>

@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     get '/terms', to: redirect('/legal')
     get '/privacy', to: redirect('/legal')
     get '/legal', to: 'website#legal'
-    get '/a/:slug(/:version)', to: 'landing_pages#index', as: :landing, constraints: { version: /a|b/ }
+    get '/a/:ad(/:version)', to: 'landing_pages#index', as: :landing, constraints: { version: /a|b/ }
     root 'website#index'
   end
 
