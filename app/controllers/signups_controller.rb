@@ -19,7 +19,10 @@ class SignupsController < ApplicationController
 
     if @site.save
       login @user
+
       flash[:analytics_signup] = true
+      NotificationsMailer.analytics_email(:signup, @user, root_url(subdomain: @site.subdomain)).deliver_now
+
       if request.xhr?
         response.headers['turbolinks'] = 'false'
         render json: {}, status: :created, location: root_url(subdomain: @site.subdomain)
