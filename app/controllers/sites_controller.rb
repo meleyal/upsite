@@ -36,7 +36,7 @@ class SitesController < ApplicationController
 
   def upgrade_confirm
     cookies.permanent[:clicked_upgrade_button_experiment] = true
-    NotificationsMailer.analytics_email(:upgrade, current_user, root_url(subdomain: @site.subdomain)).deliver_now
+    NotificationsMailer.analytics_email(:upgrade, current_user, root_url(subdomain: @site.subdomain), params[:source]).deliver_now
     flash[:analytics_upgrade] = true
   end
 

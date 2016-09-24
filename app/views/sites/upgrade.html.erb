@@ -80,5 +80,5 @@
       Payments are securely processed with <strong>Stripe</strong>
     </span>
   </div>
-  <a href="<%= upgrade_confirm_path %>" class="btn btn-success" data-target="self">Upgrade now</a>
+  <a href="<%= upgrade_confirm_path(source: params[:source]) %>" class="btn btn-success" data-target="self">Upgrade now</a>
 </div>

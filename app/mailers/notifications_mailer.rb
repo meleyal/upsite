@@ -5,9 +5,11 @@ class NotificationsMailer < ApplicationMailer
     mail(to: 'help@upsite.io', reply_to: @user.email, subject: 'Your help request')
   end
 
-  def analytics_email(type, user, site_url)
-    type = type.to_s.humanize
-    @message = "#{type}: #{site_url} (#{user.email})"
-    mail(to: 'notifications@upsite.io', subject: "Analytics: #{type}")
+  def analytics_email(type, user, site_url, source = nil)
+    @event = type.to_s.humanize
+    @event += " (source: #{source})" if source
+    @user_email = user.email
+    @site_url = site_url
+    mail(to: 'notifications@upsite.io', subject: "Analytics: #{@event}")
   end
 end
