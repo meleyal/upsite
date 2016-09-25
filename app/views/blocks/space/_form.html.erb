@@ -8,7 +8,7 @@
   </div>
 
   <div class="modal-body">
-    <%= f.input :color, input_html: { value: '#fffff', data: { toggle: 'colorpicker' } } %>
+    <%= f.input :color, input_html: { value: (@site.color || '#fffff'), data: { toggle: 'colorpicker' } } %>
   </div>
 
   <div class="modal-footer">
