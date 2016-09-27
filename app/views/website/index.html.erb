@@ -6,16 +6,19 @@
       #<%= dom_id(site) %> .block-caption {
         background-color: <%= site.color %>;
       }
-      #<%= dom_id(site) %> a {
-        color: <%= site.color %>
+      #<%= dom_id(site) %> .block-text a {
+        color: <%= site.color %>;
+        border-color: <%= site.color %>;
       }
     </style>
     <div id="<%= dom_id(site) %>" class="block block-site <%= 'is-themed' if site.color.present? %>">
       <a class="block-link" href="<%= root_url(subdomain: site.subdomain) %>"></a>
       <div class="block-inner">
         <div class="page-header">
-          <h1><%= site.name %></h1>
-          <%= markdown(site.description) if site.description.present? %>
+          <h1 class="page-title"><%= site.name %></h1>
+          <div class="page-description">
+            <%= markdown(site.description) if site.description.present? %>
+          </div>
         </div>
         <div class="blocks">
           <%= render site.blocks.limit(1) %>

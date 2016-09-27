@@ -5,8 +5,12 @@
 <%= render 'theme.css.scss' %>
 
 <div class="page-header">
-  <h1><%= @site.name %></h1>
-  <%= markdown(@site.description) if @site.description.present? %>
+  <h1 class="page-title">
+    <%= @site.name %>
+  </h1>
+  <div class="page-description">
+    <%= markdown(@site.description) if @site.description.present? %>
+  </div>
 </div>
 
 <div class="blocks" data-sortable>

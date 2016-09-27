@@ -12,10 +12,6 @@
     line-height: 20px;
     margin-top: 5px;
 
-    > a:not(.btn) {
-      color: #000;
-      text-decoration: underline;
-    }
   }
 
   .text-right {
@@ -25,5 +21,15 @@
       text-align: right;
     }
   }
+}
 
+.page-description {
+  a {
+    color: #000;
+    border-bottom: 1px solid #000;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }

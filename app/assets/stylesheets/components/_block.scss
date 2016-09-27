@@ -20,6 +20,7 @@
       opacity: 1;
     }
   }
+
 }
 
 .block-controls {
@@ -56,11 +57,20 @@
 // -------------------
 
 .block-text {
-  background: #f0f0f0;
+  background: #f7f7f7;
   padding: 10px;
 
   * {
     font-size: 12px;
+  }
+
+  a {
+    color: $text-color;
+    border-bottom: 1px solid #000;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   ul, ol {
