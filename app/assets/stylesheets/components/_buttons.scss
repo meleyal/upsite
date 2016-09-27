@@ -3,8 +3,13 @@
 // --------------------------------------------------
 
 .btn-default {
-  &:hover, &:focus {
-    background: lighten($gray-lighter, 3%);
+  border: 1px solid $btn-default-border;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border: 1px solid $btn-default-border;
+    background: $white;
   }
 }
 
@@ -36,8 +41,14 @@
 }
 
 .btn-success-outline {
-  border: 1px solid $btn-success-bg;
+  border: 1px solid rgba($btn-success-bg, .5);
   color: $btn-success-bg !important;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: $btn-success-bg;
+  }
 }
 
 .btn-danger-outline {

@@ -1,8 +1,24 @@
 <% if @site.color.present? %>
   <style>
-    .block-text a {
+    .block-content a {
+      color: <%= @site.color %>;
+      border-color: <%= @site.color %>;
+    }
+    .hud a:hover {
+      background: <%= @site.color %>;
+    }
+    .nav-tabs .active a {
       color: <%= @site.color %> !important;
+    }
+    .btn-success {
+      background: <%= @site.color %> !important;
       border-color: <%= @site.color %> !important;
+    }
+    .btn-link {
+      color: <%= @site.color %>;
+    }
+    .page-footer .underline {
+      border-color: <%= @site.color %>;
     }
   </style>
 <% end %>

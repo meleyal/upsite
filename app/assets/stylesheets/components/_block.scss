@@ -20,8 +20,21 @@
       opacity: 1;
     }
   }
-
 }
+
+.block-content {
+  a {
+    color: $text-color;
+    border-bottom: 1px solid $text-color;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+// Controls
+// -------------------
 
 .block-controls {
   opacity: 0;
@@ -37,7 +50,7 @@
 
   a {
     background: #ccc;
-    color: #fff !important;
+    color: #fff;
     font-size: 13px;
     text-decoration: none;
     width: 20px;
@@ -62,15 +75,6 @@
 
   * {
     font-size: 12px;
-  }
-
-  a {
-    color: $text-color;
-    border-bottom: 1px solid #000;
-
-    &:hover {
-      text-decoration: none;
-    }
   }
 
   ul, ol {

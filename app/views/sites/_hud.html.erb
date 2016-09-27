@@ -2,39 +2,20 @@
 
   <!-- Add -->
   <a href="<%= new_block_path %>"
-    class="add symbol symbol-green symbol-small"
+    class="add"
     title="Add" data-toggle="modal" data-target="#modal" rel="tooltip" data-placement="left">
     <i class="fa fa-plus fa-lg"></i>
   </a>
 
   <!-- Settings -->
   <a href="<%= settings_path %>"
-    class="symbol symbol-green symbol-small"
     title="Settings" data-toggle="modal" data-target="#modal" rel="tooltip" data-placement="left">
     <i class="fa fa-cog fa-lg"></i>
   </a>
 
-
-  <%# unless cookies[:clicked_upgrade_confirm_test_button].present? %>
-    <!-- Upgrade -->
-    <a href="<%= upgrade_path(source: 'upgrade') %>"
-      class="symbol symbol-green symbol-small"
-      title="Upgrade"
-      data-toggle="modal" data-target="#modal" rel="tooltip" data-placement="left">
-      <i class="fa fa-rocket fa-lg"></i>
-    </a>
-  <%# end %>
-
-  <!-- Stats -->
-  <a href="<%= upgrade_path(source: 'stats') %>"
-    class="symbol symbol-green symbol-small"
-    title="Stats <span class='label label-success'>PRO</span>" data-toggle="modal" data-target="#modal" rel="tooltip" data-placement="left" data-html="true">
-    <i class="fa fa-pie-chart fa-lg"></i>
-  </a>
-
   <!-- Help -->
   <a href="<%= new_help_path %>"
-    class="help symbol symbol-green symbol-small"
+    class="help"
     title="Help" data-toggle="modal" data-target="#modal" rel="tooltip" data-placement="left">
     <i class="fa fa-question fa-lg"></i>
   </a>

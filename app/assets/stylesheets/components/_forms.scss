@@ -88,5 +88,9 @@ label.small {
   .control-label,
   .form-control {
     cursor: pointer;
+    
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
