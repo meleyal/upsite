@@ -67,7 +67,6 @@
       <div class="modal-body">
         <ul class="list-group" style="max-height: 350px; overflow: auto; border-bottom: 1px solid #ddd;">
           <% current_user.sites.each do |site| %>
-            <% next unless site == current_user.site %>
             <li class="list-group-item" href="<%= site_link(site) %>">
               <div class="media">
                 <div class="media-left media-middle">
