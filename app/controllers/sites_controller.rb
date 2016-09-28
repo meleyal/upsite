@@ -11,7 +11,23 @@ class SitesController < ApplicationController
   def show
     @site = Site.all.find_by!(subdomain: request.subdomains.first)
     @blocks = @site.blocks.includes(:attachments).all
-    @ad = current_ads.sample
+  end
+
+  def new
+    @new_site = current_user.sites.new
+  end
+
+  def create
+    @new_site = Site.new(site_params)
+    @new_site.owner = current_user
+    @new_site.users << current_user
+
+    if @new_site.save
+      response.headers['turbolinks'] = 'false'
+      render json: {}, status: :created, location: root_url(subdomain: @new_site.subdomain)
+    else
+      render json: { site: @new_site.errors }, status: :unprocessable_entity
+    end
   end
 
   def edit

@@ -1,4 +1,3 @@
-
 <div class="modal-header">
   <button type="button" class="close" data-dismiss="modal">&times;</button>
   <h4 class="modal-title">Settings</h4>
@@ -92,7 +91,7 @@
       </div>
       <div class="modal-footer">
         <span class="pull-left">
-          <a href="<%= signup_url(subdomain: 'www') %>" class="btn btn-success">Create a new site</a>
+          <a href="<%= new_site_path %>" class="btn btn-success" data-toggle="modal" data-target="self">Create a new site</a>
           &nbsp;&nbsp; <span class="text-muted">You can create as many sites as you need.</span>
         </span>
       </div>

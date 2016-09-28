@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     get 'upgrade' => 'sites#upgrade'
     get 'upgrade_confirm' => 'sites#upgrade_confirm'
     get 'sites' => 'sites#index'
+    get 'sites/new' => 'sites#new', as: :new_site
+    post 'sites' => 'sites#create'
     resources :help, only: [:new, :create]
     get 'help/:slug', to: 'help#show', as: 'help_article'
     resources :blocks, only: [:new, :create, :update, :destroy] do
@@ -27,7 +29,6 @@ Rails.application.routes.draw do
     get '/terms', to: redirect('/legal')
     get '/privacy', to: redirect('/legal')
     get '/legal', to: 'website#legal'
-    get '/a/:ad(/:version)', to: 'landing_pages#index', as: :landing, constraints: { version: /a|b/ }
     root 'website#index'
   end
 
