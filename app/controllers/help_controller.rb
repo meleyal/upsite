@@ -2,7 +2,6 @@ class HelpController < ApplicationController
   before_action :set_site
   before_action :require_site_owner
   layout :false, only: [:new, :create]
-  # layout 'website', only: [:show]
 
   class HelpMessageForm < ActiveModel::Form
     self.model_name = 'help_message'
@@ -11,7 +10,6 @@ class HelpController < ApplicationController
   end
 
   def show
-    @site = current_user.site
   end
 
   def new
