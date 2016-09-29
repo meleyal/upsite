@@ -103,6 +103,13 @@
   line-height: 300px;
   text-align: center;
 
+  // img-responsive
+  .embed img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
   img ~ a {
     display: none;
   }
