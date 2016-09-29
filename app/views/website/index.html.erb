@@ -2,7 +2,9 @@
   <% @sites.each do |site| %>
     <% next if site.blocks.count < 1 %>
     <style>
-      #<%= dom_id(site) %>,
+      #<%= dom_id(site) %> {
+        border-color: <%= site.color %>;
+      }
       #<%= dom_id(site) %> .block-caption {
         background-color: <%= site.color %>;
       }
@@ -21,7 +23,7 @@
           </div>
         </div>
         <div class="blocks">
-          <%= render site.blocks.limit(1) %>
+          <%= render site.blocks.where.not(type: 'Space').limit(1) %>
         </div>
       </div>
       <span class="block-caption">

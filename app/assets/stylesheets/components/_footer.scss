@@ -3,11 +3,15 @@
 // --------------------------------------------------
 
 .page-footer {
-  margin: 40px 0;
+  margin-bottom: 20px;
+
+  @media (min-width: $screen-sm-min) {
+    margin: 40px 0;
+  }
 
   a {
     text-decoration: none;
-    
+
     &:hover, &:focus {
       text-decoration: underline;
     }
