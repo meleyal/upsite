@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :blocks, only: [:new, :create, :update, :destroy] do
       post 'sort', on: :collection
     end
+    resources :charges
   end
 
   constraints :subdomain => /^(www)/ do

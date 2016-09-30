@@ -2,16 +2,16 @@
 
 <%
   case size ||= ''
-    when 'small'
-      id = 'modal'
-      class_name = 'modal'
-    else
-      id = 'modal-lg'
-      class_name = 'modal-lg'
+  when 'xl'
+    id = 'modal-xl'
+    class_name = 'modal-xl'
+  else
+    id = 'modal'
+    class_name = 'modal'
   end
 %>
 
-<div class="modal fade" id="<%= id %>" role="dialog">
+<div class="modal <%= class_name %> fade" id="<%= id %>" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
     </div>

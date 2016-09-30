@@ -1,8 +1,8 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
-free_plan = Plan.create(name: 'Free', code: 'free', cost_per_year: 0)
-pro_plan = Plan.create(name: 'Pro', code: 'pro', cost_per_year: 0)
+free_plan = Plan.create(name: 'Free', code: 'free', cost_per_month: 0)
+pro_plan = Plan.create(name: 'Pro', code: 'pro', cost_per_month: 1400)
 
 admin = User.create(email: 'admin@upsite.io', password: 'password', plan: pro_plan)
 me = User.create(email: 'william.meleyal@gmail.com', password: 'password', plan: pro_plan)

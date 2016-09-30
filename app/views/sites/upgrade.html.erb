@@ -1,9 +1,8 @@
-<div class="modal-header" style="padding-bottom: 0; background: url(<%= image_path('banner.png') %>) 0% 0%; background-size: 500px;">
+<div class="modal-header">
   <button type="button" class="close" data-dismiss="modal">&times;</button>
-  <h3 class="modal-title text-center" style="font-size: 24px; margin-top: 20px;">
-    Get
-      the Custom URL
-      <span class="label label-success" style="display: inline-block; transform: translate(0px, -3px);">ADD-ON</span>
+  <h3 class="modal-title text-center" style="font-size: 32px; margin-top: 10px;">
+    Upsite
+      <span class="label label-success" style="display: inline-block; transform: translate(0px, -4px); padding: 6px 10px;">PRO</span>
   </h3>
   <p class="lead text-center">
     for <%= @site.name %>
@@ -12,13 +11,28 @@
 </div>
 
 <div class="modal-body" style="background: #fff; padding-bottom: 0;">
+  <div class="row">
+    <div class="col-sm-6"  style="border-right: 1px solid #eee; padding-left: 30px;">
+      <ul class="fa-ul lead" style="padding-top: 25px;">
+        <li><i class="fa-li fa fa-check"></i>Unlimited content</li>
+        <li><i class="fa-li fa fa-check"></i>Multiple sites</li>
+        <!-- <li><i class="fa-li fa fa-check"></i>Use your own domain*</li> -->
+        <li><i class="fa-li fa fa-check"></i>Future <span class="label label-success" style="display: inline-block; padding: 4px 5px; transform: translate(0, -1px);">PRO</span>
+ features</li>
+        <li><i class="fa-li fa fa-check"></i>No contract, cancel anytime</li>
+      </ul>
+    </div>
+    <div class="col-sm-6">
+      <h2 style="padding-top: 20px; padding-left: 20px;">only £8 / month<br>
+        <span class="small text-muted">(approx. €9 / $10)</span>
+      </h2>
+    </div>
+  </div>
+  <hr class="spacer spacer-sm">
   <div class="text-center" style="padding: 0 40px;">
-    <p class="lead">
-      This lets you use your own domain name as your Upsite URL.
-      e.g. When visiting the domain <strong>mysite.com</strong> people will see your Upsite.
-    </p>
     <p class="text-muted">
-      Please note you will need to <a href="https://iwantmyname.com/" target="_blank">purchase a domain name</a> separately.
+      Subscriptions are billed monthly. You can cancel anytime.<br>
+      <!-- <span>* Please note you will need to <a href="https://iwantmyname.com/" target="_blank">purchase a domain name</a> separately.</span> -->
     </p>
   </div>
   <hr style="margin-bottom: 0; padding-bottom: 0;">
@@ -31,7 +45,36 @@
       Payments are securely processed with <strong>Stripe</strong>
     </span>
   </div>
-  <a href="#" class="btn btn-success" disabled>Coming soon...</a>
+
+  <button class="btn btn-success" disabled>Coming Soon&hellip;</button>
+  <!-- <button id="btn-purchase" class="btn btn-success">Purchase</button> -->
+
+  <script>
+    var handler = StripeCheckout.configure({
+      key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+      image: '<%= site_favicon_link(@site) %>',
+      locale: 'auto',
+      token: function(token) {
+        // You can access the token ID with `token.id`.
+        // Get the token ID to your server-side code for use.
+      }
+    });
+
+    document.getElementById('btn-purchase').addEventListener('click', function(e) {
+      // Open Checkout with further options:
+      handler.open({
+        name: 'Upsite',
+        description: 'Pro Monthly Subscription',
+        zipCode: true,
+        currency: 'gbp',
+        amount: <%= Plan.pro.cost_per_month %>,
+        email: '<%= current_user.email %>'
+      });
+      e.preventDefault();
+      $('.modal').modal('hide')
+    });
+
+  </script>
 </div>
 
 <script>

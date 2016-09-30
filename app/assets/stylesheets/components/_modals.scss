@@ -8,6 +8,14 @@
   }
 }
 
+.modal-content {
+  box-shadow: 0 3px 9px rgba($black, .2);
+  // box-shadow: none;
+  // border: 8px solid #f7f7f7;
+  border: 0;
+  padding: 10px;
+}
+
 .modal-nav {
   padding-left: 14px;
 }
@@ -33,5 +41,19 @@
     border-top-right-radius: 0;
     text-transform: uppercase;
     color: $gray-light;
+  }
+}
+
+.modal-xl {
+  z-index: 60000;
+
+  .modal-dialog {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+  }
+  .modal-content {
+    width: 100vw;
+    height: 100vh;
   }
 }
