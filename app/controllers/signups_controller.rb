@@ -22,13 +22,13 @@ class SignupsController < ApplicationController
       login @user
 
       flash[:analytics_signup] = true
-      NotificationsMailer.analytics_email(:signup, @user, root_url(subdomain: @site.subdomain)).deliver_now
+      NotificationsMailer.analytics_email(:signup, @user, root_url(subdomain: @site.subdomain, protocol: 'http://')).deliver_now
 
       if request.xhr?
         response.headers['turbolinks'] = 'false'
-        render json: {}, status: :created, location: root_url(subdomain: @site.subdomain)
+        render json: {}, status: :created, location: root_url(subdomain: @site.subdomain, protocol: 'http://')
       else
-        redirect_to root_url(subdomain: @site.subdomain)
+        redirect_to root_url(subdomain: @site.subdomain, protocol: 'http://')
       end
     else
       if request.xhr?
