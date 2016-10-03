@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
   include AdsHelper
-  
+
   before_action :authenticate
   protect_from_forgery with: :exception
 
@@ -18,5 +18,9 @@ class ApplicationController < ActionController::Base
 
   def set_site
     @site ||= current_user.sites.find_by!(subdomain: request.subdomains.first)
+  end
+
+  def ssl_configured?
+    !Rails.env.development?
   end
 end

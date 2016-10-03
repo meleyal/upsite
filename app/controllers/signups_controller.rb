@@ -1,6 +1,7 @@
 class SignupsController < ApplicationController
   layout 'website'
   skip_before_action :authenticate
+  force_ssl if: :ssl_configured?
 
   def new
     @site = Site.new
