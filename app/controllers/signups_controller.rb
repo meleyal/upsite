@@ -13,22 +13,21 @@ class SignupsController < ApplicationController
     @site = Site.new(site_params)
     @user = current_user || User.new(site_params[:owner_attributes])
     @user.plan = Plan.find_by(code: 'free')
-
-    # TODO: move to model callback?
     @site.owner = @user
     @site.users << @user
 
     if @site.save
       login @user
+      url = view_context.site_url(@site)
 
       flash[:analytics_signup] = true
-      NotificationsMailer.analytics_email(:signup, @user, root_url(subdomain: @site.subdomain, protocol: 'http://')).deliver_now
+      NotificationsMailer.analytics_email(:signup, @user, url).deliver_now
 
       if request.xhr?
         response.headers['turbolinks'] = 'false'
-        render json: {}, status: :created, location: root_url(subdomain: @site.subdomain, protocol: 'http://')
+        render json: {}, status: :created, location: url
       else
-        redirect_to root_url(subdomain: @site.subdomain, protocol: 'http://')
+        redirect_to url
       end
     else
       if request.xhr?
@@ -42,6 +41,14 @@ class SignupsController < ApplicationController
   private
 
   def site_params
-    params.require(:site).permit(:name, :subdomain, owner_attributes: [:email, :password, :terms])
+    params.require(:site).permit(
+      :name,
+      :subdomain,
+      owner_attributes: [
+        :email,
+        :password,
+        :terms
+      ]
+    )
   end
 end

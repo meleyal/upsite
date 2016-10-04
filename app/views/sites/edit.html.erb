@@ -66,20 +66,20 @@
       <div class="modal-body">
         <ul class="list-group" style="max-height: 350px; overflow: auto; border-bottom: 1px solid #ddd;">
           <% current_user.sites.each do |site| %>
-            <li class="list-group-item" href="<%= site_link(site) %>">
+            <li class="list-group-item" href="<%= site_url(site) %>">
               <div class="media">
                 <div class="media-left media-middle">
-                  <a href="<%= site_link(site) %>">
+                  <a href="<%= site_url(site) %>">
                     <img class="media-object img-circle" src="<%= site_favicon_link(site) %>" width="35">
                   </a>
                 </div>
                 <div class="media-body">
                   <span class="pull-right" style="padding-top: 2px;">
-                    <!-- <a href="<%= site_link(site) %>" class="btn btn-danger-outline" disabled>Delete</a> -->
-                    <a href="<%= site_link(site) %>" class="btn btn-default">Open</a>
+                    <!-- <a href="<%= site_url(site) %>" class="btn btn-danger-outline" disabled>Delete</a> -->
+                    <a href="<%= site_url(site) %>" class="btn btn-default">Open</a>
                   </span>
                   <h4 class="media-heading" style="margin: 10px 0 0 0;">
-                    <a href="<%= site_link(site) %>" class="text-link">
+                    <a href="<%= site_url(site) %>" class="text-link">
                       <%= site.name %>
                     </a>
                   </h4>

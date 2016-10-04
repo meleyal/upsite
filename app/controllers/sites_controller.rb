@@ -24,7 +24,7 @@ class SitesController < ApplicationController
 
     if @new_site.save
       response.headers['turbolinks'] = 'false'
-      render json: {}, status: :created, location: root_url(subdomain: @new_site.subdomain)
+      render json: {}, status: :created, location: view_context.site_url(@new_site)
     else
       render json: { site: @new_site.errors }, status: :unprocessable_entity
     end
@@ -43,7 +43,9 @@ class SitesController < ApplicationController
   end
 
   def upgrade
-    NotificationsMailer.analytics_email(:upgrade, current_user, root_url(subdomain: @site.subdomain), :custom_url).deliver_now
+    NotificationsMailer.analytics_email(
+      :upgrade, current_user, view_context.site_url(@site), :custom_url
+    ).deliver_now
     render 'upgrade'
   end
 
@@ -52,7 +54,7 @@ class SitesController < ApplicationController
 
   private
 
-    def site_params
-      params.require(:site).permit(:name, :description, :color, :border)
-    end
+  def site_params
+    params.require(:site).permit(:name, :description, :color, :border)
+  end
 end

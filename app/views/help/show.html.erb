@@ -214,9 +214,9 @@
         { name: 'maite-lopez-galeano-realizadora', color: '#f01060' },
       ].each do |s| %>
         <div class="col-sm-3">
-          <a class="img-border" href="<%= site_link(s[:name]) %>" target="examples" style="display: block; max-height: 227px; overflow: hidden; margin-bottom: 30px; border-color: <%= s[:color] %>;">
+          <div class="img-border" style="display: block; max-height: 227px; overflow: hidden; margin-bottom: 30px; border-color: <%= s[:color] %>;">
             <img class="img-responsive" src="<%= image_path("examples/#{s[:name]}.png") %>">
-          </a>
+          </div>
         </div>
       <% end %>
     </div>
@@ -237,24 +237,24 @@
     <div class="row">
       <div class="col-sm-9">
         <h3 style="margin-top: 8px;">
-          <a style="text-decoration: underline;" href="<%= site_link(@site) %>" target="_parent">
-            <%= site_link(@site).gsub(/\/$/, '') %>
+          <a style="text-decoration: underline;" href="<%= site_url(@site) %>" target="_parent">
+            <%= site_url_without_protocol(@site) %>
           </a>&nbsp;&nbsp;
           <span class="small text-muted" style="padding-top: 10px;">
             want to
-            <a href="mailto:help@upsite.io?subject=Change URL for <%= site_link(@site) %>">change this?</a>
+            <a href="mailto:help@upsite.io?subject=Change URL for <%= site_url(@site) %>">change this?</a>
           </span>
         </h3>
       </div>
       <div class="col-sm-3">
         <p style="margin-top: 3px;">
-          <a href="https://www.facebook.com/sharer/sharer.php?u=<%= site_link(@site) %>" class="btn btn-default" style="color: #4760a7; text-decoration: none;">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=<%= site_url(@site) %>" class="btn btn-default" style="color: #4760a7; text-decoration: none;">
             <i class="fa fa-facebook-square fa-lg"></i>&nbsp;
             Share on Facebook
           </a>
         </p>
         <p>
-          <a href="<%= "https://twitter.com/intent/tweet?text=Check out my new website&url=#{site_link(@site)}&via=#{t('twitter_username')}" %>" class="btn btn-default" style="color: #59aaf3; text-decoration: none;">
+          <a href="<%= "https://twitter.com/intent/tweet?text=Check out my new website&url=#{site_url(@site)}&via=#{t('twitter_username')}" %>" class="btn btn-default" style="color: #59aaf3; text-decoration: none;">
             <i class="fa fa-twitter-square fa-lg"></i>&nbsp;
             Share on Twitter
           </a>

@@ -14,7 +14,7 @@
       }
     </style>
     <div id="<%= dom_id(site) %>" class="block block-site <%= 'is-themed' if site.color.present? %>">
-      <a class="block-link" href="<%= root_url(subdomain: site.subdomain) %>"></a>
+      <a class="block-link" href="<%= site_url(site) %>"></a>
       <div class="block-inner">
         <div class="page-header">
           <h1 class="page-title"><%= site.name %></h1>
@@ -27,7 +27,7 @@
         </div>
       </div>
       <span class="block-caption">
-        <%= root_url(subdomain: site.subdomain).gsub('http://', '').gsub('/', '') %>
+        <%= site_url_without_protocol(site) %>
       </span>
     </div>
   <% end %>

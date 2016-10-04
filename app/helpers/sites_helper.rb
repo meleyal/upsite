@@ -8,11 +8,11 @@ module SitesHelper
     end
   end
 
-  def site_link(site)
-    if site.is_a?(String)
-      root_url(subdomain: site)
-    else
-      root_url(subdomain: site.subdomain)
-    end
+  def site_url(site)
+    root_url(subdomain: site.subdomain, protocol: 'http://')
+  end
+
+  def site_url_without_protocol(site)
+    site_url(site).gsub('http://', '').gsub('/', '')
   end
 end
