@@ -1,6 +1,5 @@
 <div class="blocks">
   <% @sites.each do |site| %>
-    <% next if site.blocks.count < 1 %>
     <style>
       #<%= dom_id(site) %> {
         border-color: <%= site.color %>;

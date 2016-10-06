@@ -12,7 +12,6 @@ class WebsiteController < ApplicationController
         .group('sites.id')
         .having('count(site_id) > 3')
         .where('featured IS NOT false')
-        .where.not(color: '')
         .order(updated_at: :desc)
         .limit(100)
     end
