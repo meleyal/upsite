@@ -12,7 +12,7 @@
   position: relative;
   margin: 0 15px 20px;
 
-  @media (min-width: $screen-sm-min) {
+  @media (min-width: $screen-xs-min) {
     height: 300px;
     width: 300px;
     margin: 0 15px 30px;
@@ -142,22 +142,18 @@
 }
 
 .block-site {
-  width: 300px;
-  height: 300px;
   border: 14px solid #eee;
   overflow: hidden;
+  max-height: 300px;
 
   .block-link {
-    display: block;
-    height: 300px;
+    display: inline-block;
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 2;
-
-    @media (min-width: $screen-sm-min) {
-      width: 300px;
-    }
   }
 
   .block-inner {

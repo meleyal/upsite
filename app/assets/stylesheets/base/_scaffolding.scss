@@ -58,6 +58,10 @@ a {
   border: 5px solid $gray-lighter;
 }
 
+.img-responsive {
+  margin: 0 auto;
+}
+
 .well {
   border: 5px solid lighten($gray-lighter, 2.5%);
   @include box-shadow(none);
