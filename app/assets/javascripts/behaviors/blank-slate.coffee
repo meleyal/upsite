@@ -3,3 +3,4 @@ $(document).on 'ready page:change', ->
     $('.hud .add')
       .attr('title', 'Get started')
       .trigger('focus')
+      .addClass('active')

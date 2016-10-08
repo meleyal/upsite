@@ -1,41 +1,39 @@
 class SignupsController < ApplicationController
-  layout 'website'
-  skip_before_action :authenticate
+  layout :resolve_layout
+  skip_before_action :authenticate, only: [:new, :create]
   force_ssl if: :ssl_configured?
 
   def new
-    @site = Site.new
     @user = User.new
-    @site.owner = @user
+    @site = Site.new(owner: @user)
   end
 
   def create
     @site = Site.new(site_params)
-    @user = current_user || User.new(site_params[:owner_attributes])
-    @user.plan = Plan.find_by(code: 'free')
+    @user = User.new(site_params[:owner_attributes])
     @site.owner = @user
     @site.users << @user
 
     if @site.save
       login @user
-      url = view_context.site_url(@site)
-
       flash[:analytics_signup] = true
-      NotificationsMailer.analytics_email(:signup, @user, url).deliver_now
-
-      if request.xhr?
-        response.headers['turbolinks'] = 'false'
-        render json: {}, status: :created, location: url
-      else
-        redirect_to url
-      end
+      response.headers['turbolinks'] = 'false'
+      render json: {}, status: :created, location: view_context.site_url(@site)
     else
-      if request.xhr?
-        render json: { site: @site.errors }, status: :unprocessable_entity
-      else
-        render 'signups/new'
-      end
+      render json: { site: @site.errors }, status: :unprocessable_entity
     end
+  end
+
+  def cancel
+    @user = current_user
+    @site = current_site
+  end
+
+  def destroy
+    NotificationsMailer.analytics_email(:cancel, current_user, params[:reason]).deliver_now
+    cookies.delete(:remember_token, domain: :all)
+    current_user.destroy
+    redirect_to login_url(subdomain: 'www')
   end
 
   private
@@ -50,5 +48,14 @@ class SignupsController < ApplicationController
         :terms
       ]
     )
+  end
+
+  def resolve_layout
+    case action_name
+    when 'cancel'
+      'application'
+    else
+      'website'
+    end
   end
 end

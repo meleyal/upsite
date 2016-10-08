@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930171051) do
+ActiveRecord::Schema.define(version: 20161007170706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,10 +52,11 @@ ActiveRecord::Schema.define(version: 20160930171051) do
   create_table "plans", force: :cascade do |t|
     t.string   "name"
     t.string   "code"
-    t.boolean  "open_for_registration"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "cost_per_month"
+    t.integer  "site_limit"
+    t.integer  "block_limit"
   end
 
   create_table "signups", force: :cascade do |t|
@@ -91,21 +92,33 @@ ActiveRecord::Schema.define(version: 20160930171051) do
   add_index "sites", ["owner_id"], name: "index_sites_on_owner_id", using: :btree
   add_index "sites", ["subdomain"], name: "index_sites_on_subdomain", unique: true, using: :btree
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.integer  "plan_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "subscriptions", ["plan_id"], name: "index_subscriptions_on_plan_id", using: :btree
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
     t.string   "remember_token"
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "plan_id"
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "stripe_customer_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
-  add_index "users", ["plan_id"], name: "index_users_on_plan_id", using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+  add_index "users", ["stripe_customer_id"], name: "index_users_on_stripe_customer_id", using: :btree
 
   create_table "widgets", force: :cascade do |t|
     t.string   "type",       limit: 255
@@ -120,4 +133,6 @@ ActiveRecord::Schema.define(version: 20160930171051) do
 
   add_foreign_key "site_memberships", "sites"
   add_foreign_key "site_memberships", "users"
+  add_foreign_key "subscriptions", "plans"
+  add_foreign_key "subscriptions", "users"
 end

@@ -4,15 +4,20 @@
 </div>
 
 <ul class="modal-nav nav nav-tabs">
-  <li class="active"><a href="#basic" data-toggle="tab">Basic</a></li>
+  <li class="<%= 'active' if params[:tab].blank? %>">
+    <a href="#site" data-toggle="tab">Site</a>
+  </li>
+  <li class="<%= 'active' if params[:tab] == 'account' %>">
+    <a href="#account" data-toggle="tab">Account</a>
+  </li>
+  <li><a href="#user" data-toggle="tab">User</a></li>
   <li><a href="#sites" data-toggle="tab">Sites</a></li>
-  <li><a href="#account" data-toggle="tab">Account</a></li>
 </ul>
 
 <div class="tab-content">
 
-  <!-- Basic -->
-  <div class="tab-pane active" id="basic">
+  <!-- Site -->
+  <div class="tab-pane <%= 'active' if params[:tab].blank? %>" id="site">
     <%= simple_form_for(@site, url: settings_path, remote: true) do |f| %>
       <div class="modal-body">
         <%= f.input :name %>
@@ -27,36 +32,6 @@
       <div class="modal-footer">
         <%= f.button :submit, class: 'btn btn-success' %>
       </div>
-    <% end %>
-  </div>
-
-  <!-- Account   -->
-  <div class="tab-pane" id="account">
-    <%= simple_form_for(@site, url: settings_path, remote: true) do |f| %>
-    <div class="modal-body">
-      <%= f.fields_for(:owner) do |ff| %>
-        <a href="<%= new_help_path(message: 'Please change my email / passsword') %>" class="form-group-click-target" data-target="self">
-          <%= ff.input :email, disabled: true %>
-          <%= ff.input :password, placeholder: '•••••••••••', disabled: true %>
-        </a>
-      <% end %>
-    </div>
-    <div class="modal-footer">
-      <div class="pull-left">
-        <%= link_to 'Log out', logout_url(subdomain: 'www'),
-              method: 'delete',
-              class: 'btn btn-default',
-              tabindex: -1,
-              data: { confirm: 'Are you sure you want to log out?' } %>
-        <a href="<%= new_help_path(message: 'Please delete my account') %>"
-           data-toggle="modal"
-           data-target="self"
-           class="btn btn-danger-outline">
-          Delete Account
-        </a>
-      </div>
-      <%= f.button :submit, class: 'btn btn-success' %>
-    </div>
     <% end %>
   </div>
 
@@ -91,15 +66,151 @@
       </div>
       <div class="modal-footer">
         <span class="pull-left">
-          <% if current_user.pro? %>
-            <a href="<%= new_site_path %>" class="btn btn-success" data-toggle="modal" data-target="self">Create a new site</a>
-            &nbsp;&nbsp; <span class="text-muted">You can create as many sites as you need.</span>
+          <% if current_user.pro?  %>
+            <% if current_user.sites.length < current_user.plan.site_limit %>
+              <a href="<%= new_site_path %>" class="btn btn-success" data-toggle="modal" data-target="self">Create a new site</a>&nbsp;&nbsp;
+              <span class="text-muted">
+                You can create up to <strong><%= current_user.plan.site_limit  %></strong> sites.
+              </span>
+            <% end %>
           <% else %>
-            <a href="<%= upgrade_path %>" class="btn btn-default" data-toggle="modal" data-target="self">
-              Get <span class='label label-success'>PRO</span> to create multiple sites
+            <a href="#account" data-toggle="tab-inline" class="btn btn-default">
+              Get <span class='label label-success'>PRO</span> to create more sites
             </a>
+            <script>
+              $('[data-toggle="tab-inline"]').on('click', function(e) {
+                e.preventDefault()
+                href = $(e.target).attr('href')
+                $('.nav-tabs').find('a[href="' + href + '"]').trigger('click')
+              })
+            </script>
           <% end %>
         </span>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Account -->
+  <div class="tab-pane <%= 'active' if params[:tab] == 'account' %>" id="account">
+    <div class="modal-body">
+      <% if current_user.promo? %>
+        <div class="row">
+          <div class="col-sm-6 text-center">
+            <div class="well well-success">
+              <h4>Upsite <span class="label label-success" style="display: inline-block; transform: translate(0px, -2px); padding: 4px 7px;">PROMO</span></h4>
+              <hr>
+              <ul class="list-unstyled">
+                <li>
+                  <strong>Free</strong> for friends of Upsite
+                  <i class="fa fa-heart" style="color: #FF4F4E;"></i>
+                </li>
+                <li>Up to <strong>10</strong> sites</li>
+                <li><strong>Unlimited</strong> blocks</li>
+              </ul>
+              <hr>
+              <a href="#" class="btn btn-block btn-default">Cancel Account</a>
+            </div>
+          </div>
+          <div class="col-sm-6 text-center">
+            <div class="well" style="margin-top: 2px;">
+              <h4>Upsite <span class="label label-success" style="display: inline-block; transform: translate(0px, -2px); padding: 4px 7px;">PRO</span>
+              </h4>
+              <hr>
+              <ul class="list-unstyled">
+                <li><strong>£5 / month</strong></li>
+                <li>Up to <strong>5</strong> sites</li>
+                <li><strong>Unlimited</strong> blocks</li>
+              </ul>
+              <hr>
+              <a href="<%= upgrade_url(subdomain: 'www') %>" class="btn btn-block btn-success">Upgrade</a>
+            </div>
+          </div>
+        </div>
+      <% elsif current_user.pro? %>
+        <div class="row">
+          <div class="col-sm-6 text-center">
+            <div class="well" style="margin-top: 2px;">
+              <h4 style="height: 19px;">Upsite</h4>
+              <hr>
+              <ul class="list-unstyled">
+                <li><strong>Free</strong></li>
+                <li><strong>1</strong> site</li>
+                <li><strong>12</strong> blocks</li>
+              </ul>
+              <hr>
+              <a href="#" class="btn btn-block btn-default" disabled>Cancel Account</a>
+            </div>
+          </div>
+          <div class="col-sm-6 text-center">
+            <div class="well well-success">
+              <h4>Upsite <span class="label label-success" style="display: inline-block; transform: translate(0px, -2px); padding: 4px 7px;">PRO</span>
+              </h4>
+              <hr>
+              <ul class="list-unstyled">
+                <li><strong>£5 / month</strong></li>
+                <li>Up to <strong>5</strong> sites</li>
+                <li><strong>Unlimited</strong> blocks</li>
+              </ul>
+              <hr>
+              <a href="<%= upgrade_cancel_url(subdomain: 'www') %>" class="btn btn-block btn-success">Cancel Subscription</a>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div class="row">
+          <div class="col-sm-6 text-center">
+            <div class="well well-success">
+              <h4 style="height: 19px;">Upsite</h4>
+              <hr>
+              <ul class="list-unstyled">
+                <li><strong>Free</strong></li>
+                <li><strong>1</strong> site</li>
+                <li><strong>12</strong> blocks</li>
+              </ul>
+              <hr>
+              <a href="<%= cancel_url(subdomain: 'www') %>" class="btn btn-block btn-default">Cancel Account</a>
+            </div>
+          </div>
+          <div class="col-sm-6 text-center">
+            <div class="well" style="margin-top: 2px;">
+              <h4>Upsite <span class="label label-success" style="display: inline-block; transform: translate(0px, -2px); padding: 4px 7px;">PRO</span>
+              </h4>
+              <hr>
+              <ul class="list-unstyled">
+                <li><strong>£5 / month</strong></li>
+                <li>Up to <strong>5</strong> sites</li>
+                <li><strong>Unlimited</strong> blocks</li>
+              </ul>
+              <hr>
+              <a href="<%= upgrade_url(subdomain: 'www') %>" class="btn btn-block btn-success">Upgrade</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+
+  <!-- User -->
+  <div class="tab-pane" id="user">
+    <%= simple_form_for(@site, url: settings_path, remote: true) do |f| %>
+      <div class="modal-body">
+        <%= f.fields_for(:owner) do |ff| %>
+          <a href="<%= new_help_path(message: 'Please change my email / passsword') %>" class="form-group-click-target" data-target="self">
+            <%= ff.input :email, disabled: true %>
+            <%= ff.input :password, placeholder: '•••••••••••', disabled: true %>
+          </a>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <div class="pull-left">
+          <%= link_to 'Log out', logout_url(subdomain: 'www'),
+                method: 'delete',
+                class: 'btn btn-default',
+                tabindex: -1,
+                data: { confirm: 'Are you sure you want to log out?' } %>
+        </div>
+        <%= f.button :submit, class: 'btn btn-success' %>
       </div>
     <% end %>
   </div>

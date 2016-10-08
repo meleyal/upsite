@@ -25,7 +25,7 @@ $gray-dark: lighten(#000, 20%);
 $gray: #9E9EA6;
 $gray-light: lighten(#000, 60%);
 // $gray-light: #eee;
-$gray-lighter: lighten(#000, 93.5%);
+$gray-lighter: #f7f7f7;
 
 $purple: #a773d1;
 $yellow: #FACE54;
@@ -67,7 +67,11 @@ $border-radius-large: 0px;
 // Forms
 // -------------------
 
+$input-bg-disabled: $gray-lighter;
+
 $state-danger-text: #c00;
+$state-success-text: $green;
+$state-success-border: $green;
 
 // Buttons
 // -------------------

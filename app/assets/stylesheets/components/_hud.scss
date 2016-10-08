@@ -32,7 +32,8 @@
   border-radius: 400px;
   outline: none;
 
-  &:hover {
+  &:hover,
+  &.active {
     background: $green;
   }
 }

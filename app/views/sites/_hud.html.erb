@@ -1,16 +1,18 @@
 <div class="hud">
 
   <!-- Add -->
-  <% if current_user.pro? || (@site.blocks.length < 9) %>
+  <% if current_user.pro? || (@site.blocks.length < current_user.plan.block_limit) %>
     <a href="<%= new_block_path %>"
       class="add"
       title="Add" data-toggle="modal" data-target="#modal" rel="tooltip" data-placement="left">
       <i class="fa fa-plus fa-lg"></i>
     </a>
   <% else %>
-    <a href="<%= upgrade_site_path %>"
+    <a href="<%= settings_path(tab: 'account') %>"
       class="add"
-      title="Upgrade" data-toggle="modal" data-target="#modal" rel="tooltip" data-placement="left">
+      data-toggle="modal"
+      data-target="#modal"
+      title="Upgrade" target="upgrade" rel="tooltip" data-placement="left">
       <i class="fa fa-plus fa-lg"></i>
     </a>
   <% end %>

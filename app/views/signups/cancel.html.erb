@@ -1,0 +1,59 @@
+<% content_for :favicon, site_favicon_link(@site) %>
+<%= render 'sites/theme.css.scss' %>
+
+<%= form_for @user, url: cancel_path, method: 'DELETE' do |f| %>
+
+<div class="modal-header">
+  <h3 class="modal-title text-center" style="font-size: 32px; margin-top: 10px;">
+    Upsite
+  </h3>
+  <p class="lead text-center">
+    <%= @site.name %>
+  </p>
+  <hr style="margin-bottom: 0;">
+</div>
+
+<div class="modal-body">
+  <h3 class="text-center">
+    Are you sure you want to cancel your account?
+  </h3>
+
+  <hr class="spacer spacer-sm">
+
+  <div class="row">
+    <div class="col-sm-5 col-sm-offset-1 lead">
+      <h3>No problem, here's what will happen:</h3>
+      <ul>
+        <li>All your sites and content will be deleted</li>
+        <li>You will no longer be able to login</li>
+      </ul>
+    </div>
+    <div class="col-sm-5 col-sm-offset-1">
+      <h3>Reason for cancelling <span class="text-muted">(optional)</span></h3>
+      <textarea name="reason" rows="4" cols="40" placeholder="What could make Upsite better?" class="form-control"></textarea>
+    </div>
+  </div>
+  <hr class="spacer spacer-sm">
+  <hr style="margin-bottom: 0; padding-bottom: 0;">
+</div>
+
+<div class="modal-footer" style="padding-top: 25px;">
+  <div class="pull-left" style="margin-top: 8px;">
+    <span class="text-muted">
+      <i class="fa fa-lg fa-frown-o"></i>&nbsp;
+      Sorry to see you go
+    </span>
+  </div>
+
+  <a href="<%= site_url(@site) %>" class="btn btn-success">
+    Keep account
+  </a>
+
+  &nbsp;&nbsp;
+
+  <button type="submit" class="btn btn-danger">
+    Cancel account
+  </button>
+</div>
+
+<% end %>

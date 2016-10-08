@@ -9,8 +9,9 @@ class SitesController < ApplicationController
   end
 
   def show
-    @site = Site.all.find_by!(subdomain: request.subdomains.first)
+    @site = Site.active.find_by!(subdomain: request.subdomains.first)
     @blocks = @site.blocks.includes(:attachments).all
+    session[:current_site_id] = @site.id if current_user
   end
 
   def new
@@ -42,19 +43,9 @@ class SitesController < ApplicationController
     end
   end
 
-  def upgrade
-    NotificationsMailer.analytics_email(
-      :upgrade, current_user, view_context.site_url(@site), :custom_url
-    ).deliver_now
-    render 'upgrade'
-  end
-
-  def upgrade_confirm
-  end
-
   private
 
   def site_params
-    params.require(:site).permit(:name, :description, :color, :border)
+    params.require(:site).permit(:name, :description, :color)
   end
 end

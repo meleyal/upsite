@@ -4,7 +4,7 @@
       color: <%= @site.color %>;
       border-color: <%= @site.color %>;
     }
-    .hud a:hover {
+    .hud a:hover, .hud a.active {
       background: <%= @site.color %>;
     }
     .nav-tabs .active a {
@@ -20,14 +20,20 @@
     .page-footer .underline {
       border-color: <%= @site.color %>;
     }
-    .modal-content {
-      // border-color: <%= @site.color %> !important;
-    }
     .label-success {
       background: <%= @site.color %> !important;
     }
     .fa-check {
       color: <%= @site.color %>;
+    }
+    .alert-success {
+      background: <%= @site.color %>;
+    }
+    .well-success {
+      border-color: <%= @site.color %>;
+    }
+    .badge-success {
+      background: <%= @site.color %>;
     }
   </style>
 <% end %>

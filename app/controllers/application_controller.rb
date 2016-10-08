@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
+  include SitesHelper
   include AdsHelper
 
   before_action :authenticate

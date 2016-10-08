@@ -2,15 +2,6 @@
 // Buttons
 // --------------------------------------------------
 
-.btn {
-  &[disabled],
-  .disabled {
-    &:hover {
-      cursor: default;
-    }
-  }
-}
-
 .btn-default {
   border: 1px solid $btn-default-border;
 
@@ -58,6 +49,10 @@
   &:active {
     border-color: $btn-success-bg;
   }
+}
+
+.btn-danger {
+  font-weight: bold;
 }
 
 .btn-danger-outline {

@@ -1,0 +1,91 @@
+<% content_for :favicon, site_favicon_link(@site) %>
+<%= render 'sites/theme.css.scss' %>
+
+<%= form_for @subscription, url: upgrade_path, method: 'POST', data: { stripe: "form" } do |f| %>
+
+<div class="modal-header">
+  <h3 class="modal-title text-center" style="font-size: 32px; margin-top: 10px;">
+    Upsite
+      <span class="label label-success" style="display: inline-block; transform: translate(0px, -4px); padding: 6px 10px;">PRO</span>
+  </h3>
+  <p class="lead text-center">
+    for <%= @user.sites.limit(5).map(&:name).join(', ') %><%= '...' if @user.sites.count > 5 %>
+  </p>
+  <hr style="margin-bottom: 0;">
+</div>
+
+<div class="modal-body">
+  <div data-stripe="feedback" class="alert alert-warning text-center lead <%= flash[:error].present? ? '' : 'hidden' %>" style="margin-bottom: 25px;">
+    <%= flash[:error] %>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-1">
+        <input type="hidden" name="site_id" value="<%= @site.id %>">
+        <input type="hidden" name="token" value="">
+        <div class="form-group has-success has-feedback">
+          <label for="" class="control-label">Email</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+            <input type="email" value="<%= current_user.email %>" disabled class="form-control">
+            <span class="fa fa-check form-control-feedback"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="control-label">Card number</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-credit-card fa-fw"></i></span>
+            <input type="text" data-stripe="number" class="form-control" placeholder="•••• •••• •••• ••••" autofocus>
+            <span class="fa fa-check form-control-feedback form-control-feedback-success hidden"></span>
+            <span class="fa fa-times form-control-feedback form-control-feedback-error hidden"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="control-label">Card expiry</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-calendar-o fa-fw"></i></span>
+            <input type="text" data-stripe="exp" class="form-control" placeholder="•• / ••">
+            <span class="fa fa-check form-control-feedback form-control-feedback-success hidden"></span>
+            <span class="fa fa-times form-control-feedback form-control-feedback-error hidden"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="control-label">Card CVC</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
+            <input type="text" data-stripe="cvc" class="form-control" placeholder="•••">
+            <span class="fa fa-check form-control-feedback form-control-feedback-success hidden"></span>
+            <span class="fa fa-times form-control-feedback form-control-feedback-error hidden"></span>
+          </div>
+        </div>
+        <hr class="spacer spacer-xs">
+        <button type="submit" class="btn btn-success" disabled data-stripe="submit" data-loading-text="Processing..." title="Please complete all fields">
+          Pay £5 / month
+        </button>
+        &nbsp;&nbsp;&nbsp;
+        <span class="text-muted">
+          <i class="fa fa-lock"></i>&nbsp;
+          Secured with <strong>Stripe</strong>
+        </span>
+    </div>
+    <div class="col-sm-6 col-sm-offset-1" style="padding-top: 30px;">
+      <h2>only £5 / month<br>
+        <span class="small text-muted">(approx. €5.70 / $6.30)</span>
+      </h2>
+      <ul class="fa-ul lead" style="padding-top: 10px;">
+        <li><i class="fa-li fa fa-check"></i>Unlimited content</li>
+        <li><i class="fa-li fa fa-check"></i>Create up to <strong>5</strong> sites</li>
+        <li><i class="fa-li fa fa-check"></i>Future <span class="label label-success" style="display: inline-block; padding: 4px 5px; transform: translate(0, -1px);">PRO</span>
+ features</li>
+        <li><i class="fa-li fa fa-check"></i>No contract, cancel anytime</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="spacer spacer-sm">
+</div>
+
+<% end %>
+
+<% content_for :javascripts do %>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script>Stripe.setPublishableKey('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');</script>
+<% end %>

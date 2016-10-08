@@ -32,7 +32,8 @@ gem 'hirb', require: false
 group :test, :development do
   gem 'dotenv-rails'
   gem 'wirble'
-  gem 'quiet_assets', :git => 'git://github.com/evrone/quiet_assets.git'
+  gem 'quiet_assets'
+  gem 'pry-rails'
   gem 'awesome_print'
   gem 'guard', '>= 2.2.2', require: false
   gem 'guard-livereload', require: false

@@ -52,16 +52,26 @@ label.small {
   @include translate(20px, 4px);
 }
 
-.has-error {
+.has-error,
+.has-success {
   .form-control {
     & {
-      border-color: #bbb;
+      border-color: $input-border;
       @include box-shadow(none);
     }
 
     &:focus {
       border-color: $input-border-focus;
       @include form-control-focus($input-border-focus);
+    }
+  }
+
+  .input-group-addon {
+    border-color: $input-border;
+    background: $input-group-addon-bg;
+
+    i {
+      color: $input-color;
     }
   }
 
@@ -79,6 +89,12 @@ label.small {
   }
 }
 
+.has-feedback {
+  .input-group .form-control-feedback {
+    top: 12px;
+  }
+}
+
 // Disabled 'PRO' fields
 .form-group-click-target {
   color: #000 !important;
@@ -88,7 +104,7 @@ label.small {
   .control-label,
   .form-control {
     cursor: pointer;
-    
+
     &:hover {
       text-decoration: none;
     }
