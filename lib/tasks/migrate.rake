@@ -10,7 +10,7 @@ namespace :migrate do
 
   desc 'Plans'
   task :plans => :environment do
-    Plans.create(name: 'Promo', code: 'promo', cost_per_month: 0, site_limit: 10, block_limit: 1000)
+    Plan.create(name: 'Promo', code: 'promo', cost_per_month: 0, site_limit: 10, block_limit: 1000)
     Plan.free.update(cost_per_month: 0, site_limit: 1, block_limit: 12)
     Plan.pro.update(name: 'Pro', code: 'pro_5', cost_per_month: 500, site_limit: 5, block_limit: 1000)
   end
