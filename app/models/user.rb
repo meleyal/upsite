@@ -60,6 +60,7 @@ class User < ActiveRecord::Base
     customer = Stripe::Customer.retrieve(self.stripe_customer_id)
     subscription = Stripe::Subscription.retrieve(customer.subscriptions.first.id)
     subscription.plan = plan.code
+    subscription.prorate = false
     subscription.save
     self.subscription.update(plan: plan, ends_at: Time.at(subscription.current_period_end))
   end

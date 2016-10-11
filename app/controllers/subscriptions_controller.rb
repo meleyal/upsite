@@ -15,12 +15,14 @@ class SubscriptionsController < ApplicationController
     Subscription.transaction do
       @site = current_site
       customer = Stripe::Customer.retrieve(current_user.stripe_customer_id)
-      customer.plan = Plan.pro.code
-      customer.source = params[:token]
-      customer.save
+      subscription = Stripe::Subscription.retrieve(customer.subscriptions.first.id)
+      subscription.plan = Plan.pro.code
+      subscription.source = params[:token]
+      subscription.prorate = false
+      subscription.save
       current_user.subscription.update(
         plan: Plan.pro,
-        ends_at: Time.at(customer.subscriptions.data.first.current_period_end)
+        ends_at: Time.at(subscription.current_period_end)
       )
       NotificationsMailer.analytics_email(:upgrade, current_user).deliver_now
       flash[:analytics_upgrade] = true
@@ -37,6 +39,7 @@ class SubscriptionsController < ApplicationController
       customer = Stripe::Customer.retrieve(current_user.stripe_customer_id)
       subscription = Stripe::Subscription.retrieve(customer.subscriptions.first.id)
       subscription.plan = Plan.free.code
+      subscription.prorate = false
       subscription.save
       current_user.subscription.update(
         plan: Plan.free,
