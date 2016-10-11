@@ -19,7 +19,7 @@
     <%= flash[:error] %>
   </div>
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-1">
+    <div class="col-sm-5 col-sm-offset-1">
         <input type="hidden" name="site_id" value="<%= @site.id %>">
         <input type="hidden" name="token" value="">
         <div class="form-group has-success has-feedback">
@@ -58,30 +58,48 @@
           </div>
         </div>
         <hr class="spacer spacer-xs">
-        <button type="submit" class="btn btn-success" disabled data-stripe="submit" data-loading-text="Processing..." title="Please complete all fields">
+        <button type="submit" class="btn btn-success" data-stripe="submit" data-loading-text="Processing...">
           Pay £5 / month
         </button>
         &nbsp;&nbsp;&nbsp;
         <span class="text-muted">
           <i class="fa fa-lock"></i>&nbsp;
-          Secured with <strong>Stripe</strong>
+          Payments securely processed with <strong>Stripe</strong>
         </span>
     </div>
-    <div class="col-sm-6 col-sm-offset-1" style="padding-top: 30px;">
+    <div class="col-sm-5 col-sm-offset-1" style="padding-top: 45px;">
       <h2>only £5 / month<br>
-        <span class="small text-muted">(approx. €5.70 / $6.30)</span>
+        <span class="text-muted lead">(approx. €5.70 / $6.30)</span>
       </h2>
       <ul class="fa-ul lead" style="padding-top: 10px;">
-        <li><i class="fa-li fa fa-check"></i>Unlimited content</li>
-        <li><i class="fa-li fa fa-check"></i>Create up to <strong>5</strong> sites</li>
-        <li><i class="fa-li fa fa-check"></i>Future <span class="label label-success" style="display: inline-block; padding: 4px 5px; transform: translate(0, -1px);">PRO</span>
- features</li>
-        <li><i class="fa-li fa fa-check"></i>No contract, cancel anytime</li>
+        <li><i class="fa-li fa fa-check"></i>Up to <strong>5</strong> sites</li>
+        <li><i class="fa-li fa fa-check"></i><strong>Unlimited</strong> blocks</li>
+        <li><i class="fa-li fa fa-check"></i>
+          <a class="text-link" href="<%= roadmap_url(subdomain: 'www') %>" target="roadmap">
+            Future <strong>PRO</strong> features
+          </a>
+        </li>
+        <li><i class="fa-li fa fa-check"></i><strong>No contract</strong>, cancel anytime</li>
       </ul>
     </div>
   </div>
   <hr class="spacer spacer-sm">
+  <hr style="margin-bottom: 0; padding-bottom: 0;">
 </div>
+
+<div class="modal-footer" style="padding-top: 25px;">
+  <div class="pull-left" style="margin-top: 8px;">
+    <span class="text-muted">
+      <i class="fa fa-calendar-o"></i>&nbsp;
+      Subscriptions are billed monthly. Your receipt will be sent via email.
+    </span>
+  </div>
+
+  <a href="<%= site_url(@site) %>" class="btn btn-default">
+    Return to your site
+  </a>
+</div>
+
 
 <% end %>
 

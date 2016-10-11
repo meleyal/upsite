@@ -21,3 +21,11 @@
 img ~ .label {
   margin-left: -20px;
 }
+
+.list-group-item .label {
+  float: right;
+  font-size: 12px;
+  padding-top: 4px;
+  line-height: 12px;
+  margin-top: -1px;
+}
