@@ -1,16 +1,14 @@
 
 Launch:
 
-- [ ] deploy
-- [ ] run rake tasks on heroku:
-    rake db:migrate
-    rake subscribe_all_users_to_free_plan
-    rake update_plans
-- [ ] test
 
 
 Done:
 
+- [x] Add conversion event
+- [x] test
+- [x] deploy
+- [x] run rake tasks on heroku:
 - [x] downgrade if payment declined
 - [x] upgrade should link to settings/account
 - [x] extend :plan_active_until
