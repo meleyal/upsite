@@ -15,6 +15,7 @@ $(document).on 'ajax:error', 'form[data-remote]', (event, response) ->
   renderErrors $form, json
 
 removeErrors = ($form) ->
+  $form.find('input[type="submit"]').button('reset')
   $form.find('.form-group')
     .removeClass 'has-error'
     .find '.help-block'

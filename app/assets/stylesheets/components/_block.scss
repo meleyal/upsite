@@ -105,9 +105,10 @@
 
   // img-responsive
   .embed img {
-    display: block;
+    display: inline-block;
     max-width: 100%;
     height: auto;
+    text-align: center;
   }
 
   img ~ a {

@@ -6,6 +6,8 @@ class SignupsController < ApplicationController
   def new
     @user = User.new
     @site = Site.new(owner: @user)
+    version = %w(a b).include?(params[:v]) ? params[:v] : 'b'
+    render "new_#{version}"
   end
 
   def create

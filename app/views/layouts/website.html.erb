@@ -30,7 +30,7 @@
   <div class="container">
     <%= render('website/header') unless content_for?(:header).present? %>
     <%= yield %>
-    <%= render 'website/footer' %>
+    <%= render('website/footer') unless content_for(:footer).present? %>
   </div>
 
   <!-- Analytics -->
