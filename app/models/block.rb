@@ -11,4 +11,8 @@ class Block < ActiveRecord::Base
     type = self.type.downcase
     "blocks/#{type}/#{type}"
   end
+
+  def editable?
+    false
+  end
 end

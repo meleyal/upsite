@@ -1,7 +1,7 @@
 class BlocksController < ApplicationController
   before_action :set_site
   before_action :require_site_owner
-  before_action :set_block, only: [:update, :destroy]
+  before_action :set_block, only: [:edit, :update, :destroy]
   layout :false
 
   def new
@@ -21,6 +21,9 @@ class BlocksController < ApplicationController
     else
       render json: { block: @block.errors }, status: :unprocessable_entity
     end
+  end
+
+  def edit
   end
 
   def update
@@ -46,25 +49,25 @@ class BlocksController < ApplicationController
 
   protected
 
-    def block_type
-      params[:type].present? ? params[:type].underscore.pluralize.to_s : nil
-    end
+  def block_type
+    params[:type].present? ? params[:type].underscore.pluralize.to_s : nil
+  end
 
   private
 
-    def set_block
-      @block = @site.blocks.find(params[:id])
-    end
+  def set_block
+    @block = @site.blocks.find(params[:id])
+  end
 
-    def block_params
-      params.require(:block).permit(
-        :ids,
-        :type,
-        :position,
-        :body,
-        :embed_url,
-        :link_url,
-        :color,
-        attachments_attributes: [:upload])
-    end
+  def block_params
+    params.require(:block).permit(
+      :ids,
+      :type,
+      :position,
+      :body,
+      :embed_url,
+      :link_url,
+      :color,
+      attachments_attributes: [:upload])
+  end
 end

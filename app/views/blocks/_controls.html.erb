@@ -3,6 +3,16 @@
     <a href="#" class="move" title="Drag to move" rel="tooltip" data-trigger="hover" data-animation="false" data-placement="left">
       <i class="fa fa-arrows"></i>
     </a>
+    <% if block.editable? %>
+    <a href="<%= edit_block_path(block, type: block.type.downcase) %>" data-toggle="modal"
+      data-target="#modal"
+      title="Edit"
+      rel="tooltip"
+      data-placement="left"
+      data-animation="false">
+      <i class="fa fa-pencil"></i>
+    </a>
+    <% end %>
     <a href="<%= block_path(block) %>" data-method="delete"
       data-confirm="Are you sure you want to delete this block?"
       title="Delete"

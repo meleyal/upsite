@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     post 'sites' => 'sites#create'
     resources :help, only: [:new, :create]
     get 'help/:slug', to: 'help#show', as: 'help_article'
-    resources :blocks, only: [:new, :create, :update, :destroy] do
+    resources :blocks do
       post 'sort', on: :collection
     end
   end

@@ -1,4 +1,7 @@
-<% url = blocks_path(type: 'text') %>
+<%
+url = blocks_path(type: 'text')
+url = block_path(type: 'text', id: @block.id) if @block.persisted?
+%>
 
 <%= simple_form_for(@block, as: :block, url: url, remote: true) do |f| %>
 
