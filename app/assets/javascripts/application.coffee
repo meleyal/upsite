@@ -2,11 +2,12 @@
 #= require jquery_ujs
 #= require turbolinks
 #= require jquery-ui
-#= require jquery.remotipart
+#= require jquery-fileupload/jquery.fileupload
+#= require jquery.jcrop
+#= require papercrop
 #= require jquery.embedly
 #= require jquery.payment
 #= require trix
-#= require dropzone
 #= require bootstrap
 #= require bootstrap-colorpicker
 #= require_tree ./behaviors

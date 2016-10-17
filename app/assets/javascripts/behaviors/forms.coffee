@@ -1,4 +1,11 @@
 ##
+# Set default button loading text
+#
+$.fn.button.Constructor.DEFAULTS = {
+  loadingText: 'Posting...'
+}
+
+##
 # [data-autofill]
 # Autofill one field based on the value of another
 #

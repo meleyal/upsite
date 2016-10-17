@@ -21,6 +21,15 @@ textarea.form-control {
   padding-top: 10px;
 }
 
+.form-control-img-preview {
+  > #upload_cropbox > img {
+    display: none;
+  }
+  .jcrop-keymgr {
+    visibility: hidden;
+  }
+}
+
 label {
   a {
     color: $black;

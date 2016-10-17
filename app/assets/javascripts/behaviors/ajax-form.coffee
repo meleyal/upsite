@@ -5,6 +5,14 @@
 #
 
 ##
+# Submit
+#
+
+$(document).on 'submit', 'form[data-remote]', (e, response) ->
+  $(e.target).find('input[type="submit"]').button('loading')
+
+
+##
 # Error
 #
 
@@ -47,11 +55,16 @@ attrToId = (name, attr) ->
 # Success
 #
 
-$(document).on 'ajax:success', 'form[data-remote]', (..., xhr) ->
-  # FIXME: hack for remotipart uploads sending no location header
-  if location = xhr.getResponseHeader 'Location'
-    if xhr.getResponseHeader('turbolinks') is 'false'
-      window.location = location
-    else
-      Turbolinks.visit location
-      # Turbolinks.visit window.location
+redirect = (xhr) ->
+  if xhr.getResponseHeader('turbolinks') is 'false'
+    window.location = location
+  else
+    Turbolinks.visit location
+
+# replace = (e) ->
+#   $modal = $(e.currentTarget).parents('.modal')
+#   content = xhr.responseText
+#   $modal.find('.modal-content').html(content)
+
+$(document).on 'ajax:success', 'form[data-remote]', (e, data, textStatus, xhr) ->
+    redirect(xhr)

@@ -7,7 +7,7 @@ class Image < Block
   validate :validate_attachment_quota
 
   def editable?
-    false
+    true
   end
 
   def image

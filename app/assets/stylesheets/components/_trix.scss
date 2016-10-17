@@ -1,9 +1,15 @@
 trix-toolbar {
   .history_tools,
+  button.heading-1,
   button.code,
   button.block-level,
-  button.strike {
+  button.strike,
+  button.nesting-level {
     display: none;
+  }
+
+  button.quote {
+    border-left: 0 !important;
   }
 }
 

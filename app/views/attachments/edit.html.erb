@@ -1,0 +1,34 @@
+<%= simple_form_for(@attachment, url: block_attachment_path(@block, @attachment), remote: true, html: { multipart: true }) do |f| %>
+
+  <div class="modal-header">
+    <h4 class="modal-title">Add Image</h4>
+  </div>
+
+  <ul class="modal-nav nav nav-tabs">
+    <li class="active">
+      <a href="#upload" data-toggle="tab">Upload image</a>
+    </li>
+    <li class="disabled">
+      <a href="#web" class="disabled">Add image from web</a>
+    </li>
+  </ul>
+
+  <div class="modal-body">
+    <div class="tab-content">
+      <div id="upload" class="tab-pane active">
+        <div class="form-group">
+          <label class="control-label">Upload image</label>
+          <div class="form-control-img-preview">
+            <%= f.cropbox :upload, width: 550 %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="modal-footer">
+    <%= f.button :submit, value: 'Post', class: 'btn btn-success', data: { loading_text: 'Posting...' } %>
+  </div>
+
+<% end %>

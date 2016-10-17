@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     get 'help/:slug', to: 'help#show', as: 'help_article'
     resources :blocks do
       post 'sort', on: :collection
+      resources :attachments
     end
   end
 

@@ -15,9 +15,11 @@ class BlocksController < ApplicationController
     @block = @site.send(block_type).new(block_params)
 
     if @block.save
-      # Uploading an attachment creates the resource, so return the new resource url
-      # to change the form to a PUT request (see dropzone.js)
-      render json: { url: block_url(@block) }, status: :created, location: request.referrer
+      if @block.is_a?(Image) && @block.attachments.first.present?
+        redirect_to edit_block_attachment_path(@block, @block.attachments.first)
+      else
+        render json: { url: block_url(@block) }, status: :created, location: request.referrer
+      end
     else
       render json: { block: @block.errors }, status: :unprocessable_entity
     end
