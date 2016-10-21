@@ -4,6 +4,7 @@ class Attachment < ActiveRecord::Base
   has_attached_file :upload,
     path: ":rails_root/public/system/:app_name_:hash_:style.:extension",
     url: "/system/:app_name_:hash_:style.:extension",
+    hash_data: ":class/:attachment/:id/:style",
     hash_secret: "QXBhFYdt2JU7ZINf",
     styles: { medium: '300x300#', medium_2x: '600x600#' }
 
