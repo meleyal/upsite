@@ -42,6 +42,9 @@ Rails.application.configure do
   # Automatically inject JavaScript needed for LiveReload
   config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
 
+  # Reload local Gems
+  RequireReloader.watch_local_gems!
+
   # Set path so Paperclip can find imagemagick
   Paperclip.options[:command_path] = "/usr/local/bin/"
 

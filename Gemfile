@@ -11,7 +11,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'trix'
 gem 'simple_form', '~> 3.1.0'
-gem 'paperclip', '~> 3.4.0'
+gem 'paperclip', '~> 4.3.7'
 gem 'papercrop', git: 'https://github.com/meleyal/papercrop.git'
 gem 'jquery-fileupload-rails', '~> 0.4.6'
 gem 'aws-sdk', '~> 1.8.0'
@@ -36,6 +36,7 @@ group :test, :development do
   gem 'quiet_assets'
   gem 'pry-rails'
   gem 'awesome_print'
+  gem 'require_reloader'
   gem 'guard', '>= 2.2.2', require: false
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
