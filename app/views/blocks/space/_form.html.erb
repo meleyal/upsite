@@ -1,10 +1,13 @@
-<% url = blocks_path(type: 'space') %>
+<%
+url = blocks_path(type: 'space')
+url = block_path(type: 'space', id: @block.id) if @block.persisted?
+%>
 
 <%= simple_form_for(@block, as: :block, url: url, remote: true) do |f| %>
 
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h4 class="modal-title">Add Space</h4>
+    <h4 class="modal-title"><%= @block.new_record? ? 'Add' : 'Edit' %> Space</h4>
   </div>
 
   <div class="modal-body">

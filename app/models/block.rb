@@ -13,6 +13,6 @@ class Block < ActiveRecord::Base
   end
 
   def editable?
-    false
+    true
   end
 end
