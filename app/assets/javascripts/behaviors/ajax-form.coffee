@@ -56,6 +56,7 @@ attrToId = (name, attr) ->
 #
 
 redirect = (xhr) ->
+  location = xhr.getResponseHeader('location')
   if xhr.getResponseHeader('turbolinks') is 'false'
     window.location = location
   else
@@ -67,4 +68,4 @@ redirect = (xhr) ->
 #   $modal.find('.modal-content').html(content)
 
 $(document).on 'ajax:success', 'form[data-remote]', (e, data, textStatus, xhr) ->
-    redirect(xhr)
+  redirect(xhr)
