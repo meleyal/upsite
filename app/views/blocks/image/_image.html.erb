@@ -10,4 +10,10 @@
     <a data-embed href="<%= image.embed_url %>"></a>
   <% end %>
 
+  <% if image.title.present? %>
+    <div class="block-caption">
+      <%= image.title %>
+    </div>
+  <% end %>
+
 </div>

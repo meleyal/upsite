@@ -25,28 +25,29 @@ url = block_path(type: 'image', id: @block.id) if @block.persisted?
     <%= simple_form_for(@block, as: :block, url: url, remote: true, html: { multipart: true }) do |f| %>
       <div class="modal-body">
         <% if @block.new_record? %>
-        <div class="form-group">
-          <label class="control-label">Upload image</label>
-          <ul class="list-group">
-            <li class="list-group-item hidden">
-              <p class="progress-status">Uploading...</p>
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" style="width: 20%;"></div>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <a href="#" class="btn btn-success fileinput-button">
-                <i class="fa fa-lg fa-cloud-upload"></i>&nbsp;
-                <span>Select file</span>
-                <%= f.file_field 'attachments_attributes[0][upload]',
-                  accept: '.jpg, .jpeg, .png, .gif',
-                  data: { upload: true } %>
-              </a>
-            </li>
-          </ul>
-        </div>
+          <div class="form-group">
+            <label class="control-label">Upload image</label>
+            <ul class="list-group">
+              <li class="list-group-item hidden">
+                <p class="progress-status">Uploading...</p>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-success" style="width: 20%;"></div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <a href="#" class="btn btn-success fileinput-button">
+                  <i class="fa fa-lg fa-cloud-upload"></i>&nbsp;
+                  <span>Select file</span>
+                  <%= f.file_field 'attachments_attributes[0][upload]',
+                    accept: '.jpg, .jpeg, .png, .gif',
+                    data: { upload: true } %>
+                </a>
+              </li>
+            </ul>
+          </div>
         <% else %>
-          <%= f.input :link_url, label: 'Go to this link when clicking the image (optional)', placeholder: 'http://' %>
+          <%= f.input :title, label: 'Caption' %>
+          <%= f.input :link_url, label: 'Go to this link when clicking the image', placeholder: 'http://' %>
         <% end %>
       </div>
       <div class="modal-footer">

@@ -66,6 +66,7 @@ class BlocksController < ApplicationController
       :ids,
       :type,
       :position,
+      :title,
       :body,
       :embed_url,
       :link_url,

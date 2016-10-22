@@ -99,6 +99,7 @@
 }
 
 .block-image {
+  position: relative;
   overflow: hidden;
   line-height: 300px;
   text-align: center;
@@ -113,6 +114,16 @@
 
   img ~ a {
     display: none;
+  }
+
+  .block-caption {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: $white;
+    display: inline-block;
+    line-height: 1;
+    padding: 10px;
   }
 }
 
