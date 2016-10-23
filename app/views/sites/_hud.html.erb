@@ -1,14 +1,20 @@
 <div class="hud">
 
   <!-- Add -->
-  <% if current_user.pro? || (@site.blocks.length < current_user.plan.block_limit) %>
+  <% if @site.markdown? %>
+    <a href="<%= edit_path %>"
+      class="add"
+      title="Edit" rel="tooltip" data-placement="left">
+      <i class="fa fa-pencil fa-lg"></i>
+    </a>
+  <% elsif current_user.pro? || (@site.blocks.length < current_user.plan.block_limit) %>
     <a href="<%= new_block_path %>"
       class="add"
       title="Add" data-toggle="modal" data-target="#modal" rel="tooltip" data-placement="left">
       <i class="fa fa-plus fa-lg"></i>
     </a>
   <% else %>
-    <a href="<%= settings_path(tab: 'account') %>"
+    <a href="<%= settings_path(:upgrade) %>"
       class="add"
       data-toggle="modal"
       data-target="#modal"
@@ -18,7 +24,7 @@
   <% end %>
 
   <!-- Settings -->
-  <a href="<%= settings_path %>"
+  <a href="<%= settings_path(:site) %>"
     title="Settings" data-toggle="modal" data-target="#modal" rel="tooltip" data-placement="left">
     <i class="fa fa-cog fa-lg"></i>
   </a>
@@ -31,5 +37,3 @@
   </a>
 
 </div>
-
-<div class="hud hud-bottom"></div>

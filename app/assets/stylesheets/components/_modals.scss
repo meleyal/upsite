@@ -10,8 +10,6 @@
 
 .modal-content {
   box-shadow: 0 3px 9px rgba($black, .2);
-  // box-shadow: none;
-  // border: 8px solid #f7f7f7;
   border: 0;
   padding: 10px;
 }
@@ -55,5 +53,15 @@
   .modal-content {
     width: 100vw;
     height: 100vh;
+  }
+}
+
+// Intercom style contact overlay
+.modal-contact {
+  .modal-dialog {
+    position: absolute;
+    right: 20px;
+    bottom: 60px;
+    width: 25vw;
   }
 }

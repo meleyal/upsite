@@ -2,7 +2,7 @@ class SitesController < ApplicationController
   before_action :set_site, except: [:show]
   before_action :require_site_owner, except: [:show]
   skip_before_action :authenticate, only: [:show]
-  layout :false, except: [:show]
+  layout :false, except: [:show, :edit]
 
   def index
     @sites = current_user.sites.active
@@ -32,20 +32,24 @@ class SitesController < ApplicationController
   end
 
   def edit
+    redirect_to root_path unless @site.markdown?
   end
 
   def update
     @site.update_attributes(site_params)
     if @site.save
-      head :ok, location: request.referrer
-    else
-      render json: { site: @site.errors }, status: :unprocessable_entity
+        redirect_to root_path
     end
   end
 
   private
 
   def site_params
-    params.require(:site).permit(:name, :description, :color)
+    params.require(:site).permit(
+      :name,
+      :description,
+      :body,
+      :color
+    )
   end
 end

@@ -1,0 +1,40 @@
+<%= content_for(:title, 'Markdown') %>
+<%= content_for(:header, 'false') %>
+<%= content_for(:footer, 'false') %>
+
+<div class="wrapper">
+  <div class="column column-a">
+    <i class="slide-caret fa fa-caret-right" style="color: #fff;"></i>
+    <div class="slide">
+      <h2 class="text-center">
+        <span class="underline">Upsite</span> turns Markdown...
+      </h2>
+      <div class="spacer spacer-xs hidden-xs"></div>
+      <pre class="pre-lg" style="width: 100%;">
+> An 'Upsite' written in markdown consists
+> of **text blocks** (blockquote syntax)...
+
+> And **media blocks** (image syntax) supporting
+> auto-embeds from 400+ sites:
+
+![Videos](http://youtube.com/xyz)
+
+![Images](http://giphy.com/abc)
+
+![Audio](http://soundcloud.com/jkl)
+
+![Maps](http://maps.google.com/qwe)</pre>
+      <div class="spacer spacer-xs"></div>
+      <a href="<%= signup_path(markdown: true) %>" class="btn btn-lg btn-success" style="margin-top: 0;">Sign up for free</a>
+      <div class="spacer spacer-xs"></div>
+    </div>
+  </div>
+  <div class="column column-inverse column-b">
+    <div class="slide" style="background: #00d37a;">
+      <h2 class="text-center">
+        ..into a beautiful, simple website
+      </h2>
+      <img src="<%= image_path('signup/meleyal-site.png') %>" class="img-responsive">
+    </div>
+  </div>
+</div>

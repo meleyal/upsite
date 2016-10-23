@@ -1,0 +1,16 @@
+//
+// Media
+// --------------------------------------------------
+
+.media-flex {
+  display: flex;
+  align-items: center;
+
+  .media-left {
+    padding-right: 15px;
+  }
+
+  .media-body {
+    width: auto;
+  }
+}

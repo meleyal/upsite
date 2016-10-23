@@ -139,3 +139,24 @@
     background: #f45c0e;
   }
 }
+
+// Intercom style contact button
+.btn-contact {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: #38D36E;
+  color: #fff !important;
+  font-size: 22px;
+  border-radius: 100%;
+  box-shadow: 0 0 5px hsla(0,0%,100%,.1), 0 0 10px 0 rgba(0,0,0,.15);
+
+  &:focus,
+  &:hover,
+  &:active {
+    outline: none !important;
+  }
+}

@@ -20,11 +20,15 @@
   </div>
 </div>
 
-<div class="blocks" data-sortable>
-  <% if @blocks.present? %>
-    <%= render @blocks %>
-  <% end %>
-</div>
+<% if @site.markdown? %>
+  <div class="blocks blocks-markdown">
+    <%= markdown_custom(@site.body) if @site.body.present? %>
+  </div>
+<% else %>
+  <div class="blocks" data-sortable>
+    <%= render @blocks if @blocks.present? %>
+  </div>
+<% end %>
 
 <% if current_user == @site.owner %>
   <%= render 'hud' %>

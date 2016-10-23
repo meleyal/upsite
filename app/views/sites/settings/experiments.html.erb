@@ -1,0 +1,37 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">&times;</button>
+  <h4 class="modal-title">Settings</h4>
+</div>
+
+<%= render 'sites/settings/nav' %>
+
+<div class="tab-content">
+  <div class="tab-pane active">
+    <%= simple_form_for(@site, url: settings_path, remote: true) do |f| %>
+      <div class="modal-body">
+        <div class="alert alert-warning">
+          <i class="fa fa-flask"></i>
+          <strong>Experimental features!</strong> – May be unstable and subject to change.
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <label class="pull-right">
+              <%= f.check_box :markdown, class: 'checkbox-lg' %>
+            </label>
+            <h4 class="list-group-item-heading">Upsite.markdown</h4>
+            <div class="list-group-item-text">
+              <p>Write your site in Markdown</p>
+              <span class="text-muted">
+                <i class="fa fa-warning"></i>
+                Non-markdown blocks you've created won't be available when enabled.
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <%= f.button :submit, class: 'btn btn-success' %>
+      </div>
+    <% end %>
+  </div>
+</div>

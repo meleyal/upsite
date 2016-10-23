@@ -1,3 +1,7 @@
+//
+// Alerts
+// --------------------------------------------------
+
 .alert {
   padding: 12px;
 }
@@ -54,4 +58,16 @@
     margin-top: 50px;
   }
 
+}
+
+.alert-warning {
+  background: $brand-warning;
+  color: $text-color;
+  border: 0;
+  text-align: center;
+
+  a {
+    color: $text-color;
+    text-decoration: underline;
+  }
 }

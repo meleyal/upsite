@@ -6,8 +6,11 @@ Rails.application.routes.draw do
 
   constraints :subdomain => /^(?!www\Z)(\w+)/ do
     get '/' => 'sites#show'
-    get 'settings' => 'sites#edit'
-    patch 'settings' => 'sites#update'
+    get 'settings/:group' => 'settings#edit', as: 'settings',
+      constraints: { group: /site|account|user|sites|experiments/ }
+    patch 'settings/:group' => 'settings#update'
+    get 'edit' => 'sites#edit'
+    patch 'edit' => 'sites#update'
     get 'sites' => 'sites#index'
     get 'sites/new' => 'sites#new', as: :new_site
     post 'sites' => 'sites#create'
@@ -36,6 +39,7 @@ Rails.application.routes.draw do
     get 'privacy', to: redirect('/legal')
     get 'legal', to: 'website#legal'
     get 'roadmap', to: 'website#roadmap'
+    get 'markdown', to: 'website#markdown'
     root 'website#index'
   end
 

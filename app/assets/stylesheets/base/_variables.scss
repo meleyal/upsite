@@ -33,8 +33,10 @@ $yellow: #FACE54;
 $brand-primary: $green;
 $brand-success: $green;
 $brand-danger: $red;
+$brand-warning: $yellow;
 
 $text-color: $black;
+$text-muted: #ccc;
 $link-color: $blue;
 
 $input-color: $text-color;
@@ -47,6 +49,7 @@ $font-size-base: 12px;
 $line-height-base: 1.5;
 $font-size-small: 12px;
 $font-family-sans-serif: 'Helvetica', sans-serif;
+$font-family-monospace:  Monaco, Consolas, "Courier New", monospace;
 
 $font-size-h1: 48px;
 $font-size-h2: 27px;

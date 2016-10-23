@@ -44,6 +44,7 @@ class SignupsController < ApplicationController
     params.require(:site).permit(
       :name,
       :subdomain,
+      :markdown,
       owner_attributes: [
         :email,
         :password,

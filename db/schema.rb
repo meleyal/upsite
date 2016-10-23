@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007170706) do
+ActiveRecord::Schema.define(version: 20161022113934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,12 +84,14 @@ ActiveRecord::Schema.define(version: 20161007170706) do
     t.boolean  "featured"
     t.string   "owner_id"
     t.datetime "deleted_at"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "border",      default: true
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.jsonb    "settings",    default: {}, null: false
+    t.text     "body"
   end
 
   add_index "sites", ["owner_id"], name: "index_sites_on_owner_id", using: :btree
+  add_index "sites", ["settings"], name: "index_sites_on_settings", using: :gin
   add_index "sites", ["subdomain"], name: "index_sites_on_subdomain", unique: true, using: :btree
 
   create_table "subscriptions", force: :cascade do |t|

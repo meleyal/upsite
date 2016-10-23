@@ -8,6 +8,8 @@
         hint: 'http://my-site.upsite.io'
    %>
 
+  <%= f.hidden_field :markdown, value: (params[:markdown] == 'true' ? 1 : 0) %>
+
   <!-- User -->
   <%= f.fields_for :owner do |ff| %>
     <%= ff.input :email,

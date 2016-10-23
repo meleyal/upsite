@@ -21,6 +21,10 @@ textarea.form-control {
   padding-top: 10px;
 }
 
+.form-control-code {
+  font-family: 'Menlo', monospace;
+}
+
 .form-control-img-preview {
   > #upload_cropbox > img {
     display: none;
@@ -42,6 +46,12 @@ label {
 
 label.small {
   font-size: $font-size-small;
+}
+
+input[type="checkbox"].checkbox-lg {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 .help-block {

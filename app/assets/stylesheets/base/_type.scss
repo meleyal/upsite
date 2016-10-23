@@ -33,8 +33,9 @@ h3 {
 }
 
 .text-muted a {
-  color: #999;
-  text-decoration: underline;
+  color: #ccc;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
 }
 
 .text-small {
@@ -112,4 +113,12 @@ blockquote {
     color: $text-color;
     text-decoration: none !important;
   }
+}
+
+.pre-lg {
+  font-size: 14px;
+  padding: 20px;
+  white-space: pre-line;
+  border-radius: 2px;
+  margin-bottom: 0;
 }

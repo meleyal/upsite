@@ -1,218 +1,81 @@
-<div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal">&times;</button>
-  <h4 class="modal-title">Settings</h4>
+<% content_for :title, @site.name %>
+<% content_for :url, root_url(subdomain: @site.subdomain) %>
+<% content_for :description, @site.description %>
+<% content_for :favicon, site_favicon_link(@site) %>
+<%= render 'theme.css.scss' %>
+
+<div class="page-header">
+  <h1 class="page-title">
+    <%= @site.name %>
+  </h1>
+  <div class="page-description">
+    <% if @site.description.present? %>
+      <%= markdown(@site.description) %>
+    <% end %>
+  </div>
 </div>
 
-<ul class="modal-nav nav nav-tabs">
-  <li class="<%= 'active' if params[:tab].blank? %>">
-    <a href="#site" data-toggle="tab">Site</a>
-  </li>
-  <li class="<%= 'active' if params[:tab] == 'account' %>">
-    <a href="#account" data-toggle="tab">Account</a>
-  </li>
-  <li><a href="#user" data-toggle="tab">User</a></li>
-  <li><a href="#sites" data-toggle="tab">Sites</a></li>
-</ul>
+<div class="row">
+  <div class="col-sm-8">
+    <%= simple_form_for(@site, url: edit_path, remote: !true) do |f| %>
+      <%= f.input :body, label: false, as: :text, input_html: {
+          value: (params[:example].present? ? t('markdown.example') : @site.body),
+          class: 'form-control-code', rows: 23 } %>
+      <input type="hidden" name="edit" value="true">
+      <%= f.button :submit, class: 'btn btn-success', style: 'width: 200px; line-height: 2;' %>
 
-<div class="tab-content">
-
-  <!-- Site -->
-  <div class="tab-pane <%= 'active' if params[:tab].blank? %>" id="site">
-    <%= simple_form_for(@site, url: settings_path, remote: true) do |f| %>
-      <div class="modal-body">
-        <%= f.input :name %>
-        <%= f.input :description, as: :text, input_html: { rows: 4 }, hint: '600 character limit' %>
-        <%= f.input :color, label: 'Favorite color', input_html: { data: { toggle: 'colorpicker' } } %>
-      </div>
-      <div class="modal-footer">
-        <%= f.button :submit, class: 'btn btn-success' %>
-      </div>
     <% end %>
   </div>
-
-  <!-- Sites -->
-  <div class="tab-pane" id="sites">
-    <%= simple_form_for(@site, url: settings_path, remote: true) do |f| %>
-      <div class="modal-body">
-        <ul class="list-group" style="max-height: 350px; overflow: auto; border-bottom: 1px solid #ddd;">
-          <% current_user.sites.each do |site| %>
-            <li class="list-group-item" href="<%= site_url(site) %>">
-              <div class="media">
-                <div class="media-left media-middle">
-                  <a href="<%= site_url(site) %>">
-                    <img class="media-object img-circle" src="<%= site_favicon_link(site) %>" width="35">
-                  </a>
-                </div>
-                <div class="media-body">
-                  <span class="pull-right" style="padding-top: 2px;">
-                    <a href="<%= site_url(site) %>" class="btn btn-default">Open</a>
-                  </span>
-                  <h4 class="media-heading" style="margin: 10px 0 0 0;">
-                    <a href="<%= site_url(site) %>" class="text-link">
-                      <%= site.name %>
-                    </a>
-                  </h4>
-                </div>
-              </div>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <span class="pull-left">
-          <% if current_user.pro?  %>
-            <% if current_user.sites.length < current_user.plan.site_limit %>
-              <a href="<%= new_site_path %>" class="btn btn-success" data-toggle="modal" data-target="self">Create a new site</a>&nbsp;&nbsp;
-              <span class="text-muted">
-                You can create up to <strong><%= current_user.plan.site_limit  %></strong> sites.
-              </span>
-            <% end %>
-          <% else %>
-            <a href="#account" data-toggle="tab-inline" class="btn btn-default">
-              Get <span class='label label-success'>PRO</span> to create more sites
-            </a>
-            <script>
-              $('[data-toggle="tab-inline"]').on('click', function(e) {
-                e.preventDefault()
-                href = $(e.target).attr('href')
-                $('.nav-tabs').find('a[href="' + href + '"]').trigger('click')
-              })
-            </script>
-          <% end %>
-        </span>
-      </div>
-    <% end %>
+  <div class="col-sm-4">
+    <h4>Upsite.markdown</h4><br>
+    <table class="table table-striped">
+      <tr>
+        <th>Text</th>
+        <td><code>&gt; text</code></td>
+      </tr>
+      <tr>
+        <th>Embed</th>
+        <td><code>![<em>caption</em>](url)</code></td>
+      </tr>
+      <tr>
+        <th>Space</th>
+        <td><code>#[<em>caption</em>](color)</code></td>
+      </tr>
+    </table>
+    <ul class="text-muted">
+      <li>
+        <em>Italicized</em> params optional
+      </li>
+      <li>
+        Standard <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">markdown</a> supported<br>
+      </li>
+      <li>
+        Embeds supported from <a href="http://embed.ly/providers" target="_blank">400+ sites</a></a>
+      </li>
+      <li>
+        <a href="<%= edit_path(example: true) %>">Load example markdown</a>
+      </li>
+    </ul>
   </div>
-
-  <!-- Account -->
-  <div class="tab-pane <%= 'active' if params[:tab] == 'account' %>" id="account">
-    <div class="modal-body">
-      <% if current_user.promo? %>
-        <div class="row">
-          <div class="col-sm-6 text-center">
-            <div class="well well-success">
-              <h4>Upsite <span class="label label-success" style="display: inline-block; transform: translate(0px, -2px); padding: 4px 7px;">PROMO</span></h4>
-              <hr>
-              <ul class="list-unstyled">
-                <li>
-                  <strong>Free</strong> for friends of Upsite
-                  <i class="fa fa-heart" style="color: #FF4F4E;"></i>
-                </li>
-                <li>Up to <strong>10</strong> sites</li>
-                <li><strong>Unlimited</strong> blocks</li>
-                <li><a class="text-link" href="<%= roadmap_url(subdomain: 'www') %>" target="roadmap">Future <strong>PRO</strong> features</a></li>
-              </ul>
-              <hr>
-              <a href="<%= upgrade_cancel_url(subdomain: 'www') %>" class="btn btn-block btn-success">Cancel Account</a>
-            </div>
-          </div>
-          <div class="col-sm-6 text-center">
-            <div class="well" style="margin-top: 2px;">
-              <h4>Upsite <span class="label label-success" style="display: inline-block; transform: translate(0px, -2px); padding: 4px 7px;">PRO</span>
-              </h4>
-              <hr>
-              <ul class="list-unstyled">
-                <li><strong>£5 / month</strong></li>
-                <li>Up to <strong>5</strong> sites</li>
-                <li><strong>Unlimited</strong> blocks</li>
-                <li><a class="text-link" href="<%= roadmap_url(subdomain: 'www') %>" target="roadmap">Future <strong>PRO</strong> features</a></li>
-              </ul>
-              <hr>
-              <a href="<%= upgrade_url(subdomain: 'www') %>" class="btn btn-block btn-success">Upgrade</a>
-            </div>
-          </div>
-        </div>
-      <% elsif current_user.pro? %>
-        <div class="row">
-          <div class="col-sm-6 text-center">
-            <div class="well" style="margin-top: 2px;">
-              <h4 style="height: 19px;">Upsite</h4>
-              <hr>
-              <ul class="list-unstyled">
-                <li><strong>Free</strong></li>
-                <li><strong>1</strong> site</li>
-                <li><strong>12</strong> blocks</li>
-                <li><strong>Basic</strong> features</li>
-              </ul>
-              <hr>
-              <a href="#" class="btn btn-block btn-default" disabled>Cancel Account</a>
-            </div>
-          </div>
-          <div class="col-sm-6 text-center">
-            <div class="well well-success">
-              <h4>Upsite <span class="label label-success" style="display: inline-block; transform: translate(0px, -2px); padding: 4px 7px;">PRO</span>
-              </h4>
-              <hr>
-              <ul class="list-unstyled">
-                <li><strong>£5 / month</strong></li>
-                <li>Up to <strong>5</strong> sites</li>
-                <li><strong>Unlimited</strong> blocks</li>
-                <li><a class="text-link" href="<%= roadmap_url(subdomain: 'www') %>" target="roadmap">Future <strong>PRO</strong> features</a></li>
-              </ul>
-              <hr>
-              <a href="<%= upgrade_cancel_url(subdomain: 'www') %>" class="btn btn-block btn-success">Cancel Subscription</a>
-            </div>
-          </div>
-        </div>
-      <% else %>
-        <div class="row">
-          <div class="col-sm-6 text-center">
-            <div class="well well-success">
-              <h4 style="height: 19px;">Upsite</h4>
-              <hr>
-              <ul class="list-unstyled">
-                <li><strong>Free</strong></li>
-                <li><strong>1</strong> site</li>
-                <li><strong>12</strong> blocks</li>
-                <li><strong>Basic</strong> features</li>
-              </ul>
-              <hr>
-              <a href="<%= cancel_url(subdomain: 'www') %>" class="btn btn-block btn-default">Cancel Account</a>
-            </div>
-          </div>
-          <div class="col-sm-6 text-center">
-            <div class="well" style="margin-top: 2px;">
-              <h4>Upsite <span class="label label-success" style="display: inline-block; transform: translate(0px, -2px); padding: 4px 7px;">PRO</span>
-              </h4>
-              <hr>
-              <ul class="list-unstyled">
-                <li><strong>£5 / month</strong></li>
-                <li>Up to <strong>5</strong> sites</li>
-                <li><strong>Unlimited</strong> blocks</li>
-                <li><a class="text-link" href="<%= roadmap_url(subdomain: 'www') %>" target="roadmap">Future <strong>PRO</strong> features</a></li>
-              </ul>
-              <hr>
-              <a href="<%= upgrade_url(subdomain: 'www') %>" class="btn btn-block btn-success">Upgrade</a>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="modal-footer"></div>
-  </div>
-
-  <!-- User -->
-  <div class="tab-pane" id="user">
-    <%= simple_form_for(@site, url: settings_path, remote: true) do |f| %>
-      <div class="modal-body">
-        <%= f.fields_for(:owner) do |ff| %>
-          <a href="<%= new_help_path(message: 'Please change my email / passsword') %>" class="form-group-click-target" data-target="self">
-            <%= ff.input :email, disabled: true %>
-            <%= ff.input :password, placeholder: '•••••••••••', disabled: true %>
-          </a>
-        <% end %>
-      </div>
-      <div class="modal-footer">
-        <div class="pull-left">
-          <%= link_to 'Log out', logout_url(subdomain: 'www'),
-                method: 'delete',
-                class: 'btn btn-default',
-                tabindex: -1,
-                data: { confirm: 'Are you sure you want to log out?' } %>
-        </div>
-        <%= f.button :submit, class: 'btn btn-success' %>
-      </div>
-    <% end %>
-  </div>
-
 </div>
+
+<% if current_user == @site.owner %>
+  <%= render 'hud' %>
+  <%= render 'modal' %>
+  <%= render 'modal', size: 'xl' %>
+<% end %>
+
+<footer class="page-footer">
+  <small class="text-muted pull-right">
+    Made with
+    <a href="<%= signup_url(subdomain: 'www', ref: @site.subdomain) %>" class="underline" rel="tooltip" data-placement="left" title="Make a site like this for free" style="margin-left: 2px;">
+      <strong>Upsite</strong>
+    </a>
+  </small>
+  <small class="text-muted">
+    &copy; <%= Date.today.year %> <%= @site.name %>
+    <% unless current_user %>
+      / <%= link_to "Login", login_url(subdomain: 'www') %>
+    <% end %>
+  </small>
+</footer>

@@ -1,5 +1,5 @@
 $(document).on 'ready page:change', ->
-  unless $('.block').length
+  if $('.blocks').length and !$('.block').length
     $('.hud .add')
       .attr('title', 'Get started')
       .trigger('focus')

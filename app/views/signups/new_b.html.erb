@@ -2,264 +2,98 @@
 <%= content_for(:footer, 'false') %>
 
 <style>
-  .wrapper {
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    flex: 2;
-    overflow: hidden;
-  }
-  .column {
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    align-content: center;
-    flex-shrink: 0;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-  }
-  .column-a {
-    width: 40vw;
-    background: #38D36E;
-    color: #fff;
-    font-weight: bold;
-    text-align: center;
-    padding: 0 5vw;
-    width: 40vw;
-  }
   .column-b {
-    width: 60vw;
+    padding: 0 10vw;
   }
-  .column-b .header {
-    margin-top: -40px;
-    margin-bottom: 0px;
-    text-align: center;
-  }
-  .row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .column-b-1,
-  .column-b-2 {
-    width: 30vw;
-  }
-  .column-b-1 {
-    padding-left: 8vw;
-  }
-  .column-b-2 {
-    padding: 0 5vw;
-  }
-  .slide {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    width: 40vw;
-    padding: 0 5vw;
-    transition: opacity .5s ease-in;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .slide + .slide {
-    opacity: 0;
-  }
-  .slide-caret {
-    font-size: 80px;
-    color: #38D36E;
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translate(100%, -50%);
-    z-index: 2;
-  }
-  .text-muted,
-  .text-muted a {
-    color: #ccc !important;
-  }
-  .text-muted a {
-    text-decoration: none;
-    border-bottom: 1px solid #eee;
-  }
-  .form-group:last-child {
-    padding-top: 5px;
-  }
-  .column-a-1,
-  .column-a-2 {
-    align-items: center;
-    align-content: center;
-  }
-  .column-a-1 {
-    padding-right: 1vw;
-  }
-  .btn-contact {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    display: block;
-    width: 50px;
-    height: 50px;
-    background: #38D36E;
-    color: #fff !important;
-    font-size: 22px;
-    border-radius: 100%;
-    box-shadow: 0 0 5px hsla(0,0%,100%,.1), 0 0 10px 0 rgba(0,0,0,.15)
-  }
-  .btn-contact:focus,
-  .btn-contact:hover,
-  .btn-contact:active {
-    outline: none !important;
-  }
-  .modal-dialog {
-    position: absolute;
-    right: 20px;
-    bottom: 60px;
-    width: 25vw;
+  @media (min-width: 768px) {
+    .column-a,
+    .column-a .slide {
+      width: 40vw;
+    }
+    .column-a {
+      padding: 0 5vw;
+    }
+    .column-b,
+    .column-b .slide {
+      width: 60vw;
+    }
   }
 </style>
 
 <div class="wrapper">
-  <div class="column column-a">
-    <div class="slide" style="background: #9e25e8;">
-      <i class="slide-caret fa fa-caret-right" style="color: #9e25e8;"></i>
-      <h2>Want a site like this?</h2>
-      <img src="<%= image_path('signup/koru-consulting-site.png') %>" class="img-responsive">
-      <hr class="spacer spacer-xs">
-      <div class="row">
-        <div class="column-a-1">
-          <img class="img-circle" src="<%= image_path('signup/koru-consulting-avatar.jpg') %>" width="50" height="50">
-        </div>
-        <div class="column-a-2">
-          <h4 class="media-heading">&ldquo;Upsite is really easy, thank you!&rdquo;</h4>
-          Sarah, Koru Consulting
-        </div>
-      </div>
-    </div>
-    <div class="slide" style="background: #01df74;">
-      <i class="slide-caret fa fa-caret-right" style="color: #01df74;"></i>
-      <h2>Want a site like this?</h2>
-      <img src="<%= image_path('signup/pablo-sansone-site.png') %>" class="img-responsive">
-      <hr class="spacer spacer-xs">
-      <div class="row">
-        <div class="column-a-1">
-          <img class="img-circle" src="<%= image_path('signup/pablo-sansone-avatar.jpg') %>" width="50" height="50">
-        </div>
-        <div class="column-a-2">
-          <h4 class="media-heading">
-            &ldquo;It's really good, I use it<br>
-            because it's simple and intuitive.&rdquo;
-          </h4>
-          Pablo, Creative Director
-        </div>
-      </div>
-    </div>
-    <div class="slide" style="background: #f5895d;">
-      <i class="slide-caret fa fa-caret-right" style="color: #f5895d;"></i>
-      <h2>Want a site like this?</h2>
-      <img src="<%= image_path('signup/manitou-supply-site.png') %>" class="img-responsive">
-      <hr class="spacer spacer-xs">
-      <div class="row">
-        <div class="column-a-1">
-          <img class="img-circle" src="<%= image_path('signup/manitou-supply-avatar.jpg') %>" width="50" height="50">
-        </div>
-        <div class="column-a-2">
-          <h4 class="media-heading">&ldquo;We love it!&rdquo;</h4>
-          Luciana, Manitou Supply
-        </div>
-      </div>
-    </div>
-    <div class="slide" style="background: #657afc;">
-      <i class="slide-caret fa fa-caret-right" style="color: #657afc;"></i>
-      <h2>Want a site like this?</h2>
-      <img src="<%= image_path('signup/haidutschek-site.png') %>" class="img-responsive">
-      <hr class="spacer spacer-xs">
-      <div class="row">
-        <div class="column-a-1">
-          <img class="img-circle" src="<%= image_path('signup/haidutschek-avatar.jpg') %>" width="50" height="50">
-        </div>
-        <div class="column-a-2">
-          <h4 class="media-heading">&ldquo;Quick and simple to upload,<br> rearange, and present my work.&rdquo;</h4>
-          Oliver, Visual Artist
-        </div>
-      </div>
-    </div>
-    <div class="slide" style="background: #7f57d1;">
-      <i class="slide-caret fa fa-caret-right" style="color: #7f57d1;"></i>
-      <h2>Want a site like this?</h2>
-      <img src="<%= image_path('signup/syrrup-site.png') %>" class="img-responsive">
-      <hr class="spacer spacer-xs">
-      <div class="row">
-        <div class="column-a-1">
-          <img class="img-circle" src="<%= image_path('signup/syrrup-avatar.jpg') %>" width="50" height="50">
-        </div>
-        <div class="column-a-2">
-          <h4 class="media-heading">&ldquo;Saves me time and<br> lets me focus on music.&rdquo;</h4>
-          Syrrup, Musician
+  <div class="column column-inverse column-a">
+    <%
+    slides = [
+      {
+        slug: 'koru-consulting',
+        color: '#9e25e8',
+        quote: 'Upsite is really easy, thank you!',
+        quote_src: 'Sarah, Koru Consulting'
+      },
+      {
+        slug: 'pablo-sansone',
+        color: '#01df74',
+        quote: "It's really good, I use it because it's simple and intuitive.",
+        quote_src: 'Pablo, Creative Director'
+      },
+      {
+        slug: 'manitou-supply',
+        color: '#f5895d',
+        quote: "We love it!",
+        quote_src: 'Luciana, Manitou Supply'
+      },
+      {
+        slug: 'haidutschek',
+        color: '#657afc',
+        quote: "Quick and simple to upload, rearange, and present my work.",
+        quote_src: 'Oliver, Visual Artist'
+      },
+      {
+        slug: 'syrrup',
+        color: '#7f57d1',
+        quote: "Saves me time and lets me focus on music.",
+        quote_src: 'Syrrup, Musician'
+      },
+      {
+        slug: 'neonxlaser',
+        color: '#0ecadd',
+        quote: "It's incredibly straightforward and easier than any other service on the internet",
+        quote_src: 'Juanma, Artist'
+      },
+      {
+        slug: 'meleyal',
+        color: '#00d37a',
+        quote: "It changed my life! (disclaimer: I make Upsite :)",
+        quote_src: 'William, Programmer'
+      },
+      {
+        slug: 'wuni',
+        color: '#f31554',
+        quote: "Upsite is a great shop window, easy to connect to all my other sites",
+        quote_src: 'Lucia, WUNI'
+      },
+    ]
+    %>
+    <% slides.each do |s| %>
+      <div class="slide" style="background: <%= s[:color] %>;">
+        <i class="slide-caret fa fa-caret-right" style="color: <%= s[:color] %>;"></i>
+        <h2>Want a site like this?</h2>
+        <img src="<%= image_path("signup/#{s[:slug]}-site.png") %>" class="img-responsive">
+        <hr class="spacer spacer-xs">
+        <div class="media media-flex" style="max-width: 340px;">
+          <div class="media-left">
+            <img class="media-object img-circle" src="<%= image_path("signup/#{s[:slug]}-avatar.jpg") %>" width="50" height="50">
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">&ldquo;<%= s[:quote].html_safe %>&rdquo;</h4>
+            <%= s[:quote_src] %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="slide" style="background: #0ecadd;">
-      <i class="slide-caret fa fa-caret-right" style="color: #0ecadd;"></i>
-      <h2>Want a site like this?</h2>
-      <img src="<%= image_path('signup/neonxlaser-site.png') %>" class="img-responsive">
-      <hr class="spacer spacer-xs">
-      <div class="row">
-        <div class="column-a-1">
-          <img class="img-circle" src="<%= image_path('signup/neonxlaser-avatar.jpg') %>" width="50" height="50">
-        </div>
-        <div class="column-a-2">
-          <h4 class="media-heading">
-            &ldquo;It's incredibly straightforward and easier<br>
-            than any other service on the internet.&rdquo;
-          </h4>
-          Juanma, Artist
-        </div>
-      </div>
-    </div>
-    <div class="slide" style="background: #00d37a;">
-      <i class="slide-caret fa fa-caret-right" style="color: #00d37a;"></i>
-      <h2>Want a site like this?</h2>
-      <img src="<%= image_path('signup/meleyal-site.png') %>" class="img-responsive">
-      <hr class="spacer spacer-xs">
-      <div class="row">
-        <div class="column-a-1">
-          <img class="img-circle" src="<%= image_path('signup/meleyal-avatar.jpg') %>" width="50" height="50">
-        </div>
-        <div class="column-a-2">
-          <h4 class="media-heading">&ldquo;It changed my life!<br>(disclaimer: I make Upsite :)&rdquo;</h4>
-          William, Programmer
-        </div>
-      </div>
-    </div>
-    <div class="slide" style="background: #f31554;">
-      <i class="slide-caret fa fa-caret-right" style="color: #f31554;"></i>
-      <h2>Want a site like this?</h2>
-      <img src="<%= image_path('signup/wuni-site.png') %>" class="img-responsive">
-      <hr class="spacer spacer-xs">
-      <div class="row">
-        <div class="column-a-1">
-          <img class="img-circle" src="<%= image_path('signup/wuni-avatar.jpg') %>" width="50" height="50">
-        </div>
-        <div class="column-a-2">
-          <h4 class="media-heading">
-            &ldquo;Upsite is a great shop window,<br>
-            easy to connect to all my other sites.&rdquo;
-          </h4>
-          Lucia, WUNI
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
   <div class="column column-b">
-    <div class="header">
+    <div class="text-center">
       <h2>
         Create your <span class="underline">Upsite</span> for free
       </h2>
@@ -268,13 +102,14 @@
       </p>
     </div>
     <div class="row">
-      <div class="column-b-1">
+      <div class="col-sm-12 col-md-7">
         <%= render 'form' %>
       </div>
-      <div class="column-b-2">
+      <div class="col-sm-5 hidden-sm hidden-xs">
+        <div class="spacer spacer-md"></div>
         <ul class="fa-ul lead">
           <li><i class="fa fa-li fa-check"></i>Easy-to-use</li>
-          <li><i class="fa fa-li fa-check"></i>Add text, photos, videos...<br>from anywhere on the web</li>
+          <li><i class="fa fa-li fa-check"></i>Add text, photos, videos from anywhere on the web</li>
           <li><i class="fa fa-li fa-check"></i>Clean, minimal design</li>
           <li><i class="fa fa-li fa-check"></i>Works on desktop and mobile</li>
           <li><i class="fa fa-li fa-check"></i>Helpful support</li>
@@ -287,7 +122,7 @@
 <a href="#modal-contact" class="btn btn-contact" data-toggle="modal" data-backdrop="false">
   <i class="fa fa-comment"></i>
 </a>
-<div id="modal-contact" class="modal fade" tabindex="-1">
+<div id="modal-contact" class="modal modal-contact fade" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

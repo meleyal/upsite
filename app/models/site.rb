@@ -1,4 +1,7 @@
 class Site < ActiveRecord::Base
+  ##
+  # Associations
+  #
   belongs_to :owner, class_name: 'User'
   accepts_nested_attributes_for :owner
   has_many :site_memberships, dependent: :destroy
@@ -11,16 +14,12 @@ class Site < ActiveRecord::Base
   has_many :audios
   has_many :maps
   has_many :spaces
+  serialize :settings, HashSerializer
+  store_accessor :settings, :markdown
 
-  scope :active, -> { where(deleted_at: nil) }
-  scope :pro, -> { joins(:users).where(users: { plan_id: 2 }) }
-  scope :dormant, -> {
-    joins('LEFT OUTER JOIN blocks ON blocks.site_id = sites.id').
-    select('sites.*').
-    group('sites.id').
-    having('count(blocks.id) <= 2')
-  }
-
+  ##
+  # Validations
+  #
   before_validation(on: :create) {
     subdomain = self.name[0..60].gsub(/'/, '').parameterize
     if Site.find_by(subdomain: subdomain)
@@ -39,4 +38,23 @@ class Site < ActiveRecord::Base
   }
   validates :color, format: /#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})/, allow_blank: true
   validates :description, length: { maximum: 600 }
+
+  ##
+  # Scopes
+  #
+  scope :active, -> { where(deleted_at: nil) }
+  scope :pro, -> { joins(:users).where(users: { plan_id: 2 }) }
+  scope :dormant, -> {
+    joins('LEFT OUTER JOIN blocks ON blocks.site_id = sites.id').
+    select('sites.*').
+    group('sites.id').
+    having('count(blocks.id) <= 2')
+  }
+
+  ##
+  # Instance methods
+  #
+  def markdown?
+    self.markdown == '1'
+  end
 end
