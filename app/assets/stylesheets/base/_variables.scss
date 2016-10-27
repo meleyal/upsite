@@ -36,7 +36,7 @@ $brand-danger: $red;
 $brand-warning: $yellow;
 
 $text-color: $black;
-$text-muted: #ccc;
+$text-muted: #bbb;
 $link-color: $blue;
 
 $input-color: $text-color;
@@ -112,3 +112,12 @@ $well-border: #EEEEEE;
 $modal-backdrop-bg:           #000;
 $modal-backdrop-opacity:      0.3;
 $modal-content-border-color:  rgba(0,0,0,.1);
+
+// Code
+// -------------------
+
+$code-color: $text-color;
+$code-bg: $gray-lighter;
+$pre-bg: $gray-lighter;
+$pre-color: $text-color;
+$pre-border-color: rgba($gray-dark, 0.1);

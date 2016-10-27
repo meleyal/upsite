@@ -1,7 +1,7 @@
 class SitesController < ApplicationController
   before_action :set_site, except: [:show]
-  before_action :require_site_owner, except: [:show]
-  skip_before_action :authenticate, only: [:show]
+  before_action :require_site_owner, except: [:show, :source]
+  skip_before_action :authenticate, only: [:show, :source]
   layout :false, except: [:show, :edit]
 
   def index
@@ -12,6 +12,11 @@ class SitesController < ApplicationController
     @site = Site.active.find_by!(subdomain: request.subdomains.first)
     @blocks = @site.blocks.includes(:attachments).all
     session[:current_site_id] = @site.id if current_user
+    render @site.markdown? ? 'show_markdown' : 'show'
+  end
+
+  def source
+    redirect_to view_context.site_url(@site) unless @site.markdown?
   end
 
   def new

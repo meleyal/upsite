@@ -4,6 +4,9 @@ class SignupsController < ApplicationController
   force_ssl if: :ssl_configured?
 
   def new
+    if current_user
+      redirect_to(view_context.site_url(current_user.site)) and return
+    end
     @user = User.new
     @site = Site.new(owner: @user)
     version = %w(a b).include?(params[:v]) ? params[:v] : 'b'

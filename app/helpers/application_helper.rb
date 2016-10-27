@@ -5,8 +5,15 @@ module ApplicationHelper
   end
 
   def markdown_custom(text)
-    @markdown_custom ||= Redcarpet::Markdown.new(UpsiteFlavoredMarkdown, hard_wrap: true, autolink: true)
-    @markdown_custom.render(text).html_safe
+    @markdown_custom ||= Redcarpet::Markdown.new(UpsiteFlavoredMarkdown, {
+      fenced_code_blocks: true,
+      filter_html: true,
+      escape_html: true
+    })
+    sanitize(@markdown_custom.render(text),
+      tags: %w(div span h1 p a ul li strong em iframe img),
+      attributes: %w(data-embed src style class href)
+    )
   end
 
   def t_markdown(key, options = {})

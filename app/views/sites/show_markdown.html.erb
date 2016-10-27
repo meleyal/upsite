@@ -11,16 +11,8 @@
   </div>
 <% end %>
 
-<div class="page-header">
-  <h1 class="page-title">
-    <%= @site.name %>
-  </h1>
-  <div class="page-description">
-    <%= markdown(@site.description) if @site.description.present? %>
-  </div>
-</div>
-<div class="blocks" data-sortable>
-  <%= render @blocks if @blocks.present? %>
+<div class="blocks blocks-markdown">
+  <%= markdown_custom(@site.body) if @site.body.present? %>
 </div>
 
 <% if current_user == @site.owner %>
@@ -29,4 +21,6 @@
   <%= render 'modal', size: 'xl' %>
 <% end %>
 
-<%= render 'footer' %>
+<% if @site.body.present? %>
+  <%= render 'footer' %>
+<% end %>

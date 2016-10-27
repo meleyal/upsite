@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   constraints :subdomain => /^(?!www\Z)(\w+)/ do
     get '/' => 'sites#show'
+    get '/source.md' => 'sites#source'
     get 'settings/:group' => 'settings#edit', as: 'settings',
       constraints: { group: /site|account|user|sites|experiments/ }
     patch 'settings/:group' => 'settings#update'
