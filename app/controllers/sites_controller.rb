@@ -1,5 +1,5 @@
 class SitesController < ApplicationController
-  before_action :set_site, except: [:show]
+  before_action :set_site, except: [:show, :source]
   before_action :require_site_owner, except: [:show, :source]
   skip_before_action :authenticate, only: [:show, :source]
   layout :false, except: [:show, :edit]
@@ -16,6 +16,7 @@ class SitesController < ApplicationController
   end
 
   def source
+    @site = Site.active.find_by!(subdomain: request.subdomains.first)
     redirect_to view_context.site_url(@site) unless @site.markdown?
   end
 
