@@ -34,14 +34,14 @@
             </div>
             <div class="media-body">
               <a href="<%= signup_path(markdown: true) %>" class="btn btn-lg btn-success" style="margin-top: 0;">
-                Try the beta, exclusive to Product Hunters!
+                Welcome Product Hunters, try the beta!
               </a>
             </div>
           </div>
         </div>
       <% else %>
-        <a href="#" class="btn btn-lg btn-success" disabled>
-          Coming Soon&hellip;
+        <a href="<%= signup_path(markdown: true) %>" class="btn btn-lg btn-success" style="margin-top: 0;">
+          Sign up for free
         </a>
       <% end %>
       <div class="spacer spacer-xs"></div>

@@ -23,6 +23,12 @@ User.joins(:sites).group('users.id').having('count(sites.id) > ?', 1)
 Site.all.reject {|s| s.blocks.count > 2 }.map {|s| s.owner }
 ```
 
+## Get all user emails
+
+```
+User.all.map(&:email).join(', ')
+```
+
 ## Renew SSL cert
 
 - Your certificate and chain have been saved at
