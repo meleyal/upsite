@@ -8,12 +8,4 @@
   @media (min-width: $screen-sm-min) {
     margin: 40px 0;
   }
-
-  a {
-    text-decoration: none;
-
-    &:hover, &:focus {
-      text-decoration: underline;
-    }
-  }
 }
