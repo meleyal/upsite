@@ -8,8 +8,6 @@
         hint: 'http://my-site.upsite.io'
    %>
 
-  <%= f.hidden_field :markdown, value: (params[:markdown] == 'true' ? 1 : 0) %>
-
   <!-- User -->
   <%= f.fields_for :owner do |ff| %>
     <%= ff.input :email,
@@ -29,6 +27,19 @@
             wrapper: :vertical_boolean,
             input_html: { id: 'site_owner_terms' },
             label_html: { class: 'small text-muted' } %>
+  <% end %>
+
+  <% if params[:markdown].present? %>
+  <hr>
+    <span class="pull-right">
+      <span class="label label-warning">BETA</span>
+    </span>
+    <label>
+      <input type="checkbox" name="site[markdown]" tabindex="-1" value="1">&nbsp;
+      Try the experimental <img src="<%= image_path('signup/markdown.png') %>" width="24" alt="Markdown"> mode?
+    </label><br>
+    <span class="text-muted">Change this under <strong>Settings > Experiments</strong></span>
+  <hr>
   <% end %>
 
   <div class="form-group">
