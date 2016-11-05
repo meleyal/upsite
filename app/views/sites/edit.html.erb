@@ -15,7 +15,7 @@
     <%= simple_form_for(@site, url: edit_path, remote: !true) do |f| %>
       <%= f.input :body, label: false, as: :text, input_html: {
           value: text,
-          class: 'form-control-code', rows: 26 } %>
+          class: 'form-control-code', rows: 40 } %>
       <input type="hidden" name="edit" value="true">
       <%= f.button :submit, class: 'btn btn-success', style: 'width: 200px; line-height: 2;' %>
 
