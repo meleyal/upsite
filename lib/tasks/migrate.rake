@@ -14,4 +14,12 @@ namespace :migrate do
     Plan.free.update(cost_per_month: 0, site_limit: 1, block_limit: 12)
     Plan.pro.update(name: 'Pro', code: 'pro_5', cost_per_month: 500, site_limit: 5, block_limit: 1000)
   end
+
+  desc 'Send welcome email to markdown users'
+  task :send_welcome_email_to_markdown_users => :environment do
+    Site.all.where("created_at >= ?", Time.new(2016, 11, 2, 14, 50)).select(&:markdown?).each do |site|
+      next if site.owner.email == 'monkeygrip@gmail.com'
+      NotificationsMailer.welcome_markdown_email(site.owner, "http://#{site.subdomain}.upsite.io/").deliver_now
+    end
+  end
 end
