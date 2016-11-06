@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   #
   before_save { self.email = email.downcase }
   before_create :create_remember_token
-  after_create :create_subscription, :send_analytics_email
+  after_create :create_subscription
   before_destroy :destroy_subscription
 
   ##
@@ -81,9 +81,5 @@ class User < ActiveRecord::Base
     self.subscription.destroy
     customer = Stripe::Customer.retrieve(self.stripe_customer_id)
     customer.delete
-  end
-
-  def send_analytics_email
-    NotificationsMailer.analytics_email(:signup, self).deliver_now
   end
 end
