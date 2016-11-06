@@ -4,6 +4,7 @@ class HashSerializer
   end
 
   def self.load(hash)
+    return nil if hash.nil?
     (hash || {}).with_indifferent_access
   end
 end
