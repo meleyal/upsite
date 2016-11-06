@@ -10,9 +10,7 @@ class WebsiteController < ApplicationController
         .joins(:blocks)
         .includes(:attachments)
         .group('sites.id')
-        .having('count(site_id) > 3')
-        .where('featured IS NOT false')
-        .order(updated_at: :desc)
+        .where(featured: true)
         .limit(100)
     end
   end
