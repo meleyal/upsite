@@ -1,4 +1,13 @@
 class NotificationsMailer < ApplicationMailer
+  def welcome_email(user, site_url)
+    @site_url = site_url
+    mail(to: user.email, subject: 'Welcome to Upsite 👋')
+  end
+
+  def upgrade_email(user)
+    mail(to: user.email, subject: 'Thanks for upgrading to Upsite Pro 🎉')
+  end
+
   def help_email(user, message)
     @user = user
     @message = message

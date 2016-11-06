@@ -25,6 +25,7 @@ class SubscriptionsController < ApplicationController
         ends_at: Time.at(subscription.current_period_end)
       )
       NotificationsMailer.analytics_email(:upgrade, current_user).deliver_now
+      NotificationsMailer.upgrade_email(current_user).deliver_now
       flash[:analytics_upgrade] = true
       redirect_to view_context.site_url(@site), notice: 'Subscribed to Upsite Pro!'
     end
