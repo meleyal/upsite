@@ -57,4 +57,11 @@ class Site < ActiveRecord::Base
   def markdown?
     self.markdown == '1'
   end
+
+  def transfer_ownership!(user)
+    self.owner = user
+    self.site_memberships.delete_all # skip callbacks
+    self.users << user
+    self.save
+  end
 end
