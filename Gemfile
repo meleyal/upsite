@@ -29,6 +29,7 @@ gem 'foreman'
 gem 'pg'
 gem 'rails_12factor', group: :production
 gem 'hirb', require: false
+gem 'sentry-raven'
 
 group :test, :development do
   gem 'dotenv-rails'
