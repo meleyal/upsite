@@ -16,6 +16,7 @@ onStripeResponse = (status, response) ->
     $('[data-stripe="feedback"]')
       .text(response.error.message)
       .removeClass('hidden')
+    $('[data-stripe="submit"]').button('reset')
   else
     $('[data-stripe="form"]').off('submit')
     $form.find('input[name="token"]').val(response.id)
