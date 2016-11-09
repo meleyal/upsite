@@ -49,22 +49,12 @@ onChange = (e) ->
         month = parseInt(month.toString().substring(0, 1))
       $.payment.validateCardExpiry(month, year)
     when 'cvc' then $.payment.validateCardCVC($input.val())
+    when 'coupon' then $input.val().length > 3
   if valid then onValid($input) else onInvalid($input)
-  if allFieldsValid() then enableSubmit() else disableSubmit()
-
-allFieldsValid = () ->
-  allFieldsLength = $('.form-group').length
-  validFieldsLength = $('.form-group.has-success').length
-  allFieldsLength is validFieldsLength
-
-enableSubmit = () ->
-  $('[data-stripe="submit"]').removeAttr('disabled').removeAttr('title')
-
-disableSubmit = () ->
-  $('[data-stripe="submit"]').attr('disabled', true)
 
 $(document).on 'ready', ->
   $('[data-stripe="number"]').payment('formatCardNumber').on('input blur', onChange)
   $('[data-stripe="exp"]').payment('formatCardExpiry').on('input blur', onChange)
   $('[data-stripe="cvc"]').payment('formatCardCVC').on('input blur', onChange)
+  $('[data-stripe="coupon"]').on('input blur', onChange)
   $('[data-stripe="form"]').on('submit', onSubmit)

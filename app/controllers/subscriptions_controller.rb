@@ -18,6 +18,10 @@ class SubscriptionsController < ApplicationController
       subscription = Stripe::Subscription.retrieve(customer.subscriptions.first.id)
       subscription.plan = Plan.pro.code
       subscription.source = params[:token]
+      if params[:promo_code].present?
+        coupon = Stripe::Coupon.retrieve(params[:promo_code].upcase)
+        subscription.coupon = coupon.id
+      end
       subscription.prorate = false
       subscription.save
       current_user.subscription.update(
@@ -29,7 +33,7 @@ class SubscriptionsController < ApplicationController
       redirect_to view_context.site_url(@site), notice: 'Subscribed to Upsite Pro!'
     end
 
-    rescue Stripe::CardError => e
+    rescue Stripe::CardError, Stripe::InvalidRequestError => e
       flash[:error] = e.message
       redirect_to upgrade_path
   end
