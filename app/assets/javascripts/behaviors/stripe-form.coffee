@@ -43,6 +43,10 @@ onChange = (e) ->
     when 'number' then $.payment.validateCardNumber($input.val())
     when 'exp'
       { month, year } = $.payment.cardExpiryVal($input.val())
+      # hack to fix 1password autocomplete
+      unless year
+        year = parseInt(month.toString().substring(1, 3))
+        month = parseInt(month.toString().substring(0, 1))
       $.payment.validateCardExpiry(month, year)
     when 'cvc' then $.payment.validateCardCVC($input.val())
   if valid then onValid($input) else onInvalid($input)
