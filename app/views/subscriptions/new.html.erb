@@ -1,7 +1,7 @@
 <% content_for :favicon, site_favicon_link(@site) %>
 <%= render 'sites/theme.css.scss' %>
 
-<%= form_for @subscription, url: upgrade_path, method: 'POST', data: { stripe: "form" } do |f| %>
+<%= form_for @subscription, url: upgrade_path, method: 'POST', html: { autocomplete: 'on' }, data: { stripe: "form" } do |f| %>
 
 <div class="modal-header">
   <h3 class="modal-title text-center" style="font-size: 32px; margin-top: 10px;">
@@ -34,7 +34,7 @@
           <label for="" class="control-label">Card number</label>
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-credit-card fa-fw"></i></span>
-            <input type="text" data-stripe="number" class="form-control" placeholder="•••• •••• •••• ••••" autofocus>
+            <input type="tel" data-stripe="number" class="form-control cc-number" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" autofocus>
             <span class="fa fa-check form-control-feedback form-control-feedback-success hidden"></span>
             <span class="fa fa-times form-control-feedback form-control-feedback-error hidden"></span>
           </div>
@@ -43,7 +43,7 @@
           <label for="" class="control-label">Card expiry</label>
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-calendar-o fa-fw"></i></span>
-            <input type="text" data-stripe="exp" class="form-control" placeholder="•• / ••">
+            <input type="tel" data-stripe="exp" class="form-control cc-exp" autocomplete="cc-exp" placeholder="•• / ••••">
             <span class="fa fa-check form-control-feedback form-control-feedback-success hidden"></span>
             <span class="fa fa-times form-control-feedback form-control-feedback-error hidden"></span>
           </div>
@@ -52,7 +52,7 @@
           <label for="" class="control-label">Card CVC</label>
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
-            <input type="text" data-stripe="cvc" class="form-control" placeholder="•••">
+            <input type="tel" data-stripe="cvc" class="form-control cc-cvc" autocomplete="off" placeholder="•••">
             <span class="fa fa-check form-control-feedback form-control-feedback-success hidden"></span>
             <span class="fa fa-times form-control-feedback form-control-feedback-error hidden"></span>
           </div>
