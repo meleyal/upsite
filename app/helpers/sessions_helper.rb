@@ -22,8 +22,12 @@ module SessionsHelper
   end
 
   def current_site
-    if session[:current_site_id]
-      @current_site ||= current_user.sites.find(session[:current_site_id])
+    @current_site ||= begin
+      if session[:current_site_id]
+        current_user.sites.find(session[:current_site_id])
+      else
+        current_user.site
+      end
     end
   end
 end
