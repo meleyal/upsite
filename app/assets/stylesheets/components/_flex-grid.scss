@@ -12,7 +12,7 @@
   flex: 2;
   flex-direction: column;
 
-  @media (min-width: $screen-md) {
+  @media (min-width: $screen-sm) {
     flex-direction: row;
   }
 }
@@ -27,7 +27,7 @@
   justify-content: center;
   position: relative;
 
-  @media (min-width: $screen-md) {
+  @media (min-width: $screen-sm) {
     width: 50vw;
   }
 }
@@ -37,7 +37,7 @@
     height: 90vh;
   }
 
-  @media (min-width: $screen-md) {
+  @media (min-width: $screen-sm) {
     &, .slide {
       height: 100vh;
     }
@@ -63,7 +63,7 @@
   top: 0;
   left: 0;
 
-  @media (min-width: $screen-md) {
+  @media (min-width: $screen-sm) {
     width: 50vw;
   }
 }
@@ -81,7 +81,7 @@
   left: 50%;
   transform: translate(-50%, 0%) rotate(90deg);
 
-  @media (min-width: $screen-md) {
+  @media (min-width: $screen-sm) {
     right: 5px;
     top: 50%;
     bottom: auto;
