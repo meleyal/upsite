@@ -69,7 +69,7 @@ class SubscriptionsController < ApplicationController
       when 'invoice.payment_succeeded'
         Subscription.transaction do
           user = User.find_by(stripe_customer_id: data.customer)
-          user.subscription.update(ends_at: Time.at(data.period_end))
+          user.subscription.update(ends_at: Time.at(data.lines.data.first.period.end))
         end
       when 'invoice.payment_failed'
         Subscription.transaction do
