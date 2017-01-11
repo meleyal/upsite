@@ -10,16 +10,6 @@
       Let us know if you have any questions or feedback.
     </p>
     <%= f.input :message, as: :text, label: false, input_html: { value: params[:message], placeholder: 'Write your message here...', rows: 8, data: { autofocus: true } } %>
-    <p class="clearfix text-right small text-muted">
-      <span class="pull-right">
-        <img src="<%= image_path('team/bill.jpg') %>" class="img-circle" width="50">
-        <img src="<%= image_path('team/lo.jpg') %>" class="img-circle" width="50">
-      </span>
-      <span class="pull-right" style="display: inline-block; margin: 10px 20px 0 0;">
-        <em>Bill &amp; Lucia</em><br>
-         – Upsite Help Team
-      </span>
-    </p>
   </div>
   <div class="modal-footer">
     <%= f.button :submit, class: 'btn btn-success', style: 'min-width: 100px;' %>
