@@ -3,7 +3,6 @@ guard :livereload do
   watch(%r{app/helpers/.+\.rb})
   watch(%r{public/.+\.(css|js|html)})
   watch(%r{config/locales/.+\.yml})
-  watch(%r{config/ads.yml})
   # Rails Assets Pipeline
   watch(%r{(app|lib|vendor)(/assets/\w+/(.+\.(css|js))).*}) { |m| "/assets/#{m[3]}" }
   # also watch just .scss + .coffee
