@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     get 'sites/new' => 'sites#new', as: :new_site
     post 'sites' => 'sites#create'
     resources :help, only: [:new, :create]
-    get 'help/:slug', to: 'help#show', as: 'help_article'
     resources :blocks do
       post 'sort', on: :collection
       resources :attachments
