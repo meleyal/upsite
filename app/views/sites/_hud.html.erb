@@ -1,13 +1,7 @@
 <div class="hud">
 
   <!-- Add -->
-  <% if @site.markdown? %>
-    <a href="<%= edit_path %>"
-      class="add"
-      title="Edit" rel="tooltip" data-placement="left">
-      <i class="fa fa-pencil fa-lg"></i>
-    </a>
-  <% elsif current_user.pro? || (@site.blocks.length < current_user.plan.block_limit) %>
+  <% if current_user.pro? || (@site.blocks.length < current_user.plan.block_limit) %>
     <a href="<%= new_block_path %>"
       class="add"
       title="Add" data-toggle="modal" data-target="#modal" rel="tooltip" data-placement="left">

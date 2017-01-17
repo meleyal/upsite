@@ -29,18 +29,6 @@
             label_html: { class: 'small text-muted' } %>
   <% end %>
 
-  <% if params[:markdown].present? %>
-  <hr>
-    <span class="pull-right">
-      <span class="label label-warning">BETA</span>
-    </span>
-    <label>
-      Want to try the experimental <img src="<%= image_path('signup/markdown.png') %>" width="24" alt="Markdown"> mode?
-    </label><br>
-    <span class="text-muted">You can enable this under <strong>Settings > Experiments</strong></span>
-  <hr>
-  <% end %>
-
   <div class="form-group">
     <%= f.button :submit, class: 'btn btn-success btn-lg btn-block', value: 'Create your site now', data: { loading_text: "Creating..." } %>
   </div>

@@ -23,8 +23,7 @@ class SettingsController < ApplicationController
       :name,
       :description,
       :body,
-      :color,
-      :markdown
+      :color
     )
   end
 end

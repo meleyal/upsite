@@ -9,38 +9,6 @@
 
 }
 
-// FIXME: markdown hacks
-.blocks-markdown {
-  > p:empty {
-    display: none;
-  }
-  > * {
-    margin-left: 15px !important;
-    margin-right: 15px !important;
-  }
-
-  .page-header + p {
-    font-size: 14px;
-    line-height: 20px;
-    margin-top: 5px;
-    transform: translateY(-22px);
-
-    a {
-      color: #000;
-      border-bottom: 1px solid #000;
-
-      &:hover {
-        text-decoration: none;
-      }
-    }
-  }
-  .block-embed {
-    img {
-      height: 300px !important;
-    }
-  }
-}
-
 .block {
   position: relative;
   margin: 0 15px 20px;

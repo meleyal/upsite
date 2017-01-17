@@ -15,7 +15,7 @@ class Site < ActiveRecord::Base
   has_many :maps
   has_many :spaces
   serialize :settings, HashSerializer
-  store_accessor :settings, :markdown
+  store_accessor :settings
 
   ##
   # Validations
@@ -54,10 +54,6 @@ class Site < ActiveRecord::Base
   ##
   # Instance methods
   #
-  def markdown?
-    self.markdown == '1'
-  end
-
   def transfer_ownership!(user)
     self.owner = user
     self.site_memberships.delete_all # skip callbacks
