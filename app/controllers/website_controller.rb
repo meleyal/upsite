@@ -4,7 +4,11 @@ class WebsiteController < ApplicationController
 
   def index
     if params[:filter] == 'all'
-      @sites = Site.active.order(updated_at: :desc)
+      @sites = Site.active
+        .joins(:blocks)
+        .includes(:attachments)
+        .group('sites.id')
+        .order(updated_at: :desc)
     else
       @sites = Site.active
         .joins(:blocks)
