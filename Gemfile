@@ -30,6 +30,7 @@ gem 'pg'
 gem 'rails_12factor', group: :production
 gem 'hirb', require: false
 gem 'sentry-raven'
+gem 'recaptcha', require: 'recaptcha/rails'
 
 group :test, :development do
   gem 'dotenv-rails'

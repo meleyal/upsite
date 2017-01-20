@@ -18,6 +18,10 @@
           label: 'Choose a password',
           input_html: { id: 'site_owner_password', placeholder: '6+ characters' } %>
 
+    <div class="form-group site_owner_recaptcha">
+      <%= recaptcha_tags id: 'site_owner_recaptcha' %>
+    </div>
+
     <!-- Terms -->
     <%= content_for(:links) do %>
       I accept the <%= link_to "Terms of Service", legal_path, tabindex: -1 %>

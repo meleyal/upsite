@@ -218,6 +218,8 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    recaptcha (4.0.1)
+      json
     redcarpet (3.3.4)
     require_reloader (0.2.0)
     responders (2.3.0)
@@ -301,6 +303,7 @@ DEPENDENCIES
   rails (~> 4.2.5)
   rails_12factor
   rb-fsevent
+  recaptcha
   redcarpet (~> 3.3.0)
   require_reloader
   responders (~> 2.0)
@@ -318,4 +321,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.13.4
+   1.13.6

@@ -17,14 +17,14 @@ class SignupsController < ApplicationController
     @site.owner = @user
     @site.users << @user
 
-    if @site.save
+    if verify_recaptcha(model: @user, attribute: :recaptcha) && @site.save
       login @user
       flash[:analytics_signup] = true
       NotificationsMailer.welcome_email(@user, view_context.site_url(@site)).deliver_now
       response.headers['turbolinks'] = 'false'
       render json: {}, status: :created, location: view_context.site_url(@site)
     else
-      render json: { site: @site.errors }, status: :unprocessable_entity
+      render json: { site: @site.errors, site_owner: @user.errors }, status: :unprocessable_entity
     end
   end
 
