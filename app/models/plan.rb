@@ -3,7 +3,7 @@ class Plan < ActiveRecord::Base
   has_many :users, through: :subscriptions
 
   def self.pro
-    self.find_by(code: 'pro_1')
+    self.find_by(code: 'pro_10')
   end
 
   def self.promo

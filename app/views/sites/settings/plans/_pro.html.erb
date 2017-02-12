@@ -1,0 +1,22 @@
+<% active ||= false %>
+
+<div class="col-sm-6 text-center">
+  <div class="well <%= 'well-success' if active %>" style="margin-top: 2px;">
+    <h4>Upsite <span class="label label-success" style="display: inline-block; transform: translate(0px, -2px); padding: 4px 7px;">PRO</span>
+    </h4>
+    <hr>
+    <ul class="list-unstyled">
+      <li><strong>£10 / year</strong></li>
+      <li>Up to <strong>10</strong> sites</li>
+      <li><strong>Unlimited</strong> blocks</li>
+      <li><strong>Help</strong> via email</li>
+      <li><a class="text-link" href="<%= roadmap_url(subdomain: 'www') %>" target="roadmap">Future <strong>PRO</strong> features</a></li>
+    </ul>
+    <hr>
+    <% if active %>
+      <a href="<%= upgrade_cancel_url(subdomain: 'www') %>" class="btn btn-block btn-success">Cancel Subscription</a>
+    <% else %>
+      <a href="<%= upgrade_url(subdomain: 'www') %>" class="btn btn-block btn-success">Upgrade</a>
+    <% end %>
+  </div>
+</div>
