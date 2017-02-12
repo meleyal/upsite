@@ -17,10 +17,10 @@ m = SiteMembership.create(user: u, site: s)
 User.joins(:sites).group('users.id').having('count(sites.id) > ?', 1)
 ```
 
-## Find sites/users with less than 2 blocks
+## Delete free sites/users with less than 2 blocks
 
 ```
-Site.all.reject {|s| s.blocks.count > 2 }.map {|s| s.owner }
+rake cleanup:sites
 ```
 
 ## Get all user emails
