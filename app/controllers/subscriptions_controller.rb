@@ -81,7 +81,7 @@ class SubscriptionsController < ApplicationController
       end
       head :ok
     rescue Exception => e
-      head :ok
+      head :not_found
     end
   end
 end
