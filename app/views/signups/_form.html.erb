@@ -1,9 +1,10 @@
-<%= simple_form_for @site, url: signup_path, data: { remote: true } do |f| %>
+<%= simple_form_for @site, url: signup_via_invite_path(params[:token]), data: { remote: true } do |f| %>
   <hr class="spacer spacer-sm">
+
 
   <!-- Site -->
   <%= f.input :name,
-        label: 'Name / Company',
+        label: 'Site Name',
         input_html: { placeholder: 'My Site', data: { autofill_subdomain: '.site_name .help-block' } },
         hint: 'http://my-site.upsite.io'
    %>
@@ -12,15 +13,15 @@
   <%= f.fields_for :owner do |ff| %>
     <%= ff.input :email,
           label: 'Your Email',
-          input_html: { id: 'site_owner_email', placeholder: 'you@email.com' } %>
+          input_html: { id: 'site_owner_email', placeholder: 'you@email.com', readonly: true } %>
 
     <%= ff.input :password,
           label: 'Choose a password',
           input_html: { id: 'site_owner_password', placeholder: '6+ characters' } %>
 
-    <div class="form-group site_owner_recaptcha">
-      <%= recaptcha_tags id: 'site_owner_recaptcha' %>
-    </div>
+    <!-- <div class="form-group site_owner_recaptcha">
+      <%# recaptcha_tags id: 'site_owner_recaptcha' %>
+    </div> -->
 
     <!-- Terms -->
     <%= content_for(:links) do %>

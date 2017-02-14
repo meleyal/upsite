@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>
 
-  <title><%= content_for?(:title) ? content_for(:title) : t('tagline_short') %> | <%= t('app_name') %></title>
+  <title><%= content_for?(:title) ? content_for(:title) : t('tagline') %> | <%= t('app_name') %></title>
   <meta name="description" content="<%= content_for?(:description) ? content_for(:description) : t('tagline') %>">
 
   <!-- Favicons -->
@@ -15,7 +15,7 @@
   <!-- Open Graph Tags -->
   <meta property="og:url" content="<%= root_url(subdomain: 'www') %>">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="<%= t('tagline_short') %> | <%= t('app_name') %>">
+  <meta property="og:title" content="<%= t('tagline') %> | <%= t('app_name') %>">
   <meta property="og:description" content="<%= t('tagline') %>">
   <meta property="og:image" content="<%= image_url('icon.png') %>">
   <meta property="fb:app_id" content="221451268244315">

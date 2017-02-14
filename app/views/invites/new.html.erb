@@ -1,0 +1,13 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">&times;</button>
+  <h4 class="modal-title">Invite</h4>
+</div>
+
+<%= simple_form_for(@invite, url: invites_path, remote: true) do |f| %>
+  <div class="modal-body">
+    <%= f.input :recipient_email, label: 'Email address', input_html: { placeholder: 'someone@example.com' }, hint: 'This person will recieve an email with an invitation to join.' %>
+  </div>
+  <div class="modal-footer">
+    <%= f.button :submit, value: 'Send invite', class: 'btn btn-success', data: { loading_text: 'Sending' } %>
+  </div>
+<% end %>

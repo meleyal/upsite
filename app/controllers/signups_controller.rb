@@ -7,17 +7,27 @@ class SignupsController < ApplicationController
     if current_user
       redirect_to(view_context.site_url(current_user.site)) and return
     end
-    @user = User.new
+
+    @invite = Invite.find_by(token: params[:token])
+    @user = User.new(email: @invite && @invite.recipient_email)
     @site = Site.new(owner: @user)
   end
 
   def create
+    @invite = Invite.find_by(token: params[:token])
     @site = Site.new(site_params)
     @user = User.new(site_params[:owner_attributes])
+    @user.invite = @invite
     @site.owner = @user
     @site.users << @user
 
-    if verify_recaptcha(model: @user, attribute: :recaptcha) && @site.save
+    if site_params[:owner_attributes][:email] != @invite.recipient_email
+      @user.errors.add(:email, 'does not match invite token')
+      render(json: { site: {}, site_owner: @user.errors }, status: :unprocessable_entity) and return
+    end
+
+    # if verify_recaptcha(model: @user, attribute: :recaptcha) && @site.save
+    if @site.save
       login @user
       flash[:analytics_signup] = true
       NotificationsMailer.welcome_email(@user, view_context.site_url(@site)).deliver_now

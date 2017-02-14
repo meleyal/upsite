@@ -3,13 +3,14 @@ Rails.application.routes.draw do
   constraints :subdomain => /^(?!www\Z)(\w+)/ do
     get '/' => 'sites#show'
     get 'settings/:group' => 'settings#edit', as: 'settings',
-      constraints: { group: /site|account|user|sites/ }
+      constraints: { group: /site|account|user|sites|invites/ }
     patch 'settings/:group' => 'settings#update'
     get 'edit' => 'sites#edit'
     patch 'edit' => 'sites#update'
-    get 'sites' => 'sites#index'
     get 'sites/new' => 'sites#new', as: :new_site
     post 'sites' => 'sites#create'
+    get 'invites/new' => 'invites#new', as: :new_invite
+    post 'invites' => 'invites#create'
     resources :help, only: [:new, :create]
     resources :blocks do
       post 'sort', on: :collection
@@ -22,7 +23,8 @@ Rails.application.routes.draw do
     post 'login', to: 'sessions#create'
     delete 'logout', to: 'sessions#destroy'
     get 'signup', to: 'signups#new'
-    post 'signup', to: 'signups#create'
+    get 'signup/:token', to: 'signups#new', as: :signup_via_invite
+    post 'signup/:token', to: 'signups#create'
     get 'cancel', to: 'signups#cancel'
     delete 'cancel', to: 'signups#destroy'
     get 'upgrade', to: 'subscriptions#new'

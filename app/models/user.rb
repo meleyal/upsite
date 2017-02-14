@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_many :sites, through: :site_memberships
   has_one :subscription
   has_one :plan, through: :subscription
+  has_many :invites, class_name: 'Invite', foreign_key: 'sender_id'
+  belongs_to :invite
 
   ##
   # Validations

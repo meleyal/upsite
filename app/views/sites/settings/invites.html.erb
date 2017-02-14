@@ -1,0 +1,57 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">&times;</button>
+  <h4 class="modal-title">Invites</h4>
+</div>
+
+<%= render 'sites/settings/nav' %>
+
+<div class="tab-content">
+  <div class="tab-pane active">
+    <div class="modal-body">
+      <ul class="list-group" style="max-height: 350px; overflow: auto; border-bottom: 1px solid #ddd;">
+        <% if current_user.invites.count > 0 %>
+          <% current_user.invites.each do |invite| %>
+            <li class="list-group-item">
+              <div class="media">
+                <div class="media-left media-middle">
+                  <img class="media-object img-circle" src="<%= user_gravatar_url(invite.recipient_email) %>" width="35">
+                </div>
+                <div class="media-body">
+                    <% if invite.accepted? %>
+                      <h4 class="media-heading" style="margin: 10px 0 0 0;">
+                        <span class="label label-success">Accepted</span>
+                        <%= invite.recipient_email %>
+                      </h4>
+                      <span class="text-muted">joined <%= l invite.accepted_at.to_date, format: :long %></span>
+                    <% else %>
+                      <h4 class="media-heading" style="margin: 10px 0 0 0;">
+                        <span class="label label-warning">Pending</span>
+                        <%= invite.recipient_email %>
+                      </h4>
+                      <span class="text-muted">sent <%= l invite.created_at.to_date, format: :long %></span>
+                    <% end %>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        <% else %>
+          <li class="list-group-item">
+            You haven't sent any invites yet.
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <% if current_user.invites.count < current_user.plan.invite_limit %>
+        <span class="text-muted">
+          You can invite <strong><%= current_user.plan.invite_limit - current_user.invites.count %></strong> more people to join <strong>Upsite</strong>.&nbsp;&nbsp;
+        </span>
+        <a href="<%= new_invite_path %>" class="btn btn-success" data-toggle="modal" data-target="self">Invite someone</a>
+      <% else %>
+        <span class="text-muted">
+          You've used all of your invites.
+        </span>
+      <% end %>
+    </div>
+  </div>
+</div>

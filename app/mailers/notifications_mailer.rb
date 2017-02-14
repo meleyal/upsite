@@ -1,4 +1,10 @@
 class NotificationsMailer < ApplicationMailer
+  def invite_email(invite, invite_url)
+    @sender = invite.sender
+    @invite_url = invite_url
+    mail(to: invite.recipient_email, bcc: 'notifications@upsite.io', subject: 'Invite to join Upsite')
+  end
+
   def welcome_email(user, site_url)
     @site_url = site_url
     mail(to: user.email, bcc: 'notifications@upsite.io', subject: 'Welcome to Upsite')

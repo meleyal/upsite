@@ -1,20 +1,6 @@
 en:
   app_name: Upsite
-  tagline: A simpler way to make a website for anything.
-  tagline_short: Websites made simple
-  twitter_username: upsiteapp
-
-  signups:
-    new:
-      submit: Be the first to try it...
-
-  activerecord:
-      # models:
-      #   user: Dude
-      # attributes:
-      #   user:
-      #     first_name: "Name first"
-
+  tagline: Websites made simple.
   helpers:
     submit:
       create: Create
@@ -28,13 +14,9 @@ en:
         submit: Login
       help_message:
         submit: Send
-        # submit: "Save %{model}"
-
   simple_form:
     required:
       html: ''
-    # placeholders:
-    #   defaults:
-    #     name: Your site name (e.g. Luigi's Pizza)
-    #     email: Your email
-    #     password: Create a password
+  time:
+    formats:
+      short: "%Y"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022113934) do
+ActiveRecord::Schema.define(version: 20170214202819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 20161022113934) do
 
   add_index "blocks", ["site_id"], name: "index_blocks_on_site_id", using: :btree
 
+  create_table "invites", force: :cascade do |t|
+    t.string   "token"
+    t.string   "recipient_email"
+    t.integer  "sender_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "invites", ["sender_id"], name: "index_invites_on_sender_id", using: :btree
+
   create_table "pages", force: :cascade do |t|
     t.string   "title",      limit: 255
     t.string   "subdomain",  limit: 255
@@ -57,6 +67,7 @@ ActiveRecord::Schema.define(version: 20161022113934) do
     t.integer  "cost_per_month"
     t.integer  "site_limit"
     t.integer  "block_limit"
+    t.integer  "invite_limit"
   end
 
   create_table "signups", force: :cascade do |t|
@@ -116,9 +127,11 @@ ActiveRecord::Schema.define(version: 20161022113934) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "stripe_customer_id"
+    t.integer  "invite_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["invite_id"], name: "index_users_on_invite_id", using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
   add_index "users", ["stripe_customer_id"], name: "index_users_on_stripe_customer_id", using: :btree
 

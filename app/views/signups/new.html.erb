@@ -93,29 +93,40 @@
     <% end %>
   </div>
   <div class="column column-b">
-    <div class="text-center">
-      <h2>
-        Create your <span class="underline">Upsite</span> for free
-      </h2>
-      <p class="lead">
-        Upsite is the simplest way to create a one-page website.
-      </p>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-7">
-        <%= render 'form' %>
+    <% if @invite.present? && !@invite.accepted? %>
+      <div class="text-center">
+        <h2>
+          Create your <span class="underline">Upsite</span> for free
+        </h2>
+        <p class="lead">
+          Upsite is the simplest way to create a one-page website.
+        </p>
       </div>
-      <div class="col-sm-5 hidden-sm hidden-xs">
-        <div class="spacer spacer-md"></div>
-        <ul class="fa-ul lead">
-          <li><i class="fa fa-li fa-check"></i>Easy-to-use</li>
-          <li><i class="fa fa-li fa-check"></i>Add text, photos, videos from anywhere on the web</li>
-          <li><i class="fa fa-li fa-check"></i>Clean, minimal design</li>
-          <li><i class="fa fa-li fa-check"></i>Works on desktop and mobile</li>
-          <li><i class="fa fa-li fa-check"></i>Helpful support</li>
-        </ul>
+      <div class="row">
+        <div class="col-sm-12 col-md-7">
+          <%= render 'form' %>
+        </div>
+        <div class="col-sm-5 hidden-sm hidden-xs">
+          <div class="spacer spacer-md"></div>
+          <ul class="fa-ul lead">
+            <li><i class="fa fa-li fa-check"></i>Easy-to-use</li>
+            <li><i class="fa fa-li fa-check"></i>Add text, photos, videos from anywhere on the web</li>
+            <li><i class="fa fa-li fa-check"></i>Clean, minimal design</li>
+            <li><i class="fa fa-li fa-check"></i>Works on desktop and mobile</li>
+            <li><i class="fa fa-li fa-check"></i>Helpful support</li>
+          </ul>
+        </div>
       </div>
-    </div>
+    <% else %>
+      <div class="text-center">
+        <h2>
+          <a href="<%= root_url(subdomain: 'www') %>" class="underline">Upsite</a> is currently invite only.
+        </h2>
+        <p class="lead">
+          Stay tuned...
+        </p>
+      </div>
+    <% end %>
   </div>
 </div>
 
@@ -131,8 +142,8 @@
       </div>
       <div class="modal-body">
         <h5>How much does Upsite cost?</h5>
-        <p>Upsite is <strong>free</strong> to use for 1 site with up to 12 content blocks.
-        You can later choose to upgrade to our <strong>Pro plan</strong> to create up to 10 sites with unlimited content and additional features.</p>
+        <p>Upsite is <strong>free</strong> to use for 1 site.
+        You can later choose to upgrade to our <strong>Pro plan</strong> to create up to 10 sites with additional features.</p>
         <hr class="spacer" style="padding-bottom: 5px;">
         <h5>How does Upsite work?</h5>
         <p>
