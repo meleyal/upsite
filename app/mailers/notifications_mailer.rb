@@ -30,4 +30,10 @@ class NotificationsMailer < ApplicationMailer
     @message = message
     mail(to: 'notifications@upsite.io', subject: "Analytics: #{@event}")
   end
+
+  def dormant_email(site)
+    @site = site
+    user = @site.owner
+    mail(to: user.email, bcc: 'notifications@upsite.io', subject: 'Your Upsite account')
+  end
 end
