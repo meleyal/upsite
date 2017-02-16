@@ -36,4 +36,10 @@ class NotificationsMailer < ApplicationMailer
     user = @site.owner
     mail(to: user.email, bcc: 'notifications@upsite.io', subject: 'Your Upsite account')
   end
+
+  def newsletter_email(site, subject)
+    @site = site
+    user = @site.owner
+    mail(to: user.email, bcc: 'notifications@upsite.io', subject: subject)
+  end
 end
