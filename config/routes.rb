@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     end
   end
 
+  # HACK: Uncomment to test Stripe webhooks via http://upsite.ngrok.io
+  # constraints :subdomain => /^(upsite)/ do
   constraints :subdomain => /^(www)/ do
     get 'login', to: 'sessions#new'
     post 'login', to: 'sessions#create'

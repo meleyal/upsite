@@ -65,23 +65,24 @@ class SubscriptionsController < ApplicationController
       event = Stripe::Event.retrieve(params[:id])
       # event = Stripe::Event.construct_from(params)
       data = event.data.object
+      user = User.find_by(stripe_customer_id: data.customer)
+      url = "https://dashboard.stripe.com/events/#{data.id}"
       case event.type
       when 'invoice.payment_succeeded'
         Subscription.transaction do
-          user = User.find_by(stripe_customer_id: data.customer)
           user.subscription.update(ends_at: Time.at(data.lines.data.first.period.end))
+          NotificationsMailer.analytics_email(:webhook_invoice_payment_succeeded, user, url).deliver_now
         end
       when 'invoice.payment_failed'
         Subscription.transaction do
-          user = User.find_by(stripe_customer_id: data.customer)
           user.change_plan!(Plan.free)
-          NotificationsMailer.analytics_email(:payment_failed, user, data.id).deliver_now
+          NotificationsMailer.analytics_email(:webhook_invoice_payment_failed, user, url).deliver_now
           NotificationsMailer.payment_failed_email(user).deliver_now
         end
       end
-      head :ok
+      return head :ok
     rescue Exception => e
-      head :not_found
+      return head :ok
     end
   end
 end
