@@ -5,12 +5,12 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   after_create :create_subscription
-  before_destroy :destroy_subscription
+  before_destroy :destroy_subscription, :destroy_sites
 
   ##
   # Associations
   #
-  has_many :site_memberships, dependent: :destroy
+  has_many :site_memberships
   has_many :sites, through: :site_memberships
   has_one :subscription
   has_one :plan, through: :subscription
@@ -81,7 +81,16 @@ class User < ActiveRecord::Base
 
   def destroy_subscription
     self.subscription.destroy
-    customer = Stripe::Customer.retrieve(self.stripe_customer_id)
-    customer.delete
+    if Rails.env.production?
+      customer = Stripe::Customer.retrieve(self.stripe_customer_id)
+      customer.delete
+    end
+  end
+
+  def destroy_sites
+    self.site_memberships.each do |m|
+      m.site.destroy
+      m.destroy
+    end
   end
 end

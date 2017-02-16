@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     patch 'edit' => 'sites#update'
     get 'sites/new' => 'sites#new', as: :new_site
     post 'sites' => 'sites#create'
+    delete 'sites/:id' => 'sites#destroy', as: :destroy_site
     get 'invites/new' => 'invites#new', as: :new_invite
     post 'invites' => 'invites#create'
     resources :help, only: [:new, :create]

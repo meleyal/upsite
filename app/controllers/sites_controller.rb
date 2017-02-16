@@ -34,8 +34,13 @@ class SitesController < ApplicationController
   def update
     @site.update_attributes(site_params)
     if @site.save
-        redirect_to root_path
+      redirect_to root_path
     end
+  end
+
+  def destroy
+    Site.find(params[:id]).destroy
+    redirect_to view_context.site_url(current_user.site)
   end
 
   private

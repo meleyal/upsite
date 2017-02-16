@@ -1,4 +1,4 @@
 class SiteMembership < ActiveRecord::Base
   belongs_to :user
-  belongs_to :site, dependent: :destroy
+  belongs_to :site
 end

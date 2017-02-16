@@ -56,6 +56,18 @@
   font-weight: bold;
 }
 
+.btn-danger-link {
+  color: $text-muted !important;
+  text-decoration: underline;
+
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $btn-danger-bg !important;
+  }
+}
+
 .btn-danger-outline {
   border: 1px solid $btn-danger-bg;
   color: $btn-danger-bg !important;
@@ -142,7 +154,7 @@
 
 // Intercom style contact button
 .btn-contact {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   right: 20px;
   display: block;
