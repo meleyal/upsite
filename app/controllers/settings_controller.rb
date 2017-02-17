@@ -10,7 +10,7 @@ class SettingsController < ApplicationController
   def update
     @site.update_attributes(site_params)
     if @site.save
-      head :ok, location: request.referrer
+      head :ok, location: view_context.site_url(@site)
     else
       render json: { site: @site.errors }, status: :unprocessable_entity
     end
@@ -22,6 +22,7 @@ class SettingsController < ApplicationController
     params.require(:site).permit(
       :name,
       :description,
+      :subdomain,
       :color,
       owner_attributes: [:id, :email]
     )

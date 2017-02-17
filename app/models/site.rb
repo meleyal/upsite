@@ -33,7 +33,7 @@ class Site < ActiveRecord::Base
     presence: true,
     uniqueness: true,
     length: { :within => 1..60 },
-    format: { :with => /[a-z0-9\-]+/ },
+    format: { :with => /\A[a-z0-9\-]*\Z/ },
     exclusion: %w(www ftp mail pop smtp admin ssl sftp api development stage test demo upsite ads you)
   }
   validates :color, format: /#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})/, allow_blank: true
