@@ -10,8 +10,8 @@
     <%= simple_form_for(@site, url: settings_path, remote: true) do |f| %>
       <div class="modal-body">
         <%= f.fields_for(:owner) do |ff| %>
-          <a href="<%= new_help_path(message: 'Please change my email / passsword') %>" class="form-group-click-target" data-target="self">
-            <%= ff.input :email, disabled: true %>
+          <%= ff.input :email %>
+          <a href="<%= new_password_reset_url(subdomain: 'www', email: current_user.email) %>" class="form-group-click-target">
             <%= ff.input :password, placeholder: '•••••••••••', disabled: true %>
           </a>
         <% end %>

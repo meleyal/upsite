@@ -25,6 +25,10 @@ Rails.application.routes.draw do
     get 'login', to: 'sessions#new'
     post 'login', to: 'sessions#create'
     delete 'logout', to: 'sessions#destroy'
+    get 'forgot-password', to: 'password_resets#new', as: :new_password_reset
+    post 'forgot-password', to: 'password_resets#create', as: :password_resets
+    get 'reset-password/:id', to: 'password_resets#edit', as: :edit_password_reset
+    patch 'reset-password/:id', to: 'password_resets#update', as: :password_reset
     get 'signup', to: 'signups#new'
     get 'signup/:token', to: 'signups#new', as: :signup_via_invite
     post 'signup/:token', to: 'signups#create'

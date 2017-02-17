@@ -1,0 +1,22 @@
+<% content_for :title, 'Forgot your password?' %>
+
+<div class="page-content">
+  <hr class="spacer spacer-xs">
+  <div class="row">
+    <div class="col-sm-6">
+      <% if flash[:error] %>
+        <div class="alert alert-danger">
+          <%= flash[:error] %>
+        </div>
+      <% end %>
+      <%= simple_form_for :password_reset, url: password_resets_path do |f| %>
+        <%= f.input :email, label: 'Your email address', input_html: { value: params[:email], placeholder: 'you@email.com', class: 'input-lg', autofocus: true } %>
+        <%= f.button :submit, 'Email me password reset instructions', class: 'btn btn-success btn-lg' %>
+        <span class="help-inline text-muted">
+          <a href="<%= login_path %>">Return to login</a>
+        </span>
+      <% end %>
+    </div>
+  </div>
+  <hr class="spacer spacer-xs">
+</div>

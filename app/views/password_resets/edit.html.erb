@@ -1,0 +1,20 @@
+<% content_for :title, 'Reset password' %>
+
+<div class="page-content">
+  <hr class="spacer spacer-xs">
+  <div class="row">
+    <div class="col-sm-6">
+      <% if flash[:error] %>
+        <div class="alert alert-danger">
+          <%= flash[:error] %>
+        </div>
+      <% end %>
+      <%= simple_form_for @user, url: password_reset_path(params[:id]) do |f| %>
+        <%= f.input :password, label: 'New password', input_html: { class: 'input-lg', autofocus: true } %>
+        <%# f.input :password_confirmation, label: 'New password confirmation', input_html: { class: 'input-lg' } %>
+        <%= f.button :submit, 'Update password', class: 'btn btn-success btn-lg' %>
+      <% end %>
+    </div>
+  </div>
+  <hr class="spacer spacer-xs">
+</div>

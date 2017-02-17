@@ -31,16 +31,24 @@
 }
 
 .alert-danger {
-  background: none;
+  background: rgba($brand-danger, 0.1);
+  color: darken($brand-danger, 20%);
   font-weight: bold;
-  border: 0;
-  padding: 0;
 }
 
 .alert-success {
-  background: $brand-success;
-  color: $white;
-  border: 0;
+  background: rgba($brand-success, 0.1);
+  color: darken($brand-success, 10%);
+  font-weight: bold;
+}
+
+.alert-warning {
+  background: rgba($brand-warning, 0.1);
+  color: rgba($brand-warning, 0.9);
+  font-weight: bold;
+}
+
+.alert-banner {
   font-size: 16px;
   text-align: center;
   position: fixed;
@@ -48,26 +56,19 @@
   left: 0;
   right: 0;
 
-  a {
-    color: $white;
-    text-decoration: underline;
-  }
-
   ~ .page-header,
   ~ .hud {
     margin-top: 50px;
   }
-
 }
 
-.alert-warning {
-  background: $brand-warning;
-  color: $text-color;
+.alert-banner.alert-success {
+  background: $brand-success;
+  color: $white;
   border: 0;
-  text-align: center;
 
   a {
-    color: $text-color;
+    color: $white;
     text-decoration: underline;
   }
 }

@@ -42,4 +42,9 @@ class NotificationsMailer < ApplicationMailer
     user = @site.owner
     mail(to: user.email, bcc: 'notifications@upsite.io', subject: subject)
   end
+
+  def password_reset_email(user)
+    @user = user
+    mail(to: user.email, subject: 'Password reset')
+  end
 end

@@ -24,14 +24,14 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
   validates :password, length: { minimum: 6 }, presence: true, on: :create
-  # validates :password_confirmation, presence: true
+  # validates :password_confirmation, presence: true, on: :update
   validates :terms, acceptance: true
-  attr_accessor :terms
+  attr_accessor :terms, :reset_token
 
   ##
   # Class methods
   #
-  def User.new_remember_token
+  def User.new_token
     SecureRandom.urlsafe_base64
   end
 
@@ -67,10 +67,20 @@ class User < ActiveRecord::Base
     self.subscription.update(plan: plan, ends_at: Time.at(subscription.current_period_end))
   end
 
+  def send_password_reset_email
+    NotificationsMailer.password_reset_email(self).deliver_now
+  end
+
+  def create_password_reset_token
+    self.reset_token = User.new_token
+    update_attribute(:password_reset_token,  User.digest(reset_token))
+    update_attribute(:password_reset_sent_at, Time.zone.now)
+  end
+
   private
 
   def create_remember_token
-    self.remember_token = User.digest(User.new_remember_token)
+    self.remember_token = User.digest(User.new_token)
   end
 
   def create_subscription

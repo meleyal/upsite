@@ -22,8 +22,8 @@ class SettingsController < ApplicationController
     params.require(:site).permit(
       :name,
       :description,
-      :body,
-      :color
+      :color,
+      owner_attributes: [:id, :email]
     )
   end
 end
