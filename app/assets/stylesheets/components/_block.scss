@@ -64,7 +64,7 @@
   a {
     background: #ccc;
     color: #fff;
-    font-size: 13px;
+    font-size: 12px;
     text-decoration: none;
     width: 20px;
     height: 20px;
@@ -85,10 +85,6 @@
 .block-text {
   background: $gray-lighter;
   padding: 10px;
-
-  * {
-    font-size: 12px;
-  }
 
   ul, ol {
     padding-left: 15px;
@@ -215,5 +211,14 @@
       line-height: .95em;
       margin-bottom: 10px;
     }
+  }
+}
+
+.block-image-large {
+  width: auto;
+  height: auto;
+
+  &.ui-sortable-helper {
+    transform: scale(0.25);
   }
 }
