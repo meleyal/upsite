@@ -10,9 +10,9 @@
         </div>
       <% end %>
       <%= simple_form_for @user, url: password_reset_path(params[:id]) do |f| %>
-        <%= f.input :password, label: 'New password', input_html: { class: 'input-lg', autofocus: true } %>
-        <%# f.input :password_confirmation, label: 'New password confirmation', input_html: { class: 'input-lg' } %>
-        <%= f.button :submit, 'Update password', class: 'btn btn-success btn-lg' %>
+        <%= f.input :password, label: 'New password', input_html: { autofocus: true } %>
+        <%# f.input :password_confirmation, label: 'New password confirmation' %>
+        <%= f.button :submit, 'Update password', class: 'btn btn-success' %>
       <% end %>
     </div>
   </div>

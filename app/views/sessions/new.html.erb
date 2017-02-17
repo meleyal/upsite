@@ -15,11 +15,11 @@
         </div>
       <% end %>
       <%= simple_form_for :session, url: login_path do |f| %>
-        <%= f.input :email, input_html: { class: 'input-lg', autofocus: true } %>
-        <%= f.input :password, input_html: { class: 'input-lg' } %>
-        <%= f.button :submit, class: 'btn btn-success btn-lg' %>
+        <%= f.input :email, input_html: { autofocus: true } %>
+        <%= f.input :password %>
+        <%= f.button :submit, class: 'btn btn-success' %>
         <span class="help-inline text-muted">
-          <a href="<%= new_password_reset_path %>">Forgot password?</a>
+          &nbsp;&nbsp;<a href="<%= new_password_reset_path %>">Forgot password?</a>
         </span>
       <% end %>
     </div>
