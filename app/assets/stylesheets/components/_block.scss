@@ -25,6 +25,14 @@
       opacity: 1;
     }
   }
+
+  transform: scale(1);
+  transition: transform 0.2s;
+  transform-origin: top right;
+
+  &.ui-sortable-helper {
+    transform: scale(0.9);
+  }
 }
 
 .block-content {

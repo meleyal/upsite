@@ -1,0 +1,22 @@
+//
+// Images
+// --------------------------------------------------
+
+.img-border {
+  border: 5px solid $gray-lighter;
+}
+
+.img-responsive {
+  margin: 0 auto;
+}
+
+.img-placeholder {
+  display: inline-block;
+  background: $gray-lighter;
+  border: 1px solid #bbb;
+  width: 100%;
+  text-align: center;
+  color: $gray;
+  font-size: 12px;
+  font-weight: bold;
+}

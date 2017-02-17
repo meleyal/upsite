@@ -10,11 +10,19 @@ class Image < Block
     true
   end
 
-  def image
+  def attachment
+    attachments.first
+  end
+
+  def original
+    attachments.first.upload.url(:original) rescue nil
+  end
+
+  def medium
     attachments.first.upload.url(:medium) rescue nil
   end
 
-  def image_2x
+  def medium_2x
     attachments.first.upload.url(:medium_2x) rescue nil
   end
 
@@ -23,5 +31,9 @@ class Image < Block
     if self.attachments.present? && self.site.attachments.count > ATTACHMENT_QUOTA
       errors.add(:attachments, 'Upload limit reached')
     end
+  end
+
+  def original_width
+    attachment.geometry.width rescue 0
   end
 end

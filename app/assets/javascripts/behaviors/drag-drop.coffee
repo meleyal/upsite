@@ -3,7 +3,7 @@
 #
 
 options =
-  items: '.block:not(.block-not-an-ad)'
+  items: '.block'
   tolerance: 'pointer'
   handle: '.move'
   placeholder: 'block block-drag-guide'

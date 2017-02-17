@@ -62,14 +62,6 @@ hr {
   }
 }
 
-.img-border {
-  border: 5px solid $gray-lighter;
-}
-
-.img-responsive {
-  margin: 0 auto;
-}
-
 .well {
   @include box-shadow(none);
 }
