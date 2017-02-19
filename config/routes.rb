@@ -42,7 +42,6 @@ Rails.application.routes.draw do
     get 'terms', to: redirect('/legal')
     get 'privacy', to: redirect('/legal')
     get 'legal', to: 'website#legal'
-    get 'roadmap', to: 'website#roadmap'
     root 'website#index'
   end
 
