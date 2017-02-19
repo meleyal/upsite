@@ -38,5 +38,13 @@
     .progress-bar-success {
       background-color: <%= @site.color %>;
     }
+    .block-drag-guide {
+      background-color: <%= @site.color %>;
+      opacity: 0.1;
+    }
+    .block-controls a:hover,
+    .symbol:hover {
+      background-color: <%= @site.color %> !important;
+    }
   </style>
 <% end %>

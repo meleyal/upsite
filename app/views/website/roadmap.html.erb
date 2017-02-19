@@ -1,4 +1,4 @@
-<% content_for :header, 'false' %>
+  <% content_for :header, 'false' %>
 <% content_for :title, 'Roadmap' %>
 
 <div class="page-header">
@@ -19,18 +19,33 @@
     <h3 class="text-center">📝&nbsp;&nbsp;Next</h3>
     <ul class="list-group">
       <li class="list-group-item">
-        <h4 class="list-group-item-heading">Typography improvements</h4>
-        <p class="list-group-item-text">Customize fonts and size</p>
+        <h4 class="list-group-item-heading">Link element</h4>
+        <p class="list-group-item-text">Add a text or icon element that links to another site</p>
       </li>
       <li class="list-group-item">
-        <a href="<%= upgrade_url(subdomain: 'www') %>" class="label label-success" rel="tooltip" title="Requires subscription">PRO</a>
-        <h4 class="list-group-item-heading">Custom domain</h4>
-        <p class="list-group-item-text">Use your own domain name as your Upsite URL</p>
+        <h4 class="list-group-item-heading">Page navigation</h4>
+        <p class="list-group-item-text">Display links to jump quickly to a section of your page</p>
+      </li>
+      <li class="list-group-item">
+        <h4 class="list-group-item-heading">Call to action</h4>
+        <p class="list-group-item-text">Display a prominant action button (email me, visit my store, etc.)</p>
       </li>
     </ul>
     <p class="clearfix" style="margin: 5px 0;"></p>
     <h3 class="text-center">🚀&nbsp;&nbsp;Launched</h3>
     <ul class="list-group">
+      <li class="list-group-item">
+        <s>
+          <h4 class="list-group-item-heading">Page headers / dividers</h4>
+          <p class="list-group-item-text">Group your page into sections</p>
+        </s>
+      </li>
+      <li class="list-group-item">
+        <s>
+          <h4 class="list-group-item-heading">Large images</h4>
+          <p class="list-group-item-text">Option to display large images</p>
+        </s>
+      </li>
       <li class="list-group-item">
         <s>
           <h4 class="list-group-item-heading">Better image formats</h4>
@@ -49,31 +64,14 @@
     <h3 class="text-center">🔮&nbsp;&nbsp;Future</h3>
     <ul class="list-group">
       <li class="list-group-item">
-        <h4 class="list-group-item-heading">Page headers / dividers</h4>
-        <p class="list-group-item-text">Group your page into sections</p>
-      </li>
-      <li class="list-group-item">
         <a href="<%= upgrade_url(subdomain: 'www') %>" class="label label-success" rel="tooltip" title="Requires subscription">PRO</a>
-        <h4 class="list-group-item-heading">Call to action</h4>
-        <p class="list-group-item-text">Display a prominant action button (email me, visit my store, etc.)</p>
-      </li>
-      <li class="list-group-item">
-        <span class="label label-success" rel="tooltip" title="Requires subscription">PRO</span>
-        <h4 class="list-group-item-heading">Page navigation</h4>
-        <p class="list-group-item-text">Display links to jump quickly to a section of your page</p>
+        <h4 class="list-group-item-heading">Custom domain</h4>
+        <p class="list-group-item-text">Use your own domain name as your Upsite URL</p>
       </li>
       <li class="list-group-item">
         <a href="<%= upgrade_url(subdomain: 'www') %>" class="label label-success" rel="tooltip" title="Requires subscription">PRO</a>
         <h4 class="list-group-item-heading">Contact form</h4>
         <p class="list-group-item-text">Display a form enabling visitors to send you a message</p>
-      </li>
-      <li class="list-group-item">
-        <h4 class="list-group-item-heading">Image zooming</h4>
-        <p class="list-group-item-text">See full-screen versions of your images</p>
-      </li>
-      <li class="list-group-item">
-        <h4 class="list-group-item-heading">Link element</h4>
-        <p class="list-group-item-text">Add a text or icon element that links to another site</p>
       </li>
     </ul>
   </div>
