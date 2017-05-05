@@ -1,8 +1,8 @@
 #!/bin/bash
-echo "getting latest production database backup"
+echo "Getting latest production database backup"
 heroku pg:backups capture --remote origin
 curl -o /var/tmp/db.dump `heroku pg:backups public-url -q --remote origin`
-echo "restoring database"
+echo "Restoring database"
 pg_restore --verbose --clean --no-acl --no-owner -h localhost -d upsite_development /var/tmp/db.dump
-echo "removing dump file"
+echo "Removing dump file"
 rm /var/tmp/db.dump
