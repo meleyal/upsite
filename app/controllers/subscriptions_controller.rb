@@ -71,7 +71,7 @@ class SubscriptionsController < ApplicationController
       when 'invoice.payment_succeeded'
         Subscription.transaction do
           user.subscription.update(ends_at: Time.at(data.lines.data.first.period.end))
-          NotificationsMailer.analytics_email(:webhook_invoice_payment_succeeded, user, url).deliver_now
+          # NotificationsMailer.analytics_email(:webhook_invoice_payment_succeeded, user, url).deliver_now
         end
       when 'invoice.payment_failed'
         Subscription.transaction do
