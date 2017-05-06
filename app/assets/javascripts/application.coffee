@@ -5,7 +5,6 @@
 #= require jquery-fileupload/jquery.fileupload
 #= require jquery.jcrop
 #= require papercrop
-#= require jquery.embedly
 #= require jquery.payment
 #= require trix
 #= require bootstrap
