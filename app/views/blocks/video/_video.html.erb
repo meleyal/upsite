@@ -2,6 +2,21 @@
 
   <%= render 'blocks/controls', block: video %>
 
-  <a data-embed href="<%= video.embed_url %>"></a>
+  <% if video.embed_url.include?('iframe') %>
+    <iframe
+      src="<%= video.embed_src %>?&title=0&byline=0&portrait=0?rel=0&showinfo=0"
+      width="300"
+      height="300"
+      style="border: 0;"
+      scrolling="0"
+      frameborder="0"
+      allowtransparency="true"
+      seamless></iframe>
+  <% else %>
+    <div class="block-error">
+      <strong>Oops, there was a problem:</strong><br />
+      Please use an embed code not a URL.
+    </div>
+  <% end %>
 
 </div>

@@ -4,21 +4,15 @@
 
   <div class="block-content">
 
-    <!-- Embed -->
-    <% if image.embed_url.present? %>
-      <a data-embed href="<%= image.embed_url %>"></a>
-    <!-- Upload -->
-    <% else %>
-      <% if image.link_url.present? %><a href="<%= image.link_url %>"><% end %>
-        <% if image.size == 'large' %>
-          <img src="<%= image.original %>" class="img-responsive" />
-        <% else %>
-          <img src="<%= image.medium %>"
-               srcset="<%= image.medium_2x.present? ? image.medium_2x : image.medium %> 2x"
-               class="img-responsive" />
-        <% end %>
-      <% if image.link_url.present? %></a><% end %>
-    <% end %>
+    <% if image.link_url.present? %><a href="<%= image.link_url %>"><% end %>
+      <% if image.size == 'large' %>
+        <img src="<%= image.original %>" class="img-responsive" />
+      <% else %>
+        <img src="<%= image.medium %>"
+             srcset="<%= image.medium_2x.present? ? image.medium_2x : image.medium %> 2x"
+             class="img-responsive" />
+      <% end %>
+    <% if image.link_url.present? %></a><% end %>
 
     <% if image.title.present? %>
       <div class="block-caption"><%= image.title %></div>

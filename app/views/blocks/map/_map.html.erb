@@ -2,6 +2,22 @@
 
   <%= render 'blocks/controls', block: map %>
 
-  <a data-embed href="<%= map.embed_url %>"></a>
+  <% if map.embed_url.include?('iframe') %>
+    <iframe
+      src="<%= map.embed_src %>"
+      width="300"
+      height="300"
+      style="border: 0;"
+      scrolling="0"
+      frameborder="0"
+      allowtransparency="true"
+      allowfullscreen="true"
+      seamless></iframe>
+  <% else %>
+    <div class="block-error">
+      <strong>Oops, there was a problem:</strong><br />
+      Please use an embed code not a URL.
+    </div>
+  <% end %>
 
 </div>

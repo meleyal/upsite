@@ -15,4 +15,8 @@ class Block < ActiveRecord::Base
   def editable?
     true
   end
+
+  def embed_src
+    self.embed_url.match(/src\s*=\s*"(.+?)"/)[1] rescue ''
+  end
 end

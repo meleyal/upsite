@@ -2,6 +2,21 @@
 
   <%= render 'blocks/controls', block: audio %>
 
-  <a data-embed href="<%= audio.embed_url %>"></a>
+  <% if audio.embed_url.include?('iframe') %>
+    <iframe
+      src="<%= audio.embed_src %>"
+      width="300"
+      height="300"
+      style="border: 0;"
+      scrolling="0"
+      frameborder="0"
+      allowtransparency="true"
+      seamless></iframe>
+  <% else %>
+    <div class="block-error">
+      <strong>Oops, there was a problem:</strong><br />
+      Please use an embed code not a URL.
+    </div>
+  <% end %>
 
 </div>

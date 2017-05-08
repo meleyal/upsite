@@ -8,83 +8,55 @@ url = block_path(type: 'image', id: @block.id) if @block.persisted?
   <h4 class="modal-title"><%= @block.new_record? ? 'Add' : 'Edit' %> Image</h4>
 </div>
 
-<% if @block.new_record? %>
-  <ul class="modal-nav nav nav-tabs">
-    <li class="active">
-      <a href="#upload" data-toggle="tab">Upload image</a>
-    </li>
-    <li>
-      <a href="#web" data-toggle="tab">Add image from web</a>
-    </li>
-  </ul>
-<% end %>
-
-<div class="tab-content">
-
-  <div id="upload" class="tab-pane <%= 'active' if @block.new_record? || @block.attachments.present? %>">
-    <%= simple_form_for(@block, as: :block, url: url, remote: true, html: { multipart: true }) do |f| %>
-      <div class="modal-body">
-        <% if @block.new_record? %>
-          <div class="form-group">
-            <label class="control-label">Upload image</label>
-            <%= f.hidden_field :size, value: 'square' %>
-            <ul class="list-group">
-              <li class="list-group-item hidden">
-                <p class="progress-status">Uploading...</p>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-success" style="width: 20%;"></div>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <a href="#" class="btn btn-success fileinput-button">
-                  <i class="fa fa-lg fa-cloud-upload"></i>&nbsp;
-                  <span>Select file</span>
-                  <%= f.file_field 'attachments_attributes[0][upload]',
-                    accept: '.jpg, .jpeg, .png, .gif',
-                    data: { upload: true } %>
-                </a>
-              </li>
-            </ul>
-          </div>
-        <% else %>
-          <% if @block.original_width >= 960 %>
-            <div class="form-group">
-              <label>Size</label>
-              <div class="radio-buttons-inline">
-                <label>
-                  <%= f.radio_button :size, 'square', checked: @block.size == 'square' %>
-                  <span class="img-placeholder" style="height: 60px; line-height: 60px; width: 60px;">
-                    Square
-                  </span>
-                </label>
-                <label>
-                  <%= f.radio_button :size, 'large', checked: @block.size == 'large' %>
-                  <span class="img-placeholder" style="height: 60px; line-height: 60px; width: 110px;">
-                    Large
-                  </span>
-                </label>
-              </div>
+<%= simple_form_for(@block, as: :block, url: url, remote: true, html: { multipart: true }) do |f| %>
+  <div class="modal-body">
+    <% if @block.new_record? %>
+      <div class="form-group">
+        <label class="control-label">Upload image</label>
+        <%= f.hidden_field :size, value: 'square' %>
+        <ul class="list-group">
+          <li class="list-group-item hidden">
+            <p class="progress-status">Uploading...</p>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" style="width: 20%;"></div>
             </div>
-          <% end %>
-          <%= f.input :title, label: 'Caption' %>
-          <%= f.input :link_url, label: 'Go to this link when clicking the image', placeholder: 'http://' %>
-        <% end %>
+          </li>
+          <li class="list-group-item">
+            <a href="#" class="btn btn-success fileinput-button">
+              <i class="fa fa-lg fa-cloud-upload"></i>&nbsp;
+              <span>Select file</span>
+              <%= f.file_field 'attachments_attributes[0][upload]',
+                accept: '.jpg, .jpeg, .png, .gif',
+                data: { upload: true } %>
+            </a>
+          </li>
+        </ul>
       </div>
-      <div class="modal-footer">
-        <%= f.button :submit, class: 'btn btn-success', disabled: @block.new_record? %>
-      </div>
+    <% else %>
+      <% if @block.original_width >= 960 %>
+        <div class="form-group">
+          <label>Size</label>
+          <div class="radio-buttons-inline">
+            <label>
+              <%= f.radio_button :size, 'square', checked: @block.size == 'square' %>
+              <span class="img-placeholder" style="height: 60px; line-height: 60px; width: 60px;">
+                Square
+              </span>
+            </label>
+            <label>
+              <%= f.radio_button :size, 'large', checked: @block.size == 'large' %>
+              <span class="img-placeholder" style="height: 60px; line-height: 60px; width: 110px;">
+                Large
+              </span>
+            </label>
+          </div>
+        </div>
+      <% end %>
+      <%= f.input :title, label: 'Caption' %>
+      <%= f.input :link_url, label: 'Go to this link when clicking the image', placeholder: 'http://' %>
     <% end %>
   </div>
-
-  <div id="web" class="tab-pane <%= 'active' if @block.embed_url.present? %>">
-    <%= simple_form_for(@block, as: :block, url: url, remote: true, html: { multipart: true }) do |f| %>
-      <div class="modal-body">
-        <%= f.input :embed_url, label: 'Image link', placeholder: 'instagram.com / imgur.com / giphy.com / etc.' %>
-      </div>
-      <div class="modal-footer">
-        <%= f.button :submit, class: 'btn btn-success' %>
-      </div>
-    <% end %>
+  <div class="modal-footer">
+    <%= f.button :submit, class: 'btn btn-success', disabled: @block.new_record? %>
   </div>
-
-</div>
+<% end %>

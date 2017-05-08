@@ -11,7 +11,10 @@ url = block_path(type: 'map', id: @block.id) if @block.persisted?
   </div>
 
   <div class="modal-body">
-    <%= f.input :embed_url, label: 'Map Link', placeholder: 'maps.google.com' %>
+    <%= f.input :embed_url,
+      label: 'Map Embed Code',
+      placeholder: 'maps.google.com',
+      hint: 'Copy and paste the embed code above.' %>
   </div>
 
   <div class="modal-footer">

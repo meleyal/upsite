@@ -11,7 +11,10 @@ url = block_path(type: 'video', id: @block.id) if @block.persisted?
   </div>
 
   <div class="modal-body">
-    <%= f.input :embed_url, label: 'Video link', placeholder: 'youtube.com / vimeo.com' %>
+    <%= f.input :embed_url,
+                label: 'Video Embed Code',
+                placeholder: 'youtube.com / vimeo.com',
+                hint: 'Copy and paste the embed code above.' %>
   </div>
 
   <div class="modal-footer">
