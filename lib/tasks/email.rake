@@ -1,26 +1,9 @@
 namespace :email do
   desc 'Newsletter'
   task :newsletter => :environment do
-    %w(
-      katie-hill
-      neonxlaser
-      syiren
-      gommagommas
-      channelh
-      captainhookkeptthemhooked
-      pablo-sansone
-      excursionesgeologicas
-      haidutschek
-      martinriemer
-      cacciatore-ilustrado
-      sarkhoshi
-      ninos-fosforescentes
-      wuni
-      koru-consulting
-    ).each do |subdomain|
-      subject = "Changes to Upsite"
-      s = Site.find_by(subdomain: subdomain)
-      NotificationsMailer.newsletter_email(s, subject).deliver_now if s
+    Site.all.each do |site|
+      subject = "Upsite is shutting down on 1 June 2017"
+      NotificationsMailer.newsletter_email(site, subject).deliver_now
     end
   end
 

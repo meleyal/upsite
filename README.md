@@ -1,34 +1,14 @@
 # Upsite
 
-## How to create a Site in the console
+Upsite is a multi-tenant minimal website builder made with Ruby on Rails. It makes sites like this:
 
-```ruby
-require 'hirb'
-Hirb.enable
+<img src="app/assets/images/signup/meleyal-site.png" />
 
-u = User.find(id)
-s = Site.create(name: 'name', owner: u)
-m = SiteMembership.create(user: u, site: s)
-```
+## History
 
-## Find users with more than 1 site
+This was a long-time pet project that was online for around 1 year. Ultimately I couldn't pay the bills with it so I decided to discontinue the web service and open source the code.
 
-```
-User.joins(:sites).group('users.id').having('count(sites.id) > ?', 1)
-```
-
-## Get all user emails
-
-```
-User.all.map(&:email).join(', ')
-```
-
-## Renew SSL cert
-
-- Your certificate and chain have been saved at
-  `/etc/letsencrypt/live/www.upsite.io/fullchain.pem`
-
-- Your cert will expire on 2016-12-31.
-
-- To obtain a new or tweaked version of this certificate in the future, simply run certbot again.
-  To non-interactively renew *all* of your certificates, run `certbot renew`.
+* Sep 2012 - First [commit](2d663f7)
+* Jun 2016 – Launched at [www.upsite.io](https://www.upsite.io/)
+* Nov 2016 – Featured on [Product Hunt](https://www.producthunt.com/posts/upsite-markdown)
+* Jun 2017 – Discontinued and [open sourced](https://github.com/meleyal/upsite/)
