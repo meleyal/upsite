@@ -40,7 +40,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   # Default host for URLs in emails.
-  config.action_mailer.default_url_options = { :host => "www.upsite.dev" }
+  config.action_mailer.default_url_options = { :host => "www.upsite.test" }
 
   # Automatically inject JavaScript needed for LiveReload
   config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
