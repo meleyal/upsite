@@ -7,3 +7,6 @@ promo_plan = Plan.create(name: 'Promo', code: 'promo', site_limit: 10, block_lim
 
 admin = User.create(email: 'admin@upsite.io', password: 'password', plan: promo_plan)
 me = User.create(email: 'william.meleyal@gmail.com', password: 'password', plan: promo_plan)
+
+site = Site.create(name: 'meleyal')
+site.transfer_ownership!(me)
