@@ -12,46 +12,46 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
-    Subscription.transaction do
-      @site = current_site
-      customer = Stripe::Customer.retrieve(current_user.stripe_customer_id)
-      subscription = Stripe::Subscription.retrieve(customer.subscriptions.first.id)
-      subscription.plan = Plan.pro.code
-      subscription.source = params[:token]
-      if params[:promo_code].present?
-        coupon = Stripe::Coupon.retrieve(params[:promo_code].upcase)
-        subscription.coupon = coupon.id
-      end
-      subscription.prorate = false
-      subscription.save
-      current_user.subscription.update(
-        plan: Plan.pro,
-        ends_at: Time.at(subscription.current_period_end)
-      )
-      NotificationsMailer.upgrade_email(current_user).deliver_now
-      flash[:analytics_upgrade] = true
-      redirect_to view_context.site_url(@site), notice: 'Subscribed to Upsite Pro!'
-    end
-
-    rescue Stripe::CardError, Stripe::InvalidRequestError => e
-      flash[:error] = e.message
-      redirect_to upgrade_path
+    # Subscription.transaction do
+    #   @site = current_site
+    #   customer = Stripe::Customer.retrieve(current_user.stripe_customer_id)
+    #   subscription = Stripe::Subscription.retrieve(customer.subscriptions.first.id)
+    #   subscription.plan = Plan.pro.code
+    #   subscription.source = params[:token]
+    #   if params[:promo_code].present?
+    #     coupon = Stripe::Coupon.retrieve(params[:promo_code].upcase)
+    #     subscription.coupon = coupon.id
+    #   end
+    #   subscription.prorate = false
+    #   subscription.save
+    #   current_user.subscription.update(
+    #     plan: Plan.pro,
+    #     ends_at: Time.at(subscription.current_period_end)
+    #   )
+    #   NotificationsMailer.upgrade_email(current_user).deliver_now
+    #   flash[:analytics_upgrade] = true
+    #   redirect_to view_context.site_url(@site), notice: 'Subscribed to Upsite Pro!'
+    # end
+    #
+    # rescue Stripe::CardError, Stripe::InvalidRequestError => e
+    #   flash[:error] = e.message
+    #   redirect_to upgrade_path
   end
 
   def destroy
-    Subscription.transaction do
-      customer = Stripe::Customer.retrieve(current_user.stripe_customer_id)
-      subscription = Stripe::Subscription.retrieve(customer.subscriptions.first.id)
-      subscription.plan = Plan.free.code
-      subscription.prorate = false
-      subscription.save
-      current_user.subscription.update(
-        plan: Plan.free,
-        ends_at: nil
-      )
-      NotificationsMailer.analytics_email(:downgrade, current_user, params[:reason]).deliver_now
-      redirect_to view_context.site_url(current_site), notice: 'Upsite Pro subscription cancelled'
-    end
+    # Subscription.transaction do
+    #   customer = Stripe::Customer.retrieve(current_user.stripe_customer_id)
+    #   subscription = Stripe::Subscription.retrieve(customer.subscriptions.first.id)
+    #   subscription.plan = Plan.free.code
+    #   subscription.prorate = false
+    #   subscription.save
+    #   current_user.subscription.update(
+    #     plan: Plan.free,
+    #     ends_at: nil
+    #   )
+    #   NotificationsMailer.analytics_email(:downgrade, current_user, params[:reason]).deliver_now
+    #   redirect_to view_context.site_url(current_site), notice: 'Upsite Pro subscription cancelled'
+    # end
   end
 
   def cancel

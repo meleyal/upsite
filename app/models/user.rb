@@ -85,16 +85,16 @@ class User < ActiveRecord::Base
 
   def create_subscription
     Subscription.create(user: self, plan: Plan.free, starts_at: Time.now)
-    customer = Stripe::Customer.create(email: self.email, plan: Plan.free.code)
-    self.update(stripe_customer_id: customer.id)
+    # customer = Stripe::Customer.create(email: self.email, plan: Plan.free.code)
+    # self.update(stripe_customer_id: customer.id)
   end
 
   def destroy_subscription
     self.subscription.destroy
-    if Rails.env.production?
-      customer = Stripe::Customer.retrieve(self.stripe_customer_id)
-      customer.delete
-    end
+    # if Rails.env.production?
+    #   customer = Stripe::Customer.retrieve(self.stripe_customer_id)
+    #   customer.delete
+    # end
   end
 
   def destroy_sites
