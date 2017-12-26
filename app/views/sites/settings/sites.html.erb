@@ -43,10 +43,6 @@
         <% if current_user.sites.length < current_user.plan.site_limit %>
           <a href="<%= new_site_path %>" class="btn btn-success" data-toggle="modal" data-target="self">Create a new site</a>
         <% end %>
-      <% else %>
-        <a href="<%= settings_path(:account) %>" class="btn btn-success" data-toggle="modal" data-target="self">
-          Upgrade to create more sites
-        </a>
       <% end %>
     </div>
   </div>

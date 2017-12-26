@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   constraints :subdomain => /^(?!www\Z)(\w+)/ do
     get '/' => 'sites#show'
     get 'settings/:group' => 'settings#edit', as: 'settings',
-      constraints: { group: /site|account|user|sites|invites/ }
+      constraints: { group: /site|user|sites|invites/ }
     patch 'settings/:group' => 'settings#update'
     get 'edit' => 'sites#edit'
     patch 'edit' => 'sites#update'
@@ -19,8 +19,6 @@ Rails.application.routes.draw do
     end
   end
 
-  # HACK: Uncomment to test Stripe webhooks via http://upsite.ngrok.io
-  # constraints :subdomain => /^(upsite)/ do
   constraints :subdomain => /^(www)/ do
     get 'login', to: 'sessions#new'
     post 'login', to: 'sessions#create'
@@ -34,11 +32,6 @@ Rails.application.routes.draw do
     post 'signup/:token', to: 'signups#create'
     get 'cancel', to: 'signups#cancel'
     delete 'cancel', to: 'signups#destroy'
-    get 'upgrade', to: 'subscriptions#new'
-    get 'upgrade/cancel', to: 'subscriptions#cancel'
-    post 'upgrade', to: 'subscriptions#create'
-    delete 'upgrade', to: 'subscriptions#destroy'
-    post 'upgrade/webhook', to: 'subscriptions#webhook'
     get 'terms', to: redirect('/legal')
     get 'privacy', to: redirect('/legal')
     get 'legal', to: 'website#legal'

@@ -2,9 +2,6 @@
   <li class="<%= 'active' if current_page?(settings_path(:site)) %>">
     <a href="<%= settings_path(:site) %>" data-toggle="modal" data-target="self">Site</a>
   </li>
-  <li class="<%= 'active' if current_page?(settings_path(:account)) %>">
-    <a href="<%= settings_path(:account) %>" data-toggle="modal" data-target="self">Account</a>
-  </li>
   <li class="<%= 'active' if current_page?(settings_path(:user)) %>">
     <a href="<%= settings_path(:user) %>" data-toggle="modal" data-target="self">User</a>
   </li>

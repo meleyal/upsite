@@ -41,18 +41,6 @@ class Site < ActiveRecord::Base
   validates :description, length: { maximum: 600 }
 
   ##
-  # Scopes
-  #
-  scope :active, -> { where(deleted_at: nil) }
-  scope :pro, -> { joins(:users).where(users: { plan_id: 2 }) }
-  scope :dormant, -> {
-    joins('LEFT OUTER JOIN blocks ON blocks.site_id = sites.id').
-    select('sites.*').
-    group('sites.id').
-    having('count(blocks.id) <= 2')
-  }
-
-  ##
   # Instance methods
   #
   def transfer_ownership!(user)

@@ -23,6 +23,8 @@
                 class: 'btn btn-default',
                 tabindex: -1,
                 data: { confirm: 'Are you sure you want to log out?' } %>
+
+          <a href="<%= cancel_url(subdomain: 'www') %>" class="btn btn-danger-link">Cancel Account</a>
         </div>
         <%= f.button :submit, class: 'btn btn-success' %>
       </div>

@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
   # Instance methods
   #
   def site
-    self.sites.active.first
+    self.sites.first
   end
 
   def pro?

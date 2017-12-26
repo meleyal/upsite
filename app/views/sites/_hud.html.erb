@@ -7,14 +7,6 @@
       title="Add" data-toggle="modal" data-target="#modal" rel="tooltip" data-placement="left">
       <i class="fa fa-plus fa-lg"></i>
     </a>
-  <% else %>
-    <a href="<%= settings_path(:account) %>"
-      class="add"
-      data-toggle="modal"
-      data-target="#modal"
-      title="Upgrade" target="upgrade" rel="tooltip" data-placement="left">
-      <i class="fa fa-plus fa-lg"></i>
-    </a>
   <% end %>
 
   <!-- Settings -->
@@ -24,20 +16,10 @@
   </a>
 
   <!-- Help -->
-  <% if current_user.pro? %>
-    <a href="<%= new_help_path %>"
-      class="help"
-      title="Help" data-toggle="modal" data-target="#modal" rel="tooltip" data-placement="left">
-      <i class="fa fa-question fa-lg"></i>
-    </a>
-  <% else %>
-    <a href="<%= settings_path(:account) %>"
-      class="help"
-      data-toggle="modal"
-      data-target="#modal"
-      title="Help" target="upgrade" rel="tooltip" data-placement="left">
-      <i class="fa fa-question fa-lg"></i>
-    </a>
-  <% end %>
+  <a href="<%= new_help_path %>"
+    class="help"
+    title="Help" data-toggle="modal" data-target="#modal" rel="tooltip" data-placement="left">
+    <i class="fa fa-question fa-lg"></i>
+  </a>
 
 </div>

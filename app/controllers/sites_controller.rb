@@ -5,11 +5,11 @@ class SitesController < ApplicationController
   layout :false, except: [:show]
 
   def index
-    @sites = current_user.sites.active
+    @sites = current_user.sites
   end
 
   def show
-    @site = Site.active.find_by!(subdomain: request.subdomains.first)
+    @site = Site.find_by!(subdomain: request.subdomains.first)
     @blocks = @site.blocks.includes(:attachments).all
     session[:current_site_id] = @site.id if current_user
   end
