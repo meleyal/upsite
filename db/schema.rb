@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170505215012) do
+ActiveRecord::Schema.define(version: 20171226170254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20170505215012) do
     t.integer  "site_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "size"
   end
 
   add_index "blocks", ["site_id"], name: "index_blocks_on_site_id", using: :btree
@@ -79,13 +78,10 @@ ActiveRecord::Schema.define(version: 20170505215012) do
     t.string   "subdomain"
     t.string   "domain"
     t.string   "color"
-    t.boolean  "featured"
     t.string   "owner_id"
-    t.datetime "deleted_at"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.jsonb    "settings",    default: {}, null: false
-    t.text     "body"
   end
 
   add_index "sites", ["owner_id"], name: "index_sites_on_owner_id", using: :btree
@@ -108,12 +104,8 @@ ActiveRecord::Schema.define(version: 20170505215012) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "stripe_customer_id"
     t.integer  "invite_id"
     t.datetime "last_login_at"
     t.string   "password_reset_token"
@@ -123,6 +115,5 @@ ActiveRecord::Schema.define(version: 20170505215012) do
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["invite_id"], name: "index_users_on_invite_id", using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
-  add_index "users", ["stripe_customer_id"], name: "index_users_on_stripe_customer_id", using: :btree
 
 end
