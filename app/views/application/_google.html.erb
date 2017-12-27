@@ -7,15 +7,3 @@
   ga('create', '<%= ENV['GOOGLE_ANALYTICS_KEY'] %>', 'auto');
   ga('send', 'pageview');
 </script>
-
-<% if flash[:analytics_signup].present? %>
-  <script>
-    ga('send', 'event', 'User', 'signup');
-  </script>
-<% end %>
-
-<% if flash[:analytics_upgrade].present? %>
-  <script>
-    ga('send', 'event', 'User', 'upgrade', 'pro_5');
-  </script>
-<% end %>

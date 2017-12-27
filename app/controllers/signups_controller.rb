@@ -28,7 +28,6 @@ class SignupsController < ApplicationController
     # if verify_recaptcha(model: @user, attribute: :recaptcha) && @site.save
     if @site.save
       login @user
-      flash[:analytics_signup] = true
       NotificationsMailer.welcome_email(@user, view_context.site_url(@site)).deliver_now
       response.headers['turbolinks'] = 'false'
       render json: {}, status: :created, location: view_context.site_url(@site)
@@ -43,7 +42,6 @@ class SignupsController < ApplicationController
   end
 
   def destroy
-    NotificationsMailer.analytics_email(:cancel, current_user, params[:reason]).deliver_now
     cookies.delete(:remember_token, domain: :all)
     current_user.destroy
     redirect_to login_url(subdomain: 'www')
