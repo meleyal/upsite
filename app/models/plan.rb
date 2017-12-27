@@ -1,6 +1,5 @@
 class Plan < ActiveRecord::Base
-  has_many :subscriptions
-  has_many :users, through: :subscriptions
+  has_many :users
 
   def self.pro
     self.find_by(code: 'pro_10')

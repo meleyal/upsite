@@ -4,17 +4,15 @@ class User < ActiveRecord::Base
   #
   before_save { self.email = email.downcase }
   before_create :create_remember_token
-  after_create :create_subscription
-  before_destroy :destroy_subscription, :destroy_sites
+  before_destroy :destroy_sites
 
   ##
   # Associations
   #
   has_many :sites, foreign_key: :owner_id
-  has_one :subscription
-  has_one :plan, through: :subscription
   has_many :invites, class_name: 'Invite', foreign_key: 'sender_id'
   belongs_to :invite
+  belongs_to :plan
 
   ##
   # Validations
@@ -45,7 +43,7 @@ class User < ActiveRecord::Base
   end
 
   def pro?
-    self.plan.promo? || self.plan.pro? && !self.subscription.expired?
+    self.plan.promo? || self.plan.pro?
   end
 
   def promo?
@@ -57,7 +55,7 @@ class User < ActiveRecord::Base
   end
 
   def change_plan!(plan)
-    self.subscription.update(plan: plan)
+    self.plan = plan
   end
 
   def send_password_reset_email
@@ -74,14 +72,6 @@ class User < ActiveRecord::Base
 
   def create_remember_token
     self.remember_token = User.digest(User.new_token)
-  end
-
-  def create_subscription
-    Subscription.create(user: self, plan: Plan.free, starts_at: Time.now)
-  end
-
-  def destroy_subscription
-    self.subscription.destroy
   end
 
   def destroy_sites
