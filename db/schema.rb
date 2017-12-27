@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171226170254) do
+ActiveRecord::Schema.define(version: 20171226223210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,29 +62,18 @@ ActiveRecord::Schema.define(version: 20171226170254) do
     t.integer  "invite_limit"
   end
 
-  create_table "site_memberships", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "site_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "site_memberships", ["site_id"], name: "index_site_memberships_on_site_id", using: :btree
-  add_index "site_memberships", ["user_id"], name: "index_site_memberships_on_user_id", using: :btree
-
   create_table "sites", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.string   "subdomain"
     t.string   "domain"
     t.string   "color"
-    t.string   "owner_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.jsonb    "settings",    default: {}, null: false
+    t.integer  "owner_id"
   end
 
-  add_index "sites", ["owner_id"], name: "index_sites_on_owner_id", using: :btree
   add_index "sites", ["settings"], name: "index_sites_on_settings", using: :gin
   add_index "sites", ["subdomain"], name: "index_sites_on_subdomain", unique: true, using: :btree
 

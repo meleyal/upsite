@@ -10,8 +10,7 @@ class User < ActiveRecord::Base
   ##
   # Associations
   #
-  has_many :site_memberships
-  has_many :sites, through: :site_memberships
+  has_many :sites, foreign_key: :owner_id
   has_one :subscription
   has_one :plan, through: :subscription
   has_many :invites, class_name: 'Invite', foreign_key: 'sender_id'
@@ -24,7 +23,6 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
   validates :password, length: { minimum: 6 }, presence: true, on: :create
-  # validates :password_confirmation, presence: true, on: :update
   validates :terms, acceptance: true
   attr_accessor :terms, :reset_token
 
@@ -59,12 +57,7 @@ class User < ActiveRecord::Base
   end
 
   def change_plan!(plan)
-    customer = Stripe::Customer.retrieve(self.stripe_customer_id)
-    subscription = Stripe::Subscription.retrieve(customer.subscriptions.first.id)
-    subscription.plan = plan.code
-    subscription.prorate = false
-    subscription.save
-    self.subscription.update(plan: plan, ends_at: Time.at(subscription.current_period_end))
+    self.subscription.update(plan: plan)
   end
 
   def send_password_reset_email
@@ -85,22 +78,13 @@ class User < ActiveRecord::Base
 
   def create_subscription
     Subscription.create(user: self, plan: Plan.free, starts_at: Time.now)
-    # customer = Stripe::Customer.create(email: self.email, plan: Plan.free.code)
-    # self.update(stripe_customer_id: customer.id)
   end
 
   def destroy_subscription
     self.subscription.destroy
-    # if Rails.env.production?
-    #   customer = Stripe::Customer.retrieve(self.stripe_customer_id)
-    #   customer.delete
-    # end
   end
 
   def destroy_sites
-    self.site_memberships.each do |m|
-      m.site.destroy
-      m.destroy
-    end
+    self.sites.destroy_all
   end
 end

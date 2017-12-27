@@ -4,8 +4,6 @@ class Site < ActiveRecord::Base
   #
   belongs_to :owner, class_name: 'User'
   accepts_nested_attributes_for :owner
-  has_many :site_memberships, dependent: :destroy
-  has_many :users, through: :site_memberships
   has_many :attachments, through: :blocks
   has_many :blocks, -> { order(:position) }, dependent: :destroy
   has_many :texts
@@ -45,8 +43,6 @@ class Site < ActiveRecord::Base
   #
   def transfer_ownership!(user)
     self.owner = user
-    self.site_memberships.delete_all # skip callbacks
-    self.users << user
     self.save
   end
 end
