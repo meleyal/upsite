@@ -11,7 +11,6 @@ class Site < ActiveRecord::Base
   has_many :images
   has_many :videos
   has_many :audios
-  has_many :maps
   has_many :spaces
   serialize :settings, HashSerializer
   store_accessor :settings
