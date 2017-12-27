@@ -21,7 +21,6 @@ class Attachment < ActiveRecord::Base
     content_type: { content_type: ['image/jpeg', 'image/gif', 'image/png'] },
     size: { less_than: 8.megabytes }
 
-  # TODO: Save this in the db
   def geometry
     Paperclip::Geometry.from_file(Paperclip.io_adapters.for(upload))
   end

@@ -2,6 +2,7 @@ class Site < ActiveRecord::Base
   ##
   # Associations
   #
+
   belongs_to :owner, class_name: 'User'
   accepts_nested_attributes_for :owner
   has_many :attachments, through: :blocks
@@ -18,6 +19,7 @@ class Site < ActiveRecord::Base
   ##
   # Validations
   #
+
   before_validation(on: :create) {
     subdomain = self.name[0..60].gsub(/'/, '').parameterize
     if Site.find_by(subdomain: subdomain)
@@ -36,12 +38,4 @@ class Site < ActiveRecord::Base
   }
   validates :color, format: /#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})/, allow_blank: true
   validates :description, length: { maximum: 600 }
-
-  ##
-  # Instance methods
-  #
-  def transfer_ownership!(user)
-    self.owner = user
-    self.save
-  end
 end
