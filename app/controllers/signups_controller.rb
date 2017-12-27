@@ -19,7 +19,6 @@ class SignupsController < ApplicationController
     @user = User.new(site_params[:owner_attributes])
     @user.invite = @invite
     @site.owner = @user
-    @site.users << @user
 
     if site_params[:owner_attributes][:email] != @invite.recipient_email
       @user.errors.add(:email, 'does not match invite token')

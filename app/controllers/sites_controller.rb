@@ -21,7 +21,6 @@ class SitesController < ApplicationController
   def create
     @new_site = Site.new(site_params)
     @new_site.owner = current_user
-    @new_site.users << current_user
 
     if @new_site.save
       response.headers['turbolinks'] = 'false'
