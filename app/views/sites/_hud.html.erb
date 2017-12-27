@@ -1,7 +1,7 @@
 <div class="hud">
 
   <!-- Add -->
-  <% if @site.blocks.length < current_user.plan.block_limit %>
+  <% if @site.blocks.length < current_user.block_limit %>
     <a href="<%= new_block_path %>"
       class="add"
       title="Add" data-toggle="modal" data-target="#modal" rel="tooltip" data-placement="left">

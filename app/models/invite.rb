@@ -23,7 +23,7 @@ class Invite < ActiveRecord::Base
   end
 
   def sender_has_invites
-    if sender.invites.count >= sender.plan.invite_limit
+    if sender.invites.count >= sender.invite_limit
       errors.add_to_base 'You have reached your limit of invites to send.'
     end
   end

@@ -1,7 +1,12 @@
 class User < ActiveRecord::Base
+  SITE_LIMIT = 10
+  BLOCK_LIMIT = 1000
+  INVITE_LIMIT = 5
+
   ##
   # Callbacks
   #
+
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   before_destroy :destroy_sites
@@ -9,14 +14,15 @@ class User < ActiveRecord::Base
   ##
   # Associations
   #
+
   has_many :sites, foreign_key: :owner_id
   has_many :invites, class_name: 'Invite', foreign_key: 'sender_id'
   belongs_to :invite
-  belongs_to :plan
 
   ##
   # Validations
   #
+
   has_secure_password
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
@@ -27,6 +33,7 @@ class User < ActiveRecord::Base
   ##
   # Class methods
   #
+
   def User.new_token
     SecureRandom.urlsafe_base64
   end
@@ -38,24 +45,25 @@ class User < ActiveRecord::Base
   ##
   # Instance methods
   #
+
   def site
     self.sites.first
   end
 
-  def pro?
-    self.plan.promo? || self.plan.pro?
+  def site_limit
+    self.sudo? ? Infinity : SITE_LIMIT
   end
 
-  def promo?
-    self.plan.promo?
+  def block_limit
+    self.sudo? ? Infinity : BLOCK_LIMIT
+  end
+
+  def invite_limit
+    self.sudo? ? Infinity : INVITE_LIMIT
   end
 
   def sudo?
     self.id == 1
-  end
-
-  def change_plan!(plan)
-    self.plan = plan
   end
 
   def send_password_reset_email

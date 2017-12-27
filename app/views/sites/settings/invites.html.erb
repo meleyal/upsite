@@ -42,9 +42,9 @@
       </ul>
     </div>
     <div class="modal-footer">
-      <% if current_user.invites.count < current_user.plan.invite_limit %>
+      <% if current_user.invites.count < current_user.invite_limit %>
         <span class="text-muted">
-          You can invite <strong><%= current_user.plan.invite_limit - current_user.invites.count %></strong> more people to join <strong>Upsite</strong>.&nbsp;&nbsp;
+          You can invite <strong><%= current_user.invite_limit - current_user.invites.count %></strong> more people to join <strong>Upsite</strong>.&nbsp;&nbsp;
         </span>
         <a href="<%= new_invite_path %>" class="btn btn-success" data-toggle="modal" data-target="self">Invite someone</a>
       <% else %>
