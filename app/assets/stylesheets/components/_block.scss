@@ -39,7 +39,9 @@
     color: $text-color;
     border-bottom: 1px solid $text-color;
 
-    &:hover, &:focus, &:active {
+    &:hover,
+    &:focus,
+    &:active {
       text-decoration: none;
     }
   }
@@ -50,8 +52,8 @@
 
 .block-controls {
   opacity: 0;
-  transition: opacity .3s;
-  transition-delay: .3s;
+  transition: opacity 0.3s;
+  transition-delay: 0.3s;
   position: absolute;
   right: 7.5px;
   top: 7.5px;
@@ -90,7 +92,8 @@
   background: $gray-lighter;
   padding: 10px;
 
-  ul, ol {
+  ul,
+  ol {
     padding-left: 15px;
   }
 
@@ -212,36 +215,9 @@
     padding: 10px 0;
 
     h1 {
-      line-height: .95em;
+      line-height: 0.95em;
       margin-bottom: 10px;
     }
-  }
-}
-
-.block-image-large {
-  width: auto;
-  height: auto;
-
-  &.ui-sortable-helper {
-    transform: scale(0.25);
-  }
-}
-
-.block-divider {
-  background: $white;
-  float: none;
-  clear: both;
-  width: auto;
-  height: auto;
-  height: 80px;
-  margin-bottom: 5px;
-
-  h2 {
-    margin: 10px 0 0 0;
-  }
-
-  &.ui-sortable-helper {
-    transform: scale(0.8);
   }
 }
 

@@ -1,2 +1,0 @@
-class Divider < Block
-end

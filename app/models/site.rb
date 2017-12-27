@@ -12,7 +12,6 @@ class Site < ActiveRecord::Base
   has_many :audios
   has_many :maps
   has_many :spaces
-  has_many :dividers
   serialize :settings, HashSerializer
   store_accessor :settings
 
