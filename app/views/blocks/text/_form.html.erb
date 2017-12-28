@@ -12,8 +12,10 @@ url = block_path(type: 'text', id: @block.id) if @block.persisted?
 
   <div class="modal-body">
     <div class="form-group">
-      <%= f.trix_editor :body, rows: 20, input: :block_body %>
-      <span class="help-block"></span>
+      <%= f.text_area :body, rows: 20, class: 'form-control' %>
+      <span class="help-block">
+        <a href="https://en.wikipedia.org/wiki/Markdown" target="_blank">Markdown</a> supported
+      </span>
     </div>
   </div>
 

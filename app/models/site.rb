@@ -20,14 +20,14 @@ class Site < ActiveRecord::Base
   #
 
   before_validation(on: :create) {
-    subdomain = self.name[0..60].gsub(/'/, '').parameterize
+    subdomain = self.title[0..60].gsub(/'/, '').parameterize
     if Site.find_by(subdomain: subdomain)
       self.subdomain = "#{subdomain}#{Site.maximum(:id) + 1}"
     else
       self.subdomain = subdomain
     end
   }
-  validates :name, presence: true
+  validates :title, presence: true
   validates :subdomain, {
     presence: true,
     uniqueness: true,

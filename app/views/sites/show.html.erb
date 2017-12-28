@@ -1,4 +1,4 @@
-<% content_for :title, @site.name %>
+<% content_for :title, @site.title %>
 <% content_for :url, root_url(subdomain: @site.subdomain) %>
 <% content_for :description, @site.description %>
 <% content_for :favicon, site_favicon_link(@site) %>
@@ -13,7 +13,7 @@
 
 <div class="page-header">
   <h1 class="page-title">
-    <%= @site.name %>
+    <%= @site.title %>
   </h1>
   <div class="page-description">
     <%= markdown(@site.description) if @site.description.present? %>

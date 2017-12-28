@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_site
-    @site ||= current_user.sites.find_by!(subdomain: request.subdomains.first)
+    @site ||= Site.find_by!(subdomain: request.subdomains.first)
   end
 
   def ssl_configured?

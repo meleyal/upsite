@@ -28,7 +28,7 @@ h2 {
 }
 
 h3 {
-  letter-spacing: -.5px;
+  letter-spacing: -0.5px;
   margin-bottom: 20px;
 }
 
@@ -63,7 +63,7 @@ ul {
   padding-left: 1.1em;
 
   li {
-    margin-bottom: 5px;
+    margin-bottom: 0;
   }
 }
 
@@ -78,7 +78,7 @@ ul ul {
   }
 
   li {
-    margin-bottom: .4em;
+    margin-bottom: 0.4em;
   }
 }
 
@@ -94,7 +94,7 @@ ul ul {
 }
 
 mark {
-  background: rgba(yellow, .2);
+  background: rgba(yellow, 0.2);
 }
 
 blockquote {

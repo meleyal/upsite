@@ -5,7 +5,6 @@
 #= require jquery-fileupload/jquery.fileupload
 #= require jquery.jcrop
 #= require papercrop
-#= require trix
 #= require bootstrap
 #= require bootstrap-colorpicker
 #= require_tree ./behaviors

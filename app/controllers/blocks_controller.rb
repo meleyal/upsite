@@ -71,7 +71,6 @@ class BlocksController < ApplicationController
       :embed_url,
       :link_url,
       :color,
-      :size,
       attachments_attributes: [:upload])
   end
 end

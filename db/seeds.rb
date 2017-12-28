@@ -4,5 +4,5 @@
 admin = User.create(email: 'admin@upsite.io', password: 'password')
 user = User.create(email: 'william.meleyal@gmail.com', password: 'password')
 
-site = Site.create(name: 'meleyal')
+site = Site.create(title: 'meleyal')
 site.update_attribute(:owner_id, user.id)
