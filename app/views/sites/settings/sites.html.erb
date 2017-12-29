@@ -36,11 +36,13 @@
       </ul>
     </div>
     <div class="modal-footer">
-      <span class="text-muted">
-        You can create up to <strong><%= current_user.site_limit %></strong> sites.&nbsp;&nbsp;
-      </span>
-      <% if current_user.sites.length < current_user.site_limit %>
-        <a href="<%= new_site_path %>" class="btn btn-success" data-toggle="modal" data-target="self">Create a new site</a>
+      <% if current_user.sites.count < current_user.site_limit %>
+        <span class="text-muted">
+          You can create <strong><%= current_user.site_limit - current_user.sites.count %></strong> more sites.&nbsp;&nbsp;
+        </span>
+        <% if current_user.sites.length < current_user.site_limit %>
+          <a href="<%= new_site_path %>" class="btn btn-success" data-toggle="modal" data-target="self">Create a new site</a>
+        <% end %>
       <% end %>
     </div>
   </div>
