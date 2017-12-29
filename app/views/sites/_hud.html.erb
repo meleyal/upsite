@@ -1,13 +1,11 @@
 <div class="hud">
 
   <!-- Add -->
-  <% if @site.blocks.length < current_user.block_limit %>
-    <a href="<%= new_block_path %>"
-      class="add"
-      title="Add" data-toggle="modal" data-target="#modal" rel="tooltip" data-placement="left">
-      <i class="fa fa-plus fa-lg"></i>
-    </a>
-  <% end %>
+  <a href="<%= new_block_path %>"
+    class="add"
+    title="Add" data-toggle="modal" data-target="#modal" rel="tooltip" data-placement="left">
+    <i class="fa fa-plus fa-lg"></i>
+  </a>
 
   <!-- Settings -->
   <a href="<%= settings_path(:site) %>"

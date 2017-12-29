@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   SITE_LIMIT = 10
-  BLOCK_LIMIT = 1000
   INVITE_LIMIT = 5
 
   ##
@@ -51,19 +50,11 @@ class User < ActiveRecord::Base
   end
 
   def site_limit
-    self.sudo? ? Infinity : SITE_LIMIT
-  end
-
-  def block_limit
-    self.sudo? ? Infinity : BLOCK_LIMIT
+    SITE_LIMIT
   end
 
   def invite_limit
-    self.sudo? ? Infinity : INVITE_LIMIT
-  end
-
-  def sudo?
-    self.id == 1
+    INVITE_LIMIT
   end
 
   def send_password_reset_email
