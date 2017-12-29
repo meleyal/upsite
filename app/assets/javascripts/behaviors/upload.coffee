@@ -26,6 +26,5 @@ $(document).on 'ready page:change', ->
                   .addClass('progress-bar-danger')
     done: (e, data) =>
       $modal = $(e.target).parents('.modal')
-      $modal.find('.modal-content').html(data.result)
-      init_papercrop()
+      window.location.reload()
   })

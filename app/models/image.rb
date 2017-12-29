@@ -32,8 +32,4 @@ class Image < Block
       errors.add(:attachments, 'Upload limit reached')
     end
   end
-
-  def original_width
-    attachment.geometry.width rescue 0
-  end
 end

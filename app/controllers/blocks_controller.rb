@@ -15,11 +15,7 @@ class BlocksController < ApplicationController
     @block = @site.send(block_type).new(block_params)
 
     if @block.save
-      if @block.is_a?(Image) && @block.attachments.first.present?
-        redirect_to edit_block_attachment_path(@block, @block.attachments.first)
-      else
-        render json: { url: block_url(@block) }, status: :created, location: request.referrer
-      end
+      render json: { url: block_url(@block) }, status: :created, location: request.referrer
     else
       render json: { block: @block.errors }, status: :unprocessable_entity
     end

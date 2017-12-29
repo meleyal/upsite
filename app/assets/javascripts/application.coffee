@@ -3,8 +3,6 @@
 #= require turbolinks
 #= require jquery-ui
 #= require jquery-fileupload/jquery.fileupload
-#= require jquery.jcrop
-#= require papercrop
 #= require bootstrap
 #= require bootstrap-colorpicker
 #= require_tree ./behaviors

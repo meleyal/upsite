@@ -13,8 +13,7 @@ url = block_path(type: 'image', id: @block.id) if @block.persisted?
     <% if @block.new_record? %>
       <div class="form-group">
         <label class="control-label">Upload image</label>
-        <%= f.hidden_field :size, value: 'square' %>
-        <ul class="list-group">
+        <ul class="list-group" style="margin-bottom: 0;">
           <li class="list-group-item hidden">
             <p class="progress-status">Uploading...</p>
             <div class="progress">
@@ -31,27 +30,9 @@ url = block_path(type: 'image', id: @block.id) if @block.persisted?
             </a>
           </li>
         </ul>
+        <span class="help-block">Images are resized to 300 &times; 300 px.</span>
       </div>
     <% else %>
-      <% if @block.original_width >= 960 %>
-        <div class="form-group">
-          <label>Size</label>
-          <div class="radio-buttons-inline">
-            <label>
-              <%= f.radio_button :size, 'square', checked: @block.size == 'square' %>
-              <span class="img-placeholder" style="height: 60px; line-height: 60px; width: 60px;">
-                Square
-              </span>
-            </label>
-            <label>
-              <%= f.radio_button :size, 'large', checked: @block.size == 'large' %>
-              <span class="img-placeholder" style="height: 60px; line-height: 60px; width: 110px;">
-                Large
-              </span>
-            </label>
-          </div>
-        </div>
-      <% end %>
       <%= f.input :title, label: 'Caption' %>
       <%= f.input :link_url, label: 'Go to this link when clicking the image', placeholder: 'http://' %>
     <% end %>

@@ -1,17 +1,13 @@
-<div class="block block-image <%= 'block-image-large' if image.size == 'large' %>" data-id="<%= image.id %>">
+<div class="block block-image" data-id="<%= image.id %>">
 
   <%= render 'blocks/controls', block: image %>
 
   <div class="block-content">
 
     <% if image.link_url.present? %><a href="<%= image.link_url %>"><% end %>
-      <% if image.size == 'large' %>
-        <img src="<%= image.original %>" class="img-responsive" />
-      <% else %>
-        <img src="<%= image.medium %>"
-             srcset="<%= image.medium_2x.present? ? image.medium_2x : image.medium %> 2x"
-             class="img-responsive" />
-      <% end %>
+      <img src="<%= image.medium %>"
+           srcset="<%= image.medium_2x.present? ? image.medium_2x : image.medium %> 2x"
+           class="img-responsive" />
     <% if image.link_url.present? %></a><% end %>
 
     <% if image.title.present? %>

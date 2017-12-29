@@ -15,7 +15,6 @@ Rails.application.routes.draw do
     resources :help, only: [:new, :create]
     resources :blocks do
       post 'sort', on: :collection
-      resources :attachments
     end
   end
 
