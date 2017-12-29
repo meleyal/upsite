@@ -20,7 +20,7 @@ class SettingsController < ApplicationController
 
   def site_params
     params.require(:site).permit(
-      :name,
+      :title,
       :description,
       :subdomain,
       :color,
