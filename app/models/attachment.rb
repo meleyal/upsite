@@ -6,13 +6,7 @@ class Attachment < ActiveRecord::Base
     url: "/system/:app_name_:hash_:style.:extension",
     hash_data: ":class/:attachment/:id/:style",
     hash_secret: "QXBhFYdt2JU7ZINf",
-    styles: {
-      original: '1000>',
-      medium: { geometry: '300x300#' },
-      medium_2x: { geometry: '600x600#' },
-    },
-    source_file_options: { all: '-auto-orient' },
-    convert_options: { all: "-quality 75 -strip" }
+    styles: { medium: '300x300#', medium_2x: '600x600#' }
 
   validates_attachment :upload,
     presence: true,
