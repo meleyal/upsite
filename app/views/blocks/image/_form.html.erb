@@ -11,26 +11,10 @@ url = block_path(type: 'image', id: @block.id) if @block.persisted?
 <%= simple_form_for(@block, as: :block, url: url, remote: true, html: { multipart: true }) do |f| %>
   <div class="modal-body">
     <% if @block.new_record? %>
-      <div class="form-group">
-        <label class="control-label">Upload image</label>
-        <ul class="list-group" style="margin-bottom: 0;">
-          <li class="list-group-item hidden">
-            <p class="progress-status">Uploading...</p>
-            <div class="progress">
-              <div class="progress-bar progress-bar-success" style="width: 20%;"></div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <a href="#" class="btn btn-success fileinput-button">
-              <i class="fa fa-lg fa-cloud-upload"></i>&nbsp;
-              <span>Select file</span>
-              <%= f.file_field 'attachments_attributes[0][upload]',
-                accept: '.jpg, .jpeg, .png, .gif',
-                data: { upload: true } %>
-            </a>
-          </li>
-        </ul>
-        <span class="help-block">Images are resized to 300 &times; 300 px.</span>
+    <%= f.input :embed_url,
+                label: 'Image URL',
+                placeholder: 'instagram.com / dropbox.com / flickr.com / etc.',
+                hint: 'Copy and paste the image url above.' %>
       </div>
     <% else %>
       <%= f.input :title, label: 'Caption' %>
@@ -38,6 +22,6 @@ url = block_path(type: 'image', id: @block.id) if @block.persisted?
     <% end %>
   </div>
   <div class="modal-footer">
-    <%= f.button :submit, class: 'btn btn-success', disabled: @block.new_record? %>
+    <%= f.button :submit, class: 'btn btn-success' %>
   </div>
 <% end %>

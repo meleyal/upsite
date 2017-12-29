@@ -10,7 +10,7 @@ class SitesController < ApplicationController
 
   def show
     @site = Site.find_by!(subdomain: request.subdomains.first)
-    @blocks = @site.blocks.includes(:attachments).all
+    @blocks = @site.blocks.all
     session[:current_site_id] = @site.id if current_user
   end
 

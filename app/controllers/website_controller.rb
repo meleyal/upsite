@@ -5,7 +5,6 @@ class WebsiteController < ApplicationController
   def index
     @sites = Site
       .joins(:blocks)
-      .includes(:attachments)
       .group('sites.id')
       .order(updated_at: :desc)
   end

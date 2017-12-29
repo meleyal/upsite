@@ -5,7 +5,6 @@ class Site < ActiveRecord::Base
 
   belongs_to :owner, class_name: 'User'
   accepts_nested_attributes_for :owner
-  has_many :attachments, through: :blocks
   has_many :blocks, -> { order(:position) }, dependent: :destroy
   has_many :texts
   has_many :images

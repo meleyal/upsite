@@ -48,19 +48,6 @@ Rails.application.configure do
   # Reload local Gems
   RequireReloader.watch_local_gems!
 
-  # Set path so Paperclip can find imagemagick
-  Paperclip.options[:command_path] = "/usr/local/bin/"
-
-  # Storage config.
-  # config.paperclip_defaults = {
-  #   :storage => :s3,
-  #   :s3_credentials => {
-  #     :bucket => ENV['S3_BUCKET_NAME'],
-  #     :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-  #     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-  #   }
-  # }
-
   # Postmark config. Uncomment to send Newsletter.
   # config.action_mailer.delivery_method   = :postmark
   # config.action_mailer.postmark_settings = { :api_token => ENV['POSTMARK_API_TOKEN'] }

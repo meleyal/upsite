@@ -1,7 +1,5 @@
 class Block < ActiveRecord::Base
   belongs_to :site, touch: true
-  has_many :attachments, dependent: :destroy
-  accepts_nested_attributes_for :attachments
 
   before_create {
     self.position = (self.site.blocks.maximum(:position) || 0) + 1

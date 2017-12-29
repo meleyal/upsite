@@ -5,9 +5,7 @@
   <div class="block-content">
 
     <% if image.link_url.present? %><a href="<%= image.link_url %>"><% end %>
-      <img src="<%= image.medium %>"
-           srcset="<%= image.medium_2x.present? ? image.medium_2x : image.medium %> 2x"
-           class="img-responsive" />
+      <img src="<%= image.embed_url %>" class="img-responsive" />
     <% if image.link_url.present? %></a><% end %>
 
     <% if image.title.present? %>

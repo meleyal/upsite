@@ -7,7 +7,6 @@ class BlocksController < ApplicationController
   def new
     if block_type
       @block = @site.send(block_type).new
-      @block.attachments.build
     end
   end
 
@@ -66,7 +65,6 @@ class BlocksController < ApplicationController
       :body,
       :embed_url,
       :link_url,
-      :color,
-      attachments_attributes: [:upload])
+      :color)
   end
 end
