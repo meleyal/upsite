@@ -17,6 +17,9 @@
     .column-b .slide {
       width: 60vw;
     }
+    .column-b .row {
+      width: 80%;
+    }
   }
 </style>
 
@@ -99,22 +102,12 @@
           Create your <span class="underline">Upsite</span> for free
         </h2>
         <p class="lead">
-          Upsite is the simplest way to create a one-page website.
+          Websites made simple.
         </p>
       </div>
       <div class="row">
-        <div class="col-sm-12 col-md-7">
+        <div class="col-md-12">
           <%= render 'form' %>
-        </div>
-        <div class="col-sm-5 hidden-sm hidden-xs">
-          <div class="spacer spacer-md"></div>
-          <ul class="fa-ul lead">
-            <li><i class="fa fa-li fa-check"></i>Easy-to-use</li>
-            <li><i class="fa fa-li fa-check"></i>Add text, photos, videos from anywhere on the web</li>
-            <li><i class="fa fa-li fa-check"></i>Clean, minimal design</li>
-            <li><i class="fa fa-li fa-check"></i>Works on desktop and mobile</li>
-            <li><i class="fa fa-li fa-check"></i>Helpful support</li>
-          </ul>
         </div>
       </div>
     <% else %>
@@ -142,27 +135,17 @@
       </div>
       <div class="modal-body">
         <h5>How much does Upsite cost?</h5>
-        <p>Upsite is <strong>free</strong> to use for 1 site.
-        You can later choose to upgrade to our <strong>Pro plan</strong> to create up to 10 sites with additional features.</p>
-        <hr class="spacer" style="padding-bottom: 5px;">
-        <h5>How does Upsite work?</h5>
-        <p>
-          Check out <a href="https://player.vimeo.com/video/158535034?autoplay=true" target="external">this short video</a> to see how easy it is to make a website with Upsite.
-        </p>
+        <p>Upsite is <strong>free</strong> to use.
         <hr class="spacer" style="padding-bottom: 5px;">
         <h5>Where can I see some sites made with Upsite?</h5>
-        <p>
-          Our <a href="<%= root_url(subdomain: 'www') %>" target="external">home page</a> lists recently created sites.
-        </p>
+        <p>Our <a href="<%= root_url(subdomain: 'www') %>" target="external">home page</a> lists recently created sites.</p>
         <hr class="spacer" style="padding-bottom: 5px;">
         <h5>Other questions?</h5>
-        <p><a href="mailto:help@upsite.io?subject=Signup">Contact us</a> and we'll be happy to help.</p>
+        <p><a href="mailto:support@upsite.io?subject=Signup">Contact us</a> and we'll be happy to help.</p>
       </div>
       <div class="modal-footer">
         <p class="text-muted pull-left">
-          &copy; <%= Date.today.year %> <a href="<%= root_url(subdomain: 'www') %>" target="_blank">
-            Billions & Billions Ltd.
-          </a>
+          &copy; <%= Date.today.year %> Billions & Billions Ltd.
         </p>
       </div>
     </div>
