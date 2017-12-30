@@ -4,7 +4,7 @@
 
   <div class="block-content">
 
-    <% if image.link_url.present? %><a href="<%= image.link_url %>"><% end %>
+    <% if image.link_url.present? %><a href="<%= image.link_url %>" target="_blank"><% end %>
       <img src="<%= image.embed_url %>" class="img-responsive" />
     <% if image.link_url.present? %></a><% end %>
 
