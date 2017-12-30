@@ -9,7 +9,7 @@
   <div class="tab-pane active">
     <div class="modal-body">
       <ul class="list-group" style="max-height: 350px; overflow: auto; border-bottom: 1px solid #ddd;">
-        <% current_user.sites.each do |site| %>
+        <% current_user.sites.order(:created_at).each do |site| %>
           <li class="list-group-item" href="<%= site_url(site) %>">
             <div class="media">
               <div class="media-left media-middle">
