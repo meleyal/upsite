@@ -1,7 +1,6 @@
 <%= simple_form_for @site, url: signup_via_invite_path(params[:token]), data: { remote: true } do |f| %>
   <hr class="spacer spacer-sm">
 
-
   <!-- Site -->
   <%= f.input :title,
         label: 'Site Name',
