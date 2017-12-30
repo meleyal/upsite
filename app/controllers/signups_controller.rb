@@ -51,7 +51,7 @@ class SignupsController < ApplicationController
 
   def site_params
     params.require(:site).permit(
-      :name,
+      :title,
       :subdomain,
       owner_attributes: [
         :email,
